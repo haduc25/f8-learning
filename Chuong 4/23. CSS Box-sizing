@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>23. CSS Box-sizing</title>
+	<style>
+		.box
+		{
+			height: 80px;
+			width: 80px;
+		}
+
+		.box1
+		{
+			background-color: yellow;
+		}
+
+		.box2
+		{
+			background-color: violet;
+		}
+
+		.box3
+		{
+			background-color: hotpink;
+			padding: 10px 12px 14px 16px;
+		}
+
+		.box4
+		{
+			height: 100px;
+			width: 100px;
+			background-color: blue;
+			color: #fff;
+			padding: 10px;
+			border: 5px solid #000;
+
+			/*su dung khi k muon thay doi kick thuoc box*/
+			box-sizing: border-box;
+			/*box-sizing: unset; su dung de huy*/
+		}
+
+	</style>
+</head>
+<body>
+	<div class="box box1">Box 1</div>
+	<div class="box box2">Box 2</div>
+	<div class="box box3">Box 3</div>
+	<br>
+	<div class="box4">Here's content</div>
+
+</body>
+</html>

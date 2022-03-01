@@ -1,0 +1,49 @@
+:root
+{
+	--text-color: red;
+	--fav-color: yellow;
+	--fake-color: violet;
+	/*khai bao bien trong css*/
+}
+
+h1.ex1
+{
+	color: var(--text-color);
+}
+
+h2.ex1
+{
+	color: var(--fav-color);
+}
+
+h3.ex1
+{
+	color: var(--fake-color);
+}
+
+h1.ex2
+{
+	color: violet;
+}
+
+h1.ex2:hover
+{
+	color: red;
+}
+
+h1.ex2:active
+{
+	color: yellow;
+}
+
+li:first-child
+{
+	color: hotpink;
+	background-color: #121212;
+}
+
+li:last-child
+{
+	color: red;
+	background-color: #121212;
+}

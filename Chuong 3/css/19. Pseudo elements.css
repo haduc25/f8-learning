@@ -1,0 +1,56 @@
+
+/*::Before & ::After*/
+.box
+{
+	background-color: hotpink;
+	width: 300px;
+	height: 300px;
+}
+
+.box::before
+{
+	content: "before";
+	display: block;
+	width: 100px;
+	height: 100px;
+	background-color: red;
+}
+
+.box::after
+{
+	content: "after";
+	display: block;
+	width: 100px;
+	height: 100px;
+	background-color: yellow;
+}
+
+/*::First-letter & ::First-line*/
+
+
+h3.ex1::first-letter
+{
+	font-size: 30px;
+	color: red;
+}
+
+h3.ex2::first-line
+{
+	color: red;
+}
+
+/*::Selection*/
+h3.ex3::selection
+{
+	color: yellow;
+	background-color: red;
+	
+}
+
+/*
+::selection
+{
+	color: yellow;
+	background-color: red;
+	/*neu de ntn la áp dụng cho cả trang web*/
+}*/
