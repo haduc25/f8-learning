@@ -13,6 +13,7 @@ html
 	font-family: "Segoe UI", Arial, sans-serif;
 }
 
+/* Common (class chung) */
 
 /*clear (fix float)*/
 .clear
@@ -25,6 +26,44 @@ html
 	color: #fff !important;
 }
 
+/* hàng*/
+.row
+{
+	margin-left: -8px;
+	margin-right: -8px;
+	
+}
+
+
+
+/* cột */
+.col
+{
+	float: left;
+	/* padding-left: 8px;
+	padding-right: 8px; */
+}
+
+/* 2 cột */
+.col-haft
+{
+	width: 50%;
+}
+
+/* 3 cột */
+.col-third
+{
+	width: calc(100% / 3);
+}
+
+.text-center
+{
+	text-align: center !important;
+}
+
+
+
+/* ============ Main ============ */
 /*
 1. vi tri
 2. kich thuoc (width, height)
@@ -264,19 +303,22 @@ html
 	/*overflow: hidden;*/
 }
 
+/*co the xoa #content .member-item*/
 #content .member-item
 {
-	float: left; /*kéo phần tử sang trái*/
+	/*float: left;*/ /*kéo phần tử sang trái*/ /*vì trong col đã có nên xóa*/
 
 	/*căn giữa cho item*/
 	/*case1*/
 	/*width: 33.33333%;*/ /*100% / 3 */
 
 	/*case2*/
-	width: calc(100% / 3);
+	/*width: calc(100% / 3);*/  /*vì trong col-third đã có nên xóa*/
 
-	text-align: center; /*căn giữa cho cả ảnh và text name*/
+	/*text-align: center;*/ /*căn giữa cho cả ảnh và text name*/
+	/*co the xoa vi text-centre da co*/
 }
+/**/
 
 #content .member-name
 {
@@ -356,21 +398,31 @@ html
 	/**/
 
 	/*viet tawst*/
-	margin: 32px -8px 0; /*top: 32; left, right: -8, bot:  0*/
+	/*margin: 32px -8px 0;*/ /*top: 32; left, right: -8, bot:  0*/
 
 	/*case2: margin: 32px -8px 0;*/ /*top: 32; left, right: -8, bot:  48*/
-	padding-bottom: 48px;
+	/* padding-bottom: 48px; */
 
+	/* default */
+	/*margin: 32px -8px 48px;*/ /*top: 32, left, right: -8, bot: 48*/
+
+	/* vì đã có class 'row' (have left, right) => thay the thuoc tinh tren*/
+	margin-top: 32px;
+	margin-bottom: 48px;
 }
 
+/*co the xoa place-item*/
 .place-item
 {
-	float: left;
+	/* float: left; */
 
 	/*căn giữa*/
-	width: calc(100% / 3);
+	/* width: calc(100% / 3); */
 	/*hoăc:  	width: 33.33333%;*/
+
+	/* vì đã có class 'col' (have left, right, float, width) => thay the thuoc tinh tren*/
 }
+/**/
 
 .place-img
 {

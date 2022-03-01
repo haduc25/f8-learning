@@ -57,18 +57,18 @@
 				<p class="about-text">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
 
 				<!-- Member list -->
-				<div class="members-list">
-					<div class="member-item">
+				<div class="row members-list">
+					<div class="col col-third text-center">
 						<p class="member-name">Name</p>
 						<img src="./assets/img/band/member1.jpg" alt="Name" class="member-img">
 					</div>	
 
-					<div class="member-item">
+					<div class="col col-third text-center">
 						<p class="member-name">Name</p>
 						<img src="./assets/img/band/member1.jpg" alt="Name" class="member-img">
 					</div>
 
-					<div class="member-item">
+					<div class="col col-third text-center">
 						<p class="member-name">Name</p>
 						<img src="./assets/img/band/member1.jpg" alt="Name" class="member-img">
 					</div>
@@ -91,8 +91,8 @@
 					</ul>
 
 					<!-- Places -->
-					<div class="places-list">
-						<div class="place-item">
+					<div class="row places-list">
+						<div class="col col-third">
 							<img src="./assets/img/places/place1.jpg" alt="New York" class="place-img">
 							<!-- Places body-->
 							<div class="place-body">
@@ -103,7 +103,7 @@
 							</div>
 						</div>						
 
-						<div class="place-item">
+						<div class="col col-third">
 							<img src="./assets/img/places/place2.jpg" alt="Paris" class="place-img">
 							<!-- Places body-->
 							<div class="place-body">
@@ -114,7 +114,7 @@
 							</div>
 						</div>						
 
-						<div class="place-item">
+						<div class="col col-third">
 							<img src="./assets/img/places/place3.jpg" alt="San Francisco" class="place-img">
 							<!-- Places body-->
 							<div class="place-body">
