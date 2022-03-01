@@ -21,10 +21,30 @@ html
 	clear: both;
 }
 
+/* color */
 .text-white
 {
 	color: #fff !important;
 }
+
+/* margin */
+.mt-8 /*margin top = 8*/
+{
+	margin-top: 8px !important;
+}
+
+.mt-16 /*margin top = 16*/
+{
+	margin-top: 16px !important;
+}
+
+
+/* text */
+.text-center
+{
+	text-align: center !important;
+}
+
 
 /* hàng*/
 .row
@@ -34,14 +54,27 @@ html
 	
 }
 
+/* sử dụng element giả thay thế cho class '.clear' */
+.row::after /*cuối pt*/
+{
+	content: "";
+	display: block;
+	clear: both;
+}
 
 
 /* cột */
 .col
 {
 	float: left;
-	/* padding-left: 8px;
-	padding-right: 8px; */
+	padding-left: 8px;
+	padding-right: 8px;
+}
+
+/* 1 cột */
+.col-full
+{
+	width: 100%;
 }
 
 /* 2 cột */
@@ -56,10 +89,14 @@ html
 	width: calc(100% / 3);
 }
 
-.text-center
+/*vi khac code '.col' nen class nay dung de fix (Places -> class: places-list )*/
+.col-padding-left-right-0
 {
-	text-align: center !important;
+	padding-left: 0 !important;
+	padding-right: 0 !important;
 }
+
+
 
 
 
@@ -486,6 +523,64 @@ html
 	background-color: #ccc;
 	color: #000;
 }
+
+
+/* ============ Contact Form ============ */
+.contact-content
+{
+	margin-top: 48px;
+	line-height: 1.5;
+}
+
+.contact-info
+{
+	font-size: 18px;
+	line-height: 1.5;
+}
+
+/* ============ Form ============ */
+.contact-form
+{
+
+}
+
+.contact-form .form-control
+{
+	padding: 10px;
+	border: 1px solid #ccc;
+	width: 100%;
+
+	/* chinh outline text-box*/
+	/* outline: none; */
+}
+
+
+/* icon */
+/* css nâng cao tìm kiếm từ xuất hiện trong class*/
+.contact-info i[class*="ti-"]
+{
+	width: 30px; /*set chieu ngang cho icon*/
+	display: inline-block; /*set display*/
+
+}
+
+
+/* submit button */
+.contact-form .form-submit-btn
+{
+	background-color: #000;
+	color: #fff;
+	border: 1px solid #000;
+	padding: 10px 16px;
+	float: right;
+}
+
+
+
+
+
+
+
 
 
 

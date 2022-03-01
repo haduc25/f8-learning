@@ -73,7 +73,7 @@
 						<img src="./assets/img/band/member1.jpg" alt="Name" class="member-img">
 					</div>
 					<!-- case 2:  fix float -->
-					<div class="clear"></div>
+					<!-- <div class="clear"></div> (vì sử dụng element giả -> loại bỏ clear) -->
 				</div>
 			</div>			
 
@@ -92,7 +92,7 @@
 
 					<!-- Places -->
 					<div class="row places-list">
-						<div class="col col-third">
+						<div class="col col-third col-padding-left-right-0">
 							<img src="./assets/img/places/place1.jpg" alt="New York" class="place-img">
 							<!-- Places body-->
 							<div class="place-body">
@@ -103,7 +103,7 @@
 							</div>
 						</div>						
 
-						<div class="col col-third">
+						<div class="col col-third col-padding-left-right-0">
 							<img src="./assets/img/places/place2.jpg" alt="Paris" class="place-img">
 							<!-- Places body-->
 							<div class="place-body">
@@ -114,7 +114,7 @@
 							</div>
 						</div>						
 
-						<div class="col col-third">
+						<div class="col col-third col-padding-left-right-0">
 							<img src="./assets/img/places/place3.jpg" alt="San Francisco" class="place-img">
 							<!-- Places body-->
 							<div class="place-body">
@@ -126,7 +126,7 @@
 						</div>
 
 						<!-- Fix float: left -->
-						<div class="clear"></div>
+						<!-- <div class="clear"></div> (vì sử dụng element giả -> loại bỏ clear) -->
 					</div>
 
 
@@ -137,6 +137,40 @@
 			<div class="content-section">
 				<h2 class="section-heading">CONTACT</h2>
 				<p class="section-sub-heading">Fan? Drop a note!</p>
+
+				<div class="row contact-content">
+					<div class="col col-haft contact-info">
+						<p><i class="ti-location-pin"></i>Chicago, US</p>
+						<p><i class="ti-mobile"></i>Phone: +00 151515</p>
+						<p><i class="ti-email"></i>Email: mail@mail.com</p>
+					</div>
+
+					<!-- Form -->
+					<div class="col col-haft contact-form ">
+						<form action="">
+							<!-- Begin: Input -->
+							<div class="row">
+								<div class="col col-haft">
+									<input type="text" name="" id="" placeholder="Name" required class="form-control">
+								</div>
+								<div class="col col-haft">
+									<input type="email" name="" id="" placeholder="Email" required class="form-control">
+								</div>
+								<!-- Fix float: left -->
+								<!-- <div class="clear"></div> (nang cao: sử djng element giả -> loại bỏ)-->
+							</div>
+							<div class="row mt-8">
+								<div class="col col-full">
+									<input type="text" name="" id="" placeholder="Message" required class="form-control">
+								</div>
+							</div>
+
+							<input class="form-submit-btn mt-16" type="submit" value="SEND">
+							<!-- End: Input -->
+						</form>
+					</div>
+
+				</div>
 			</div>
 
 		</div>
