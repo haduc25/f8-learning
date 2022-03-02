@@ -9,8 +9,15 @@
 /*set font*/
 html
 {
+	scroll-behavior: smooth; /* cuộc trang khi ấn vào các id mượt hơn */
 	/*font-family: Verdana, Helvetica, Arial, sans-serif;*/
 	font-family: "Segoe UI", Arial, sans-serif;
+
+	/* scroll behaviour smooth not working at all */
+	/*
+		Chrome: fix: chrome://flags/#smooth-scrolling -> enable
+		Coc coc: coccoc://flags/#smooth-scrolling
+	*/
 }
 
 /* Common (class chung) */
@@ -45,6 +52,30 @@ html
 	text-align: center !important;
 }
 
+/*float  */
+.pull-right
+{
+	float: right !important;
+}
+
+/* button */
+.btn
+{
+	border: none;
+	background-color: #000;
+	color: #fff;
+	display: inline-block; /*cho phép xuống dòng*/
+	margin-top: 15px;
+	text-decoration: none;
+	padding: 11px 16px;
+	cursor: pointer;
+}
+
+.btn:hover
+{
+	background-color: #ccc;
+	color: #000;
+}
 
 /* hàng*/
 .row
@@ -290,7 +321,7 @@ html
 	margin-left: auto;
 	margin-right: auto;
 	/**/
-	padding: 64px 0; /*top, bot:  64, right,left: 0	*/
+	padding: 64px 0 112px; /*top, bot:  64, right,left: 0, bot 112px (112px: vì ở dưới bỏ margin-bot: 48px ->  lấy padding hiện tại: 64px + 48px = 112px)*/
 }
 
 #content .section-heading
@@ -445,7 +476,7 @@ html
 
 	/* vì đã có class 'row' (have left, right) => thay the thuoc tinh tren*/
 	margin-top: 32px;
-	margin-bottom: 48px;
+	/*margin-bottom: 48px;*/ /* bỏ margin-bot: để thêm vào thuộc tính chung là 'content-section' (ở đấy + thêm 48px)*/
 }
 
 /*co the xoa place-item*/
@@ -506,7 +537,8 @@ html
 	line-height: 1.4;
 }
 
-.place-buy-btn
+/*doi class place-by-btn thanh 'btn' ding lam class chung  */
+.place-buy-btn /*co the xoa*/
 {
 	border: none;
 	background-color: #000;
@@ -518,7 +550,7 @@ html
 	cursor: pointer;
 }
 
-.place-buy-btn:hover
+.place-buy-btn:hover /*co the xoa*/
 {
 	background-color: #ccc;
 	color: #000;
@@ -566,6 +598,7 @@ html
 
 
 /* submit button */
+/*  có thể xóa vì đã có class chung là 'btn' */
 .contact-form .form-submit-btn
 {
 	background-color: #000;
@@ -575,22 +608,50 @@ html
 	float: right;
 }
 
-
-
-
-
-
-
-
+/* ============ Map ============ */
+.map-section img
+{
+	width: 100%;
+}
 
 
 /* ============ Footer ============ */
 #footer
 {
-
-
+	padding: 64px 16px;
+	text-align: center;
 }
 
+#footer .socials-list
+{
+	font-size: 24px;
+	line-height: 1.5;
+}
+
+#footer .socials-list a
+{
+ 	color: rgba(0, 0, 0, .6);
+	text-decoration: none;
+}
+
+#footer .copyright a:hover,
+#footer .socials-list a:hover
+{
+ 	color: rgba(0, 0, 0, .4);
+}
+
+#footer .copyright
+{
+	margin-top: 15px;
+	font-size: 15px;
+	font-family: "Lato", sans-serif;
+	color: rgba(0, 0, 0, .6);
+}
+
+#footer .copyright a
+{
+	color: rgba(0, 0, 0, .6);
+}
 
 /* ============ Modal ============ */
 .modal

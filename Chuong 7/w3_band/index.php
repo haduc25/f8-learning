@@ -3,7 +3,8 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>W3 Band</title>
+	<title>W3 The Band</title>
+	<link rel="icon" href="./assets/img/favicon-band.jpg" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
 	<link rel="stylesheet" href="assets/fonts/themify-icons/themify-icons.css">
 </head>
@@ -16,9 +17,9 @@
 			<!-- Begin: Nav -->
 			<ul id="nav">
 				<li><a href="#">Home</a></li>
-				<li><a href="#content">Band</a></li>
-				<li><a href="#">Tour</a></li>
-				<li><a href="#">Contact</a></li>
+				<li><a href="#band">Band</a></li>
+				<li><a href="#tour">Tour</a></li>
+				<li><a href="#contact">Contact</a></li>
 				<li>
 					<a href="#">
 						More
@@ -51,7 +52,7 @@
 		<!-- Content -->
 		<div id="content">
 			<!-- About section -->
-			<div class="content-section">
+			<div id="band" class="content-section">
 				<h2 class="section-heading">THE BAND</h2>
 				<p class="section-sub-heading">We love music</p>
 				<p class="about-text">We have created a fictional band website. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.</p>
@@ -78,7 +79,7 @@
 			</div>			
 
 			<!-- Tour section -->
-			<div class="tour-section">
+			<div id="tour" class="tour-section">
 				<div class="content-section">
 					<h2 class="section-heading text-white">TOUR DATES</h2>
 					<p class="section-sub-heading text-white">Remember to book your tickets!</p>
@@ -99,7 +100,8 @@
 								<h3 class="place-heading">New York</h3>
 								<p class="place-time">Fri 27 Nov 2016</p>
 								<p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-								<button class="place-buy-btn js-buy-ticket">Buy Tickets</button>
+								<button class="btn js-buy-ticket">Buy Tickets</button>
+								<!-- doi class place-by-btn thanh 'btn' ding lam class chung -->
 							</div>
 						</div>						
 
@@ -110,7 +112,8 @@
 								<h3 class="place-heading">Paris</h3>
 								<p class="place-time">Fri 28 Nov 2016</p>
 								<p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-								<button class="place-buy-btn js-buy-ticket">Buy Tickets</button>
+								<button class="btn js-buy-ticket">Buy Tickets</button>
+								<!-- doi class place-by-btn thanh 'btn' ding lam class chung -->
 							</div>
 						</div>						
 
@@ -121,7 +124,8 @@
 								<h3 class="place-heading">San Francisco</h3>
 								<p class="place-time">Fri 29 Nov 2016</p>
 								<p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-								<button class="place-buy-btn js-buy-ticket">Buy Tickets</button>
+								<button class="btn js-buy-ticket">Buy Tickets</button>
+								<!-- doi class place-by-btn thanh 'btn' ding lam class chung --> 
 							</div>
 						</div>
 
@@ -133,8 +137,8 @@
 				</div>
 			</div>
 
-			<!-- Contact section -->
-			<div class="content-section">
+			<!-- Begin: Contact section -->
+			<div id="contact" class="content-section">
 				<h2 class="section-heading">CONTACT</h2>
 				<p class="section-sub-heading">Fan? Drop a note!</p>
 
@@ -151,33 +155,50 @@
 							<!-- Begin: Input -->
 							<div class="row">
 								<div class="col col-haft">
-									<input type="text" name="" id="" placeholder="Name" required class="form-control">
+									<input type="text" name="name" id="name" placeholder="Name" required class="form-control">
 								</div>
 								<div class="col col-haft">
-									<input type="email" name="" id="" placeholder="Email" required class="form-control">
+									<input type="email" name="email" id="email" placeholder="Email" required class="form-control">
 								</div>
 								<!-- Fix float: left -->
 								<!-- <div class="clear"></div> (nang cao: sử djng element giả -> loại bỏ)-->
 							</div>
 							<div class="row mt-8">
 								<div class="col col-full">
-									<input type="text" name="" id="" placeholder="Message" required class="form-control">
+									<input type="text" name="message" id="message" placeholder="Message" required class="form-control">
 								</div>
 							</div>
 
-							<input class="form-submit-btn mt-16" type="submit" value="SEND">
+							<!-- <input class="btn form-submit-btn mt-16" type="submit" value="SEND"> -->
+							<input class="btn mt-16 pull-right" type="submit" value="SEND">
+							<!-- thay class 'form-submit-btn' -> 'btn' -->
 							<!-- End: Input -->
 						</form>
 					</div>
 
 				</div>
 			</div>
+			<!-- End: Contact section -->
 
-		</div>
+			<!-- Begin: Map section -->
+			<div class="map-section">
+				<img src="./assets/img/map.jpg" alt="map">
+			</div>
+			<!-- End: Map section -->
+		
 
-		<!-- Footer -->
+		
+			<!-- Footer -->
 		<div id="footer">
-			
+			<div class="socials-list">
+				<a href=""><i class="ti-facebook"></i></a>
+				<a href=""><i class="ti-instagram"></i></a>
+				<a href=""><i class="ti-reddit"></i></a>
+				<a href=""><i class="ti-pinterest"></i></a>
+				<a href=""><i class="ti-twitter-alt"></i></a>
+				<a href=""><i class="ti-linkedin"></i></a>
+			</div>
+			<p class="copyright">Powered by <a href="">w3.css</a></p>
 		</div>
 
 	</div>
