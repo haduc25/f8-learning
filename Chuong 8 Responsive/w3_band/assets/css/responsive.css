@@ -13,5 +13,17 @@
 /* Mobile */
 @media (max-width: 740px)
 {
-    
+    /* header, nav */
+    #nav > li
+    {
+        display: block; /* display: inline-block -> display: block; (chuyển từ hàng ngang -> dọc ) */
+    }
+
+    /* btn search */
+    #header .search-btn
+    {
+        /* ẩn button search */
+        display: none;
+    }
+
 }

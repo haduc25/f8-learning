@@ -154,6 +154,7 @@ html
 	left: 0;
 	right: 0;
 	z-index: 1;
+	overflow: hidden; /*overflow: visible; -> overflow: hidden;*/ /* ẩn các thuộc tính thừa ra khỏi thẻ cha */
 }
 
 /*card cấp 1*/
@@ -239,6 +240,7 @@ html
 }
 
 /*icon search button*/
+#header .mobile-menu-btn,
 #header .search-btn
 {
 	float: right;
@@ -252,7 +254,21 @@ html
 	background-color: #f44336;
 }
 
+/*hover icon menu for mobile*/
+#header .mobile-menu-btn:hover
+{
+	background-color: #ccc;
 
+}
+
+/* color of menu mobile while hover*/
+#header .mobile-menu-btn:hover .menu-icon
+{
+	color: #000;
+
+}
+
+#header .menu-icon,
 #header .search-icon
 {
 	color: #fff;

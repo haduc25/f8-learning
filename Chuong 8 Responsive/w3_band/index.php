@@ -35,9 +35,13 @@
 			</ul>
 			<!-- End: Nav -->
 
-			<!-- Begin: Search button -->
+			<!-- Begin: Search button & Mobile Menu button -->
 			<div class="search-btn">
 					<i class="search-icon ti-search"></i>
+			</div>
+
+			<div id="mobile-menu" class="mobile-menu-btn">
+				<i class="menu-icon ti-menu"></i>
 			</div>
 			<!-- End: Search button -->
 		</div>
@@ -249,8 +253,7 @@
 	</div>
 
 
-	<!-- javascript 1 -->
-	<!-- javascript for modal -->
+	<!-- ============ javascript for modal ============ -->
 	<script>
 		const buyBtns = document.querySelectorAll('.js-buy-ticket') //lay tat ca class
 		const modal = document.querySelector('.js-modal') //lay ra class modal
@@ -297,6 +300,54 @@
 		})
 
 	</script>
+
+
+	<!-- ============ javascript for Menu, Nav (Mobile) ============ -->
+	<script>
+		var header = document.getElementById('header');
+		var mobileMenu = document.getElementById('mobile-menu'); //lay ra btn mobile-menu
+		var headerHeight = header.clientHeight;
+
+
+		//Đóng/mở mobile Menu
+		mobileMenu.onclick = function()
+		{
+			// alert(header.clientHeight); 
+			// header.clientHeight: lay ra chieu cao cua header (dang duoc selected)
+			//  === để so sánh
+			//console.log(header.clientHeight);
+			
+
+			var isClosed = header.clientHeight === headerHeight; 
+			if(isClosed)
+			{
+				header.style.height = 'auto'; //gán css cho #header
+			}else
+			{
+				header.style.height = null; //gán css cho #header
+
+			}
+
+		}
+
+		//Tự động đóng menu khi chọn vào items
+		var menuItems = document.querySelectorAll('#nav li a[href*="#"]') /*lấy ra tất cả các thẻ a có herf = "#"*/
+		for (var i = 0; i < menuItems.length; i++) 
+		{
+			var menuItem = menuItems[i];
+			// console.log(menuItem);
+
+			//lang nghe click
+			menuItem.onclick = function()
+			{
+				// console.log(this);
+				header.style.height = null; //gán css cho #header
+			}
+			
+		}
+
+	</script>
+
 
 
 </body>
