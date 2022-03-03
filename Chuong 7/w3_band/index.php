@@ -6,6 +6,7 @@
 	<title>W3 The Band</title>
 	<link rel="icon" href="./assets/img/favicon-band.jpg" type="image/x-icon" />
 	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" type="text/css" href="assets/css/responsive.css">
 	<link rel="stylesheet" href="assets/fonts/themify-icons/themify-icons.css">
 </head>
 <body>
