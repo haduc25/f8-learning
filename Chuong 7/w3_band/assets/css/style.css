@@ -316,12 +316,16 @@ html
 #content .content-section
 {
 	width: 800px; /*chieu cao cua box*/
-
+	max-width: 100%; /* khi màn hình k thu nhỏ lại width = tỉ lệ mh */
 	/*căn box ra giữa*/
 	margin-left: auto;
 	margin-right: auto;
 	/**/
-	padding: 64px 0 112px; /*top, bot:  64, right,left: 0, bot 112px (112px: vì ở dưới bỏ margin-bot: 48px ->  lấy padding hiện tại: 64px + 48px = 112px)*/
+	/*padding: 64px 0 112px;*/ /*top, bot:  64, right,left: 0, bot 112px (112px: vì ở dưới bỏ margin-bot: 48px ->  lấy padding hiện tại: 64px + 48px = 112px)*/
+
+	/* chinh cho tablet -> them padding left, right = 16px*/
+	/* -> viết chung */
+	padding: 64px 16px 112px;
 }
 
 #content .section-heading
