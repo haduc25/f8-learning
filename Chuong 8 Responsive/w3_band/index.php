@@ -35,13 +35,13 @@
 			</ul>
 			<!-- End: Nav -->
 
-			<!-- Begin: Search button & Mobile Menu button -->
-			<div class="search-btn">
-					<i class="search-icon ti-search"></i>
-			</div>
-
+			<!-- Begin: Mobile Menu button & Search button -->
 			<div id="mobile-menu" class="mobile-menu-btn">
 				<i class="menu-icon ti-menu"></i>
+			</div>
+
+			<div class="search-btn">
+					<i class="search-icon ti-search"></i>
 			</div>
 			<!-- End: Search button -->
 		</div>

@@ -13,10 +13,28 @@
 /* Mobile */
 @media (max-width: 740px)
 {
+    /* nav (chuyen display: inline-block; -> display: block;)*/
+    #nav
+    {
+        display: block;
+    }
+
     /* header, nav */
     #nav > li
     {
         display: block; /* display: inline-block -> display: block; (chuyển từ hàng ngang -> dọc ) */
+    }
+
+    /*  lấy ra thẻ con đầu tiên của #nav > li và set từ  (display: block; - > display: inline-block;)*/
+    #nav > li:first-child
+    {
+        display: inline-block;
+    }
+
+    /* btn mobile menu */
+    #header .mobile-menu-btn
+    {
+        display: block;
     }
 
     /* btn search */
