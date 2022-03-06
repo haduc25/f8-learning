@@ -337,11 +337,25 @@
 			var menuItem = menuItems[i];
 			// console.log(menuItem);
 
+			//console.log(menuItem.nextElementSibling); /*nextElementSibling: kiem tra anh chi em lien ke the 'a'*/
+
 			//lang nghe click
-			menuItem.onclick = function()
+			menuItem.onclick = function(event) /*function return doi so*/
 			{
+				//test this (in ra cai clicked vao, o day click = menuItem)
 				// console.log(this);
-				header.style.height = null; //gán css cho #header
+
+				var isParentMenu = this.nextElementSibling && this.nextElementSibling.classList.contains('subnav'); 
+				/*classList.contains('subnav'): kiem tra class 'subnav' co ton tai trong classList k?*/
+				if(isParentMenu)
+				{
+					event.preventDefault(); /* bỏ qua mặc định ở đây thẻ a có href = "#" -> bị bỏ qua*/ 
+				}else
+				{
+					// console.log(this);
+					header.style.height = null; //gán css cho #header /*an meunu*/					
+				}
+
 			}
 			
 		}

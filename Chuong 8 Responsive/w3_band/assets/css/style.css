@@ -154,7 +154,6 @@ html
 	left: 0;
 	right: 0;
 	z-index: 1;
-	overflow: hidden; /*overflow: visible; -> overflow: hidden;*/ /* ẩn các thuộc tính thừa ra khỏi thẻ cha */
 }
 
 /*card cấp 1*/
@@ -216,7 +215,7 @@ html
 {	
 	display: none; /*ẩn hiển thị*/
 	min-width: 160px;
-	position: absolute;
+	/* position: absolute; */
 	top: 100%;
 	left: 0;
 	background-color: #fff;

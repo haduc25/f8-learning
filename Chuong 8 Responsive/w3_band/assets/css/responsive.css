@@ -13,22 +13,9 @@
 /* Mobile */
 @media (max-width: 740px)
 {
-    /* nav (chuyen display: inline-block; -> display: block;)*/
-    #nav
+    #header
     {
-        display: block;
-    }
-
-    /* header, nav */
-    #nav > li
-    {
-        display: block; /* display: inline-block -> display: block; (chuyển từ hàng ngang -> dọc ) */
-    }
-
-    /*  lấy ra thẻ con đầu tiên của #nav > li và set từ  (display: block; - > display: inline-block;)*/
-    #nav > li:first-child
-    {
-        display: inline-block;
+        overflow: hidden; /*overflow: visible; -> overflow: hidden;*/ /* ẩn các thuộc tính thừa ra khỏi thẻ cha */
     }
 
     /* btn mobile menu */
@@ -42,6 +29,43 @@
     {
         /* ẩn button search */
         display: none;
+    }
+
+    /* nav (chuyen display: inline-block; -> display: block;)*/
+    #nav
+    {
+        display: block;
+    }
+
+    #nav .subnav
+    {
+        position: initial; /*reset ve gia tri mac dinh cau position*/
+        background-color: #333;
+    }
+
+    #nav .subnav a
+    {
+        color: #fff;
+        padding: 5px calc(25px + 16px); /*tang padding top, bot len tren mobile de su dung, toi dieu do cao tổng 42-48*/
+    }
+
+    #nav li a
+    {
+        /*tang padding top, bot len tren mobile de su dung, toi dieu do cao tổng 42-48*/
+        padding: 1px 24px;
+    }
+
+
+    /* header, nav */
+    #nav > li
+    {
+        display: block; /* display: inline-block -> display: block; (chuyển từ hàng ngang -> dọc ) */
+    }
+
+    /*  lấy ra thẻ con đầu tiên của #nav > li và set từ  (display: block; - > display: inline-block;)*/
+    #nav > li:first-child
+    {
+        display: inline-block;
     }
 
 }
