@@ -64,17 +64,17 @@
 
 				<!-- Member list -->
 				<div class="row members-list">
-					<div class="col col-third text-center">
+					<div class="col col-third s-col-full mt-16 text-center"> <!-- + them 16px mgt-->
 						<p class="member-name">Name</p>
-						<img src="./assets/img/band/member1.jpg" alt="Name" class="member-img">
+						<img src="./assets/img/band/member1.jpg" alt="N	ame" class="member-img">
 					</div>	
 
-					<div class="col col-third text-center">
+					<div class="col col-third s-col-full mt-16 text-center"> <!-- + them 16px mgt-->
 						<p class="member-name">Name</p>
 						<img src="./assets/img/band/member1.jpg" alt="Name" class="member-img">
 					</div>
 
-					<div class="col col-third text-center">
+					<div class="col col-third s-col-full mt-16 text-center"> <!-- + them 16px mgt-->
 						<p class="member-name">Name</p>
 						<img src="./assets/img/band/member1.jpg" alt="Name" class="member-img">
 					</div>
@@ -98,7 +98,7 @@
 
 					<!-- Places -->
 					<div class="row places-list">
-						<div class="col col-third col-padding-left-right-0">
+						<div class="col col-third col-padding-left-right-0 s-col-full mt-16"> <!-- them 16px -> mgt=32px -->
 							<img src="./assets/img/places/place1.jpg" alt="New York" class="place-img">
 							<!-- Places body-->
 							<div class="place-body">
@@ -110,7 +110,7 @@
 							</div>
 						</div>						
 
-						<div class="col col-third col-padding-left-right-0">
+						<div class="col col-third col-padding-left-right-0 s-col-full mt-16"> <!-- them 16px -> mgt=32px -->
 							<img src="./assets/img/places/place2.jpg" alt="Paris" class="place-img">
 							<!-- Places body-->
 							<div class="place-body">
@@ -122,7 +122,7 @@
 							</div>
 						</div>						
 
-						<div class="col col-third col-padding-left-right-0">
+						<div class="col col-third col-padding-left-right-0 s-col-full mt-16"> <!-- them 16px -> mgt=32px -->
 							<img src="./assets/img/places/place3.jpg" alt="San Francisco" class="place-img">
 							<!-- Places body-->
 							<div class="place-body">

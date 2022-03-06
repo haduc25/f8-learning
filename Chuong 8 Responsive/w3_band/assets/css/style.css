@@ -215,7 +215,7 @@ html
 {	
 	display: none; /*ẩn hiển thị*/
 	min-width: 160px;
-	/* position: absolute; */
+	position: absolute;
 	top: 100%;
 	left: 0;
 	background-color: #fff;
@@ -389,7 +389,7 @@ html
 /* ============ Member list ============ */
 #content .members-list
 {
-	margin-top: 48px;
+	margin-top: 32px; /*margin-top: 48px; (-16px vi trong html da them class mt-16) -> margin-top: 32px;*/ 
 
 	/*khi sử dụng float thẻ cha 'members-list' k bao bọc được các thẻ con,
 	 vì vậy để khắc phục có 2 cách 
@@ -505,7 +505,9 @@ html
 	/*margin: 32px -8px 48px;*/ /*top: 32, left, right: -8, bot: 48*/
 
 	/* vì đã có class 'row' (have left, right) => thay the thuoc tinh tren*/
-	margin-top: 32px;
+	margin-top: 16px; /*(margin-top: 32px;)  -> (margin-top: 16px;)*/
+
+
 	/*margin-bottom: 48px;*/ /* bỏ margin-bot: để thêm vào thuộc tính chung là 'content-section' (ở đấy + thêm 48px)*/
 }
 
