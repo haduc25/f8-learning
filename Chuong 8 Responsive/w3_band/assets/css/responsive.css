@@ -20,9 +20,15 @@ size small (mobile), medium (tablet), large(pc)
 @media (max-width: 740px)
 {
     /* size s chi dung cho mobile */
+    .s-full-width,
     .s-col-full
     {
-        width: 100%;
+        width: 100% !important;
+    }
+
+    .s-mt-8
+    {
+        margin-top: 8px !important;
     }
 
 
@@ -87,6 +93,10 @@ size small (mobile), medium (tablet), large(pc)
         width: 60%;
     }
 
-
+    /* chinh form phan content  */
+    .contact-form
+    {
+        margin-top: 16px;
+    }
 
 }

@@ -64,17 +64,17 @@
 
 				<!-- Member list -->
 				<div class="row members-list">
-					<div class="col col-third s-col-full mt-16 text-center"> <!-- + them 16px mgt-->
+					<div class="col col-third s-col-full mt-32 text-center"> <!-- + them 32px mgt-->
 						<p class="member-name">Name</p>
 						<img src="./assets/img/band/member1.jpg" alt="N	ame" class="member-img">
 					</div>	
 
-					<div class="col col-third s-col-full mt-16 text-center"> <!-- + them 16px mgt-->
+					<div class="col col-third s-col-full mt-32 text-center"> <!-- + them 32px mgt-->
 						<p class="member-name">Name</p>
 						<img src="./assets/img/band/member1.jpg" alt="Name" class="member-img">
 					</div>
 
-					<div class="col col-third s-col-full mt-16 text-center"> <!-- + them 16px mgt-->
+					<div class="col col-third s-col-full mt-32 text-center"> <!-- + them 32px mgt-->
 						<p class="member-name">Name</p>
 						<img src="./assets/img/band/member1.jpg" alt="Name" class="member-img">
 					</div>
@@ -105,7 +105,7 @@
 								<h3 class="place-heading">New York</h3>
 								<p class="place-time">Fri 27 Nov 2016</p>
 								<p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-								<button class="btn js-buy-ticket">Buy Tickets</button>
+								<button class="btn js-buy-ticket s-full-width">Buy Tickets</button> <!-- them class .s-full-width chinh width=100% -->
 								<!-- doi class place-by-btn thanh 'btn' ding lam class chung -->
 							</div>
 						</div>						
@@ -117,7 +117,7 @@
 								<h3 class="place-heading">Paris</h3>
 								<p class="place-time">Fri 28 Nov 2016</p>
 								<p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-								<button class="btn js-buy-ticket">Buy Tickets</button>
+								<button class="btn js-buy-ticket s-full-width">Buy Tickets</button> <!-- them class .s-full-width chinh width=100% -->
 								<!-- doi class place-by-btn thanh 'btn' ding lam class chung -->
 							</div>
 						</div>						
@@ -129,7 +129,7 @@
 								<h3 class="place-heading">San Francisco</h3>
 								<p class="place-time">Fri 29 Nov 2016</p>
 								<p class="place-desc">Praesent tincidunt sed tellus ut rutrum sed vitae justo.</p>
-								<button class="btn js-buy-ticket">Buy Tickets</button>
+								<button class="btn js-buy-ticket s-full-width">Buy Tickets</button> <!-- them class .s-full-width chinh width=100% -->
 								<!-- doi class place-by-btn thanh 'btn' ding lam class chung --> 
 							</div>
 						</div>
@@ -148,21 +148,21 @@
 				<p class="section-sub-heading">Fan? Drop a note!</p>
 
 				<div class="row contact-content">
-					<div class="col col-haft contact-info">
+					<div class="col col-haft s-col-full contact-info"> <!-- them s-col-full cho mobile-->
 						<p><i class="ti-location-pin"></i>Chicago, US</p>
 						<p><i class="ti-mobile"></i>Phone: +00 151515</p>
 						<p><i class="ti-email"></i>Email: mail@mail.com</p>
 					</div>
 
 					<!-- Form -->
-					<div class="col col-haft contact-form ">
+					<div class="col col-haft s-col-full contact-form "> <!-- them s-col-full cho mobile-->
 						<form action="">
 							<!-- Begin: Input -->
 							<div class="row">
-								<div class="col col-haft">
+								<div class="col col-haft s-col-full"> <!-- them s-col-full cho mobile-->
 									<input type="text" name="name" id="name" placeholder="Name" required class="form-control">
 								</div>
-								<div class="col col-haft">
+								<div class="col col-haft s-col-full s-mt-8"> <!-- them s-col-full, s-mt-8 cho mobile-->
 									<input type="email" name="email" id="email" placeholder="Email" required class="form-control">
 								</div>
 								<!-- Fix float: left -->
@@ -175,7 +175,7 @@
 							</div>
 
 							<!-- <input class="btn form-submit-btn mt-16" type="submit" value="SEND"> -->
-							<input class="btn mt-16 pull-right" type="submit" value="SEND">
+							<input class="btn mt-16 pull-right s-full-width" type="submit" value="SEND"> <!-- them class .s-full-width chinh width=100% -->
 							<!-- thay class 'form-submit-btn' -> 'btn' -->
 							<!-- End: Input -->
 						</form>
