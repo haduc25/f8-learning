@@ -631,6 +631,19 @@ html
 	width: 30px; /*set chieu ngang cho icon*/
 	display: inline-block; /*set display*/
 
+	
+}
+
+/* set color */
+.contact-info a
+{
+	color: #101aef;
+	opacity: 0.8;
+}
+
+.contact-info a:hover
+{
+	opacity: 1;
 }
 
 

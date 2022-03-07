@@ -150,8 +150,8 @@
 				<div class="row contact-content">
 					<div class="col col-haft s-col-full contact-info"> <!-- them s-col-full cho mobile-->
 						<p><i class="ti-location-pin"></i>Chicago, US</p>
-						<p><i class="ti-mobile"></i>Phone: +00 151515</p>
-						<p><i class="ti-email"></i>Email: mail@mail.com</p>
+						<p><i class="ti-mobile"></i>Phone: <a href="tel:+00 151515">+00 151515</a></p> <!--tel:+00 151515": tu dong goi den so phone -->
+						<p><i class="ti-email"></i>Email: <a href="mailto:mail@mail.com">mail@mail.com</a></p> <!--mailto:mail@mail.com tu dong vao mail gui den mail chi dinh -->
 					</div>
 
 					<!-- Form -->

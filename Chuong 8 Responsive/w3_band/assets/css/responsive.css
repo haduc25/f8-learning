@@ -4,16 +4,70 @@
    
 }
 
+/* Tablet & Mobile */
+@media (max-width: 1023px)
+{
+    /* tang kich thuoc btn len 46 */
+    .btn
+    {
+        padding: 15px 16px;
+    }
+
+    /* tang kich thuoc subnav (them padding tren duoi) */
+    #nav .subnav a
+    {
+        padding: 5px 12px;
+    }
+
+
+    /* form input */
+    .contact-form .form-control
+    {
+        padding: 15px;
+    }
+
+    /* contact info (sdt, email) */
+    .contact-info
+    {
+        line-height: 2; /*line-height: 1.5; -> line-height: 2; (tăng giá trị sau dấu . vd(1.5)  giữ phím alt)*/
+    }
+
+    /* footer */
+    #footer .socials-list
+    {
+        /* font-size: 48px; */ /* vì để chung trên đt hiển thị quá to nên nên đang để riêng trong tablet */
+    }
+
+    #footer .socials-list a 
+    {
+        margin: 0 8px;
+    }
+
+    #footer .copyright a
+    {
+        padding: 13px 0;
+        display: inline-block; /* đẩy xuống hàng dưới */
+    }
+
+}
+
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px)
 {
-    
+    /* footer */
+    #footer .socials-list
+    {
+        font-size: 48px;
+    }
 }
+
 
 
 /*
 phan biet ten class (s, m, l)
 size small (mobile), medium (tablet), large(pc)
+
+nút bấm trên tablet & mobile => 48px (dễ thao tác)
 */
 
 /* Mobile */
@@ -96,7 +150,13 @@ size small (mobile), medium (tablet), large(pc)
     /* chinh form phan content  */
     .contact-form
     {
-        margin-top: 16px;
+        margin-top: 32px; /* margin-top: 16px; ->  margin-top: 32px;*/
+    }
+
+    /* footer */
+    #footer .socials-list
+    {
+        font-size: 32px; /*set rieng cho dt ( tự thêm k có trong bài )*/
     }
 
 }
