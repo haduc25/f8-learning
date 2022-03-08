@@ -11,6 +11,7 @@
     .btn
     {
         padding: 15px 16px;
+        font-size: 16px;
     }
 
     /* tang kich thuoc subnav (them padding tren duoi) */
@@ -24,6 +25,7 @@
     .contact-form .form-control
     {
         padding: 15px;
+        font-size: 16px;
     }
 
     /* contact info (sdt, email) */
@@ -151,6 +153,13 @@ nút bấm trên tablet & mobile => 48px (dễ thao tác)
     .contact-form
     {
         margin-top: 32px; /* margin-top: 16px; ->  margin-top: 32px;*/
+    }
+
+    /* chinh btn 'send' */
+    .contact-submit-btn
+    {
+        font-size: 16px;
+        /* color: yellow; */
     }
 
     /* footer */

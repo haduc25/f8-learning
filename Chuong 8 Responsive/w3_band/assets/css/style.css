@@ -74,6 +74,8 @@ html
 	text-decoration: none;
 	padding: 11px 16px;
 	cursor: pointer;
+	appearance: none; /* bỏ style default */
+	-webkit-appearance: none;; /*for safari*/
 }
 
 .btn:hover

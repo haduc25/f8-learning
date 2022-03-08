@@ -175,7 +175,7 @@
 							</div>
 
 							<!-- <input class="btn form-submit-btn mt-16" type="submit" value="SEND"> -->
-							<input class="btn mt-16 pull-right s-full-width" type="submit" value="SEND"> <!-- them class .s-full-width chinh width=100% -->
+							<input class="contact-submit-btn btn mt-16 pull-right s-full-width" type="submit" value="SEND"> <!-- them class .s-full-width chinh width=100% -->
 							<!-- thay class 'form-submit-btn' -> 'btn' -->
 							<!-- End: Input -->
 						</form>
