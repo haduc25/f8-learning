@@ -337,6 +337,7 @@ html
 	font-weight: bolder;
 	font-size: 15px;
 	margin-top: 25px;
+	text-shadow: 0 0 3px #000; /*ngang(hor): 0, doc(vel): 0 blur: 1px*/
 }
 
 

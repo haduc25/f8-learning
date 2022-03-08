@@ -1,11 +1,11 @@
 /* PC */
-@media (min-width: 1024px)
+@media (min-width: 64em)  /*1024px -> 64em*/
 {
    
 }
 
 /* Tablet & Mobile */
-@media (max-width: 1023px)
+@media (max-width: 63.9375em) /*1023px -> 63.9375em*/
 {
     /* tang kich thuoc btn len 46 */
     .btn
@@ -54,7 +54,7 @@
 }
 
 /* Tablet */
-@media (min-width: 740px) and (max-width: 1023px)
+@media (min-width: 46.25em) and (max-width: 63.9375em) /* 740px -> 46.25em & 1023px -> 63.9375em */
 {
     /* footer */
     #footer .socials-list
@@ -70,10 +70,16 @@ phan biet ten class (s, m, l)
 size small (mobile), medium (tablet), large(pc)
 
 nút bấm trên tablet & mobile => 48px (dễ thao tác)
+
+
++ su dung don vi 'em' cho Media queries 
+web chuyen doi 'px' -> 'em'     
+-> https://www.w3schools.com/tags/ref_pxtoemconversion.asp
 */
 
+
 /* Mobile */
-@media (max-width: 740px)
+@media (max-width: 46.1875em) /* 739px -> 46.1875em */
 {
     /* size s chi dung cho mobile */
     .s-full-width,
