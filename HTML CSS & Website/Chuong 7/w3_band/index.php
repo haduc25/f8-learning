@@ -45,9 +45,13 @@
 		<!-- Slider -->
 		<div id="slider">
 			<div class="text-content">
-				<h2 class="text-heading">Los Angeles</h2>
-				<div class="text-description">We had the best time playing at Venice Beach!</div>
+				<a href="#">
+					<h2 class="text-heading">Los Angeles</h2>
+					<div class="text-description">We had the best time playing at Venice Beach!</div>
+				</a>
 			</div>
+			
+
 		</div>
 
 		<!-- Content -->
