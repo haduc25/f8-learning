@@ -290,5 +290,201 @@ var ex = "Here's ex";
 // console.log(typeof ex);
 
 
+/** 28 -  Toán tử so sánh 2  (so sánh tuyệt đối)                  
+ * 
+ *  ===           so sanh bằng tuyệt đối  
+ *  !==           so sanh khác tuyệt đối  
+ex (===)
+
+
+var abc = 1;
+var xyz = "1";
+
+
+console.log(abc == xyz);  //return true vì chỉ so sánh mỗi giá trị 
+console.log(abc === xyz); //return false vì kieeru dl khác nhau
+
+
+console.log(abc !== xyz);
+
+*/
+
+
+/** 29 - Truthy và Falsy là gì?
+ * Link: https://fullstack.edu.vn/learning/javascript-co-ban?id=32595298-aa2e-4f8a-a4ae-a80dc35a0928
+ * Truthy và Falsy là gì?
+ * Truthy - to bool is true
+ * Bất cứ giá trị nào trong Javascript khi chuyển đổi sang kiểu dữ liệu boolean mà có giá trị true thì ta gọi giá trị đó là Truthy.
+   Các giá trị 1, ['BMW'], { name: 'Miu' } và 'hi' được đề cập trong ví dụ dưới đây là Truthy
+   vì khi chuyển sang Boolean ta nhận được giá trị true. 
+
+   console.log(!!'hi') // true
+* !! là gì? Đơn giản thôi. Toán tử ! là toán tử not (phủ định) nên !! là 2 lần phủ định, mà 2 lần phủ định lại trở thành “khẳng định”. 
+   Trong Javascript thì đây là một “tip” để convert (chuyển đổi) mọi kiểu dữ liệu khác sang Boolean.
+
+
+   Ví dụ:
+   console.log(!!1) // true
+   console.log(!!'f8') // true
+   console.log(!!['Mercedes']) // true
+   Thêm !! phía trước các giá trị truthy sẽ luôn trả về true.
+
+*  Falsy - to bool is false
+   Bất cứ giá trị nào trong Javascript khi chuyển đổi sang kiểu dữ liệu boolean mà có giá trị false thì ta gọi giá trị đó là Falsy.
+
+* Trong Javascript có 6 giá trị sau được coi là Falsy:
+
+   false
+   0 (số không)
+   '' or "" (chuỗi rỗng)
+   null
+   undefined
+   NaN
+
+Ví dụ:
+   console.log(!!false) // false
+   console.log(!!0) // false
+   console.log(!!'') // false
+   console.log(!!null) // false
+   console.log(!!undefined) // false
+   console.log(!!NaN) // false
+
+Chú ý!
+   Nội dung đã đề cập phía trên đã đầy đủ khi nói về Truthy và Falsy trong Javascript. Tuy nhiên mình vẫn cần nhấn mạnh lại với các bạn rằng:
+
+   Ngoài 6 giá trị đã đề cập tới ở phần Falsy thì toàn bộ các giá trị khác đều là Truthy, kể cả những giá trị sau:
+
+   '0' (một chuỗi chứa số không)
+   ' ' (một chuỗi chứa dấu cách)
+   'false' (một chuỗi chứa từ khóa false)
+   [] (một array trống)
+   {} (một object trống)
+   function(){} (một hàm “trống”)
+   Một số người chuyển từ ngôn ngữ khác sang rất có thể sẽ bị nhầm [] (mảng “rỗng”) là falsy, bởi vì trong ngôn ngữ họ đã học trước đó [] là falsy.
+
+   Ví dụ:
+
+   var cars = [] // Dù là mảng "rỗng" vẫn là truthy
+
+   if (!cars) {
+      // Họ sẽ thắc mắc: "Tại sao lại không lọt vào đây?"
+   }
+
+* Vì [] là truthy nên !cars sẽ trả về false. Câu lệnh if sẽ nhận được kết quả của mệnh đề so sánh là false, vì vậy đoạn mã trong if trên sẽ không được lọt vào.
+
+* Ngoại lệ? - document.all
+Trong Javascript (phía trình duyệt) sẽ có sẵn một đối tượng document, và khi bạn thử !!document.all sẽ trả về false. Chẳng lẽ document.all cũng là falsy hay sao?
+
+Bản thân mình cũng thắc mắc điều này nên mình đã search Google “Why document.all is falsy?” và mình đã tìm được câu trả lời tại đây (https://stackoverflow.com/questions/10350142/why-is-document-all-falsy).
+
+Tóm tắt câu trả lời:
+
+document.all là một ngoại lệ chính thức duy nhất theo đặc tả ECMA (phiên bản 5). Đặc tả này mô tả toàn bộ các object khi chuyển sang boolean sẽ là true. Tuy nhiên, document.all là một ngoại lệ.
+
+Cụ thể như sau:
+
+document.all chuyển sang boolean sẽ là false
+document.all khi là toán hạng của toán tử so sánh == hoặc != sẽ là undefined
+Khi typeof document.all sẽ trả về "undefined"
+ECMA là đặc tả chi tiết kỹ thuật mà các ngôn ngữ theo đặc tả này phải tuân theo. Javascript là một ngôn ngữ tuân thủ đặc tả kỹ thuật ECMA.
+
+ */
+
+/** 30 - Toán tử logical và câu lệnh điều kiện If
+ * Câu lệnh điều kiện OR(hoặc), AND(và)
+ * 
+ * //AND (&&)
+ * //Khi convert qua boolean có 6 giá trị này
+ *       0
+ *       false
+ *       ''
+ *       null
+ *       undefined
+ *       NaN
+ *       
+ * trả về false
+ * 
+ * - nếu khác 6 giá trị trên => luôn đọc từ trái qua phải
+ * - nếu 1 biến trong A, B, C trên = với 1 trong số 6 giá trị false trên -> gán luôn giá trị false -> result
+ * 
+ * 
+   //ex1 - khi 1 pt = 1 trong 6 biến False
+   var result = null && 'B' && 'C';  
+   console.log(result); //ket qua la null (gán luôn = null và bỏ qua phần sau)
+
+   //ex2 - khi 1 pt = 1 trong 6 biến False
+   var result = 'A' && 'B' && NaN && 'D';  
+   console.log(result); //ket qua la null (gán luôn = null và bỏ qua phần sau)
+ *
+ * 
+ * 
+ * 
+ * 
+ * 
+ * ex1
+   var a = 1;
+   var b = 2;
+
+   var result = a < b && a < 0;
+   console.log(result); //ket qua la false (vì && kiểm tra đến đk thứ 2 là false nên gán vào biến result là false)
+
+   //ex2
+   var result = 'A' && 'B' && 'C';  
+   console.log(result); //ket qua la C (vì && kiểm tra đến đk cuối là true -> gán vào biến result, nếu 1 biến trong A, B, C trên = với 1 trong số 6 giá trị false trên -> gán luôn giá trị false -> result)
+
+
+   //ex3
+   var result = 'A' && 'B' && 'C' && 'D';  
+
+   if(result)
+      console.log('Dieu kien dung!');
+      //ket qua dk dien dung -> vì lệnh & chạy đến D và gán D = result -> so sánh biến D khác với 6 đk false trên -> D true -> DK đúng
+   else
+      console.log('Dieu kien sai!');
+ 
+
+   //OR (||)
+   - ngược lại với AND(&&)
+   - kiểm tra các pt -> nếu khác 6 pt false -> lấy luôn giá trị gán vào result
+   - sử dụng để làm đk kiểm tra người dùng đã nhập tt vào form chưa (tên, tuổi, năm sinh...)
+
+
+   //ex1
+   var result = 'A' || 'B' || 'C' || 'D';  
+   console.log('result: ', result); //kq = A vì OR kt thấy A true -> gán vào result
+
+   //ex2
+   var result = null || 'B' || 'C' || 'D';  
+   console.log('result: ', result); //kq = B vì OR kt thấy đk đầu tiên  = null -> false -> chuyển qua đk thứ 2 = true -> gán vào result
+
+   //ex3
+   var result = 'A' || 'B' || undefined || 'D';  
+   console.log('result: ', result); //kq = A vì OR kt thấy đk đầu tiên  = A -> true -> gán vào result, bỏ qua các đk đằng sau
+
+   if(result)
+      console.log('Dieu kien dung!');
+   else
+      console.log('Dieu kien sai!');
+
+
+   //ex4 - nếu muốn đk sai -> phải set tất cả là false, vì 1 đk đúng -> vẫn gán true
+   var result = null || false || undefined || 0;  
+   console.log('result: ', result); //kq = 0 vì OR kt thấy đk = false (6 đk false) -> false -> gán vào result
+
+   if(result)
+      console.log('Dieu kien dung!');
+   else
+      console.log('Dieu kien sai!');
+      //vì tất cả false -> đk sai
+ 
+   */
+
+
+
+
+
+
+
+
 
 
