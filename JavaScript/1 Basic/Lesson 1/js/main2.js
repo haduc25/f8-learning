@@ -135,8 +135,159 @@ console.log(a);
  */
 
 
+/** 22 - Toán tử so sánh   
+ 
+
+Toán tử	      Diễn tả	                                           Ví dụ
+==	         so sánh bằng	                                     5 == 10 false
+===	      giống nhau (cùng giá trị và kiểu dữ liệu)	          5 === 10 false
+!=	         khác giá trị	                                     5 != 10 true
+!==	      Khác giá trị và kiểu	                               10 !== 10 false
+>	         lớn hơn	                                           10 > 5 true
+>=	         lớn hơn hoặc bằng	                                  10 >= 5 true
+<	         nhỏ hơn	                                           10 < 5 false
+<=	         nhỏ hơn	                                           10 <= 5 false
+ */
 
 
+
+/** 24, 25 - Câu lệnh điều kiện If
+ 
+
+// boolean sẽ trả về 'fasle' nếu có các giá trị sau:
+   0
+   false
+   '' & ""
+   undefined
+   NaN
+   null
+
+- Ngược lại trả về true
+ex:  
+
+var value = 0;
+if(value)
+{
+   console.log("TRUE! Value's " + value);
+}else
+{
+   console.log("FALSE! Value's " + value);
+}
+
+ */
+
+
+/** 26 - Toán tử logical,  
+&&	   AND      phép và trả về true nếu 2 số hạng là true: a && b
+||	   OR       phép hoặc trả về true nếu 1 trong 2 số hạng là true : a || b
+!	   NOT      phủ định; trả về giá trị ngược với biểu thức !a 
+*/
+
+
+/**27 - Kiểu dữ liệu 
+ * 1. Dữ liệu nguyên thủy - Primitive Data
+ * - Number
+ * - String
+ * - Undefined
+ * - Null
+ * - Symbol
+ * 
+ * 2. Dữ liệu phức tạp - Complex Data
+ * - Function
+ * - Object
+ * 
+ * 
+
+*/
+
+//Number type
+var a = 1;
+var b = 2;
+var c = 1.5;
+
+// console.log(typeof c);
+
+
+//String type
+var name = "Ha Duc";
+// console.log(typeof name);
+
+
+//Boolean type
+var isSuccess = true
+// console.log(typeof isSuccess);
+
+
+//Undefined type
+var age;
+// console.log(typeof age);
+
+
+//Null
+var isNull = null; //nothing
+// console.log(typeof isNull); //tra ve object
+
+
+
+//Symbol
+var id = Symbol('id'); //unique (duy nhất)
+var id2 = Symbol('id2'); //unique (duy nhất)
+// console.log(typeof id);
+
+
+// console.log(id);
+// if(id == id2)
+//    console.log("ID EQUAL ID2");
+// else
+//    console.log("NOT EQUAL");
+
+
+//Function
+var myFunction = function()
+{
+   alert('HI. My name is HaDuc25!');
+}
+
+//myFunction(); // run a function
+// console.log(typeof myFunction);
+
+
+
+
+//Object types
+var myObject = {
+   name: 'Minh Duc',
+   age: 21,
+   address: 'Bac Kan',
+
+   //add a function
+   myFunction: function()
+   {
+      //do something
+   }
+
+};
+
+// console.log('myObject: ', myObject);
+// console.log(typeof myObject);
+
+
+var myArray = [
+   'Javascript',
+   'HTML',
+   'PHP',
+   'Ruby'
+];
+
+//console.log(myArray);
+// console.log(typeof myArray);
+
+
+
+// Để kiểm tra kiểm dl sử dụng hàm: typeof
+//ex: 
+var ex = "Here's ex";
+// console.log(typeof ex);
 
 
 
