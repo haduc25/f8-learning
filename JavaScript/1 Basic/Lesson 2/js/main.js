@@ -74,24 +74,97 @@
 
         
 
-/** 47 - Số và làm việc với số
+/** 47 - Số và làm việc với số, 48, 49
+ * //ex
+      var age = 21;
+      var PI = 3.14;
+
+      //cach 2 (tao number)
+      var otherNumber = new Number(25); // Number(//truyền số muốn tạo)
+      console.log(typeof otherNumber); //return object
+ * 
+ * 
+ *    //kiem tra data type
+
+      //ex - kiểm tra NaN
+      var age = 21;
+      var PI = 3.14;
+
+      var rs = 20 / 'XYZ';
+      console.log(typeof rs); //return NaN, typeof rs -> return number
+
+      //để kiểm tra = với NaN ta sử dụng hàm isNaN();
+      console.log(isNaN(rs)); //return true
+
+      //keyword: javascript number methods (link (recommend): https://www.w3schools.com/js/js_number_methods.asp)
+
+
+      //ex - toString()
+      var age2 = 27;
+      console.log(typeof age2.toString()); //return string // ép kiểu qua string
  * 
  * 
  * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
- * 
+      //ex - toFixed()
+      var PI = 3.14;
+      var isFloatNumber = 13.67892;
+
+      console.log(PI.toFixed()); //return 3 // làm tròn về 3
+      console.log(PI.toFixed(1)); //return 3.1 // làm tròn sau dấu '.' 1 số 
+      console.log(PI.toFixed(2)); //return 3.14 // làm tròn sau dấu '.' 2 số
+
+      console.log(typeof PI.toFixed()); //return string
+
+      //49
+
+   // Viết code tại đây
+   function isNumber(value)
+   {
+      //  if(isNaN(value))
+      //      return false;
+      //  return true;
+      if(typeof value == 'number')
+         return true;
+      return false;
+      // console.log(isNaN(value));
+   }
+
+
+
+   // Kì vọng đạt được
+   console.log(isNumber(999)); // true
+   console.log(isNumber('abc')); // false
+   console.log(isNumber('100')); // false
+
+   //giai 49
+   function isNumber(value) {
+      return typeof value === 'number';
+   }
+
+
+
+   //49
+   // Viết code tại đây
+   function isNumber(value) {
+      if(isNaN(value)) return false;
+      return typeof value === 'number';
+   }
+
+
+
+
+   // Kì vọng đạt được
+   console.log(isNumber(999)); // true
+   console.log(isNumber('abc')); // false
+   console.log(isNumber('100')); // false
+
+   console.log(isNumber(NaN)); // false
+   console.log(isNumber(100 / 'abc')); // false
+
  */
+
+
+
+
+
+
