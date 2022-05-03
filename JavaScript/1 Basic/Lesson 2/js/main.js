@@ -74,7 +74,7 @@
 
         
 
-/** 47 - Số và làm việc với số, 48, 49
+/** 47 - Số và làm việc với số, 48, 49, 50
  * //ex
       var age = 21;
       var PI = 3.14;
@@ -143,7 +143,7 @@
 
 
 
-   //49
+   //50
    // Viết code tại đây
    function isNumber(value) {
       if(isNaN(value)) return false;
