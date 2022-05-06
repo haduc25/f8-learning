@@ -1,4 +1,4 @@
-/** Chuương 8 - 59 - Object là gì?, 60
+/** Chương 8 - 59 - Object là gì?, 60
  * 
    //ex - tạo object
    var myInfo = {
@@ -484,19 +484,3 @@ Giữa firstName và lastName cần có 1 khoảng trắng (1 dấu space).
 
    console.log(getRandomItem(cars));
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
