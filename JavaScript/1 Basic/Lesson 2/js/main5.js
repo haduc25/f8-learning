@@ -70,10 +70,74 @@
 
 */
 
+/** 81 - Vòng lặp for...in 
+ * 
+    //ex: obj
+
+    var myInfo = 
+    {
+        name: 'Ha Duc',
+        age: 21,
+        address: 'Bac Kan, VN'
+    };
 
 
+    for (var key in myInfo) {
+        // console.log(key); //retrun name\n age\n address
+        // console.log(typeof key); //retrun string
+        console.log(myInfo[key]); //retrun\n 21\n Bac Kan, VN
+        // console.log(myInfo['name']); //retrun Ha Duc (3)
+    }
 
 
+    //ex - array
+    var languages = [
+        'Javascript',
+        'PHP',
+        'Python',
+        'Ruby'
+    ];
+
+
+    for (const key in languages) {
+        // console.log(key); //return 0 - 3
+        console.log(languages[key]); //return Javascript, PHP, Python, Ruby
+    }
+
+
+    //ex - string
+    var myString = 'Javascript';
+
+
+    for (const key in myString) {
+        // console.log(key); //return 0 - 9
+        console.log(myString[key]); //return Javascript (spell) -> J - a - v - a - s - c - r - i - p - t
+    }
+
+
+*/
+
+/** 83 - Bài tập sử dụng for...in
+    //bai lam - Bài tập sử dụng for...in
+    
+    //Bài tập sử dụng for...in - (2) ['Thuộc tinh name có giá trị  Nguyen Van A', 'Thuộc tinh age có giá trị  16']
+    function run(object) {
+        var arr = [];
+        for(var key in object)
+        {
+            arr.push(`Thuộc tính ${key} có giá trị ${object[key]}`);
+        }
+        return arr;
+    }
+
+    // Kỳ vọng
+    console.log(run({ name: 'Nguyen Van A', age: 16 }));
+    // Output:
+    // [
+    //     "Thuộc tính name có giá trị Nguyen Van A",
+    //     "Thuộc tính age có giá trị 16"
+    // ]
+ */
 
 
 
