@@ -310,9 +310,143 @@
 
 
     
+/** 89 - Đệ quy là gì? Học về đệ quy! 
+
+    //Giải bài toán xóa phần tử trùng lặp
+
+    var array = ['a', 'b', 'c', 'a', 'b', 'c'];
+
+    console.log(new Set(array)); //return Set(3) {'a', 'b', 'c'}
+
+    console.log([...(new Set(array))]); //return (3) ['a', 'b', 'c'] / array
+
+    // ... thoát khỏi vòng {}
+    // []  cho vào array
+
+
+    //De quy
+    //1. Xác định điểm dừng
+    //2. Logic handle => Tạo ra điểm dừng
+
+    //ex - de quy - form vi du
+    function deQuy(num){
+        num--;
+    if(num < 0){
+        //dừng
+        //...
+        return;
+    }
+    deQuy();
+    }
+
+    deQuy(10)
+
+
+
+    //ex - De quy - viet function countDown // print 10 - 0
+
+    function countDown(number){
+        if(number > 0){
+            //loop
+            
+            console.log(number);
+            return countDown(number - 1);
+        }
+        return number;
+    }
+
+    countDown(10); //return 10 9 8 7 6 5 4 3 2 1
+
+
+
+    //ex - De quy - loop - cach 1
+
+    function loop(start, end, callback){
+        if(start <= end){
+            callback(start);
+            return loop(start + 1, end, callback);
+        }
+    }
+
+
+    var array = ['Javascript', 'PHP', 'Python'];
+
+    loop(0, array.length - 1, function(index){
+        console.log('index: ', index); //return index:  0, index:  1, index:  2
+    });
+
+    
+    //ex - De quy - loop - cach 2
+
+    function loop(start, end, callback){
+        if(start < end){
+            callback(start);
+            return loop(start + 1, end, callback);
+        }
+    }
+
+
+    var array = ['Javascript', 'PHP', 'Python'];
+
+    loop(0, array.length, function(index){
+        console.log('index: ', index); //return index:  0, index:  1, index:  2
+    });
+
+
+    //ex - De quy - loop - cach 2
+
+    function loop(start, end, callback){
+        if(start < end){
+            callback(start);
+            return loop(start + 1, end, callback);
+        }
+    }
+
+
+    var array = ['Javascript', 'PHP', 'Python'];
+
+    loop(0, array.length, function(index){
+        console.log(array[index]); //return Javascript, PHP, Python
+    });
+
+    
+
+    //ex- tinh giai thua - su dung vong lap
+
+    // 3! = 3 * 2 * 1 = 6
+    // 6! = 5 * 4 * 3 * 2 * 1 = 720
+    //10 = 3628800
+
+    function giaiThua(number){
+        var output = 1;
+        for (var i = number; i > 0; i--) {
+            output = output * i;        
+        }
+
+        return output;
+    }
+
+    console.log(giaiThua(3)); //return 6
+    console.log(giaiThua(6)); //return 720
+    console.log(giaiThua(10)); //return 3628800
 
 
 
 
+    //ex- tinh giai thua - su dung de quy
 
-        
+    // 3! = 3 * 2 * 1 = 6
+    // 6! = 5 * 4 * 3 * 2 * 1 = 720
+    //10 = 3628800
+
+    function giaiThua(number){
+        if(number > 0){
+            return number * giaiThua(number - 1);
+        }
+        return 1;
+    }
+
+    console.log(giaiThua(3)); //return 6
+    console.log(giaiThua(6)); //return 720
+    console.log(giaiThua(10)); //return 3628800
+*/      
