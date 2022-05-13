@@ -117,7 +117,7 @@
 
 */
 
-/** 83 - Bài tập sử dụng for...in
+/** 82 - Bài tập sử dụng for...in
     //bai lam - Bài tập sử dụng for...in
     
     //Bài tập sử dụng for...in - (2) ['Thuộc tinh name có giá trị  Nguyen Van A', 'Thuộc tinh age có giá trị  16']
@@ -139,23 +139,177 @@
     // ]
  */
 
+/** 83 - Vòng lặp For/of
+    //ex - array
+
+    var languages = [
+        'Javascript',
+        'PHP',
+        'Ruby'
+    ];
 
 
+    for (var value of languages) {
+        console.log(value); //return Javascript, PHP, Ruby
+    }
+
+    //ex - string
+    var myName = 'HAMINHDUC';
+
+    for (var value of myName) {
+        console.log(value); //return 'H''A''M''I''N''H''D''U''C'
+    }
+  
+
+        //ex - object - cách 1
+    var myInfo = {
+        name: 'Minh Duc',
+        age: 21
+    };
 
 
+    console.log(Object.keys(myInfo)); //return (2) ['name', 'age'] / lấy ra keys trong object
+
+    for (var value of Object.keys(myInfo)) {
+        console.log(myInfo[value]); //return Minh Duc, 21
+    }
+
+    //ex - object - cách 2
+    var myInfo2 = {
+        name: 'Minh Duc',
+        age: 21
+    };
 
 
+    console.log(Object.values(myInfo2)); //return (2) ['Minh Duc', 21] / lấy ra values trong object
+
+    for (var value of Object.values(myInfo2)) {
+        console.log(value); //return Minh Duc, 21
+    }
+
+ */
 
 
+/** 84 - Vòng lặp While
+    //ex - object
+    var myArray = [
+        'Javascript',
+        'PHP',
+        'Python'
+    ];
+
+    var i = 0;
+    while (i < myArray.length) {
+        console.log(myArray[i]); //return Javascript, PHP, Python
+        i++;
+    }
+ */
 
 
+/** 85 - Vòng lặp do...while  
+    //ex
+    var i = 0;
+
+    do {
+        i++;
+        console.log(i); //return 1 -10
+    } while (i < 10);
 
 
+    //ex - Nạp thẻ
+    var i = 0;
+    var isSuccess = false;
+
+    do {
+        i++;
+        console.log('Nạp thẻ lần thứ ' + i);
+
+        //thành công
+        if(true){
+            isSuccess = true;
+            console.log('Nạp thẻ thành công !');
+            //return 
+            //Nạp thẻ lần thứ 1
+            //Nạp thẻ thành công !
+        }
+
+        // //thất bại
+        // if(false){
+        //     isSuccess = true;
+        //     console.log('Nạp thẻ thành công !');
+
+        // }
+        // //return Nạp thẻ lần thứ 1 - 4
+
+    } while (!isSuccess && i <= 3);
+*/
+
+/** 86 - Break và Continue trong vòng lặp
+    //ex - break
+
+    for (var i = 0; i < 10; i++) {
+        console.log(i); //return 0 - 9
+
+        //in ra 0 - 5
+        if(i >= 5){
+            break; //dk đúng -> thoát vòng lặp
+        }
+    }
+
+    //ex - continue
+
+    for (var i = 0; i < 10; i++) {
+        
+        //in ra số chẵn
+        if(i%2 !== 0){
+            continue; //dk đúng (nếu là số lẻ) -> vòng lặp chạy tiếp (k chạy console.log bên dưới - k chạy lệnh dưới)
+        }
+
+        console.log(i); //return 0 - 2 - 4 -6 -8
+
+    }
+ */
+
+/** 87 - Vòng lặp lồng nhau (Nested loop), 88 - vd vòng lặp
+    //ex - in ra 1 - 6
+    var myArray = [
+        [1, 2],
+        [3, 4],
+        [5, 6]
+    ];
 
 
+    for (var i = 0; i < myArray.length; i++) {
+        // console.log(myArray[i]); //return (2) [1, 2], (2) [3, 4], (2) [5, 6]
+
+        //vòng lặp con lấy gtri trong i
+        for (var j = 0; j < myArray[i].length; j++) {
+            console.log(myArray[i][j]); //return 1 - 6
+        }
+    }
 
 
+    //88 
+    //ex - in (100 - 1)
+    
+    for (var i = 100; i > 0; i--) {
+        console.log(i); //return 100 - 0
+    }
 
+    //ex - moi lan tang 5 gia tri (0 - 100)
+
+    for (let i = 0; i < 100; i+=5) {
+        console.log(i);    //return  0 5 10 15 20 25 30 35 40 45 50 55 60 65 70 75 80 85 90 95
+    }
+
+    //ex - moi lan tru 5 gia tri (100 - 0)
+    for (var i = 100; i > 0; i-=5) {
+        console.log(i); //return 100 95 90 85 80 75 70 65 60 55 50 45 40 35 30 25 20 15 10 5
+    }
+ */
+
+
+    
 
 
 
