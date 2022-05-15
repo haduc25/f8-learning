@@ -732,10 +732,37 @@
 
    
 /** 95 - String/Array includes() method
+   //ex - kt includes trong Array & String
+   console.log(String.prototype.includes); //return ƒ includes() { [native code] }
+   console.log(Array.prototype.includes); //return ƒ includes() { [native code] }
+
+   //k co function trong Object 
+   console.log(Object.prototype.includes); //return undefined
+
+   //ex - su dung includes voi String
+
+   var title = 'Xin chao toi ten la Ha Minh Duc';
+
+   console.log('String');
+   console.log(title.includes('Duc')); //return true
+   console.log(title.includes('Duc2')); //return false /k tim thay
+
+   //đối số thứ 2 là vị trị bắt đầu tìm kiếm, mặc định là 0
+
+   console.log(title.includes('Xin', 2)); //return false /k tim thay / bắt đầu vị trí số 2 =>  chao toi ten la Ha Minh Duc 
+   console.log(title.includes('Xin', 0)); //return true
+
+   //ex - su dung includes voi Array
+
+   var courses = ['Javascript', 'PHP', 'Python'];
+
+   console.log('Array');
+   console.log(courses.includes('Javascript')); //return true
+   console.log(courses.includes('Ruby')); //return false
 
 
+   console.log(courses.includes('Python', 1)); //return true => 'PHP', 'Python'
+   console.log(courses.includes('Javascript', 1)); //return false /k tim thay / bắt đầu vị trí (index) số 1 => 'PHP', 'Python'
 
-
-
-
+   console.log(courses.includes('Python', -1)); //return true => 'Python'
 */
