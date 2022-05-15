@@ -666,4 +666,76 @@
  */
 
 
+/** 94 - Phương thức reduce có logic như thế nào?
+   //
+   //on lai tính tổng mảng sau dùng redece() - 
+   var numbers = [1, 2, 3, 4, 5, 6];
+
+   //k có giá trị khởi tạo
+   var result = numbers.reduce((total, number) =>{
+      return  total + number;
+   })
+
+   //có giá trị khởi tạo
+   var result2 = numbers.reduce((total, number) =>{
+      return  total + number;
+   }, 10)
+
+   console.log(result); //return 21
+   console.log(result2); //return 31
+
+   //ex - tao ra function reduce2
+   Array.prototype.reduce2 = function(callback, result){ //nhận 2 đối số (callback, initialValue)
+      //kt dk k có đối số thứ 2 (th k có giá trị khởi tạo)
+      var i = 0;
+      if(arguments.length < 2){
+         var i = 1; //k truyền lặp từ i = 1
+         //khi k có initalValue => biến lưu trữ = phần tử đầu tiên của array
+         result = this[0]; //pt dau tien
+
+      }
+
+      //th co giá trị khởi tạo / nếu k có trả về NaN
+      for (; i < this.length; i++) {
+         //gọi lại callback
+         result = callback(result, this[i], i, this);
+         //nhận vào 4 tham số
+         //result => biến lưu trữ
+         //this[i] => columnsValue
+         //i => index
+         //this => currentArray
+         
+         //gán biến lưu trữ (result) = callback
+      }
+
+      return result;
+   }
+
+   var numbers = [1, 2, 3, 4, 5, 6];
+
+
+   //k có giá trị khởi tạo
+   var result3 = numbers.reduce2((total, number) =>{
+      return  total + number;
+   })
+
+   //có giá trị khởi tạo
+   var result4 = numbers.reduce2((total, number) =>{
+      return  total + number;
+   }, 10)
+
+   console.log(result3); //return 21 / su dung recude2
+   console.log(result4); //return 31 / su dung recude2
+ */
+
+
+
    
+/** 95 - String/Array includes() method
+
+
+
+
+
+
+*/
