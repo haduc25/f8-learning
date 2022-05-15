@@ -506,18 +506,164 @@
 
 /** 93. Ví dụ: Array reduce() method
 
+   //ex- sửa lại ví dụ trước / tên trong fucntion reduce() có thể đạt tùy ý
+
+   var courses = [
+      {
+         id: 1,
+         name: 'Javascript',
+         coin: 250
+      },
+      {
+         id: 2,
+         name: 'PHP',
+         coin: 150
+      },
+      {
+         id: 3,
+         name: 'Python',
+         coin: 750
+      },
+      {
+         id: 4,
+         name: 'Java',
+         coin: 0
+      },
+      {
+         id: 5,
+         name: 'Ruby',
+         coin: 333
+      },
+      {
+         id: 6,
+         name: 'React Native',
+         coin: 555
+      },
+      {
+         id: 7,
+         name: 'Python',
+         coin: 999
+      },
+   ];
+
+
+   var i = 0;
+
+   var totalCoin = courses.reduce(function(total, course){
+      i++
+
+      // console.log(i, total); //return 1 0, 2 250, 3 400, 4 1150, 5 1150, 6 1483, 7 2038 (khi có giá trị khởi tạo = 0)
+      //console.log(i, total); //return 1 {id: 1, name: 'Javascript', coin: 250}, 2 '[object Object]150', 3 '[object Object]150750', 4 '[object Object]1507500', 5 '[object Object]1507500333', 6 '[object Object]1507500333555' (khi k có giá trị khởi tạo = 0)
+      //console.log(i, total, course); //return 1 {id: 1, name: 'Javascript', coin: 250} {id: 2, name: 'PHP', coin: 150}, 2 '[object Object]150' {id: 3, name: 'Python', coin: 750}, 3 '[object Object]150750' {id: 4, name: 'Java', coin: 0}, 4 '[object Object]1507500' {id: 5, name: 'Ruby', coin: 333}, 5 '[object Object]1507500333' {id: 6, name: 'React Native', coin: 555}, 6 '[object Object]1507500333555' {id: 7, name: 'Python', coin: 999} (khi k có giá trị khởi tạo = 0)
+      console.log(i, total, course); //return 1 0 {id: 1, name: 'Javascript', coin: 250},2 250 {id: 2, name: 'PHP', coin: 150},3 400 {id: 3, name: 'Python', coin: 750},4 1150 {id: 4, name: 'Java', coin: 0},5 1150 {id: 5, name: 'Ruby', coin: 333},6 1483 {id: 6, name: 'React Native', coin: 555},7 2038 {id: 7, name: 'Python', coin: 999} (khi có giá trị khởi tạo = 0)
+
+      return total + course.coin;
+   }); //initial value / có thể có hoặc không (khi co '}, 0);' ____ khi k co '});')
+
+   // console.log(totalCoin); //return 3037
+
+   //khi k co initial value thi lay phan tu dau tien cua mang lam gia tri khoi tao, va total la gia tri thu 2
+   //lan chay dau tien lay ra 2 phan tu vi vay so lan chay giam di 1
 
 
 
+   //ex - Khi k truyen Giá trị khởi tạo (nếu kq vẫn ra như mong muốn => k cần truyền)
+
+   var numbers = [250, 150, 750, 0, 333, 555, 999];
+
+   var totalCoin2 = numbers.reduce(function(total, number){
+      return total + number;
+   });
+
+   console.log(totalCoin2); //return 3037
+
+
+   //ex - Flat - "Làm phẳng" mảng từ Depth array - "Mảng sâu"
+   depthArray = [1, 2, [3, 4], 5, 6, [7, 8, 9]];
+
+
+   console.log(depthArray); //return (6) [1, 2, Array(2), 5, 6, Array(3)]
+
+   var flatArray = depthArray.reduce(function(flatOutput, depthItem){
+      return flatOutput.concat(depthItem); //noi array
+   }, []); //khoi tao dau tien la array trong
+
+   console.log(flatArray); //return (9) [1, 2, 3, 4, 5, 6, 7, 8, 9]
+
+   //ex - Lấy ra các khóa học đưa vào 1 mảng mới
+   var topics = [
+      {
+         topic: "Front-end",
+         courses: [
+            {
+               id: 1,
+               title: "HTML, CSS"
+            },
+            {
+               id: 2,
+               title: "Javascript"
+            },
+         ]
+      },
+      {
+         topic: "Back-end",
+         courses: [
+            {
+               id: 1,
+               title: "PHP"
+            },
+            {
+               id: 2,
+               title: "NodeJS"
+            },
+         ]
+      },
+   ];
+
+   console.log(topics); //return //(2) [{…}, {…}], 0: {topic: 'Front-end', courses: Array(2)}, 1: {topic: 'Back-end', courses: Array(2)}, length: 2, [[Prototype]]: Array(0)(2) [{…}, {…}], 0: {topic: 'Front-end', courses: Array(2)}, 1: {topic: 'Back-end', courses: Array(2)}, length: 2, [[Prototype]]: Array(0)
+
+   var newCourses = topics.reduce(function(courses, topic){
+      return courses.concat(topic.courses); //noi array
+   }, []);
+
+   console.log(newCourses); //return (4) [{…}, {…}, {…}, {…}], 0: {id: 1, title: 'HTML, CSS'}, 1: {id: 2, title: 'Javascript'}, 2: {id: 1, title: 'PHP'}, 3: {id: 2, title: 'NodeJS'}, length: 4, [[Prototype]]: Array(0)
+
+
+   //ex - chuyen qua html
+   var htmls = newCourses.map(function(course){
+      return `
+         <div>
+            <h2>${course.title}</h2>
+            <p>ID: ${course.id}</p>
+         </div>
+      `
+   });
+
+   //console.log(htmls); //return (4) ['\n      <div>\n         <h2>HTML, CSS</h2>\n         <p>ID: 1</p>\n      </div>\n   ', '\n      <div>\n         <h2>Javascript</h2>\n         <p>ID: 2</p>\n      </div>\n   ', '\n      <div>\n         <h2>PHP</h2>\n         <p>ID: 1</p>\n      </div>\n   ', '\n      <div>\n         <h2>NodeJS</h2>\n         <p>ID: 2</p>\n      </div>\n   ']
+
+   //chuyen qua html thuan
+   console.log(htmls.join(''));
+
+         // <div>
+         //    <h2>HTML, CSS</h2>
+         //    <p>ID: 1</p>
+         // </div>
+      
+         // <div>
+         //    <h2>Javascript</h2>
+         //    <p>ID: 2</p>
+         // </div>
+      
+         // <div>
+         //    <h2>PHP</h2>
+         //    <p>ID: 1</p>
+         // </div>
+      
+         // <div>
+         //    <h2>NodeJS</h2>
+         //    <p>ID: 2</p>
+         // </div>
  */
 
 
-
-
-
-
-
-
-
-
-
+   
