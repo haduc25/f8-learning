@@ -201,72 +201,105 @@
 
 
 
+    //ex - su dung find 
+    var courses = [
+        {
+        id: 1,
+        name: 'Javascript',
+        coin: 250
+        },
+        {
+        id: 2,
+        name: 'PHP',
+        coin: 150
+        },
+        {
+        id: 3,
+        name: 'Python',
+        coin: 750
+        },
+    ];
+
+    var result = courses.find(function(course, index){
+        return course.name === 'Python';
+    });
 
 
+    console.log(result); //return {id: 3, name: 'Python', coin: 750}
 
 
+    //ex - tao ra ham find2
+    Array.prototype.find2 = function(callback){
+        var output = [];
+        var arrayLength = this.length;
+        for (var i = 0; i < arrayLength; i++) {
+            var result = callback(this[i], i);
+            // console.log(result);
+            if(result){
+                output.push(this[i]);
+            }
+        }
+        return output[0];
+    }
 
-
-
-
+    var result2 = courses.find2(function(course, index){
+        return course.name === 'Python';
+    });
+    
+    console.log(result2); //return {id: 3, name: 'Python', coin: 750} => giong find()
 */
 
-//ex - su dung find 
-var courses = [
-    {
-       id: 1,
-       name: 'Javascript',
-       coin: 250
-    },
-    {
-       id: 2,
-       name: 'PHP',
-       coin: 150
-    },
-    {
-       id: 3,
-       name: 'Python',
-       coin: 750
-    },
- ];
 
- var result = courses.find(function(course, index){
-    return course.name === 'Python';
- });
+/** 99 - Empty elements of array? 
+     //ex - Thay doi do dai cua array (arrayLength)
+    var courses = [
+        'Javascript',
+        'PHP'
+    ];
+
+    //khi set array length = 10;
+    courses.length = 10;
+
+    // console.log(courses); //return (2) ['Javascript', 'PHP'] / khi k set array length
+    // console.log(courses); //return (10) ['Javascript', 'PHP', empty × 8] / khi set array length => có 8 pt empty
 
 
-console.log(result); //return {id: 3, name: 'Python', coin: 750}
+    // for (let i = 0; i < courses.length; i++) {
+    //     console.log(courses[i]);  //return Javascript, PHP, (8) undefined
+    // }
 
 
-//ex - tao ra ham find2
-Array.prototype.find2 = function(callback){
-    var output = [];
-    var arrayLength = this.length;
-    for (var i = 0; i < arrayLength; i++) {
-        var result = callback(this[i], i);
-        // console.log(result);
-        if(result){
-            output.push(this[i]);
-        }
+
+    //ex - doi vong lap for => su dung for in
+    for (const index in courses) {
+        // console.log(index); //return 0, 1 / for/in k lặp giá trị empty
+        console.log(courses[index]); //return Javascript, PHP / for/in k lặp giá trị empty
+
     }
-    return output[0];
-}
 
-var result2 = courses.find2(function(course, index){
-    return course.name === 'Python';
- });
- 
- console.log(result2); //return {id: 3, name: 'Python', coin: 750} => giong find()
+    //ex - tạo nhanh độ dài của mảng
+    // var courses2 = new Array(10); //tạo ra độ dài = 10, nếu cho 2 tham số trở lên => thành giá trị mảng như bt
+    // console.log(courses2); //return (10) [empty × 10]
 
+    // var courses3 = new Array(10, 20, 30); //tạo ra độ dài = 10, nếu cho 2 tham số trở lên => thành giá trị mảng như bt
+    // console.log(courses3); //return (3) [10, 20, 30]
 
 
+    //ex - thêm gt vào mảng
+    var courses4 = new Array(10); //tạo ra độ dài = 10, nếu cho 2 tham số trở lên => thành giá trị mảng như bt
+
+    courses4.push('Ha Minh Duc', 'PHP', 'Brain', 'Mistake')
+    console.log(courses4); //return (14) [empty × 10, 'Ha Minh Duc', 'PHP', 'Brain', 'Mistake'] / length = 14 => length vừa thêm = 4, length đã khởi tạo ban đầu = 10
+ */
 
 
 
 
+/** 100 - My forEach() method
+
+  
 
 
-
-
+ */
 
 
