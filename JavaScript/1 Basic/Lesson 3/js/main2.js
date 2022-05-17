@@ -541,56 +541,82 @@
 
 
 
+    
 /** 103 - My every() method
+ 
+    // //ex - Chạy thử every()
+    // //every true/false
+
+    // var courses = [
+    //     {
+    //         name: 'Javascript',
+    //         coin: 550,
+    //         isFinish: true,
+    //     },
+    //     {
+    //         name: 'PHP',
+    //         coin: 980,
+    //         isFinish: true,
+
+    //     },
+    //     {
+    //         name: 'Ruby',
+    //         coin: 840,
+    //         isFinish: true
+    //     }
+    // ];
 
 
+    // var result = courses.every((course, index, array) => {
+    //     //console.log(course); //return {name: 'Javascript', coin: 550, isFinish: true}, {name: 'PHP', coin: 980, isFinish: false}, {name: 'Ruby', coin: 840, isFinish: false}
+    //     return course.isFinish; 
+    // });
+
+    // console.log(result); //return true
 
 
+    //ex - Tạo ra every2()
+
+    Array.prototype.every2 = function(callback){
+        var output = true;
+        for (var index in this) {
+            if(this.hasOwnProperty(index)){
+                var result = callback(this[index], index, this);
+                if(!result){
+                    output = false;
+                    break;
+                }
+            }
+        }
+        return output;
+    }
 
 
+    var courses = [
+        {
+            name: 'Javascript',
+            coin: 550,
+            isFinish: true,
+        },
+        {
+            name: 'PHP',
+            coin: 980,
+            isFinish: true,
+
+        },
+        {
+            name: 'Ruby',
+            coin: 840,
+            isFinish: true
+        }
+    ];
 
 
+    var result = courses.every2((course, index, array) => {
+        //console.log(course); //return {name: 'Javascript', coin: 550, isFinish: true}, {name: 'PHP', coin: 980, isFinish: false}, {name: 'Ruby', coin: 840, isFinish: false}
+        // return course.isFinish; 
+        return course.coin > 500; 
+    });
 
-
-
-
-
-
-
-
-
-
-
+    console.log(result); //return true
  */
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
