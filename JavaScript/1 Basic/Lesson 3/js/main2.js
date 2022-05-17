@@ -297,9 +297,131 @@
 
 /** 100 - My forEach() method
 
-  
+    // //ex - Chạy thử forEach()
+    // var courses = [
+    //     'Javascript',
+    //     'PHP',
+    //     'Ruby'
+    // ];
+
+    // courses.length = 1000; //kt xem có lặp x1000 lần hay k //return 0 'Javascript' (1000) ['Javascript', 'PHP', 'Ruby', empty × 997], 1 'PHP' (1000) ['Javascript', 'PHP', 'Ruby', empty × 997], 2 'Ruby' (1000) ['Javascript', 'PHP', 'Ruby', empty × 997]
+    // //=> k lặp x1000 => chỉ lặp pt thực
+
+    // console.log(courses); //return (1000) ['Javascript', 'PHP', 'Ruby', empty × 997]
+
+    // var output = courses.forEach((courses, index, array)=>{
+    //     console.log(index, courses, array); //return 0 'Javascript' (3) ['Javascript', 'PHP', 'Ruby'], 1 'PHP' (3) ['Javascript', 'PHP', 'Ruby'], 2 'Ruby' (3) ['Javascript', 'PHP', 'Ruby']
+    // });
+
+    // console.log(output); //return undefined => k co return
 
 
+
+    //ex - Tạo ra forEach2()
+    Array.prototype.forEach2 = function(callback){
+        for (var index in this) {
+            // console.log('index: ', index); //return index:  0, index:  1, index:  2, index:  forEach2
+            // //khi tạo = prototype sẽ đc thừa hưởng từ array vì vậy sẽ bị duyệt qua function forEach2  
+            
+            //kt thuộc tính tương tự, gần nhất, su dung function hasOwnProperty()
+            //console.log(index, this.hasOwnProperty(index)); //return 0 true, 1 true, 2 true, forEach2 false
+
+            // console.table({
+            //     'index: ': index,
+            //     'hasOwnProperty: ': this.hasOwnProperty(index)
+            // });
+
+            //kt => true => lap tiep
+            if(this.hasOwnProperty(index)){
+                // console.log(index); //return 0 1 2
+                callback(this[index], index, this); 
+            }
+        }
+    }
+
+
+    var courses = [
+        'Javascript',
+        'PHP',
+        'Ruby'
+    ];
+
+    // courses.length = 1000; //kt xem có lặp x1000 lần hay k //return 0 'Javascript' (1000) ['Javascript', 'PHP', 'Ruby', empty × 997], 1 'PHP' (1000) ['Javascript', 'PHP', 'Ruby', empty × 997], 2 'Ruby' (1000) ['Javascript', 'PHP', 'Ruby', empty × 997]
+    // //=> k lặp x1000 => chỉ lặp pt thực
+
+    console.log(courses); //return 0 Javascript (3) ['Javascript', 'PHP', 'Ruby'], 1 PHP (3) ['Javascript', 'PHP', 'Ruby'], 2 Ruby (3) ['Javascript', 'PHP', 'Ruby']
+
+    var output = courses.forEach2((courses, index, array)=>{
+        console.log(index, courses, array); //return 0 'Javascript' (3) ['Javascript', 'PHP', 'Ruby'], 1 'PHP' (3) ['Javascript', 'PHP', 'Ruby'], 2 'Ruby' (3) ['Javascript', 'PHP', 'Ruby']
+    });
+
+    console.log(output); //return undefined => k co return
+
+
+    //kt array empty
+
+    var courses2 = new Array(1000);
+
+    courses2.push('Hello', 'Welcome');
+
+    courses2.forEach2((course, index, array)=> {
+        console.log(index, course, array); //return 1000 Hello (1002) [empty × 1000, 'Hello', 'Welcome'], 1001 Welcome (1002) [empty × 1000, 'Hello', 'Welcome']
+    });
+
+
+    //sử dụng để kiểm tra các function trong Array
+    console.log(Array.prototype); //return [forEach2: ƒ, constructor: ƒ, concat: ƒ, copyWithin: ƒ, fill: ƒ, …]
+
+    //sử dụng để kiểm tra các function trong Number
+    console.log(Number.prototype); //return Number {0, constructor: ƒ, toExponential: ƒ, toFixed: ƒ, toPrecision: ƒ, …}
+
+    //sử dụng để kiểm tra các function trong String
+    console.log(String.prototype); //return String {'', constructor: ƒ, anchor: ƒ, big: ƒ, blink: ƒ, …}
  */
+
+
+
+    
+/** 101 - My filter() method 
+
+
+
+
+
+
+
+
+
+
+
+
+
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
