@@ -381,22 +381,114 @@
 
 
 
-    
+
 /** 101 - My filter() method 
 
+    //ex - Chạy thử filter()
+
+    var courses = [
+        {
+            name: 'Javascript',
+            coin: 550
+        },
+        {
+            name: 'PHP',
+            coin: 980
+        },
+        {
+            name: 'Ruby',
+            coin: 840
+        }
+    ];
+
+    courses.length = 1000;
+
+    var filterCourses = courses.filter((course, index, array)=>{
+        //console.log(index, course, array); //return 0 {name: 'Javascript', coin: 550} (3) [{…}, {…}, {…}], 1 {name: 'PHP', coin: 980} (3) [{…}, {…}, {…}], 2 {name: 'Ruby', coin: 840} (3) [{…}, {…}, {…}]
+        //console.log(course); //return {name: 'Javascript', coin: 550}, {name: 'PHP', coin: 980}, {name: 'Ruby', coin: 840}
+        return course.coin > 600;
+    });
+
+
+    console.log(filterCourses); //return [] => khi k return / khi co return => (2) [{…}, {…}], 0: {name: 'PHP', coin: 980}, 1: {name: 'Ruby', coin: 840}, length: 2, [[Prototype]]: Array(0)
 
 
 
 
 
+    //ex - Tạo ra filter2()
+
+    Array.prototype.filter2 = function(callback){
+        var output = [];
+        for (var index in this) {
+            if(this.hasOwnProperty(index)){
+            var result = callback(this[index], index, this);
+            
+            if(result){
+                output.push(this[index]);
+            }
+            }
+        }
+        return output;
+    }
 
 
+    var courses2 = [
+        {
+            name: 'Javascript',
+            coin: 550
+        },
+        {
+            name: 'PHP',
+            coin: 980
+        },
+        {
+            name: 'Ruby',
+            coin: 840
+        }
+    ];
+
+    // courses.length = 1000;
+
+    var filterCourses2 = courses2.filter2((course, index, array)=>{
+        //console.log(index, course, array); //return 0 {name: 'Javascript', coin: 550} (3) [{…}, {…}, {…}], 1 {name: 'PHP', coin: 980} (3) [{…}, {…}, {…}], 2 {name: 'Ruby', coin: 840} (3) [{…}, {…}, {…}]
+        // console.log(course); //return {name: 'Javascript', coin: 550}, {name: 'PHP', coin: 980}, {name: 'Ruby', coin: 840}
+        return course.coin > 600;
+    });
 
 
-
-
-
+    console.log(filterCourses2); //return [] => khi k return / khi co return => (2) [{…}, {…}], 0: {name: 'PHP', coin: 980}, 1: {name: 'Ruby', coin: 840}, length: 2, [[Prototype]]: Array(0)
 */
+
+
+/** 102 - My some() method
+
+
+
+
+
+
+
+
+
+
+
+
+
+ */
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
