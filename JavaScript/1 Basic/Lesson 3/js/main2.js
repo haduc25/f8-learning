@@ -463,6 +463,91 @@
 
 /** 102 - My some() method
 
+    //ex - Chạy thử some()
+    //some true/false
+
+    // var courses = [
+    //     {
+    //         name: 'Javascript',
+    //         coin: 550,
+    //         isFinish: true,
+    //     },
+    //     {
+    //         name: 'PHP',
+    //         coin: 980,
+    //         isFinish: false,
+
+    //     },
+    //     {
+    //         name: 'Ruby',
+    //         coin: 840,
+    //         isFinish: false
+    //     }
+    // ];
+
+
+    // var result = courses.some((course, index, array) => {
+    //     //console.log(course); //return {name: 'Javascript', coin: 550, isFinish: true}, {name: 'PHP', coin: 980, isFinish: false}, {name: 'Ruby', coin: 840, isFinish: false}
+    //     return course.isFinish; 
+    // });
+
+    // console.log(result); //return true
+
+
+    //ex - Tạo ra some2()
+
+    Array.prototype.some2 = function(callback){
+        var output = false;
+        for (var index in this) {
+            if(this.hasOwnProperty(index)){
+                var result = callback(this[index], index, this);
+                if(result){
+                    output = true;
+                    break;
+                }
+            }
+        }
+        return output;
+    }
+
+
+    var courses = [
+        {
+            name: 'Javascript',
+            coin: 550,
+            isFinish: true,
+        },
+        {
+            name: 'PHP',
+            coin: 980,
+            isFinish: false,
+
+        },
+        {
+            name: 'Ruby',
+            coin: 840,
+            isFinish: false
+        }
+    ];
+
+
+    var result = courses.some2((course, index, array) => {
+        //console.log(course); //return {name: 'Javascript', coin: 550, isFinish: true}, {name: 'PHP', coin: 980, isFinish: false}, {name: 'Ruby', coin: 840, isFinish: false}
+        return course.isFinish; 
+    });
+
+    console.log(result); //return true
+ */
+
+
+
+/** 103 - My every() method
+
+
+
+
+
+
 
 
 
@@ -477,15 +562,6 @@
 
 
  */
-
-
-
-
-
-
-
-
-
 
 
 
