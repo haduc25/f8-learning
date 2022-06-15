@@ -132,10 +132,62 @@
      var firstProductElement = document.querySelector('.product:first-child')
      var buttonElements = document.getElementsByTagName('button')
 
+     //136. Get element methods - 2
+
+    //lấy dl 'li' trong 'box-1'
+    var listItemNodes = document.querySelectorAll('.box-1 li');
+
+
+    console.log(listItemNodes); 
+
+    //return 
+    // NodeList(2) [li, li]
+    // 0: li
+    // 1: li
+    // length: 2
+
+
+    //Công việc 1: Sử dụng đến 'boxNode'
+    //Công việc 2: Sử dụng đến 'li' elements là con của '.box-1'
+
+
+    var boxNode = document.querySelector('.box-1');
+
+    console.log(boxNode);
+    //return
+    //<div class="box-1">
+    //       <ul>
+    //          <li>Javascript 1 </li>
+    //          <li>PHP 1</li>
+    //       </ul>
+    // </div>
+
+    //đứng từ 'boxNode' truy cập vào các thẻ con 'li'
+
+    //sử dụng querySelectorAll()
+    console.log(boxNode.querySelectorAll('li')); //return NodeList(2) [li, li]
+    console.log(boxNode.querySelectorAll('p')); //return NodeList [p]
+
+    //sử dụng querySelector()
+    console.log(boxNode.querySelector('p')); //return <p>Testing My name's MizGDuc</p>
+
+    //sử dụng getElementsByTagName()
+    console.log(boxNode.getElementsByTagName('li')); //return HTMLCollection(2) [li, li]
+    console.log(boxNode.getElementsByTagName('p')); //return HTMLCollection [p]
+
     */
 
 
 
 
 
-    
+
+
+
+
+
+
+
+
+
+
