@@ -5,10 +5,31 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lesson 3 (Chương 11 - 15)</title>
+    <style>
+      div > a > img{
+         display: block;
+         margin: 0 auto;
+      }
+
+      div > p{
+        font-style: italic;
+      }
+
+      .border-box{
+         border: 1px solid #000;
+         padding: 20px 0;
+      }
+
+      img:hover
+      {
+         opacity: .7;
+         cursor: pointer;
+      }
+    </style>
 </head>
 <body>
 
-    <h1 style="text-align: center;">Javascript Basic Learning...</h1>
+    <h1 style="text-align: center;" id="heading" class="headingClass">Javascript Basic Learning...</h1>
 
     <!-- chuong 11 -->
     <!-- <script src="./js/main.js"></script> -->
@@ -16,24 +37,62 @@
     
     <h2>Bai 93 - Testing HTMLS</h2>
     <div>
-        <h2>HTML, CSS</h2>
+        <h2 class="course">HTML, CSS</h2>
         <p>ID: 1</p>
      </div>
   
      <div>
-        <h2>Javascript</h2>
+        <h2 class="course">Javascript</h2>
         <p>ID: 2</p>
      </div>
   
      <div>
-        <h2>PHP</h2>
-        <p>ID: 1</p>
+        <h2 class="course">PHP</h2>
+        <p>ID: 3</p>
      </div>
   
      <div>
-        <h2>NodeJS</h2>
-        <p>ID: 2</p>
+        <h2 class="course">NodeJS</h2>
+        <p>ID: 4</p>
      </div>
+
+     <!-- Example -->
+     <div class="box">
+      <h3 class="heading-2">Heading 2</h3>
+     </div>
+
+     <!-- Example2 -->
+     <div class="box2">
+      <h3 class="heading-3">Heading 3</h3>
+      <h3 class="heading-3">Heading 4</h3>
+      <h3 class="heading-3">Heading 5</h3>
+      <h3 class="heading-3">Heading 6</h3>
+      <h3 class="heading-3">Heading 7</h3>
+      <h3 class="heading-3">Heading 8</h3>
+      <h3 class="heading-3">Heading 9</h3>
+      <h3 class="heading-3">Heading 10</h3>
+     </div>
+
+     
+     <!-- Example3 -->
+     <form action="" id="form-1"></form>
+     <form action="" id="form-2"></form>
+     <form action="" id="form-3"></form>
+
+     <form action="" id="formZ"></form>
+
+     <a href="https://www.youtube.com/25sdev" name="youtube" title="youtube when hover" target="_blank">My Youtube</a>
+
+     <br>
+     <br>
+     <br>
+     <div class="border-box">
+      <a href="../../img/backgound.jpg" target="_blank">
+         <img src="../../img/backgound.jpg" alt="background" width=1000>
+      </a>
+      <p style="text-align: center;">Background Image</p>
+     </div>
+
 
     <!-- chuong 12 -->
     <!-- <script src="./js/main2.js"></script> -->
