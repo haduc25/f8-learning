@@ -191,19 +191,133 @@
    console.log(Element); //return <h1 style="text-align: center;" id="heading" class="headingClass">Javascript Basic Learning...</h1>
 
 
-   //140. Attribute node & Text node
+   //140. Attribute node & Text node, 141. DOM attribute
+
+   //h4
+    var  h4Element = document.querySelector('h4');
+    console.log(h4Element); //return <h4>Example 5: DOM attribute - MizGDuc</h4>
+
+    //thêm attribute hợp lệ
+    h4Element.title = "That's title added by javascript";
+
+    console.log(h4Element.title); //return That's title added by javascript
+
+    //đối với 'class' thì sẽ là 'className'
+    h4Element.className = "class-by-js";
+
+    console.log(h4Element.className); //return class-by-js
+
+
+    //<a>
+    var aElement = document.querySelector('a');
+    console.log(aElement); //return <a href="https://www.youtube.com/25sdev" name="youtube" title="youtube when hover" target="_blank">My Youtube</a>
+
+    //thêm href, vì đã có nên nó sẽ replace
+    aElement.href = "That href will be replace by js!";
+
+    console.log(aElement.href); 
+    //return 
+    //<a href="That href will be replace by js!" name="youtube" title="youtube when hover" target="_blank">My Youtube</a>
+    //http://127.0.0.1:5500/JavaScript/1%20Basic/Lesson%203/That%20href%20will%20be%20replace%20by%20js!
+
+    ////thêm attribute k hợp lệ thành hợp lệ
+    //hợp lệ
+    //thẻ h1..., h6 => attribute = title, id, class...
+    //thẻ a => attribute = href, target,...
+
+    //k hợp lệ
+    //thẻ h1..., h6 => attribute có href
+    //thẻ custom name
+
+    //setAttribute
+
+    //h4
+    var  h4Element2 = document.querySelector('h4');
+    console.log(h4Element2); //return <h4 title="That's title added by javascript" class="class-by-js">Example 5: DOM attribute - MizGDuc</h4>
+
+    // //thêm attribute k hợp lệ
+    h4Element2.setAttribute('href', 'https://www.youtube.com/25sdev');
+
+    h4Element2.setAttribute('data', 'Its my data');
+
+    h4Element2.setAttribute('lover', 'BMH <3')
+
+    //return
+    //<h4 title="That's title added by javascript" class="class-by-js" href="https://www.youtube.com/25sdev" 
+    //data="Its my data" lover="BMH <3">Example 5: DOM attribute - MizGDuc</h4>
+
+
+    //getAttribute
+    h4Element2.getAttribute('class');
+    console.log(h4Element2.getAttribute('class')); //return class-by-js
+
+
+    //thực hiện set & get 
+
+    var SetGetAttributeElement = document.querySelector('h1');
+    console.log(SetGetAttributeElement); //return <h1 style="text-align: center;" id="heading" class="headingClass">Javascript Basic Learning...</h1>
+
+    //set hợp lệ
+    SetGetAttributeElement.title = 'Title from js.';
+
+    //get hợp lệ
+    console.log(SetGetAttributeElement.title); //return Title from js.
+
+
+    //setAttribute
+    SetGetAttributeElement.setAttribute('luv-you', 'meow meow <3')
+
+    //getAttribute
+    console.log(SetGetAttributeElement.getAttribute('luv-you')); //return meow meow <3
+
+
+    //bài tập set class đã có trong css vào element = js
+    BTsetClassElement = document.querySelector('h5');
+    console.log(BTsetClassElement); //return <h5>MizGDuc - Testing class it's will become red color!</h5>
+
+    BTsetClassElement.className = "red-color";
+
+    console.log(BTsetClassElement.className); //return red-color (color changed -> done), nếu có 1 class trước -> bị overwrite (ghi đè)
+
+
+    //142. Thực hành với DOM attribute
+
+    // Thực hành với DOM attribute
+    // Cho sẵn file HTML, các bạn hãy thực hiện các yêu cầu sau:
+
+    // Thêm thuộc tính title có giá trị "F8 - Học lập trình để đi làm" cho thẻ h1.
+    // Thêm thuộc tính data-title có giá trị "F8 - Học lập trình để đi làm" cho thẻ h1.
+    // Thêm thuộc tính href có giá trị "https://fullstack.edu.vn/" cho thẻ a.
+    // Thêm thuộc tính target có giá trị "_blank" cho thẻ a.
+
+
+
+
+
+    //index.html
+    // <!DOCTYPE html>
+    // <html>
+    // <head>
+    //     <title>Document</title>
+    // </head>
+    // <body>
+    //     <h1>F8 - Học lập trình để đi làm</h1>
+    //     <p>Truy cập <a>fullstack.edu.vn</a> để học lập trình miễn phí các bạn nhé!!!</p>
+    // </body>
+    // </html>
+
+    //main.js
+    // var h1Element = document.querySelector('h1');
+    // var aElement = document.querySelector('a');
+
+    // h1Element.title = "F8 - Học lập trình để đi làm";
+
+    // h1Element.setAttribute('data-title', 'F8 - Học lập trình để đi làm')
+
+    // aElement.href = "https://fullstack.edu.vn/";
+    // aElement.target = "_blank";
 
     */
-
-
-
-
-
-
-
-
-
-
 
 
 
