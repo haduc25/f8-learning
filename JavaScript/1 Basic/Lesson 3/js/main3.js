@@ -175,7 +175,26 @@
     console.log(boxNode.getElementsByTagName('li')); //return HTMLCollection(2) [li, li]
     console.log(boxNode.getElementsByTagName('p')); //return HTMLCollection [p]
 
+    //139. Get element methods - 3
+    
+    // 1. getElementById
+    // 2. getElementsByClassName
+    // 3. getElementsByTagName
+    // 4. querySelector
+    // 5. querySelectorAll
+
+    //chỉ có 1, 4 (getElementById, querySelector) lấy ra 1 phần tử, còn lại lấy ra pt giống mảng, cần truy vấn = index, array[index]
+
+   //ex - get a element (h1, h2,... h6, p, ...) & and save to Element
+
+   var Element = document.getElementsByTagName('h1')[0];
+   console.log(Element); //return <h1 style="text-align: center;" id="heading" class="headingClass">Javascript Basic Learning...</h1>
+
+
+   //140. Attribute node & Text node
+
     */
+
 
 
 
