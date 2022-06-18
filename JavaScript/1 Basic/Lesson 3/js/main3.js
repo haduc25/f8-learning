@@ -397,6 +397,7 @@
     //Hello that new text from js
 
 
+
     //144. Thực hành sử dụng InnerText
 
 
@@ -418,9 +419,121 @@
     // var h1Element = document.querySelector('h1')
 
     // h1Element.innerText = 'F8 - Học lập trình để đi làm';
+
+
+        //145. InnerHTML vs OuterHTML Property
+
+    // innerHTML, outerHTML
+    
+
+    var ex7_Box = document.querySelector('.ex7-box');
+
+
+    //test innerText
+    // ex7_Box.innerText = '<h1>Its h1 card from js</h1>'
+
+    // console.log(ex7_Box); //return <div class="ex7-box"> </div>
+    // console.log(ex7_Box.innerText); //return <h1>Its h1 card from js</h1>
+
+    // innerHTML: geter, seter Element replace, replace 1 thẻ đc chỉ định
+    // outerHTML: replace Element, replace element toàn bộ element đc chỉ định
+
+    //innerHTML
+    // ex7_Box.innerHTML = '<h1>Its h1 card from js</h1>'; //return Its h1 card from js
+
+    // ex7_Box.innerHTML = 'Its h1 card from js'; //return Its h1 card from js
+    
+    ex7_Box.innerHTML = '<h1 title= "title of h1 from js">Its h1 card from js</h1>'; //return Its h1 card from js   
+
+    console.log(ex7_Box.innerHTML); //return <h1 title="title of h1 from js">Its h1 card from js</h1>
+
+
+    //outerHTML
+
+    // console.log(ex7_Box.outerHTML); //return <div class="ex7-box"><h1 title="title of h1 from js">Its h1 card from js</h1></div>
+
+    ex7_Box.outerHTML = '<span>hello</span>';
+
+    console.log(ex7_Box.outerHTML); //return <div class="ex7-box"><h1 title="title of h1 from js">Its h1 card from js</h1></div> / in ra dl cũ, vì khi repace ở trên trong html đã thay đổi
+
+
+
+    
+    //146. Thực hành sử dụng InnerHTML #1
+
+    //Các bạn hãy viết hàm render nhận vào 1 tham số là html, hàm render sẽ có nhiệm vụ chèn giá trị của html vào trong thẻ ul đã cho trước.
+
+    //index.html
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Document</title>        
+    </head>
+    <body>
+        <ul>
+            
+        </ul>
+    </body>
+    </html>
+
+
+
+    //main.js
+    function render(html) {
+        var ulElement = document.querySelector('ul');
+    
+        ulElement.innerHTML = html;
+    }
+    
+    // render(`
+    //     <li>Khóa học HTML</li>
+    //     <li>Khóa học JS</li>
+    //     <li>Khóa học PHP</li>
+    // `)
+
+
+
+
+    //147. Thực hành sử dụng InnerHTML #2
+    
+    Các bạn hãy viết hàm render có 1 tham số courses, hàm render sẽ thêm các item của mảng courses để tạo thành 1 danh sách các khóa học trên giao diện.
+
+    Ví dụ: Với mảng var courses = ['ReactJS', 'AngularJS', 'VueJS'] sẽ thu được kết quả:
+
+    ReactJS
+    AngularJS
+    VueJS
+
+    //index.html
+    <!DOCTYPE html>
+    <html>
+    <head>
+        <title>Document</title>
+    </head>
+        <body>
+            <ul class="courses-list">
+
+            </ul>
+        </body>
+    </html>
+
+
+    //main.js
+    var courses = ['HTML & CSS', 'Javascript', 'PHP', 'Java']
+
+    function render(courses) {
+        var ulElement = document.querySelector('.courses-list');
+        for(var value of courses){
+            ulElement.innerHTML += `<li> ${value} </li>`;
+        }
+    }
+
+
+    // render(courses)
+
+
+
     */
 
-    //145. InnerHTML vs OuterHTML Property
 
-
-
+    //148. Node properties
