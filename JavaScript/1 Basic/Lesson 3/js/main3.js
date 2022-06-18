@@ -317,10 +317,110 @@
     // aElement.href = "https://fullstack.edu.vn/";
     // aElement.target = "_blank";
 
+
+        //143. InnerText vs textContent Property
+    //Text
+
+    //Để sửa đổi, replace, lấy ra text -> sử dụng innerText, textContent
+    h2Ex6Element = document.querySelector('.ex6');
+
+    //geter
+    //seter
+
+    //get text from html to js
+    console.log(h2Ex6Element.innerText); //return Hi! My name's MizGDuc
+    console.log(h2Ex6Element.textContent); //return Hi! My name's MizGDuc
+﻿
+    //set text from js to html
+    h2Ex6Element.innerText = "That text changed by js";
+    h2Ex6Element.textContent = "That text changed by js";
+
+    console.log(h2Ex6Element.innerText); //return That text changed by js
+    console.log(h2Ex6Element.textContent); //return Hi! My name's MizGDuc
+
+
+    //innerText: Lấy ra text hiển thị trên trình duyệt, khi dùng replace thay thế text thì khoảng trắng sẽ thay thế -> <br>
+
+    //textContent: Lấy ra text trong source code, khi dùng replace thay thế text thì khoảng trắng sẽ bị xóa -> k bị chuyển qua <br>
+
+    //ex Khác nhau innerText & textContent
+    var ex6DifferentBetween_innerText_textContent = document.querySelector('.ex6-innerText-textContent');
+
+    console.log(ex6DifferentBetween_innerText_textContent.innerText); //return My name's MizGDuc
+    console.log(ex6DifferentBetween_innerText_textContent.textContent);  //bỏ qua các thẻ nhưng giữ nguyên khoảng trắng giống trong html
+    // //return
+
+    // My name's
+    // MizGDuc
+
+    
+    //    .example-box-6{
+    //       width: 100px;
+    //       height: 100px;
+    //    }
+    
+
+    
+    //    alert('hello guys, love u <3 !');
+    
+
+    //khi thêm, replace text
+    // ex6DifferentBetween_innerText_textContent.innerHTML = '<i>This is a Card ! </i>'; //thêm = innerText => html nhận thẻ i
+    // ex6DifferentBetween_innerText_textContent.textContent = '<i>This is a Card ! </i>'; //thêm = textContent => html k nhận thẻ i tự động chuyển qua text, 
+    //dấu <> => &lt;&gt: 
+    
+    
+    ex6DifferentBetween_innerText_textContent.innerHTML = `
+    
+    
+    Hello that new text from js
+
+
+    
+    `;
+    
+    ex6DifferentBetween_innerText_textContent.textContent = `
+    
+    
+    Hello that new text from js
+
+
+    
+    `;
+
+
+
+    console.log(ex6DifferentBetween_innerText_textContent);
+    //return 
+    
+    
+    //Hello that new text from js
+
+
+    //144. Thực hành sử dụng InnerText
+
+
+    //Các bạn hãy thay đổi nội dung của thẻ h1 thành 'F8 - Học lập trình để đi làm.'
+
+
+    // //index.html
+    // <!DOCTYPE html>
+    // <html>
+    // <head>
+    //     <title>Document</title>
+    // </head>
+    // <body>
+    //     <h1 class="heading">F8</h1>
+    // </body>
+    // </html>
+
+    // //main.js
+    // var h1Element = document.querySelector('h1')
+
+    // h1Element.innerText = 'F8 - Học lập trình để đi làm';
     */
 
-
-
+    //145. InnerHTML vs OuterHTML Property
 
 
 
