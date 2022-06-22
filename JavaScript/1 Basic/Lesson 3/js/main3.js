@@ -671,9 +671,172 @@
     // divElement.style.backgroundColor = '#f00';
     // pElement.style.color = '#f05123';
 
+
+        //152. ClassList Property, 153. Ôn tập ClassList #1, 154. Ôn tập ClassList #2, 155. Thực hành sử dụng ClassList #1, 156. Thực hành sử dụng ClassList #2
+
+    //add / thêm class, có thể thêm nhiều class
+    //contains / kiểm tra class có tồn tại hay k, trả về true, false
+    //remove / xóa class
+    //toggle / nếu class tồn tại => xóa class , nếu k tồn tại => thêm class
+
+
+    //ex10-box
+    var ex10_Box = document.querySelector('.ex10-box');
+
+    // console.log(ex10_Box);
+
+    console.log(ex10_Box.classList); //return DOMTokenList ['ex10-box', value: 'ex10-box']
+
+    //length
+    console.log(ex10_Box.classList.length); //return 1
+
+    //truy xuất phần tử qua index
+    console.log(ex10_Box.classList[0]); //return ex10-box
+
+    //truy xuất phần tử qua value / trả về string trong class của Element
+    console.log(ex10_Box.classList.value); //return ex10-box
+
+
+    //Prototype
+
+
+    ///add
+    ex10_Box.classList.add('red-color') //đã thêm class red-color vào thẻ div
+
+    //add nhiều class
+    // ex10_Box.classList.add('red-color', 'blue-color', 'yellow-color')
+
+    ///contains
+    console.log(ex10_Box.classList.contains('red-color')); //return true
+    console.log(ex10_Box.classList.contains('red-color2')); //return false
+
+
+    //remove
+    ex10_Box.classList.remove('red-color') //đã thêm class red-color vào thẻ div
+
+    //kiem tra xem remove hay chua
+    console.log(ex10_Box.classList.contains('red-color')); //return false => da remove
+
+    //remove + setTimeout
+    //them blue -> sau 3s remove
+    // ex10_Box.classList.add('blue-color')
+    // setTimeout(() => {
+    //     //sau 3s remove blue-color
+    //     ex10_Box.classList.remove('blue-color')
+    // }, 3000);
+
+
+    //toggle
+
+    //setTimeout
+    // setTimeout(() => {
+    //     ex10_Box.classList.toggle('blue-color')
+    // }, 3000);
+
+
+    //setInterval
+    //sau 1s -> neu co 'blue-color' -> xoa, neu k co -> them blue-color
+    setInterval(() => {
+        ex10_Box.classList.toggle('blue-color')
+    }, 1000);
+
+
+
+
+    //  Name	        Description
+
+    // add()	        Adds one or more tokens to the list
+    // contains()	    Returns true if the list contains a class
+    // entries()	    Returns an Iterator with key/value pairs from the list
+    // forEach()	    Executes a callback function for each token in the list
+    // item()	        Returns the token at a specified index
+    // keys()	        Returns an Iterator with the keys in the list
+    // length	        Returns the number of tokens in the list
+    // remove()	        Removes one or more tokens from the list
+    // replace()	    Replaces a token in the list
+    // supports()	    Returns true if a token is one of an attribute's supported tokens
+    // toggle()	        Toggles between tokens in the list
+    // value	        Returns the token list as a string
+    // values()	        Returns an Iterator with the values in the list
+
+
+    //lassList chứa danh sách các class của element đó.
+    //Phương thức toggle dùng để thêm class được chỉ định vào element nếu class đó chưa xuất hiện và xóa bỏ class đó nếu đã xuất hiện.
+    //Đối số truyền vào là chuỗi thể hiện tên class được chỉ định nhé.
+
+
+    //155. Thực hành sử dụng ClassList #1
+
+    // Các bạn hãy thực hiện các yêu cầu dưới đây:
+
+    // Thêm class title vào thẻ h1
+    // Thay thế class sub-title ở thẻ p bằng class content
+    // Note: Hãy sử dụng kiến thức học được ở bài ClassList Property, không được sử dụng thuộc tính className nhé.
+
+    //index.html
+    // <!DOCTYPE html>
+    // <html>
+    // <head>
+    //     <title>Document</title>
+    // </head>
+    // <body>
+    //     <h1>Title</h1>
+    //     <p class="sub-title">Content</p>
+    // </body>
+    // </html>
+
+
+    //main.js
+    // var h1Element = document.querySelector('h1');
+    // var pElement = document.querySelector('p');
+    
+    // h1Element.classList.add('title');
+    // pElement.classList.replace('sub-title', 'content')
+
+
+    //156. Thực hành sử dụng ClassList #2
+    
+    // Cho trước file HTML có các thẻ div, các bạn hãy thêm class box vào các thẻ div này nhé.
+
+    // Gợi ý: Bạn có thể sử dụng forEach lặp qua các phần tử div, nhưng trước hết các bạn phải lấy được danh sách các phần tử div ra nhé.
+    
+    // Note: Hãy sử dụng kiến thức học được ở bài ClassList Property, không được sử dụng thuộc tính className nhé.
+    
+    // //index.html
+    // <!DOCTYPE html>
+    // <html>
+    // <head>
+    //     <title>Document</title>
+    // </head>
+    // <body>
+    //     <div>Box</div>
+    //     <div>Box</div>
+    //     <div>Box</div>
+    //     <div>Box</div>
+    //     <div>Box</div>
+    //     <div>Box</div>
+    //     <div>Box</div>
+    //     <div>Box</div>
+    //     <div>Box</div>
+    //     <div>Box</div>
+    // </body>
+    // </html>
+
+
+    // //main.js
+    // var divElement = document.querySelectorAll('div');
+    // divElement.forEach((callback)=>{
+    //     callback.classList.add('box')
+    // })
+
     */
 
-    //152. ClassList Property
+    //157. DOM events
+
+
+
+
+
 
 
 
