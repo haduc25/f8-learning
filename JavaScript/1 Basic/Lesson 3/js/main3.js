@@ -603,11 +603,78 @@
     
     //150. DOM CSS
 
-    */
-
-
-
-
-
 
     
+    var ex9_Box = document.querySelector('.ex9-box');
+    console.log(ex9_Box);
+
+    //return
+    // <div class="ex9-box">
+    //     <h2>Example 9: DOM CSS</h2>
+    // </div>
+
+    //lấy ra CSS
+    console.log(ex9_Box.style);
+    
+    //return
+    //CSSStyleDeclaration {accentColor: '', additiveSymbols: '', alignContent: '', alignItems: '', alignSelf: '', …}
+
+    //set CSS bằng JS
+    // ex9_Box.style.width = '300px';
+    // ex9_Box.style.height = '150px';
+    // ex9_Box.style.backgroundColor = 'yellow';
+
+    //set CSS bằng JS - Sử dụng Object
+
+    //assign(): sử dụng để gán, có thể nhận nhiều đối số
+    Object.assign(ex9_Box.style, {
+        width: '300px',
+        height: '150px',
+        backgroundColor: 'lightblue'
+    });
+
+    //get CSS bằng JS - chỉ có thể get ra css tồn tại
+    console.log(ex9_Box.style.width); //return 300px
+    console.log(ex9_Box.style.height); //return 150px
+    console.log(ex9_Box.style.backgroundColor); //return lightblue
+    console.log(ex9_Box.style.opacity); //return => rỗng
+
+
+    //151. Thực hành sử dụng DOM CSS
+
+    //Các bạn hãy thay đổi màu nền của thẻ div có class là .red thành màu #f00 và màu chữ của thẻ p thành màu #f05123.
+
+    //index.html
+    // <!DOCTYPE html>
+    // <html>
+    // <head>
+    //     <title>Document</title>
+    //     <style>
+    //         div {
+    //             width: 100px;
+    //             height: 100px;
+    //             background-color: #000;
+    //             color: #fff;
+    //         }
+    //     </style>
+    // </head>
+    // <body>
+    //     <div class="red">Đổi màu thẻ div này thành màu #f00</div>
+    //     <p>F8 - Học lập trình để đi làm</p>
+    // </body>
+    // </html>
+
+    //main.js
+    // var divElement = document.querySelector('.red');
+    // var pElement = document.querySelector('p');
+
+    // divElement.style.backgroundColor = '#f00';
+    // pElement.style.color = '#f05123';
+
+    */
+
+    //152. ClassList Property
+
+
+
+
