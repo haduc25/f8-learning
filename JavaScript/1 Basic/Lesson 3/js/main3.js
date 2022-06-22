@@ -533,7 +533,81 @@
 
 
 
+
+    //148. Node properties, 149. Ôn tập các thuộc tính của Node
+
+    var ex8_Box = document.querySelector('.ex8-box');
+    // console.log(ex8_Box); //div.ex8-box
+    console.log([ex8_Box]); //[div.ex8-box]
+
+    //lấy ra attributes
+    console.log([ex8_Box.attributes]); //[NamedNodeMap]
+
+    //lấy ra childNodes
+    console.log([ex8_Box.childNodes]); //[NodeList(3)]
+
+    //lấy ra children
+    console.log([ex8_Box.children]); //[HTMLCollection(1)]
+
+    //lấy ra classList
+    console.log([ex8_Box.classList]); //[DOMTokenList(1)]
+
+    //lấy ra className
+    console.log([ex8_Box.className]); //['ex8-box']
+
+    //lấy ra clientHeight
+    console.log([ex8_Box.clientHeight]); //[27]
+
+    //lấy ra clientWidth
+    console.log([ex8_Box.clientWidth]); //[947]
+
+    //lấy ra inert / k rõ là gì...
+    console.log([ex8_Box.inert = true]); //[true]
+
+    //lấy ra innerHTML
+    console.log([ex8_Box.innerHTML]); //['\n      <h2>Example 8: Node properties</h2>\n   ']
+
+    //lấy ra innerText
+    console.log([ex8_Box.innerText]); //['Example 8: Node properties']
+
+    //lấy ra outerHTML
+    console.log([ex8_Box.outerHTML]); //['<div class="ex8-box">\n      <h2>Example 8: Node properties</h2>\n   </div>']
+
+    //lấy ra outerText
+    console.log([ex8_Box.outerText]); //['Example 8: Node properties']
+
+    //lấy ra isContentEditable / cho phép chỉnh sửa giống thẻ input
+    console.log([ex8_Box.isContentEditable = true]); //[true]
+
+    //lấy ra baseURI
+    console.log([ex8_Box.baseURI]); //['http://127.0.0.1:5500/JavaScript/1%20Basic/Lesson%203/index.html']
+
+    
+    //lấy ra draggable /  kéo, thả
+    console.log([ex8_Box.draggable = true]); //[true]
+    
+    //lấy ra hidden /  ẩn hiển thị
+    // console.log([ex8_Box.hidden = true]); //[true]
+    
+    //childElementCount /  số pt con
+    console.log([ex8_Box.childElementCount]); //[1]
+
+
+    // clientHeight: Chiều cao của element.
+
+    // clientWidth: Chiều rộng của element.
+    
+
+
+
+    
+    //150. DOM CSS
+
     */
 
 
-    //148. Node properties
+
+
+
+
+    
