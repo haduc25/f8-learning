@@ -829,15 +829,88 @@
     //     callback.classList.add('box')
     // })
 
+
+        //157. DOM events
+    //more events: https://www.w3schools.com/jsref/dom_obj_event.asp
+
+    //1. Attribute events
+    //2. Assign event using the Element node
+
+    // //lay ra 1 doi tuong
+    // var h2Ex11Element = document.querySelector('.ex11');
+
+    // // console.log(h2Ex11Element);
+
+    // h2Ex11Element.onclick = function(){
+    //     // console.log(this);
+    //     console.log(Math.random());
+    // }
+
+    //lay ra nhieu doi tuong
+    // var h2Ex11Element = document.querySelector('.ex11');
+    var h2Ex11Element = document.querySelectorAll('.ex11');
+
+    // console.log(h2Ex11Element);
+
+    // h2Ex11Element.onclick = function(e){
+    //     // console.log(this);
+    //     // var h2Ex11Element = document.querySelector('.ex11'); / khi su dung `querySelector`
+    //     // console.log(e); //return PointerEvent {isTrusted: true, pointerId: 1, width: 1, height: 1, pressure: 0, …} 
+    //     // console.log(e.target); //return <span>Example 11: DOM events => [01] / Assign event using the Element node</span>
+
+    // }
+
+
+    for (var i = 0; i < h2Ex11Element.length; i++) {
+        // console.log(h2Ex11Element[i]);     
+        h2Ex11Element[i].onclick =  function(e){
+            console.log(e.target);
+            // console.log(h2Ex11Element[i]); return underfined hiện tại i = 3 / mà trong h2Ex11Element chỉ đến 2
+            // console.log(i);
+        }   
+    }
+
+
+    //158. Ôn tập DOM Events
+    //Khi click vào button sẽ in ra cửa sổ console chuỗi "clicked!"
+
+
+    //159. Thực hành sử dụng DOM Events
+    //Cho trước thẻ button, các bạn hãy viết code JS sao cho khi click vào button sẽ đổi màu chữ button sang màu #fff.
+
+
+    //index.html
+    // <!DOCTYPE html>
+    // <html>
+    // <head>
+    //     <title>Document</title>
+    // </head>
+    // <body>
+    //     <button>Submit</button>
+    // </body>
+    // </html>
+
+
+    //style.css
+    // button {
+    //     background-color: #f05123;
+    //     padding: 9px 16px;
+    //     border-radius: 999px;
+    //     border: none;
+    // }
+
+
+
+    //main.js
+    // var btnElement = document.querySelector('button');
+
+    // btnElement.onclick = function() {
+    //     btnElement.style.color = '#fff';
+    // }
+
     */
 
-    //157. DOM events
-
-
-
-
-
-
+    //160. DOM events example
 
 
 

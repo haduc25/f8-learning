@@ -37,6 +37,23 @@
          color: blue;
          font-weight: bold;
       }
+
+      /* Example 11 */
+      .ex11-box{
+         border: 1px solid #000;
+         text-align: center;
+         background-color: lightblue;
+      }
+
+      .ex11-box > h2{
+         color: blueviolet;
+      }
+
+      .ex11-box > h2:hover{
+         color: blue;
+         cursor: pointer;
+         text-decoration: underline;
+      }
     </style>
 </head>
 <body>
@@ -170,6 +187,44 @@
     <!-- Example 10: ClassList Property -->
    <div class="ex10-box">
       <h2>Example 10: ClassList Property</h2>
+   </div>
+
+    <!-- Example 11: DOM events -->
+   <div class="ex11-box">
+      <!-- 1. Attribute events  -->
+
+      <h2 onmouseover="console.log('onmouseover: ' + Math.random())">Example 11: DOM events (onmouseover)</h2>
+      <h2 onmouseout="console.log('onmouseout: ' + Math.random())">Example 11: DOM events (onmouseout)</h2>
+      <h2 onmousedown="console.log('onmousedown: ' + Math.random())">Example 11: DOM events (onmousedown)</h2> <!-- giong onclick-->
+
+      <!-- This -->
+      <h2 onclick="console.log(this)">Example 11: DOM events (onclick -> return `this`)</h2>
+      <h2 onclick="console.log(this.innerText)">Example 11: DOM events (onclick -> return `this.innerText`)</h2>
+
+      <!-- Check hiệu ứng nổi bọt / ngưng sủi bọt -> sử dụng: stopPropagation -->
+      <h2 onclick="console.log(this)">
+         <span onclick="console.log(this)">Example 11: DOM events (Check hiệu ứng nổi bọt)</span>
+         <!-- Có hiệu ứng nổi bọt, khi clicked vào thẻ span, console trả về thẻ <span> sau đó đến <h2> -->
+      </h2>
+
+      <!-- 2. Assign event using the Element node -->
+
+      <h2 class="ex11">
+         <span>Example 11: DOM events => [01] / Assign event using the Element node</span>
+      </h2>
+
+      <h2 class="ex11">
+         <span>Example 11: DOM events => [02] / Assign event using the Element node</span>
+      </h2>
+
+      <h2 class="ex11">
+         <span>Example 11: DOM events => [03] / Assign event using the Element node</span>
+      </h2>
+
+      <!-- Clear -->
+      <h2 onclick="console.clear()">Clear :></h2>
+
+      
    </div>
 
 
