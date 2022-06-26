@@ -908,9 +908,150 @@
     //     btnElement.style.color = '#fff';
     // }
 
+
+
+
+        //160. DOM events example
+
+    //1. Input / select
+    //2. Key up / down
+
+
+
+
+   //Input / select
+   //text
+   // var inputElement = document.querySelector('input[type="text"]');
+
+    // console.log(inputElement); //return <input type="text"> 
+
+    // //onchange: lấy ra value khi dl thay đổi & click ra khỏi thẻ input
+    // inputElement.onchange = function(e){
+    //     // console.log(e); //return Event {isTrusted: true, type: 'change', target: input, currentTarget: input, eventPhase: 2, …}
+
+    //     //lấy ra value
+    //     console.log(e.target.value);
+    // }
+
+    // //oninput: lấy ra value khi nhập vào input & khi dl thay đổi
+    // inputElement.oninput = function(e){
+    //     // console.log(e); //return Event {isTrusted: true, type: 'change', target: input, currentTarget: input, eventPhase: 2, …}
+
+    //     //lấy ra value
+    //     console.log(e.target.value);
+    // }
+
+
+    // //ex lưu vào value
+    // var inputValue;
+    // //oninput: lấy ra value khi nhập vào input & khi dl thay đổi
+    // inputElement.oninput = function(e){
+    //     //save value
+    //     inputValue = e.target.value
+
+    //     //nhập inputValue trong console để kt
+    // }
+
+
+    // //checkbox
+    // var inputElement = document.querySelector('input[type="checkbox"]');
+    // // console.log(inputElement); //return <input type="checkbox">
+
+
+    // inputElement.onchange = function(e){
+    //     console.log(e.target.checked); //return true / false
+    // }
+
+    // //select
+    // var inputElement = document.querySelector('select');
+    // // console.log(inputElement); //return  <select>...</select>
+
+    // inputElement.onchange = function(e){
+    //     console.log(e.target.value); //return value
+    // }
+
+
+    // Key up / down
+    var inputElement = document.querySelector('input[type="text"]');
+    // console.log(inputElement);
+
+    // //onkeydown
+    // inputElement.onkeydown = function(e){
+    //     console.log(e);
+    //     console.log('Its key: ' + e.key);
+    //     console.log('Its key code: ' + e.keyCode);
+    //     console.log('Its which: ' + e.which);
+    //     console.log('Its target -> value: ' + e.target.value); //onkeydown khi nhấn xuống mới thêm value -> khi nhấn xuống lần thứ 2 mới lấy ra dl lần thứ 1 / onkeyup -> lấy ra dl khi nhấn lần 1
+    // }
+
+    // //onkeyup
+    // inputElement.onkeyup = function(e){
+    //     console.log(e);
+    //     console.log('Its key: ' + e.key);
+    //     console.log('Its key code: ' + e.keyCode);
+    //     console.log('Its which: ' + e.which);
+    //     console.log('Its target -> value: ' + e.target.value); //onkeyup -> lấy ra dl khi nhấn lần 1 / giữ phím k in dl
+    // }
+
+    // //onkeyup ex: lấy ra phím khi users nhấn từ bàn phím
+    // inputElement.onkeyup = function(e){
+    //     console.log('Its which: ' + e.which);
+
+    //     switch(e.which){
+    //         case 8:
+    //             console.clear();
+    //             console.log('===> Cleared <3 <===');
+    //             break; 
+    //         case 27:
+    //             console.log('===> Exit! <===');
+    //             break; 
+    //     }
+    // }
+
+    // //ex: lấy ra phím khi users nhấn từ bàn phím từ document (áp dụng cho cả trang web) / onkeydown
+    // document.onkeydown = function(e){
+    //     switch(e.which){
+    //         case 8:
+    //             console.clear();
+    //             console.log('===> Cleared <3 <===');
+    //             break; 
+    //         case 13:
+    //             console.log('===> Clicked Enter ^^ <===');
+    //             break; 
+    //         case 27:
+    //             console.log('===> Exit! <===');
+    //             break; 
+    //     }
+    // }
+
+    // //ex: lấy ra phím khi users nhấn từ bàn phím từ document (áp dụng cho cả trang web) / onkeypress / một số phím k nhận khi sử dụng onkeypress / console.log để xem phím nào k in ra 'e.which'
+    // document.onkeypress = function(e){
+    //     // console.log(e.which);
+    //     switch(e.which){
+    //         case 8:
+    //             console.clear();
+    //             console.log('===> Cleared <3 <===');
+    //             break; 
+    //         case 13:
+    //             console.log('===> Clicked Enter ^^ <===');
+    //             break; 
+    //         case 27:
+    //             console.log('===> Exit! <===');
+    //             break; 
+    //     }
+    // }
     */
 
-    //160. DOM events example
+    //161. PreventDefault and StopPropagation
+
+
+
+
+
+
+
+
+
 
 
 
