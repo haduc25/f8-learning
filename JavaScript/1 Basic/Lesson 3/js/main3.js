@@ -1040,11 +1040,89 @@
     //             break; 
     //     }
     // }
-    */
 
+
+
+
+
+
+
+
+    
     //161. PreventDefault and StopPropagation
 
+    //1. preventDefault
+    //2. stopPropagation
 
+
+    //preventDefault - EX1
+    
+    //anchors
+    //lấy ra thẻ a sử dụng anchors / anchors: phải đặt tên cho thẻ a mới có thể lấy đc
+    // var aElement =  document.anchors;
+    // console.log(aElement); //return HTMLCollection(4) [a, a, a, a, youtube: a, google: a, translate: a]
+
+
+    //links
+    //lấy ra thẻ a sử dụng links / links: k phải đặt tên cho thẻ a
+    var aElement =  document.links;
+    var myLink = 'https://translate.google.com/';
+    // console.log(aElement); //return HTMLCollection(4) [a, a, a, a, youtube: a, google: a, translate: a]
+
+    for (var i = 0; i < aElement.length; i++) {
+        aElement[i].onclick = function(e){
+            console.log(e.target.href);
+
+            //bật Presrve log trong console để xem lại log cũ
+
+            //nếu bắt đầu với 'myLink' thì mới cho chuyển trang
+            if(!e.target.href.startsWith(myLink)){
+                e.preventDefault(); //ngăn chặn hành vi mặc định
+            }
+        }
+    }
+
+    //preventDefault - EX2
+    //case1
+    document.querySelector('.ex13ul').onclick = function(e){
+        console.log(e.target);
+    }
+
+    //case2
+    var ulElement = document.querySelector('.ex13ul');
+
+    //ngăn chặn default từ khi nhấn chuột xuống
+    ulElement.onmousedown = function(e){
+        e.preventDefault(); //ngăn chặn hành vi mặc định
+    }
+
+    ulElement.onclick = function(e){
+        console.log(e.target);
+    }
+
+
+    //stopPropagation
+    document.querySelector('.ex13p2div').onclick = function(e){
+       console.log('You clicked to DIV <3'); 
+    }
+
+    document.querySelector('.ex13p2button').onclick = function(e){
+        e.stopPropagation(); //dừng hiệu ứng nổi bọt
+        console.log('Welcome, Door opened.');
+    }
+
+
+
+
+
+
+
+    */
+
+
+
+
+    //162. Event listener
 
 
 

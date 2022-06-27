@@ -54,6 +54,49 @@
          cursor: pointer;
          text-decoration: underline;
       }
+
+      /* Example 13 */
+      .ex13{
+         border: 1px solid #000;
+         padding: 10px;
+      }
+      .ex13 > a{
+         text-decoration: none;
+         color: #000;
+         font-size: 18px;
+      }
+
+      .ex13 > a:hover{
+         text-decoration: underline;
+      }
+
+      .ex13 > ul{
+         display: none;
+      }
+
+      .ex13 > ul > li{
+         list-style: square;
+      }
+      .ex13 > ul > li:hover{
+         color: blueviolet;
+         text-decoration: underline;
+         cursor: pointer;
+         font-size: 18px;
+      }
+
+      /* - khi nhấn chuột (focus) vào thẻ input -> show thẻ ul 
+         - dấu '~' để lấy element đằng sau   
+      */
+      .ex13 input:focus ~ ul{
+         /* nếu input -> focus -> ul hiện */
+         display: block;
+      }
+
+      .ex13p2div:hover{
+         color: blueviolet;
+         text-decoration: underline;
+         cursor: pointer;
+      }
     </style>
 </head>
 <body>
@@ -238,8 +281,46 @@
       <option value="2">Samsung</option>
       <option value="3">Logitech</option>
    </select>
+   <br>
+   <br>
+   <!-- Example 13: PreventDefault and StopPropagation -->
+   <!-- preventDefault -->
+   <div class="ex13">
+      <!-- preventDefault -->
+      <!-- Ex1 -->
+      <a name="google" href="https://www.google.com.vn/">Search</a><br>
+      <a name="translate" href="https://translate.google.com/">Translate</a><br>
+      <a name="youtube" href="https://www.youtube.com/">Youtube</a><br>
+
+      <!-- Ex2 -->
+      <br>
+      <br>
+      <input type="text" placeholder="Tìm kiếm...">
+
+      <ul class="ex13ul">
+         <li>Astra</li>
+         <li>Jett</li>
+         <li>Raze</li>
+         <li>Viper</li>
+      </ul>
+
+
+
+   </div>
+   
+   <br>
+   <br>
+   <!-- stopPropagation -->
+   <div class="ex13p2div">
+      I'm DIV
+
+      <button class="ex13p2button">Open door</button>
+   </div>
+
 
    <div style="height: 500px;"></div>
+
+
 
 
 
