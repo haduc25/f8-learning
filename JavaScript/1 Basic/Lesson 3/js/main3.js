@@ -1113,23 +1113,95 @@
 
 
 
+    
+    //162. Event listener
+    //Khi nào nên sử dụng 'Event listener' ?
+    // 1. Xử lý nhiều việc khi 1 event xảy ra
+    // 2. Lắng nghe / Hủy bỏ lắng nghe
+
+    var btnElement = document.querySelector('.ex14btn');
+    // console.log(btnElement);
 
 
+    //case1: Sử dụng DOM Event
+    // btnElement.onclick = (e) =>{
+    //     //cv1
+    //     console.log('Play with JETT');
 
+    //     //cv2
+    //     console.log('Play with SOVA');
+
+    //     //cv3
+    //     console.log('Play with OMEN');
+    // }
+
+    //ex - sau 3s click vào btn event mới chạy
+    // setTimeout(() => {
+    //     //sau 3s code moi chay
+    //     btnElement.onclick = (e) =>{
+    //         //cv1
+    //         console.log('Play with JETT');
+    
+    //         //cv2
+    //         console.log('Play with SOVA');
+    
+    //         //cv3
+    //         console.log('Play with OMEN');
+    //     }
+    // }, 3000);
+
+    //ex - sau 3s click vào btn event hủy bỏ / gán = function rỗng
+    // btnElement.onclick = (e) =>{
+    //     //cv1
+    //     console.log('Play with JETT');
+
+    //     //cv2
+    //     console.log('Play with SOVA');
+
+    //     //cv3
+    //     console.log('Play with OMEN');
+    // }
+
+    // setTimeout(() => {
+    //     //gán = function rỗng / ghi đè
+    //     btnElement.onclick = () =>{
+    //         //nothing!
+    //     }
+    // }, 3000);
+
+
+    //case2: Sử dụng Event Listener
+    //add
+
+    // btnElement.addEventListener('click', function(e){ //addEventListener('eventName: / khác DOM event là loại bỏ `on`', 'function call back')
+    //     console.log(Math.random());
+    // })
+
+    // //có thể lắng nge nhiều lần / event chạy cùng 1 lúc
+    // btnElement.addEventListener('click', function(e){ //addEventListener('eventName: / khác DOM event là loại bỏ `on`', 'function call back')
+    //     console.log('JETT: ' + Math.random());
+    // }) 
+    // btnElement.addEventListener('click', function(e){ //addEventListener('eventName: / khác DOM event là loại bỏ `on`', 'function call back')
+    //     console.log('NEON: ' + Math.random());
+    // }) 
+
+    //multi work 
+    function work1(){
+        console.log('NEON & UID: ' + Math.random());
+    }
+
+    function work2(){
+        console.log('JETT & UID: ' + Math.random());
+    }
+
+    btnElement.addEventListener('click', work1);
+    btnElement.addEventListener('click', work2);
+
+    //sau 3s xóa 1 event (JETT / work2)
+
+    //remove
+    setTimeout(() => {
+        btnElement.removeEventListener('click', work2);
+    }, 3000);
 
     */
-
-
-
-
-    //162. Event listener
-
-
-
-
-
-
-
-
-
-
