@@ -131,13 +131,42 @@
 
     //- Phương thức JSON.stringify dùng để chuyển dạng dữ liệu gốc thành dạng JSON
 
+
+
+
+    //168. Promise (sync, async)
+    // Sync \ Async
+
+
+    setTimeout(() => {
+        console.log('Value 1');
+    }, 1000);
+
+    console.log('Value 2'); // cái này sẽ đc in ra trước - Async
+
+    //Những function có thể tạo ra Async
+    //setTimeout, setInterval, fetch, XMLHtmlRequest, Reading files, Request Animation Frame
+    
+
+    //169. Ví dụ về sync, async
+    // setTimeout(function() {
+    //     console.log('Dòng này sẽ in ra sau')
+    // }, 0)
+    // // setTimeout là tác vụ bất động bộ (async)
+    
+    // console.log('Dòng này sẽ in ra trước') // Đây là tác vụ đồng bộ (sync)
+
     */
 
     
-    //168. Promise (sync, async)
+
+
+
+    //170. Promise (pain)
+
 
     
-
+    
 
 
 
