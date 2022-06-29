@@ -164,6 +164,24 @@
 
     //170. Promise (pain)
 
+    //Callback hell, Pyramid of doom 
+
+    //Ex - Callback hell
+    setTimeout(() => {
+        console.log('Công việc thứ 1'); //work 1
+        setTimeout(() => {
+            //việc thứ 2 sẽ chạy khi việc 1 xong -> cứ như thế cho đến khi hết
+            console.log('Công việc thứ 2'); //work 2
+            setTimeout(() => {
+                console.log('Công việc thứ 3'); //work 3
+                setTimeout(() => {
+                    console.log('Công việc thứ 4'); //work 4
+                }, 1000);
+            }, 1000);
+        }, 1000);
+    }, 1000);
+
+
 
     
     
