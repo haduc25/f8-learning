@@ -312,15 +312,180 @@
 
 
 
+
+        //174. Promise (chain)
+
+    var promise = new Promise(
+        //Executor
+        function(resolve, reject){
+            resolve();
+        }
+    );
+
+
+    // //ex - return 
+    // promise
+    //     .then(() => {
+    //         return 1;
+    //     })
+
+    //     .then((data) => {
+    //         console.log(data); //in ra 1 => vì .then đầu tiên return 1
+    //         return 2;
+    //     })
+
+    //     .then((data) => {
+    //         console.log(data); //in ra 2 => vì .then đầu tiên return 2
+    //         return 3;
+    //     })
+
+    //     .then((data) => {
+    //         console.log(data); //in ra 3 => vì .then đầu tiên return 3
+    //     })
+
+    //     .catch((error) => {
+    //         console.log(error);
+    //     })
+
+    //     .finally(() => {
+    //         console.log('Done!');
+    //     })
+
+
+    // //ex - return 
+    // promise
+    //     .then(() => {
+    //         // //array
+    //         // return [1, 2, 3]
+
+    //         // //return 1 promise
+    //         // return new Promise((resolve)=> {
+    //         //     // sleep 3s
+    //         //     setTimeout(resolve, 3000);
+
+    //         //     //nếu return là 1 Promise => phải chờ 'Promise' được giải quyết => xong mới chạy tiếp
+    //         // });
+
+    //         //return 1 promise có giá trị
+    //         return new Promise((resolve)=> {
+    //             // sleep 3s
+    //             setTimeout(()=>{
+    //                 resolve([3, 4, 5]); //return array
+    //             }, 3000);
+
+    //             //nếu return là 1 Promise => phải chờ 'Promise' được giải quyết => xong mới chạy tiếp
+    //         });
+    //     })
+
+    //     .then((data) => {
+    //         console.log(data); 
+    //         //nếu return array => (3) [1, 2, 3]
+    //         //nếu return promise / array => (3) [3, 4, 5]
+    //         //trên k return giá trị (string, int, array...) & promise => undefined
+    //         return 2;
+    //     })
+
+    //     .then((data) => {
+    //         console.log(data); //in ra 2 => vì .then đầu tiên return 2
+    //         return 3;
+    //     })
+
+    //     .then((data) => {
+    //         console.log(data); //in ra 3 => vì .then đầu tiên return 3
+    //     })
+
+    //     .catch((error) => {
+    //         console.log(error);
+    //     })
+
+    //     .finally(() => {
+    //         console.log('Done!');
+    //     })
+
+
+    //ex - giải bài toán gây ra callback hell / settimeOut = Promise
+
+    //tạo ra 1 function => sleep
+
+    function sleep(ms){
+        return new Promise((resolve)=> {
+            //sẽ gọi đến 'resolve' sau 1 khoảng thời gian 'ms'
+            setTimeout(resolve, ms);
+        })
+    }
+
+
+    sleep(1000) //vì chính 'sleep' trả về 1 Promise nên có thể gọi đến '.then()'
+        .then(()=>{
+            //Theo lý thuyết nếu return là 1 'Promise' => sẽ phải đợi promise hoàn thành => mới chạy tiếp
+            console.log(1);
+            return sleep(1000); //ở đây sleep = promise => sleep 1s -> chạy tiếp
+        })
+    
+        .then(()=>{
+            console.log(2);
+            return sleep(1000);
+        })
+    
+        .then(()=>{
+            console.log(3);
+            return sleep(1000);
+        })
+    
+
+    //175. Ví dụ về callback hell và cách giải quyết bằng Promise
+
+    // Đây là ví dụ về callback hell trong truyền thuyết, và cách sử dụng Promise để giải quyết nó.
+
+    // Các bạn có thể thấy khi tạo ra 1 đoạn code callback hell sẽ dẫn đến khó đọc code, thay vì viết như thế, chúng ta có thể áp dụng tính chất chuỗi (chain) 
+    // của Promise để tạo ra 1 đoạn code dễ nhìn hơn mà vẫn đảm bảo đúng logic.
+
+    //main.js (default)
+    // function hell(value, cb) {
+    //     cb(value);
+    // }
+    
+    // // Không sử dụng Promise dẫn đến tạo ra callback hell 
+    // hell(1, function (valueFromA) {
+    //     hell(valueFromA + 1, function (valueFromB) {
+    //         hell(valueFromB + 1, function (valueFromC) {
+    //             hell(valueFromC + 1, function (valueFromD) {
+    //                 console.log(valueFromD + 1);
+    //             });
+    //         });
+    //     });
+    // });
+    
+    // // Sử dụng Promise sẽ tạo ra đoạn code dễ đọc hơn và vẫn đảm bảo đúng logic
+    // function notHell(value) {
+    //     return new Promise(function (resolve) {
+    //         resolve(value);
+    //     });
+    // }
+    
+    // notHell(1)
+    //     .then(function (value) {
+    //         return value + 1;
+    //     })
+    //     .then(function (value) {
+    //         return value + 1;
+    //     })
+    //     .then(function (value) {
+    //         return value + 1;
+    //     })
+    //     .then(function (value) {
+    //         console.log(value + 1);
+    //     });
+
+
+
     */
 
 
 
-    //174. Promise (chain)
 
-
-
-
-
-
-
+    //175. Promise methods (resolve, reject, all)  
+    
+    
+    
+    
