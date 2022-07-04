@@ -479,13 +479,150 @@
 
 
 
+
+
+
+        //176. Promise methods (resolve, reject, all)  
+
+    //ex - trap error
+
+    
+    function sleep(ms){
+        return new Promise((resolve)=> {
+            setTimeout(resolve, ms);
+        })
+    }
+
+    sleep(1000)
+        .then(()=>{
+            console.log(1);
+            return sleep(1000);
+        })
+    
+        .then(()=>{
+            console.log(2);
+            return new Promise((resolve, reject) => {
+                reject('Co loi o day ne!');
+            })
+        })
+    
+        .then(()=>{
+            console.log(3);
+            return sleep(1000);
+        })
+
+        .catch((error)=>{
+            console.log(error);
+        })
+    
+
+    //
+    // 1. Promise.resolve
+    // 2. Promise.reject
+    // 3. Promise.all
+
+
+    //ex - resolve, reject (thông thường) => cần đến logic
+
+    // // (thông thường) => cần đến logic
+    // var promise = new Promise(
+    //     function(resolve, reject){
+    //         // resolve('Success!'); //return Status:  Success!
+
+    //         // reject('Something wrong!'); //return Error:  Something wrong!
+    //     }
+    // );
+
+
+    //ex: Promise.resolve, Promise.reject
+    var promise = Promise.resolve('Success! Ahihi'); //return Status:  Success! Ahihi
+    var promise = Promise.reject('Something wrong!'); //return Error:  Something wrong!
+
+
+    promise
+        .then((result)=>{
+            console.log('Status: ', result);
+        })
+
+        .catch((error) => {
+            console.log('Error: ', error);
+        })
+
+    
+    //Thư viện: output luôn luôn là 1 promise
+
+
+
+    
+    //ex - Promise.all / chạy song song các promise / các trường hợp logic bất đồng bộ, k bị phụ thuộc nhau, có thể chạy song song
+
+    var promise1 = new Promise(
+        function(resolve){
+            setTimeout(() => {
+                resolve([1]); //sẽ resolve dl là array có giá trị 1, sau 2 giây
+            }, 2000);
+        }
+    );
+
+    var promise2 = new Promise(
+        function(resolve){
+            setTimeout(() => {
+                resolve([2, 3, 4]); //sẽ resolve dl là array có giá trị 2, 3, 4 / sau 4 giây
+            }, 4000);
+        }
+    );
+
+
+    //sử dụng Promise.all cho chạy song song 
+    // Promise.all(): nhận vào đối số, trả về 1 promise
+    Promise.all([promise1, promise2])
+        .then((result)=>{
+            //khi tất cả trong Promise.all chạy xong => mới chay vào .then
+            console.log(result); //return (2) [Array(1), Array(3)]
+
+            //lay ra dl
+            var result1 = result[0];
+            var result2 = result[1];
+
+            //Nối mảng
+            console.log(result1.concat(result2)); //return (4) [1, 2, 3, 4]
+        })
+
+
+    //rút gọn ví dụ trên = ES6
+    Promise.all([promise1, promise2])
+    .then(([result1, result2])=>{
+        console.log(result1.concat(result2)); //return (4) [1, 2, 3, 4]
+    })
+
+    //Promise.all có 1 promise =  lỗi => nhảy vào .catch của Promise.all
+
+
+    //ex - có lỗi
+    var promise3 = new Promise(
+        function(resolve){
+            setTimeout(() => {
+                resolve([1]); //sẽ resolve dl là array có giá trị 1, sau 2 giây
+            }, 2000);
+        }
+    );
+
+    var promise4 = Promise.reject('Lại có lỗi nè ! :<');
+
+    Promise.all([promise3, promise4])
+    .then(([result1, result2])=>{
+        console.log(result1.concat(result2)); //return (4) [1, 2, 3, 4]
+    })
+    .catch((error)=>{
+        console.log(error); //return Lại có lỗi nè ! :<
+    })
+
     */
 
 
+    //177. Promise example
 
 
-    //175. Promise methods (resolve, reject, all)  
-    
-    
-    
-    
+
+
+
