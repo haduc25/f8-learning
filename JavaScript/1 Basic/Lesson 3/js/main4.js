@@ -617,12 +617,198 @@
         console.log(error); //return Lại có lỗi nè ! :<
     })
 
-    */
+
+
+
+
 
 
     //177. Promise example
 
+    //Database
+    var users = [
+        {
+            id: 1,
+            name: 'Ha Duc',
+        },
+        {
+            id: 2,
+            name: 'Khanh Huyen',
+        },
+        {
+            id: 3,
+            name: 'Trang Pham',
+        },
+    ];
+
+    var comments = [
+        {
+            id: 1,
+            user_id: 1,
+            content: 'Are you sure?',
+        },
+        {
+            id: 2,
+            user_id: 2,
+            content: 'Yes',
+        },
+
+        // theem cmt
+        {
+            id: 3,
+            user_id: 1,
+            content: 'You\'re Khanh Huyen?',
+        },
+        {
+            id: 2,
+            user_id: 2,
+            content: 'It\'s Me 😆',
+        },
+
+    ]
+
+
+    // 1. Lấy Comments
+    // 2. Từ comments lấy ra user_id, từ user_id lấy ra user tương ứng
+
+
+    //Tạo ra Fake API / Video: 8:15 / Link: https://youtu.be/XN2mt1i1kjk
+
+
+    //lấy ra comments từ database
+    function getComments(){
+        //return ra 1 promise
+        return new Promise((resolve) => {
+            setTimeout(() => {
+                //Mô phỏng lấy dl từ comment qua mạng nên bị chậm 1s
+                resolve(comments);
+            }, 1000);
+        });
+    }
+
+
+    //lấy ra users từ database
+    function getUsersByIds(userIDs){
+        //return ra 1 promise
+        return new Promise((resolve) => {
+            // sử dụng filter để lấy ra 'users.id'
+            // lọc ra các 'id' nằm trong 'userIDs'
+            var result = users.filter((user) => {
+                return userIDs.includes(user.id); //lọc ra các 'user.id' nằm trong 'userIDs'
+            });
+            setTimeout(() => {
+                resolve(result);
+            }, 1000);
+        })
+    }
 
 
 
+
+
+    // Promise hell
+    //getComments() => là 1 Promise hell
+
+    // Sẽ đc học trong ES6 => Async / Await => k bị hell
+
+    //gọi đến getComments()
+    getComments()
+        .then((comments)=>{
+            //lấy ra được comments
+            // console.log(comments); //return (2) [{…}, {…}]
+
+            //lấy ra list userIDs
+            // sử dụng map để lấy ra 'user_id'
+            var userIDs = comments.map((comment)=>{
+                return comment.user_id;
+            });
+
+            //lấy ra được user_id
+            console.log(userIDs); //return (2) [1, 2]
+
+            //đưa getUsersByIds() vào trong getComments()
+            // truyền vào list id => 'userIDs'
+            // return ra users & Promise / getUsersByIds() 
+            return getUsersByIds(userIDs)
+                .then((users) => {
+                    // console.log(users); //(2) [{…}, {…}]
+                    // return users;
+
+                    //return ra 1 object
+                    return {
+                        users: users,
+                        comments: comments,
+                    };
+                });
+        })
+
+    
+        // khi bên trên return 1 promise, ở dưới sẽ nhận đc dl
+        // ở đây dl nhận đc là 'users'
+        // coi 'users' = 'data'
+        // .then((users) => {
+        //     // 'users' nhận được từ khi return getUsersByIds();
+        //     // 'users' = 'data'
+        //     console.log(users);
+        // });
+
+        //remake -> rút gọn lại
+        .then((data) => {
+            //nhận đc 'users' & 'comments'
+            // console.log(data); //return {users: Array(2), comments: Array(2)}
+
+
+            //lấy ra id của thẻ 'ul'
+            var commentBlock = document.getElementById('ex15-comment-block');
+            // console.log(commentBlock);
+
+            // Tạo 1 biến html
+            var html = '';
+
+            // lặp qua 'data.comments' để lấy dl comment
+            data.comments.forEach((comment) => {
+                //từ comment lấy ra user
+                // sử dụng 'find' tìm user
+                var user = data.users.find((user) => {
+                    // điều kiện
+                    return user.id === comment.user_id;
+                });
+
+                // console.log(user); 
+                // return
+                // {id: 1, name: 'Ha Duc'}
+                // {id: 2, name: 'Khanh Huyen'}
+
+                // cộng chuỗi vào html
+                // html += `${user.name}: ${comment.content}`;
+
+                // cho vào '<li></li>'
+                html += `<li>${user.name}: ${comment.content}</li>`;
+
+            });
+
+            // gán vào html / gán vào ul / li
+            commentBlock.innerHTML = html;
+        
+        });
+
+
+    // //gọi đến getUsersByIds()
+    // getUsersByIds([1, 2])
+    //     .then((users) => {
+    //         console.log(users); //(2) [{…}, {…}]
+    //     });
+
+
+    // Kiến thức trong bài
+    // 1. Array
+    // 2. Function, callback
+    // 3. Promise
+    // 4. DOM
+
+    */
+
+
+
+    // 178. Fetch
 
