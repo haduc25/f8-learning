@@ -806,9 +806,118 @@
     // 3. Promise
     // 4. DOM
 
-    */
+
+
+
+
 
 
 
     // 178. Fetch
+
+    // 1. Font-end: xây dựng giao diện người dùng
+    // 2. Back-end: Xây dựng logic xử lý, Cơ sở dữ liệu
+    
+    // API (URL) -> Application Programing Interface / Cổng giao tiếp giữa các phần mềm
+
+    // Backend -> API -> Fecth -> JSON/XML -> JSON.parse -> JavaScript types -> Render ra giao diện với HTML
+
+
+    // Fake API (để test)
+    // Keyword: placeholder rest api / website: https://jsonplaceholder.typicode.com/ 
+
+    //Extension / JSON Viewer
+
+
+    // Ex - Fetch API 'https://jsonplaceholder.typicode.com/posts'
+
+    var postApi = 'https://jsonplaceholder.typicode.com/posts';
+
+    // fetch trả về 1 'stream' -> ở đây có thể gọi là 'response' 
+    fetch(postApi)
+        .then((response) => {
+            // console.log(response); //return Response {type: 'cors', url: 'https://jsonplaceholder.typicode.com/posts', redirected: false, status: 200, ok: true, …}
+            // console.log(response.json()); //return Promise {<pending>}
+            return response.json();
+            //return ra 1 Promise 
+
+            // json(): có tác dụng JSON.parse -> JavaScript types
+        })
+
+        // vì trên retur 1 promise nên dưới có thể nhận đc dl 
+        .then((posts) => {
+           // console.log(posts); //(100) [{…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}, {…}]
+            
+
+          // Chuyển dl sang html / sử dụng map
+          
+          var htmls = posts.map((post) => {
+                //nối chuỗi
+                return `<li>
+                    <span>User: ${post.userId}</span>
+                    <span>ID: ${post.id}</span>
+                    <h2>${post.title}</h2>
+                    <p>${post.body}</p>
+                </li>`
+          });
+        
+         //sử dụng join()
+         var html = htmls.join('');
+
+        //  lấy elemment -> thêm vào html
+        // console.log(document.getElementById('ex16-post-block')); 
+       document.getElementById('ex16-post-block').innerHTML = html;
+        
+        })
+
+        // kiểm tra API gọi = fetch trên dev tools
+        // mở dev tools -> chọn 'Network' -> Fetch/XHR 
+        // Status Code: 200 -> Thành công
+        // Status Code: 404 -> Thất bại
+
+        .catch((error) => {
+            console.log('Lỗi nè: ' + error);
+        });
+
+
+
+    // Ex - Fetch API 'https://jsonplaceholder.typicode.com/albums'
+    var albumsApi = 'https://jsonplaceholder.typicode.com/albums';
+
+    fetch(albumsApi)
+        .then((response) => {
+            return response.json();
+        })
+
+        .then((albums) => {
+            // console.log(albums);
+
+            var htmls = albums.map((album) => {
+                return `<li>
+                   <span>ID: ${album.id} </span>
+                   <h2>${album.title}</h2>
+                </li>`
+            });
+
+            var html = htmls.join('');
+            // add to html
+            document.getElementById('ex16-album-block').innerHTML = html;
+        })
+
+        .catch((error) => {
+            console.log('Lỗi nè: ' + error) ;
+        })
+
+
+
+
+
+    */
+
+    
+    //179. JSON server 
+
+
+
+
 
