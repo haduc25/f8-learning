@@ -1,0 +1,4 @@
+1. Choose to 'node_modules.rar'
+2. Extra Here
+
+//because can't push folder 'node_modules' to github, so i archived that folder :>

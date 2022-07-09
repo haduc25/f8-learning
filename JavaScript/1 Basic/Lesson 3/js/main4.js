@@ -911,13 +911,86 @@
 
 
 
+        //179. JSON server 
+        //  API Server
+
+
+        // https://github.com/typicode/json-server
+
+        // cài lên 1 folder
+
+
+        // cài đặt 1 folder
+        // 1. Tạo 1 folder
+        // mở 'terminal' / (yêu cầu đã cài nodejs)
+        // npm init / (tạo file) / enter -> đến khi hiện 'Is this OK? (yes)'
+
+        // install
+        // npm install json-server / npm i json-server  / (bỏ -g để chỉ cài trên folder này)
+
+        // create file 'db.json'
+        // với format
+        // {
+        //     "course": [
+        //         {
+        //             "id": 1,
+        //             "name": "Hà Minh Đức",
+        //             "description": "MizGDuc",
+        //             "age": "21"            
+        //         }
+        //     ]
+        // }
+
+        //Start JSON Server
+        // 1. Mở file 'package.json'
+        // 2. Phần 'scripts' -> thêm 1 trường là "start": "json-server --watch db.json"
+        // // EX
+        // {
+        //     "name": "json-server",
+        //     "version": "1.0.0",
+        //     "description": "",
+        //     "main": "index.js",
+        //     "scripts": {
+        //       "start": "json-server --watch db.json",
+        //       "test": "echo \"Error: no test specified\" && exit 1"
+        //     },
+        //     "author": "",
+        //     "license": "ISC",
+        //     "dependencies": {
+        //       "json-server": "^0.17.0"
+        //     }
+        //   } 
+
+
+        // npm start
+
+        ////Ex - lấy dl từ API trên "http://localhost:3000/course"
+
+        var courseApi = "http://localhost:3000/course";
+
+        fetch(courseApi)
+            .then((response) => {
+                return response.json();
+            })
+
+            .then((course) => {
+                console.log(course); //return [{…}]
+            })
+
+            .catch((error) => {
+                console.log(error);
+            })
+
+
+
+
 
     */
 
+
+
+    // 180. Sử dụng Postman làm việc với REST API 
+
     
-    //179. JSON server 
-
-
-
 
 
