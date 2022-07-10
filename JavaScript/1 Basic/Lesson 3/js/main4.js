@@ -985,11 +985,24 @@
 
 
 
+
+    // 180. Sử dụng Postman làm việc với REST API 
+
+        // JSON Server: API Server (Fake) / Mock API
+        // CRUD: //Phương thức
+        // - Create: Tạo mới -> POST
+        // - Read: Lấy dữ liệu -> GET
+        // - Update: Chỉnh sửa -> PUT / PATCH
+        // - Delete: Xóa -> DELETE
+
+
     */
 
 
+    // 181. Thêm/sửa/xóa khóa học với Fetch và REST API
 
-    // 180. Sử dụng Postman làm việc với REST API 
+
+
 
     
 

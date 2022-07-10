@@ -1,10 +1,22 @@
 {
-    "course": [
-        {
-            "id": 1,
-            "name": "Hà Minh Đức",
-            "description": "MizGDuc",
-            "age": "21"            
-        }
-    ]
+  "course": [
+    {
+      "id": 1,
+      "name": "Hà Minh Đức",
+      "description": "MizGDuc",
+      "age": "21"
+    },
+    {
+      "name": "Nguyễn Yến Vy",
+      "description": "NYV",
+      "age": "20",
+      "id": 2
+    },
+    {
+      "name": "Hoàng Thị Mỹ Linh",
+      "description": "HTML",
+      "age": "18",
+      "id": 3
+    }
+  ]
 }
