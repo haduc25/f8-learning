@@ -1000,8 +1000,91 @@
 
 
     // 181. Thêm/sửa/xóa khóa học với Fetch và REST API
-            
+    
 
+    //ex - Xây dựng Web gồm các Courses đủ CRUD với API
+
+
+    var courseApi = 'http://localhost:3000/course';
+
+
+    //App start
+    function start(){
+        // // lấy ra khóa học
+        // getCourses((courses) => {
+        //     // console.log(courses); //return (3) [{…}, {…}, {…}]
+        //     renderCourses(courses);
+        // });
+
+        //getCourses ->  renderCourses
+
+
+        // Vì là 1 function lồng 1 function nên có thể viết tắt lại, đối số của 'renderCourses' trả về 'courses' và 'callback' của 'getCourses' trả về 'courses'
+        // => có thể viết thẳng function vào  / truyền thẳng function
+
+        // shorten
+        // lấy ra khóa học
+        getCourses(renderCourses);  // => Done Read
+
+        // Xử lý Form
+        handleCreateForm();
+
+    }
+
+    start();
+
+    // Functions
+
+    // lấy ra khóa học
+    function getCourses(callback){
+        fetch(courseApi)
+            .then((response) => {
+                return response.json();
+            })
+
+            // sử dụng 'callback' để lấy ra dl từ getCourses();
+            .then(callback)
+
+
+            // Debug
+            // 'getCourses' truyền 'renderCourses' dưới dạng 'callback'
+            // 'callback' sẽ đc gọi khi 'fetch' -> thành công -> gọi ngược lại 'callback' / callback = renderCourses
+            // trả lại dữ liệu trong 'renderCourses()'
+    }
+
+    // render ra browser
+    function renderCourses(courses){
+        // render html -> html
+
+        // renderCourses nhận đc dl từ 'getCourses'
+
+        
+        var listCoursesBlock = document.querySelector('#list-courses');
+        console.log(listCoursesBlock);
+        console.log(courses); //return (3) [{…}, {…}, {…}]
+
+        // Array.prototype.map()
+        // The map() method creates a new array populated with the results of calling a provided function on every element in the calling array.
+        // Phương thức map() tạo một mảng mới được điền với kết quả của việc gọi một hàm đã cung cấp trên mọi phần tử trong mảng đang gọi.
+        // Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/map
+
+        var htmls = courses.map((course) => {
+            return `
+                <li>
+                    <h4>${course.name}</h4>
+                    <p>${course.description}</p>
+                    <p>Tuổi: ${course.age}</p>
+                </li>
+            `
+        })
+
+        listCoursesBlock.innerHTML = htmls.join('');
+    }
+
+    // Xử lý Form
+    function handleCreateForm(){
+
+    }
 
 
     
