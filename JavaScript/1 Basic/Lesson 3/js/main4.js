@@ -1086,7 +1086,7 @@
     // xóa 1 khóa học
     function handleDeleteCourse(id){
         // alert(id);
-        // delete
+        
         var options = {
             method: 'DELETE',
             headers: {
@@ -1100,10 +1100,21 @@
             })
 
             .then(() => {
-                //sau khi xoá thành công -> render lại course / refresh
-                getCourses(renderCourses);
+                // delete = API (chưa tối ưu, vì phải gọi lại API)
+                // //sau khi xoá thành công -> render lại course / refresh
+                // getCourses(renderCourses);
+                // alert('Đã xóa thành công course với id là: ' + id);
+
+                // delete = DOM (cập nhập luôn k gọi lại API)
+                var courseItem = document.querySelector('.course-item-' + id);
+                if(courseItem){
+                    courseItem.remove();
+                }
+
                 alert('Đã xóa thành công course với id là: ' + id);
             });
+
+        // 
     
     }
 
@@ -1133,7 +1144,7 @@
 
         var htmls = courses.map((course) => {
             return `
-                <li>
+                <li class="course-item-${course.id}">
                     <h4>${course.name}</h4>
                     <p>${course.description}</p>
                     <p>Tuổi: ${course.age}</p>
