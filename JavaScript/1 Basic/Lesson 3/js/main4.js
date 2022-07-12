@@ -1083,7 +1083,29 @@
     
     }
 
+    // xóa 1 khóa học
+    function handleDeleteCourse(id){
+        // alert(id);
+        // delete
+        var options = {
+            method: 'DELETE',
+            headers: {
+                'Content-Type': 'application/json'
+              },
+        };
 
+        fetch(courseApi + '/' + id, options)
+            .then((response) => {
+                response.json();
+            })
+
+            .then(() => {
+                //sau khi xoá thành công -> render lại course / refresh
+                getCourses(renderCourses);
+                alert('Đã xóa thành công course với id là: ' + id);
+            });
+    
+    }
 
 
 
@@ -1115,6 +1137,8 @@
                     <h4>${course.name}</h4>
                     <p>${course.description}</p>
                     <p>Tuổi: ${course.age}</p>
+                    <!-- btn remove --> 
+                    <button onclick="handleDeleteCourse(${course.id})">Xoá &times;</button>
                 </li>
             `
         })
