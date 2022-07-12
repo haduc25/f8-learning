@@ -1050,7 +1050,48 @@
             // 'getCourses' truyền 'renderCourses' dưới dạng 'callback'
             // 'callback' sẽ đc gọi khi 'fetch' -> thành công -> gọi ngược lại 'callback' / callback = renderCourses
             // trả lại dữ liệu trong 'renderCourses()'
+
+
+
+            // Error
+            .catch((error) => {
+                alert('Có lỗi nè !\nChi tiết: ' + error);
+            })
     }
+
+
+    // tạo ra 1 khóa học
+    function createCourse(data, callback){
+        // Tham khảo: https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API/Using_Fetch
+    
+        
+        // create
+        var options = {
+            method: 'POST',
+            body: JSON.stringify(data),
+            headers: {
+                'Content-Type': 'application/json'
+              },
+        };
+
+        fetch(courseApi, options)
+            .then((response) => {
+                response.json();
+            })
+
+            .then(callback);
+    
+    }
+
+
+
+
+
+
+
+
+
+
 
     // render ra browser
     function renderCourses(courses){
@@ -1083,7 +1124,40 @@
 
     // Xử lý Form
     function handleCreateForm(){
+        // lấy 'btn' từ html -> js
+        var createBtn = document.querySelector('#create');
 
+        // console.log(createBtn);
+
+        // bắt event 'onclick'
+        createBtn.onclick = function(){
+            // alert();
+
+            // lấy các thẻ 'input' từ html -> js
+            // name
+            var name = document.querySelector('input[name="name"]').value;
+            // description
+            var description = document.querySelector('input[name="description"]').value;
+            // age
+            var age = document.querySelector('input[name="age"]').value;
+
+            // console.log(name + '\n' + description + '\n' + age);
+       
+            // create
+
+            // dinh nghia data
+            var formData = {
+                name: name,
+                description: description,
+                age: age
+            }
+
+            createCourse(formData, () => {
+                // refresh trang
+                getCourses(renderCourses);
+            })
+        }
+        
     }
 
 
