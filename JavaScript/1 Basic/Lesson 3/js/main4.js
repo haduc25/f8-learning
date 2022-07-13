@@ -1174,7 +1174,7 @@
                     <button onclick="handleDeleteCourse(${course.id})">Xoá &times;</button>
 
                     <!-- btn edit --> 
-                    <button onclick="handleUpdateForm(${course.id})">Sửa &curren;</button>
+                    <button onclick="handleUpdateForm(${course.id})" id="update">Sửa &curren;</button>
                 </li>
             `
         })
@@ -1220,6 +1220,8 @@
         
     }
 
+    var btnCancel = true; 
+
     // Xử lý Form 'Edit'
     function handleUpdateForm(id){
         var courseItem = document.querySelector('.course-item-' + id);
@@ -1244,7 +1246,7 @@
         btnCreate.innerText = 'Update';
         
         btnCreate.onclick = function(e){
-            // e.preventDefault();
+            e.preventDefault();
 
             // lấy các thẻ 'input' từ html -> js
             // name
@@ -1266,7 +1268,78 @@
             })
 
         }
+
+
+
+        // làm thêm
+        // Thêm btn khi nhấm 'update có nút cancel' 
+        // id: btn-container
+
+        // Tham khảo link: https://codepen.io/davidcochran/pen/WbWXoa
+        // // // add more btn
+        // // 1. Create the button
+        // var button = document.createElement("button");
+        // button.innerHTML = "Cancel";
+        // button.style.width = '250px';
+        // button.style.height = '30px';
+
+        // // 2. Append somewhere
+        // var body = document.querySelector("#btn-container");
+        // body.appendChild(button);
+
+
+        // // Ấn vào sửa thì btn 'sửa' -> k ấn đc nữa
+        // var btnUpdateElement = document.querySelectorAll('#update');
+        // console.log(btnUpdateElement);
+        // // btnUpdateElement.disabled = true;
+
+        // // lấy ra các btn và disabled
+        // for (var i = 0; i < btnUpdateElement.length; i++) {
+        //     btnUpdateElement[i].disabled = true;
+        // }
+
+
+        // // add more btn
+        if(btnCancel){
+            var button = document.createElement("button");
+            button.innerHTML = "Cancel";
+            button.style.width = '250px';
+            button.style.height = '30px';
+    
+            var body = document.querySelector("#btn-container");
+            body.appendChild(button);
+            btnCancel = false;
+        }
+
+
+
+
+        var btnUpdateElement = document.querySelectorAll('#update');
+        for (var i = 0; i < btnUpdateElement.length; i++) {
+            btnUpdateElement[i].disabled = true;
+        }
+
+        
+
+        // 3. Add event handler
+        // button.addEventListener ("click", function() {
+        //     alert("did something");
+        // });
+
+        button.onclick = function(e){
+            document.querySelector('input[name="name"]').value = '';
+            document.querySelector('input[name="description"]').value = '';
+            document.querySelector('input[name="age"]').value = '';
+                    
+            // lấy ra các btn và enabled
+            for (var i = 0; i < btnUpdateElement.length; i++) {
+                btnUpdateElement[i].disabled = false;
+            }
+        }
+        
     }
+
+
 
 
 
@@ -1350,6 +1423,9 @@
     // }
 
 
-    
-
-
+    // Kết luận / phần làm thêm
+    // Code vẫn hoạt động, nhưng khi cancel vẫn xuất hiện cảnh báo
+    // Chi tiết
+    // main4.js:1329 Uncaught TypeError: Cannot set properties of undefined (setting 'onclick')
+    // at handleUpdateForm (main4.js:1329:24)
+    // at HTMLButtonElement.onclick (index.html:1:1)
