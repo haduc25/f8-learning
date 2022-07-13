@@ -1052,7 +1052,6 @@
             // trả lại dữ liệu trong 'renderCourses()'
 
 
-
             // Error
             .catch((error) => {
                 alert('Có lỗi nè !\nChi tiết: ' + error);
@@ -1082,6 +1081,7 @@
             .then(callback);
     
     }
+
 
     // xóa 1 khóa học
     function handleDeleteCourse(id){
@@ -1119,6 +1119,28 @@
     }
 
 
+    // updateCourse
+    function updateCourse(id, data, callback){
+        var options = {
+            method: 'PUT',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify(data)
+        }
+
+        fetch(courseApi + '/' + id, options)
+            .then((response) => {
+                return response.json();
+            })
+
+            .then(callback)
+
+            // Error
+            .catch((error) => {
+                alert('Có lỗi nè !\nChi tiết: ' + error);
+            })
+    }
 
 
 
@@ -1147,9 +1169,12 @@
                 <li class="course-item-${course.id}">
                     <h4>${course.name}</h4>
                     <p>${course.description}</p>
-                    <p>Tuổi: ${course.age}</p>
+                    <p>${course.age}</p>
                     <!-- btn remove --> 
                     <button onclick="handleDeleteCourse(${course.id})">Xoá &times;</button>
+
+                    <!-- btn edit --> 
+                    <button onclick="handleUpdateForm(${course.id})">Sửa &curren;</button>
                 </li>
             `
         })
@@ -1194,6 +1219,135 @@
         }
         
     }
+
+    // Xử lý Form 'Edit'
+    function handleUpdateForm(id){
+        var courseItem = document.querySelector('.course-item-' + id);
+        console.log(courseItem);
+
+        //test
+        // var test1 = courseItem.getElementsByTagName('h4')[0];
+        // var test2 = courseItem.getElementsByTagName('p')[0];
+        // var test3 = courseItem.getElementsByTagName('p')[1];
+
+        // console.log(test1);
+        // console.log(test2);
+        // console.log(test3);
+
+        // fill data to form
+        document.querySelector('input[name="name"]').value = courseItem.getElementsByTagName('h4')[0].innerText
+        document.querySelector('input[name="description"]').value = courseItem.getElementsByTagName('p')[0].innerText
+        document.querySelector('input[name="age"]').value = courseItem.getElementsByTagName('p')[1].innerText
+
+        // idea: lấy ra btn create -> chuyển thành update
+        var btnCreate = document.querySelector('#create');
+        btnCreate.innerText = 'Update';
+        
+        btnCreate.onclick = function(e){
+            // e.preventDefault();
+
+            // lấy các thẻ 'input' từ html -> js
+            // name
+            var name = document.querySelector('input[name="name"]').value;
+            // description
+            var description = document.querySelector('input[name="description"]').value;
+            // age
+            var age = document.querySelector('input[name="age"]').value;
+
+            var formData = {
+                name: name,
+                description: description,
+                age: age
+            }
+
+            updateCourse(id, formData, () => {
+                // refresh trang
+                getCourses(renderCourses);
+            })
+
+        }
+    }
+
+
+
+    //// Code tham khảo từ f8 | Link: https://fullstack.edu.vn/learning/javascript-co-ban?id=468f2344-7c11-40d2-8492-8dd89f99d444
+    //// Code1
+    // function updateCourse(id, data, callback) {
+    //     var options = {
+    //         method: 'PUT',
+    //         headers: {
+    //             'Content-Type': 'application/json'
+    //         },
+    //         body: JSON.stringify(data)
+    //     }
+    //     fetch(coursesApi + '/' + id, options)
+    //         .then(function(response) {
+    //             return response.json()
+    //         })
+    //         .then(callback);
+    
+    // }
+    // function handleUpdateForm(id) {
+    //     var createBtn = document.querySelector('#create');
+    //     var updateBtn = document.querySelector('#update');
+    //     createBtn.style.display = 'none';
+    //     updateBtn.style.display = 'block';
+    //     updateBtn.onclick = function() {
+    //         var name = document.querySelector('input[name="name"]').value;
+    //         var description = document.querySelector('input[name="description"]').value;
+    //         console.log(name);
+    //         var formData = {
+    //             name: name,
+    //             description: description
+    //         }
+    //         updateCourse(id ,formData, function() {
+    //             getCourses(renderCourse);
+    //             createBtn.style.display = 'block';
+    //             updateBtn.style.display = 'none';
+    //         })
+    //     }
+    // }
+
+
+    //// code2
+    // function handleUpdateCourse(id) {
+    //     var courseItem = document.querySelector('.course-item-' + id);
+    //     document.querySelector('input[name="name"]').value = courseItem.getElementsByTagName('h3')[0].innerText
+    //     document.querySelector('input[name="description"]').value = courseItem.getElementsByTagName('p')[0].innerText
+    //     var createContainer = document.querySelector('#create-container');
+    //     var btnCreate = createContainer.querySelector('#create');
+    //     btnCreate.style.display = 'none';
+    //     var updateContainer = document.querySelector('#update-container');
+    //     updateContainer.innerHTML = '<button id="update">Sửa</button>';
+    //     var btnUpdate = updateContainer.querySelector('#update');
+    //     btnUpdate.onclick = function (e) {
+    //         console.log(e);
+    //         e.preventDefault();
+    //         var name = document.querySelector('input[name="name"]').value;
+    //         var description = document.querySelector('input[name="description"]').value;
+    //         var formData = {
+    //             name: name,
+    //             description: description
+    //         }
+    //         var options = {
+    //             method: 'PUT',
+    //             headers: {
+    //                 'Content-Type': 'application/json'
+    //             },
+    //             body: JSON.stringify(formData)
+    //         };
+    //         fetch(courseApi + "/" + id, options)
+    //             .then(function (response) {
+    //                 response.json();
+    //             })
+    //             .then(function (item) {
+    //                 var courseItem = document.querySelector('.course-item-' + id);
+    //                 courseItem.getElementsByTagName('h3')[0].innerText = document.querySelector('input[name="name"]').value;
+    //                 courseItem.getElementsByTagName('p')[0].innerText = document.querySelector('input[name="description"]').value;
+    
+    //             })
+    //     }
+    // }
 
 
     
