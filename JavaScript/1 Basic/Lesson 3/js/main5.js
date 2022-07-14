@@ -191,9 +191,108 @@
     console.log(lines);
     console.log(linesTempString);
 
+
+    
+
+
+
+    // 183. Arrow function, 184 - Thực hành sử dụng Arrow Function
+
+    //function
+    function logger(log) {
+        console.log(log);
+    } 
+
+    logger('Luv You'); //return Luv You
+
+
+    // Arrow function
+    const logger2 = (log) => {
+        console.log(log);
+    }
+
+    logger2('Hello 2') //return Hello 2
+
+
+    // Ex - ham sum
+    const sum = (a,b) => {
+        return a + b;
+    }
+
+    console.log(sum(2, 3)); //return 5
+
+
+    // Ex - ham sum - run gon hon
+    const sum2 = (a, b) => a + b;
+
+    console.log(sum2(2, 3)); //return 5
+
+    //sau dấu '=>' được hiểu là return trừ dấu {}
+    // nếu là {} thì đc hiểu là 1 block code
+
+    // Ex - ham sum - return ra 1 obj
+    const sum3 = (a, b) => ({a: a, b: b});
+
+    console.log(sum3(2, 3)); //return {a: 2, b: 3}
+
+    // Ex logger -> arrow function
+    const logger3 = (log) => console.log(log);
+
+    //rut gon hon
+    const logger4 = log => console.log(log);
+
+    logger3('Here\'s Arrow Function !'); //return Here's Arrow Function !
+    logger4('Here\'s Arrow Function !'); //return Here's Arrow Function !
+
+
+    // Arrow function k su dung duoc trong 1 obj
+    const obj = {
+        name: 'Ha Minh Duc',
+        getName: function(){
+            return this.name;
+        },
+        
+        getName2: () => {
+            return this;
+        }
+    }
+
+    console.log(obj.getName()); //return Ha Minh Duc
+    console.log(obj.getName2()); //return undefined
+
+
+    // Arrow function k su dung duoc constructor function
+    const Course = function(name, price){
+        this.name = name;
+        this.price = price;
+    }
+
+    const Course2 = (name, price) => {
+        this.name = name;
+        this.price = price;
+    }
+
+    const jsCourse = new Course('JavaScript', 5000);
+    console.log(jsCourse); //return Course {name: 'JavaScript', price: 5000}
+
+    // Arrow function k co 'constructor'
+    const jsCourse2 = new Course2('JavaScript', 5000);
+    console.log(jsCourse2); //return Uncaught TypeError: Course2 is not a constructor
+
+
+
+    // 184. Thực hành sử dụng Arrow Function
+
+    // Sử dụng cú pháp arrow function viết hàm sum nhận vào 2 tham số a và b và trả về tổng của chúng.
+
+    // main.js
+    
+    // const sum = (a, b) => a + b;
+    // // Expected results
+    // console.log(sum(1, 2)) // Output: 3
+    // console.log(sum(2, 2)) // Output: 4
+
+
 */
 
-
-
-
-    // 183. Arrow function
+    // 185. Classes
