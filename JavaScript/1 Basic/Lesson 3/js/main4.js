@@ -1172,7 +1172,7 @@
                     <p>${course.age}</p>
                     <!-- btn remove --> 
                     <button onclick="handleDeleteCourse(${course.id})">Xoá &times;</button>
-
+                    
                     <!-- btn edit --> 
                     <button onclick="handleUpdateForm(${course.id})" id="update">Sửa &curren;</button>
                 </li>
@@ -1429,3 +1429,7 @@
     // main4.js:1329 Uncaught TypeError: Cannot set properties of undefined (setting 'onclick')
     // at handleUpdateForm (main4.js:1329:24)
     // at HTMLButtonElement.onclick (index.html:1:1)
+
+
+
+    //Youtube (13/07/2022): https://youtu.be/0LWK6IRWMFo
