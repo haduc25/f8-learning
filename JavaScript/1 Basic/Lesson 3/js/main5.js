@@ -144,10 +144,56 @@
 
     // scope của biến const:
     // 1. giống với let ngoại trừ mình không thể update giá trị của nó. tuy nhiên mình có thể thay đổi các phần tử hoặc thuộc tính của nó nếu nó là array/ object
-    // 2. ngoài ra mình phải gán giá trị ngay lúc khai báo nếu k sẽ lỗi
+    // 2. ngoài ra mình phải gán giá trị ngay lúc khai báo nếu k sẽ lỗi 
 
+
+
+    
+    
+    
+    // 182. Template literals
+
+    const Name = 'MizGDuc'; 
+    const Name2 = 'HuyenDiep';
+    
+    const description = "My name's " + Name + " & my friends is " + Name2;
+
+    console.log(description); //return My name's MizGDuc & my friends is HuyenDiep
+    
+
+    //Template string
+
+    const desc2 = `My name's ${Name} & ${Name2}`;
+    console.log(desc2); //return My name's MizGDuc & HuyenDiep
+
+    // Test ký tự đặc biệt
+    const characters = `\\ My string is: \${} & Template string`;
+    console.log(characters);
+
+
+    // Multi-line String
+
+    const lines = 'Line1\n'
+        + 'Line2\n'
+        + 'Line3\n'
+        + 'Line4\n'
+        + 'Line5\n';
+
+    const linesTempString = 
+    `
+     Line1
+     Line2
+     Line3
+     Line4
+     Line5
+    `;
+
+    console.log(lines);
+    console.log(linesTempString);
 
 */
 
 
-    
+
+
+    // 183. Arrow function
