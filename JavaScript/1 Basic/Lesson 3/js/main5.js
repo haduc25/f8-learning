@@ -292,7 +292,102 @@
     // console.log(sum(1, 2)) // Output: 3
     // console.log(sum(2, 2)) // Output: 4
 
+    // Youtube: 14/07/2022
+    // https://youtu.be/p7HQRaZgPM8
+    // https://youtu.be/kzpsNT30UII
 
-*/
+
 
     // 185. Classes
+
+    // // function
+    // function Course(name, price){
+    //     this.name = name;
+    //     this.price = price;
+
+    //     //lấy dl
+    //     this.getName = function(){
+    //         return this.name;
+    //     }
+    // }
+
+
+
+        // class
+       class Course{
+         constructor(name, price){
+            this.name = name;
+            this.price = price;
+         }
+
+
+         getName(){
+            return this.name;
+         }
+
+         getPrice(){
+            return this.price;
+         }
+
+
+        //  run(){
+        //     const isSuccess = false;
+
+        //     if(...){
+        //         isSuccess = true;
+        //     }
+        //  }
+       }
+            
+    // use function, class
+    const phpCourse = new Course('PHP', 5000);
+    const jsCourse = new Course('Javascript', 7000);
+
+    console.log(phpCourse); //return Course {name: 'PHP', price: 5000}
+    console.log(jsCourse); //return Course {name: 'Javascript', price: 7000}
+
+    console.log(phpCourse.getName()); //return PHP
+    console.log(jsCourse.getName()); //return Javascript
+    console.log(phpCourse.getPrice()); //return 5000
+    console.log(jsCourse.getPrice()); //return 7000
+
+
+    //186. Thực hành sử dụng Class
+    
+    // Tạo class Person có thuộc tính name và age
+    // Chú ý: Không dùng constructor function nhé.
+
+
+    //main.js
+    class Person{
+        constructor(name, age){
+            this.name = name;
+            this.age = age;
+        }
+    }
+    
+    // Expected results
+    const person = new Person('Long', 22);
+    console.log(`Tên: ${person.name}, tuổi: ${person.age}`);
+    // Output: 'Tên: Long, tuổi: 22'
+*/
+
+
+
+
+
+
+
+
+
+
+
+
+// Youtube: 14/07/2022
+// https://youtu.be/s_Puia7H6lk
+
+     
+
+
+
+
