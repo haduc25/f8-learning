@@ -352,6 +352,8 @@
     console.log(jsCourse.getPrice()); //return 7000
 
 
+
+
     //186. Thực hành sử dụng Class
     
     // Tạo class Person có thuộc tính name và age
@@ -370,21 +372,78 @@
     const person = new Person('Long', 22);
     console.log(`Tên: ${person.name}, tuổi: ${person.age}`);
     // Output: 'Tên: Long, tuổi: 22'
+
+
+
+    
+    
+    
+    // 187. Default parameter values
+
+    // Ex1 - ES5
+    function logger(log){
+        // xu ly trong ES5
+        if(typeof log === 'undefined'){
+            log = 'Day la gia tri mac dinh';
+        }
+
+        console.log(log);
+    }
+
+
+    logger('Co gia tri'); //return Co gia tri
+    logger(); //return undefined / gia tri mac dinh => Day la gia tri mac dinh
+
+
+    // Ex2 - ES6 / Gia tri mac dinh
+    function logger2(log = 'Day la gia tri mac dinh'){
+        console.log(log);
+    }
+
+    logger2('Co gia tri'); //return Co gia tri
+    logger2(); //return Day la gia tri mac dinh
+
+
+    // Ex3 - ES6 / Gia tri mac dinh
+    function logger3(log = 'Day la gia tri mac dinh', isAlert){
+        if(isAlert) return alert(log);
+        console.log(log);
+    }
+
+    logger3('Co gia tri', true); //return Co gia tri
+    logger3(); //return Day la gia tri mac dinh
+
+
+    // Ex4 - ES6 / Gia tri mac dinh
+    function logger4(log = 'Day la gia tri mac dinh', isAlert = false){
+        if(isAlert) return alert(log);
+        console.log(log);
+    }
+
+    logger4('Co gia tri', true); //return Co gia tri
+    logger4(); //return Day la gia tri mac dinh
+
+
+    // Ex5 - ES6 / Gia tri mac dinh
+    function logger5(log, type = 'log'){
+        console[type](log); //mac dinh là log
+    }
+
+    logger5('Co gia tri'); //return Co gia tri
+    logger5('Co gia tri', 'warn'); //return Co gia tri
+    logger5('Co gia tri', 'error'); //return Co gia tri
+    logger5(); //return Day la gia tri mac dinh
+
+
+    // Nên sử dụng với những hàm có tham số k bắt buộc truyền vào
 */
 
+    // 188. Enhanced object literals
 
 
 
-
-
-
-
-
-
-
-
-// Youtube: 14/07/2022
-// https://youtu.be/s_Puia7H6lk
+    // Youtube: 15/07/2022
+    // https://youtu.be/s_Puia7H6lk
 
      
 
