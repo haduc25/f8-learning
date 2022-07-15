@@ -436,9 +436,76 @@
 
 
     // Nên sử dụng với những hàm có tham số k bắt buộc truyền vào
-*/
+
+
+
 
     // 188. Enhanced object literals
+
+    // 1. Định Nghĩa key: value cho object
+    // 2. Định nghia method cho object
+    // 3. Định nghĩa key cho object dưới dạng biến
+
+
+    // ex1 - k dung Enhanced object literals
+    var name = 'Javascript';
+    var price = 5000;
+
+    var course = {
+        name: name,
+        price: price
+    };
+
+    console.log(course); //return {name: 'Javascript', price: 5000}
+
+    // ex2 - su dung Enhanced object literals / rut gon hon 
+
+    // Định Nghĩa key: value cho object
+    var name2 = 'Javascript';
+    var price2 = 5000;
+
+    var course2 = {
+        //rut gon doan nay => kq tuong tu
+        name2,
+        price2,
+
+        // them ex - k dung Enhanced object literals
+
+        // getName: function(){
+        //     return name2;
+        // }
+
+        // Định nghia method cho object
+        // su dung Enhanced object literals / rut gon
+        // => kq tuong tu
+        getName(){
+            return name2;
+        }
+    };
+
+    console.log(course2); //return {name2: 'Javascript', price2: 5000, getName: ƒ}
+    console.log(course2.getName()); //return Javascript
+
+    // ex - Định nghĩa key cho object dưới dạng biến
+
+    // var fieldName = 'name';  //return {name: 'Javascript', price: 10000}
+    var fieldName = 'new-name';  //return {new-name: 'Javascript', price: 10000}
+    var fieldPrice = 'price';
+
+    // đặt tên key theo biến
+    const course3 = {
+        [fieldName]: 'Javascript',
+        [fieldPrice]: 10000,
+    }
+
+    console.log(course3); //return {name: 'Javascript', price: 10000}
+*/
+
+
+
+
+    // 189. Destructuring, Rest 
+
 
 
 
