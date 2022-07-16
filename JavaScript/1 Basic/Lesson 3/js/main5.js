@@ -648,18 +648,205 @@
 
 
 
+
+    
+    
+    // 190. Spread
+    
+    //* Bổ sung thêm vào toán tử 'Rest'
+    
+    function logger(...params){
+        console.log(params);
+
+        //* Giải thích thêm
+        // Rest: là lấy ra phần còn lại
+        // ở ví dụ trên k lấy ra 1 tham số nào => còn lại là lấy ra tất cả (tham số truyền vào)
+    }
+
+    logger(1, 2, 3, 4, 5);
+
+
+    // remmake - lấy ra tham số
+    function logger2(a, b, ...params){
+        console.log(a, b); //return 1 2
+        console.log(params); //return (3) [3, 4, 5]
+
+    }
+
+    logger2(1, 2, 3, 4, 5); //return (3) [3, 4, 5]
+
+
+    // Ex - truyền vào 1 object
+    // nếu k dùng rest
+    function logger3(obj){
+        console.log(obj.name); //return Javascript
+        console.log(obj.price); //return 1500   
+    }
+
+    // Nhận vào 1 object 
+    logger3({
+        name: 'Javascript',
+        price: 1500,
+        description: 'description content'
+    });
+
+    // nếu dùng rest
+    function logger4({name, price, ...rest}){ //lấy ra phần còn lại: rest
+        console.log(name); //return Javascript
+        console.log(price); //return 1500   
+
+        // lấy ra phần còn lại: rest
+        console.log(rest); //return {description: 'description content'}    
+    }
+
+    // Nhận vào 1 object 
+    logger4({
+        name: 'Javascript',
+        price: 1500,
+        description: 'description content'
+    });
+
+
+    // Ex - truyền vào 1 array
+    function logger5([a, b, ...rest]){
+        console.log(a); //return 2
+        console.log(b); //return 5
+        console.log(rest); //return (2) [0, 9]
+    }
+
+    // Nhận vào 1 array 
+    logger5([2, 5, 0, 9]);
+
+
+
+    // Spread
+
+    // Ex - Nối array sử dụng 'Spread' (...)
+
+    var arr1 = ['Javascript', 'PHP', 'Ruby'];
+
+    var arr2 = ['ReactJS', 'Dart'];
+
+    // var arr3 = [];
+
+
+    // sử dụng 'Spread' nối arr1 & arr2 / array
+    // Khi thêm '...' trong 1 array or object sẽ tự động bỏ đi dấu '{}, []'
+
+    var arr3 = [...arr2, ...arr1]; //return (5) ['ReactJS', 'Dart', 'Javascript', 'PHP', 'Ruby']
+
+    //Đảo lại array
+    var arr4 = [...arr1, ...arr2]; //return (5) ['Javascript', 'PHP', 'Ruby', 'ReactJS', 'Dart']
+
+    console.log(arr3);
+    console.log(arr4);
+
+
+    // sử dụng 'Spread' nối obj1 & obj2 / object
+    var object1 = {
+        name: 'Javascript',
+    };
+
+    var object2 = {
+        price: 4500,
+    };
+
+    var object3 = {
+        //tương tự như array
+        //Spread (...) tự động loại bỏ đi {}
+        ...object1,
+        ...object2
+    };
+
+    console.log(object3); //return {name: 'Javascript', price: 4500}
+
+
+    // Ex - Object trong thực tế
+    var defaultConfig = {
+        api: 'https://domain-pages-course',
+        apiVersion: 'v1',
+        other: 'other',
+        // 
+        //
+        //
+    };
+
+    var excerciseConfig = {
+        ...defaultConfig,
+        api: 'https://domain-pages-excercise',  //api 'excerciseConfig' -> ghi đè lên api 'defaultConfig'
+
+    }
+
+    console.log(excerciseConfig); //return {api: 'https://domain-pages-excercise', apiVersion: 'v1', other: 'other'}
+
+
+    // Ex - Truyền tham số cho hàm - Spread(...)
+    var arr = ['Javascript', 'PHP', 'Ruby', 'MizGDuc'];
+
+    function logger6(a, b, c){
+        console.log(a, b, c);
+    }
+
+
+    // k dung Spread
+    logger6(1, 2, 3); //return 1 2 3
+
+    // dung Spread
+    logger6(...arr); //return Javascript PHP Ruby
+
+
+    //ket hop Spread & Rest
+    var arr7 = ['Javascript', 'PHP', 'Ruby', 'MizGDuc', 'Mai Huyen', 'ReactJS'];
+
+    function logger7(...rest){
+        for (var i = 0; i < rest.length; i++) {
+            console.log(rest[i]);            
+        }
+    }
+
+    logger7(...arr7); //return Javascript PHP Ruby MizGDuc Mai Huyen ReactJS
+
+ 
+
+    
+
+    // 191. Thực hành sử dụng Spread
+    // Bạn hãy sử dụng spread để sao chép tất cả các key và value từ object person1 sang person2
+    
+    //// main.js (default)
+    // const person1 = {
+    //     name: 'Son',
+    //     age: 21
+    // }
+    
+    // const person2 = 
+    
+    // // Expected results
+    // console.log(person2.name) // Output: 'Son'
+    // console.log(person2.age) // Output: 21
+    // console.log(person1 === person2) // Output: false
+
+
+    //// main.js 
+    const person1 = {
+        name: 'Son',
+        age: 21
+    }
+    
+    const person2 = {
+        ...person1
+    } 
+    
+    // Expected results
+    console.log(person2.name) // Output: 'Son'
+    console.log(person2.age) // Output: 21
+    console.log(person1 === person2) // Output: false 
+
+
 */
 
-    // 190. Spread
 
-
-
-
-
-
-
-
-
+    
 
 
     // Youtube: 16/07/2022
