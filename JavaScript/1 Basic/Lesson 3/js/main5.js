@@ -499,18 +499,171 @@
     }
 
     console.log(course3); //return {name: 'Javascript', price: 10000}
-*/
 
 
-
-
-    // 189. Destructuring, Rest 
-
-
-
-
+    
     // Youtube: 15/07/2022
     // https://youtu.be/s_Puia7H6lk
+
+
+
+
+        // 189. Destructuring, Rest 
+    // Destructuring
+
+    // // Ex - k su dung Destructuring
+    // var array = ['Javascript', 'PHP', 'Ruby'];
+
+    // var a = array[0];
+    // var b = array[1];
+    // var c = array[2];
+
+    // console.log(a, b, c); //return Javascript PHP Ruby
+
+    // Ex - su dung Destructuring
+    var array = ['Javascript', 'PHP', 'Ruby'];
+
+    var [a, b, c] = array;
+
+    //kq tuong tu
+    console.log(a, b, c); //return Javascript PHP Ruby
+
+
+    //khi k muon lay 1 bien ra, vd k muốn lấy biến b ra
+    var [a1, , c1] = array; //bỏ b giữ nguyên dấu ','
+
+    console.log(a1, c1); //return Javascript Ruby
+
+    // Rest parameters - Lấy ra những phần còn lại
+    // Ex -  chỉ lấy mỗi pt a
+    
+    var [a2, ...rest] = array; //Rest: lấy ra những pt còn lại trừ pt đã lấy ra / ở đây đã lấy ra a & muốn lấy thêm b & c
+    // ...rest / ...name
+
+    // Nếu lấy cả a2 & b2
+    // var [a2, b2,  ...rest] = array; //return ['Ruby']
+
+    console.log(a2); //return Javascript
+    console.log(rest); //return (2) ['PHP', 'Ruby']
+
+    // * Lưu ý:
+    // + Toán tử Rest: ... trùng với toán tử Spread
+    // Khi nào là 'Rest' & khi nào là 'Spread'
+    // Khi là 'Rest': 
+    // + Khi sử dụng kết hợp với Destructuring
+    // + Khi sử dụng kết hợp với Function vẫn là toán tử Rest
+    // + Khi định nghĩa 1 tham số => là Rest
+
+    // Trường hợp còn lại => là Spread
+
+
+    // Ex - Sử dụng rest + Destructuring với object
+    var course = {
+        name: 'Javascript',
+        price: 5000,
+        image: 'image-address',
+    };
+
+    var {name, price} = course; //vì object có key nên muốn lấy ra key nào thì viết ra key đó / key k có => undefined
+
+    console.log(name, price);
+
+
+    //Sử dụng rest
+    var {name, ...rest} = course;
+
+    console.log(name);
+    console.log(rest); //return {price: 5000, image: 'image-address'}
+    // rest => là 1 object thiếu đi name
+
+
+    // Ex - Xóa 1 key của object mà k dùng đến delete
+    var course2 = {
+        name2: 'Javascript',
+        price2: 5000,
+        image2: 'image-address',
+    };
+
+    var {name2, ...newObject} = course2;
+
+    //xóa thành công đi 1 key là 'name2'
+    console.log(newObject); //return {price2: 5000, image2: 'image-address'}
+    
+
+    // Ex - khi 1 object -> có 1 object con
+    var course3 = {
+        name3: 'Javascript',
+        price3: 5000,
+        image3: 'image-address',
+        children: {
+            name3: 'ReactJS'
+        }
+    };
+
+    // Lấy ra 'name3' của 'children'
+    // để lấy ra 'name3' của 'children' => sử dụng dấu ':'
+    // vì tên key trùng nhau => đổi tên key => để đổi tên sử dụng dấu ': newNameKey' 
+
+    // var {name3, children: {name3}} = course3;  //Lấy ra 'name3' của 'children'
+    var {name3: parentName, children: {name3: childrenName}} = course3; //vì tên key trùng nhau => đổi tên key
+
+    // sau khi đổi tên => tên cũ k dùng đc
+
+    console.log(parentName); //return Javascript
+    console.log(childrenName); //return ReactJS
+
+
+    // Ex - Lấy ra 1 value chưa được định nghĩa
+    var course4 = {
+        name4: 'Javascript',
+        price4: 5000,
+        image4: 'image-address',
+        // khi có key 'description4'
+        description4: 'have value', //khi có dl / return have value
+    };
+
+    //// Lấy ra 'description' nhưng chưa được định nghĩa
+    // var {name4, description4} = course4; //chưa gán key => undefined 
+
+    // gán giá trị mặc định => khi k có 'description4'
+    var {name4, description4 = 'default description'} = course4;
+
+    console.log(name4);
+    console.log(description4); //return default description => khi k có key
+
+
+
+    // Ex - Rest + Function => Nhận vào nhiều giá trị giống console.log
+    // console.log nhận nhiều giá trị k giới hạn
+    console.log(1, 2, 3, 4, 5, 6); //return 1 2 3 4 5 6
+
+    // tạo function giống console.log => sử dụng rest
+    function logger(...params){
+        console.log(params); //return (9) [1, 2, 3, 4, 5, 6, 7, 8, 9]
+        // gần giống 'arguments'
+        console.log(arguments); //return Arguments(9) [1, 2, 3, 4, 5, 6, 7, 8, 9, callee: (...), Symbol(Symbol.iterator): ƒ]
+    }
+
+    console.log(logger(1, 2, 3, 4, 5, 6, 7, 8, 9));
+
+
+
+*/
+
+    // 190. Spread
+
+
+
+
+
+
+
+
+
+
+
+    // Youtube: 16/07/2022
+    // https://youtu.be/UwTFJh9YoSo
 
      
 
