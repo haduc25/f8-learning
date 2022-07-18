@@ -954,6 +954,85 @@
 */
 
     // 193. Modules
+    // Tham khảo: https://www.freecodecamp.org/news/javascript-modules-explained-with-examples/#:~:text=A%20module%20in%20JavaScript%20is,object%20accessible%20to%20other%20modules.
+
+    // Import / Export
+
+    // Uncaught SyntaxError: Cannot use import statement outside a module (at main5.js:963:5)
+    // thêm 'type="module" trong file html use script'
+    // look like this: <script type="module" src="./js/main5.js"></script>
+
+    // // ex - import / export default
+    // import logger from '../modules/logger.js';
+
+    // console.log(typeof logger); //return function
+    // console.log(logger); 
+    // //return 
+    // // ƒ logger(log, type = 'log'){
+    // //     console[type](log);
+    // // }
+
+    // // Sử dụng cho 'export default'
+
+    // logger('Message... from Main5.js', 'error'); //return Message... from Main5.js
+    // logger('Message... from Main5.js', 'warn'); //return Message... from Main5.js
+
+
+    // // ex - import / export / sử dụng destructuring
+    // // lấy ra TYPE_LOG TYPE_WARN TYPE_ERROR
+    // import logger, {TYPE_LOG, TYPE_WARN, TYPE_ERROR} from '../modules/logger.js';
+
+
+    // logger('Message... from Main5.js', TYPE_LOG); //return Message... from Main5.js
+    // logger('Message... from Main5.js', TYPE_WARN); //return Message... from Main5.js
+    // logger('Message... from Main5.js', TYPE_ERROR); //return Message... from Main5.js
+
+
+    // // ex - có nhưng file k cần 'export default'
+    // // 1. Tách file phần (TYPE_LOG, TYPE_WARN, TYPE_ERROR) ra file 'constants.js'
+
+    // import logger from '../modules/logger.js'; //is export default
+    // import {
+    //     TYPE_LOG, 
+    //     TYPE_WARN, 
+    //     TYPE_ERROR
+    // } from '../modules/constants.js'; //is export (const)
+
+
+    // logger('Message... from Main5.js', TYPE_LOG); //return Message... from Main5.js
+    // logger('Message... from Main5.js', TYPE_WARN); //return Message... from Main5.js
+    // logger('Message... from Main5.js', TYPE_ERROR); //return Message... from Main5.js
+
+
+    // // Ex - import tất cả
+    // import logger from '../modules/logger.js';
+    // // import * as nameAlias from '../modules/constants.js'; 
+    // import * as constants from '../modules/constants.js'; 
+
+    // console.log(constants); //return Module {Symbol(Symbol.toStringTag): 'Module'}
+
+    // logger('Message... from Main5.js', TYPE_LOG); //return Message... from Main5.js
+    // logger('Message... from Main5.js', TYPE_WARN); //return Message... from Main5.js
+    // logger('Message... from Main5.js', TYPE_ERROR); //return Message... from Main5.js
+
+
+    // Ex - Sử dụng trong thực tế
+    // Setup
+    // Tạo 1 folder 'logger' trong folder 'modules'
+    // Trong folder 'logger' tạo 1 file 'index.js' 
+
+    //export default
+    // import logger from '../modules/logger/index.js'; //vì bên file index.js export default nên có thể import 'logger'
+
+    //export thường
+    import { logger2 } from '../modules/logger/index.js'; //vì bên file index.js export thường và gán alias name là 'logger2'
+    import * as constants from '../modules/constants.js'; 
+
+    console.log(constants); //return Module {Symbol(Symbol.toStringTag): 'Module'}
+
+    logger2('Message... from Main5.js', constants.TYPE_LOG); //return Message... from Main5.js
+    logger2('Message... from Main5.js', constants.TYPE_WARN); //return Message... from Main5.js
+    logger2('Message... from Main5.js', constants.TYPE_ERROR); //return Message... from Main5.js
 
 
 
@@ -962,13 +1041,12 @@
 
 
 
-
-
-
+    // 194. Optional chaining (?.)
 
 
     // Youtube: 18/07/2022
     // https://youtu.be/5R1NDZRtwPk
+    // https://youtu.be/W3GWH3TNGJ8
 
      
 
