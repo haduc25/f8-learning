@@ -808,7 +808,7 @@
 
  
 
-    
+
 
     // 191. Thực hành sử dụng Spread
     // Bạn hãy sử dụng spread để sao chép tất cả các key và value từ object person1 sang person2
@@ -843,14 +843,132 @@
     console.log(person1 === person2) // Output: false 
 
 
-*/
-
-
     
-
-
     // Youtube: 16/07/2022
     // https://youtu.be/UwTFJh9YoSo
+
+
+
+
+
+    // 192. Tagged template literals
+
+    ////current
+    // function highlight(...rest){
+    //     console.log(rest); //return (3) [Array(3), 'Javascript', 'F8']
+    // }
+
+
+    // Dùng '189. Destructuring' lấy đối số đầu tiên -> đặt tên là 'first'
+    // 'first' lấy đc 'Học lập trình '
+    // Thêm 'rest' -> đặt tên là 'strings'
+    // 'strings' lấy đc các pt còn lại là ' tại ' & '!'
+    
+    // Thêm 'rest' -> đặt tên là 'values' -> lấy tất cả đối số truyền vào / ở đây có 'course' & 'brand'
+
+    // Sử dụng 'reduce()'
+    //The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, 
+    //passing in the return value from the calculation on the preceding element. The final result of running the reducer 
+    //across all elements of the array is a single value.
+    //The first time that the callback is run there is no "return value of the previous calculation". 
+    //If supplied, an initial value may be used in its place. Otherwise the array element at index 0 is used as the initial value 
+    //and iteration starts from the next element (index 1 instead of index 0).
+
+    // trans
+    // Reduce là một phương thức sẵn có được sử dụng để thực thi một hàm lên các phần tử của mảng (từ trái sang phải) với một biến tích lũy để thu về một giá trị duy nhất. 
+    // Là một phương thức quan trọng hay sử dụng trong lập trình hàm.
+
+    ////Tham số
+
+    // callback là hàm thực thi với từng phần tử của hàm, với 4 tham số là: accumulator, currentValue, index và array.
+    // accumulator biến tích lũy, được trả về sau mỗi lần gọi hàm callback.
+    // currentValue phần tử của mảng đang được xử lý.
+    // index (Optional) chỉ số của phần tử trong mảng đang được xử lý.
+    // array (Optional) mảng hiện tại gọi hàm reduce().
+    // initialValue là giá trị cho tham số thứ nhất (accumulator) của hàm callback trong lần gọi hàm đầu tiên. Nếu giá trị này 
+    // không được cung cấp thì giá trị phần tử đầu tiên của mảng sẽ được sử dụng
+
+    //// Idea
+    // initialValue của 'Reduce' là: 'Học lập trình'
+
+    // Step
+    // 1. Lấy ra chuỗi 'Học lập trình'
+    // 'Reduce' lặp qua mảng 'values' khi lặp lấy các pt của 'values' / Lấy ra 'Javascript'
+    // 2. Khi lấy ra được pt của 'values' -> thêm thẻ '<span></span>'
+    // 3. Khi thêm thẻ '<span></span>' nối luôn pt đầu tiên của mảng 'strings'
+    // Khi nối pt tử thứ 1 của 'strings' / ' tại ' => Xóa luôn pt đó => Còn lại pt thứ 2 / '!'
+
+    // 'Reduce' lặp lần 2 => lấy ra pt 'F8' => Logic tương tự => đưa 'F8' vào thẻ '<span></span>' => <span>F8</span>
+    // Tương tự thì sẽ lấy được dấu '!' => vì pt thứ 1 / ' tại ' đã bị xóa
+
+
+    // Result: Học lập trình <span>Javascript</span> tại <span>F8</span>!
+    
+
+    // accumulator -> acc
+    // currentValue -> curr
+    function highlight([first, ...strings], ...values){
+            return values.reduce((acc, curr) =>  [...acc, `<span>${curr}</span>`, strings.shift()], [first]
+        )
+        .join(''); //return Học lập trình <span>Javascript</span> tại <span>F8</span>!
+
+        // Lần 1
+        // acc -> first
+        // curr -> 'Javascript'
+
+        // giải 'acc' / ...acc => 'Học lập trình'
+        // nối = template string -> thêm thẻ '<span></span>'
+        // xoá pt đầu tiên / sử dụng shift()
+        // strings.shift() / ' tại '
+
+        // Lần 2
+        // curr -> 'F8'
+        // nối với acc -> 'Học lập trình tại' 
+
+        // su dung join() -> chuyen arr -> string
+
+        // shift()
+        // The shift() method removes the first element from an array and returns that removed element. This method changes the length of the array.
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/shift?retiredLocale=vi
+
+    }
+     
+
+    var brand = 'F8';
+    var course = 'Javascript'; 
+
+    // sử dụng Tagged template literals
+    const html = highlight`Học lập trình ${course} tại ${brand}!`;
+
+    console.log(html); //return (5) ['Học lập trình ', '<span>Javascript</span>', ' tại ', '<span>F8</span>', '!']
+
+
+    // testing :>
+    var name = 'HA MINH DUC';
+
+    const html2 = highlight`My name is ${name} !`;
+    console.log(html2); //return My name is <span>HA MINH DUC</span> !
+
+
+
+*/
+
+    // 193. Modules
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Youtube: 18/07/2022
+    // https://youtu.be/5R1NDZRtwPk
 
      
 
