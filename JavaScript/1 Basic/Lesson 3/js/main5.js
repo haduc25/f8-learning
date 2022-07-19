@@ -951,9 +951,8 @@
 
 
 
-*/
 
-    // 193. Modules
+        // 193. Modules
     // Tham khảo: https://www.freecodecamp.org/news/javascript-modules-explained-with-examples/#:~:text=A%20module%20in%20JavaScript%20is,object%20accessible%20to%20other%20modules.
 
     // Import / Export
@@ -1035,6 +1034,16 @@
     logger2('Message... from Main5.js', constants.TYPE_ERROR); //return Message... from Main5.js
 
 
+    // Youtube: 18/07/2022
+    // https://youtu.be/5R1NDZRtwPk
+    // https://youtu.be/W3GWH3TNGJ8
+*/
+
+
+
+
+
+
 
 
 
@@ -1042,14 +1051,136 @@
 
 
     // 194. Optional chaining (?.)
+    // Tham khảo: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Optional_chaining
+
+    // Ex - K su dung Optional chaining (?.) / 1 obj
+    const obj = {
+        name: 'MizGDuc',
+        cat: {
+            name: 'Min',
+            age: 3
+        }
+    }
+
+    //kt thông thường
+    if(obj.cat.name){
+        console.log(obj.cat.name); //return Min
+    }
 
 
-    // Youtube: 18/07/2022
-    // https://youtu.be/5R1NDZRtwPk
-    // https://youtu.be/W3GWH3TNGJ8
+    
+    // Ex - K su dung Optional chaining (?.) / nhiều obj
+    const obj2 = {
+        name: 'MizGDuc',
+        cat: {
+            name: 'Min',
+            cat2: {
+                name: 'Max',
+                cat3: {
+                    name: 'Powder',
+                }
+            }
+        }
+    }
 
-     
+    //kt thông thường
+    if(
+        obj2.cat &&
+        obj2.cat.cat2 &&
+        obj2.cat.cat2.cat3
+    ){
+        console.log(obj2.cat.cat2.cat3.name); //return Powder
+    }
+
+    //kt sử dụng - Optional chaining (?.)
+    // Nếu nghi ngờ đối tượng nào k tồn tại -> thêm '?.' /  
+    
+    if(obj2.cat.cat2?.cat3){ //Nghi ngờ cat2 => k tồn tại / nếu có cmt cat2 => k bị lỗi
+        console.log(obj2.cat.cat2.cat3.name); //return Powder
+    }
+
+    //// Syntax
+    // obj.val?.prop
+    // obj.val?.[expr]
+    // obj.func?.(args)
 
 
 
+    // Ex - OBJ Case 2 sử dụng - Optional chaining (?.)
+    obj2['cat']?.['cat2'];
 
+
+
+    // Ex - OBJ - Array sử dụng - Optional chaining (?.)
+    
+    const obj3 = {
+        ////neu cmt => lỗi
+        // getName(value){
+        //     console.log(value);
+        // }
+
+        //// Optional chaining (?.) => cmt cũng k lỗi :>
+        getName(value){
+            console.log(value);
+        }
+    }
+
+    ////thông thường
+    obj3.getName('Hello my friend') //nết cmt getName => lỗi / main5.js:1123 Uncaught TypeError: obj3.getName is not a function
+
+    ////Optional chaining (?.)
+    obj3.getName?.('Hello my friend')
+
+    // * Tóm tắt theo cách hiểu
+    // + sử dụng để check undefined or null trong object
+    // + nghi ngờ obj nào thì thêm (?.)
+    // + khi check (nếu tồn tại (true) => code chạy tiếp)
+    // (nếu k tồn tại (false) => thì thôi, bỏ qua => k gây ra lỗi)
+
+    // Ex - from Mozilla.org
+    const obj4 = {
+        first: {
+            second: 'Hello i\'m second'
+        }
+    }
+
+    // KT Thông thường - Nếu 'obj4.first' & 'obj4.first.second' Tồn tại (true) => lấy ra 'second' => gán values vào 'nestedProp'
+    // For example, consider an object obj which has a nested structure. Without optional chaining, looking up a deeply-nested subproperty requires validating the references in between, such as:
+    const nestedProp = obj4.first && obj4.first.second;
+    console.log(nestedProp); //return Hello i'm second
+
+    // The value of obj.first is confirmed to be non-null (and non-undefined) before then accessing the value of obj.first.second. 
+    // This prevents the error that would occur if you accessed obj.first.second directly without testing obj.first.
+
+    
+    // KT Sử dụng Optional chaining (?.)
+    // With the optional chaining operator (?.), however, you don't have to explicitly test and short-circuit based on the state of obj.
+    // first before trying to access obj.first.second:
+
+    const nestedProp2 = obj4.first?.second;
+    console.log(nestedProp2); //return Hello i'm second
+
+    // By using the ?. operator instead of just ., JavaScript knows to implicitly check to be sure obj.
+    // first is not null or undefined before attempting to access obj.first.second. 
+    // If obj.first is null or undefined, the expression automatically short-circuits, returning undefined.
+
+
+    //some change - testing ex
+    const nestedProp3 = obj4.notFirst?.second; //k tồn tại trong obj => trả về undefined
+    console.log(nestedProp3); //return undefined
+
+
+    // You can also use the optional chaining operator when accessing properties with an expression using the bracket notation of the property accessor:
+    const nestedProp4 = obj?.['prop' + 'Name'];
+
+    // This is particularly useful for arrays:
+    const arr = ['a', 'b', 'c', 'd']
+    const arrayItem = arr?.[42]; // pt 42 => k tồn tại / k gây ra lỗi
+    console.log(arrayItem);
+
+    // ex - pt tồn tại
+    const arrayItem2 = arr?.[2]; // return c
+    console.log(arrayItem2);
+    
+    // Youtube: 19/07/2022
+    // https://youtu.be/j5O70IKkRhY
