@@ -126,6 +126,53 @@
 
     // 196. Code Music Player
 
+    // Jobs 
+    // 1. Render songs
+    // 2. Scroll top
+    // 3. Play / pause / seek (tua)
+    // 4. CD rotate
+    // 5. Next / prev
+    // 6. Random
+    // 7. Next / Repeat when ended (kết thúc nhạc)
+    // 8. Active song
+    // 9. Scroll active song into view
+    // 10. Play song when click to playlist
+    // 11. Save config / use config
+
+
+    const $ = document.querySelector.bind(document);
+    const $$ = document.querySelectorAll.bind(document);
+
+    // array / data song
+    const songs = [
+        {
+            name: "Click Pow Get Down",
+            singer: "Raftaar x Fortnite",
+            path: "../../../",
+            image: "https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg"
+        },
+    ]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
