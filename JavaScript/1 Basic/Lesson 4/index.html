@@ -12,10 +12,40 @@
 
       a{
          text-decoration: none;
+         color: #333;
       }
 
       a:hover{
          text-decoration: underline;
+         color: darkorange;
+      }
+
+      .lesson{
+         margin: 10px;
+         margin-top: 25px;
+      }
+
+      .containers{
+         width: 100%;
+         padding: 15px;
+         margin: 15px;
+         height: 500px;
+         border: 1px solid #000;
+      }
+
+      ul{
+         list-style-type: none;
+      }
+      
+      .children{
+         font-size: 18px;
+      }
+
+      .parent > li{
+         text-decoration: underline;
+         color:  #B94366;
+         margin-top: 5px;
+         margin-bottom: 5px;
       }
     </style>
 </head>
@@ -23,7 +53,24 @@
 
     <h1 id="heading" class="headingClass">Javascript Basic Learning...</h1>
     <h2>Chương 16<h2>
-    <a href="./Chuong 16/195 Xây dựng Tabs UI/index.html" target="_blank">195 - Xây dựng Tabs UI</a>
+    <div class="containers">
+      <ul class="parent">
+         <li>195 - Xây dựng Tabs UI</li>
+         <ul class="children">
+            <li><a href="./Chuong 16/195 Xây dựng Tabs UI/Template/index.html" target="_blank">Template</a></li>
+            <li><a href="./Chuong 16/195 Xây dựng Tabs UI/Source/index.html" target="_blank">Source</a></li>
+            <li><a href="./Chuong 16/195 Xây dựng Tabs UI/Exercise/index.html" target="_blank">Exercise</a></li>  
+         </ul>
+         <li>196 - Code Music Player</li>
+         <ul class="children">
+            <li><a href="./Chuong 16/196 Code Music Player/Template/index.html" target="_blank">Template</a></li>
+            <li><a href="./Chuong 16/196 Code Music Player/Source/index.html" target="_blank">Source</a></li>
+            <li><a href="./Chuong 16/196 Code Music Player/Exercise/index.html" target="_blank">Exercise</a></li>  
+         </ul>
+      </ul>
+         
+      
+    </div>
 
     <!-- chuong 16 -->
     <script src="./js/main.js"></script>
