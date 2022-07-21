@@ -175,6 +175,10 @@
 
     // console.log(player);
 
+    //lấy ra progress
+    const progress = $('#progress'); //return <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
+
+    console.log(progress);
    
 
 
@@ -355,22 +359,87 @@
                 // dùng _this
 
 
-                // Code logic / k nên dùng :>
+                //// Code logic / k nên dùng :> / dùng event 'onplay'
+                // if(_this.isPlaying){
+                //     // nếu đang playing -> pause -> remove class
+                //     _this.isPlaying = false;
+                //     audio.pause();
+                //     player.classList.remove('playing');
+                // }else{
+                //     // khi play -> isPlaying = true
+                //     _this.isPlaying = true;
+                //     // play
+                //     audio.play();
+                //     // thêm class 'playing'
+                //     player.classList.add('playing');
+                // }
+
+                // Rút gọn logic sau khi chuyển vào event
                 if(_this.isPlaying){
-                    // nếu đang playing -> pause -> remove class
-                    _this.isPlaying = false;
                     audio.pause();
-                    player.classList.remove('playing');
                 }else{
-                    // khi play -> isPlaying = true
-                    _this.isPlaying = true;
-                    // play
                     audio.play();
-                    // thêm class 'playing'
-                    player.classList.add('playing');
                 }
                 
-                
+
+                // Khi song được play
+                audio.onplay = function(){
+                    _this.isPlaying = true;
+                    player.classList.add('playing');
+                }
+
+                // Khi song bị pause
+                audio.onpause = function(){
+                    _this.isPlaying = false;
+                    player.classList.remove('playing');
+                }
+
+                // Khi tiến độ bài hát thay đổi
+                audio.ontimeupdate = function(){
+                    console.log('Current Time: ' + audio.currentTime + ' Length of Song is: ' + audio.duration);
+                    // console.log(audio.src);
+
+                    // Link: https://www.w3schools.com/tags/ref_av_dom.asp
+                    // currentTime	    Sets or returns the current playback position in the audio/video (in seconds)
+                    // duration	        Returns the length of the current audio/video (in seconds)
+
+
+                    // const progressPercent = (audio.currentTime / audio.duration * 100)
+                    // console.log(progressPercent);
+
+                    if(audio.duration){
+                        // dùng floor làm tròn dưới
+                        // Tính ra phần trăm song
+                        const progressPercent = Math.floor(audio.currentTime / audio.duration * 100);
+
+                        console.log(progressPercent);
+
+                        // gán value cho 'progress' / mặc định là 0 / đã set ở html
+                        progress.value = progressPercent;
+
+                    }
+                    
+                }
+
+                // Xử lý khi tua song (seek)
+                progress.onchange = function(e){
+                    // check percent
+                    console.log(e.target.value + '%');
+
+                    // Tính ra số giây
+                    // console.log(audio.duration / 100 * e.target.value);
+
+                    const seekTime = (audio.duration / 100 * e.target.value);
+                    // set time when seek
+                    // console.log(audio.currentTime);
+                    audio.currentTime = seekTime;
+
+                    //currentTime	    Sets or returns the current playback position in the audio/video (in seconds) 
+
+                }
+
+
+
                
                 
             }
