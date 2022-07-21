@@ -143,6 +143,17 @@
     // 11. Save config / use config
 
 
+    // Phần 4. CD rotate cần xem qua về 'animation api'
+    // Tham khảo
+    // https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API
+
+    // https://developer.mozilla.org/en-US/docs/Web/API/Web_Animations_API/Using_the_Web_Animations_API
+
+    // Code Example: 
+    // https://codepen.io/rachelnabors/pen/QyOqqW
+    // https://codepen.io/rachelnabors/pen/PNGGaV (Game)
+
+
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
     
@@ -308,7 +319,25 @@
             // lấy ra offsetWidth
             const cdWidth = cd.offsetWidth;
 
+            // 4. CD rotate
+            //* XỬ LÝ CD QUAY / DỪNG
+            // sử dụng animate
+            const cdThumbAnimate = cdThumb.animate([
+                //truyền thuộc tính css
+                // trong trường hợp quay truyền vào rotate: 360* (độ)
+                { transform: 'rotate(360deg)' }
+            ], {
+                // đối số thứ 2: + quay như thế nào?
+                duration: 10000, //10 seconds
+                iterations: Infinity
+                // iterations: lặp bao nhiêu lần?
+                // Infinity: Vô hạn
+            });
 
+            // Khi mới bắt đầu => pause
+            cdThumbAnimate.pause();
+            // console.log([cdThumbAnimate]); //return [Animation]
+            
             //* XỬ LÝ PHÓNG TO / THU NHỎ CD
 
             // lắng nghe sự kiện kéo trên document
@@ -380,18 +409,22 @@
                 }else{
                     audio.play();
                 }
+
                 
 
                 // Khi song được play
                 audio.onplay = function(){
                     _this.isPlaying = true;
                     player.classList.add('playing');
+                    cdThumbAnimate.play();
+                    
                 }
 
                 // Khi song bị pause
                 audio.onpause = function(){
                     _this.isPlaying = false;
                     player.classList.remove('playing');
+                    cdThumbAnimate.pause();
                 }
 
                 // Khi tiến độ bài hát thay đổi
