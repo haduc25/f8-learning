@@ -416,67 +416,70 @@
                 }else{
                     audio.play();
                 }
+            };
 
+
+            // Khi song được play
+            audio.onplay = function(){
+                _this.isPlaying = true;
+                player.classList.add('playing');
+                cdThumbAnimate.play();
                 
+            }
 
-                // Khi song được play
-                audio.onplay = function(){
-                    _this.isPlaying = true;
-                    player.classList.add('playing');
-                    cdThumbAnimate.play();
-                    
-                }
+            // Khi song bị pause
+            audio.onpause = function(){
+                _this.isPlaying = false;
+                player.classList.remove('playing');
+                cdThumbAnimate.pause();
+            }
 
-                // Khi song bị pause
-                audio.onpause = function(){
-                    _this.isPlaying = false;
-                    player.classList.remove('playing');
-                    cdThumbAnimate.pause();
-                }
+            // Khi tiến độ bài hát thay đổi
+            audio.ontimeupdate = function(){
+                console.log('Current Time: ' + audio.currentTime + ' Length of Song is: ' + audio.duration);
+                // console.log(audio.src);
 
-                // Khi tiến độ bài hát thay đổi
-                audio.ontimeupdate = function(){
-                    console.log('Current Time: ' + audio.currentTime + ' Length of Song is: ' + audio.duration);
-                    // console.log(audio.src);
-
-                    // Link: https://www.w3schools.com/tags/ref_av_dom.asp
-                    // currentTime	    Sets or returns the current playback position in the audio/video (in seconds)
-                    // duration	        Returns the length of the current audio/video (in seconds)
+                // Link: https://www.w3schools.com/tags/ref_av_dom.asp
+                // currentTime	    Sets or returns the current playback position in the audio/video (in seconds)
+                // duration	        Returns the length of the current audio/video (in seconds)
 
 
-                    // const progressPercent = (audio.currentTime / audio.duration * 100)
-                    // console.log(progressPercent);
+                // const progressPercent = (audio.currentTime / audio.duration * 100)
+                // console.log(progressPercent);
 
-                    if(audio.duration){
-                        // dùng floor làm tròn dưới
-                        // Tính ra phần trăm song
-                        const progressPercent = Math.floor(audio.currentTime / audio.duration * 100);
+                if(audio.duration){
+                    // dùng floor làm tròn dưới
+                    // Tính ra phần trăm song
+                    const progressPercent = Math.floor(audio.currentTime / audio.duration * 100);
 
-                        console.log(progressPercent);
+                    console.log(progressPercent);
 
-                        // gán value cho 'progress' / mặc định là 0 / đã set ở html
-                        progress.value = progressPercent;
-
-                    }
-                    
-                }
-
-                // Xử lý khi tua song (seek)
-                progress.onchange = function(e){
-                    // check percent
-                    console.log(e.target.value + '%');
-
-                    // Tính ra số giây
-                    // console.log(audio.duration / 100 * e.target.value);
-
-                    const seekTime = (audio.duration / 100 * e.target.value);
-                    // set time when seek
-                    // console.log(audio.currentTime);
-                    audio.currentTime = seekTime;
-
-                    //currentTime	    Sets or returns the current playback position in the audio/video (in seconds) 
+                    // gán value cho 'progress' / mặc định là 0 / đã set ở html
+                    progress.value = progressPercent;
 
                 }
+                
+            }
+
+            // Xử lý khi tua song (seek)
+            progress.onchange = function(e){
+                // check percent
+                console.log(e.target.value + '%');
+
+                // Tính ra số giây
+                // console.log(audio.duration / 100 * e.target.value);
+
+                const seekTime = (audio.duration / 100 * e.target.value);
+                // set time when seek
+                // console.log(audio.currentTime);
+                audio.currentTime = seekTime;
+
+                //currentTime	    Sets or returns the current playback position in the audio/video (in seconds) 
+
+                // Bổ sung
+                // Khi change 'audio.play()'
+                // audio.play(); 
+            }
 
 
 
@@ -485,7 +488,6 @@
 
                
                 
-            };
 
 
             // Khi ấn next song
@@ -503,6 +505,8 @@
                 // prev xong play lại
                 audio.play();
             } 
+
+            // => Vẫn còn lỗi, khi chưa nhấn play => mà nhấn 'next or prev' => nhạc chạy nhưng logo html k đổi / sửa lại sau
 
 
         },
