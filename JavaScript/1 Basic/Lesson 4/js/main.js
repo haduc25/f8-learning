@@ -122,6 +122,9 @@
 
     // Youtube: 19/07/2022
     // https://youtu.be/j5O70IKkRhY
+
+    // Youtube: 20/07/2022
+    // https://youtu.be/1wqD902BcCI
 */
 
     // 196. Code Music Player
@@ -182,6 +185,9 @@
         // tạo ra 'currentIndex': 0 / để lấy ra pt đàu tiên của mảng (songs)
         // từ 'currentIndex' lấy ra bài hát đầu tiên của mảng
         currentIndex: 0,
+
+        // Tạo ra property
+        isPlaying: false,
 
         // array / data song / chuyển vào obj
         songs: [
@@ -291,6 +297,10 @@
         // 2. Scroll top
         // handle Event / Cử lý các Event
         handleEvents: function(){
+            // lưu this hiện tại = app
+            const _this = this;
+
+
             // lấy ra offsetWidth
             const cdWidth = cd.offsetWidth;
 
@@ -339,11 +349,30 @@
 
             //* XỬ LÝ KHI CLICK PLAY
             playBtn.onclick = function(){
-                // play
-                audio.play();
+                // trong function k thể dùng this ngoài được, vì trong này this = playBtn
+                // Có thể sử dụng app. thay cho this
+                // hoặc tạo ra biến '_this' để lưu giá trị this
+                // dùng _this
 
-                // thêm class 'playing'
-                player.classList.add('playing');
+
+                // Code logic / k nên dùng :>
+                if(_this.isPlaying){
+                    // nếu đang playing -> pause -> remove class
+                    _this.isPlaying = false;
+                    audio.pause();
+                    player.classList.remove('playing');
+                }else{
+                    // khi play -> isPlaying = true
+                    _this.isPlaying = true;
+                    // play
+                    audio.play();
+                    // thêm class 'playing'
+                    player.classList.add('playing');
+                }
+                
+                
+               
+                
             }
 
 
@@ -465,6 +494,10 @@
 
 
 
-    // Youtube: 20/07/2022
-    // https://youtu.be/1wqD902BcCI
+
+
+    // Youtube: 21/07/2022
+    // https://youtu.be/P5VIx6j9KTQ
+    // https://youtu.be/5_5XYYPIIAs
+
 
