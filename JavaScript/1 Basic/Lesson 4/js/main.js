@@ -189,7 +189,14 @@
     //lấy ra progress
     const progress = $('#progress'); //return <input id="progress" class="progress" type="range" value="0" step="1" min="0" max="100">
 
-    console.log(progress);
+    // console.log(progress);
+
+    //lấy ra button next & prev
+    const prevBtn = $('.btn-prev'); //return <div class="btn btn-prev">…</div>
+    const nextBtn = $('.btn-next'); //return <div class="btn btn-next">…</div>
+
+    // console.log(prevBtn, nextBtn);
+
    
 
 
@@ -473,9 +480,29 @@
 
 
 
+
+
+
                
                 
-            }
+            };
+
+
+            // Khi ấn next song
+            nextBtn.onclick = function(){
+                // gọi đến next song
+                _this.nextSong();
+                // next xong play lại
+                audio.play();
+            } 
+
+            // Khi ấn prev song
+            prevBtn.onclick = function(){
+                // gọi đến prev song
+                _this.prevSong();
+                // prev xong play lại
+                audio.play();
+            } 
 
 
         },
@@ -542,6 +569,30 @@
             // <audio id="audio" src="../../../../../Music/Angel-XxxtentacionShiloh-5290195.mp3"></audio>
         },
 
+        nextSong: function(){
+            //  tăng currentIndex
+            this.currentIndex++;
+            // console.log(currentIndex, this.songs.length);
+            if(this.currentIndex >= this.songs.length){
+                this.currentIndex = 0;
+            }
+
+            // next xong -> gọi lại 'loadCurrentSong'
+            this.loadCurrentSong(); //mục đích là khi ấn next -> tải lại thông tin mới
+        },
+
+        prevSong: function(){
+            //  giảm currentIndex
+            this.currentIndex--;
+            console.log(this.currentIndex, this.songs.length);
+            if(this.currentIndex < 0){
+                this.currentIndex = this.songs.length - 1; //array chay tu 0 => phai tru 1
+            }
+
+            // next xong -> gọi lại 'loadCurrentSong'
+            this.loadCurrentSong(); //mục đích là khi ấn next -> tải lại thông tin mới
+        },
+
 
         // start
         start: function(){
@@ -601,5 +652,6 @@
     // Youtube: 21/07/2022
     // https://youtu.be/P5VIx6j9KTQ
     // https://youtu.be/5_5XYYPIIAs
+    // https://youtu.be/tY-Sw0jnAS8
 
 
