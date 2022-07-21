@@ -142,16 +142,302 @@
 
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
+    
+    //lấy ra playlist
+    const playlist = $('.playlist'); //return div.playlist
+    // console.log(playlist);
+    
+    // lấy ra cd
+    const cd = $('.cd')
+    // console.log([cd]);
 
-    // array / data song
-    const songs = [
-        {
-            name: "Click Pow Get Down",
-            singer: "Raftaar x Fortnite",
-            path: "../../../",
-            image: "https://i.ytimg.com/vi/jTLhQf5KJSc/maxresdefault.jpg"
+    //lấy ra header
+    const heading= $('header h2'); //return <h2>String 57th & 9th</h2>
+    //lấy ra thumbnail
+    const cdThumb = $('.cd-thumb'); //return <div class="cd-thumb" style="background-image: url('../../../../../img/Singer/Angel-XxxtentacionShiloh.jpg');"> </div>
+    //lấy ra audio
+    const audio = $('#audio'); //return <audio id="audio" src(unknown)></audio>
+
+    // console.log(heading, cdThumb, audio);
+
+    //lấy ra button play / btn-toggle-play
+    const playBtn = $('.btn-toggle-play'); //return <div class="btn btn-toggle-play">…</div>
+
+    // console.log(playBtn); 
+
+    // IDEA: Khu play -> thêm class 'playing'
+
+    //lấy ra player
+    const player = $('.player');  //return <div class="player">…</div>
+
+    // console.log(player);
+
+   
+
+
+
+
+    //tạo biến app = obj  / lưu properties
+    const app = {
+        // tạo ra 'currentIndex': 0 / để lấy ra pt đàu tiên của mảng (songs)
+        // từ 'currentIndex' lấy ra bài hát đầu tiên của mảng
+        currentIndex: 0,
+
+        // array / data song / chuyển vào obj
+        songs: [
+            {
+                name: "Angel",
+                singer: "Xxxtentacion x Shiloh",
+                path: "../../../../../Music/Angel-XxxtentacionShiloh-5290195.mp3",
+                image: "../../../../../img/Singer/Angel-XxxtentacionShiloh.jpg"
+            },
+            {
+                name: "Anxiety",
+                singer: "Julia Michaels x Selena Gomez",
+                path: "../../../../../Music/Anxiety - Julia Michaels_ Selena Gomez.mp3",
+                image: "../../../../../img/Singer/Anxiety - Julia Michaels_ Selena Gomez.jpg"
+            },
+            {
+                name: "Can We Kiss Forever",
+                singer: "Kina x AdrianaProenza",
+                path: "../../../../../Music/CanWeKissForever-KinaAdrianaProenza-5732141.mp3",
+                image: "../../../../../img/Singer/CanWeKissForever-KinaAdrianaProenza.jpg"
+            },
+            {
+                name: "Chung Ta Cua Hien Tai",
+                singer: "Son Tung M-TP",
+                path: "../../../../../Music/Chung Ta Cua Hien Tai - Son Tung M-TP.mp3",
+                image: "../../../../../img/Singer/Chung Ta Cua Hien Tai - Son Tung M-TP.jpg"
+            },
+            {
+                name: "Dancing With Your Ghost",
+                singer: "Sasha Sloan",
+                path: "../../../../../Music/Dancing With Your Ghost - Sasha Sloan.mp3",
+                image: "../../../../../img/Singer/Dancing With Your Ghost - Sasha Sloan.jpg"
+            },
+            {
+                name: "Don't Leave Me Alone",
+                singer: "David Guetta x Anne-Marie",
+                path: "../../../../../Music/Don_t Leave Me Alone - David Guetta_ Ann.mp3",
+                image: "../../../../../img/Singer/Don_t Leave Me Alone - David Guetta_ Ann.jpg"
+            },
+            {
+                name: "Deep End",
+                singer: "Fousheé",
+                path: "../../../../../Music/Fousheé  Deep End Lyrics.mp3",
+                image: "../../../../../img/Singer/Fousheé  Deep End.jpg"
+            },
+            {
+                name: "I.F.L.Y",
+                singer: "Bazzi",
+                path: "../../../../../Music/I_F_L_Y_ - Bazzi.mp3",
+                image: "../../../../../img/Singer/I_F_L_Y_ - Bazzi.jpg"
+            },
+            {
+                name: "Little Do You Know",
+                singer: "Alex Sierra",
+                path: "../../../../../Music/Little Do You Know - Alex_ Sierra.mp3",
+                image: "../../../../../img/Singer/Little Do You Know - Alex_ Sierra.jpg"
+            },
+            {
+                name: "Lose You to Love Me",
+                singer: "Selena Gomez",
+                path: "../../../../../Music/LoseYouToLoveMe-SelenaGomez-6129774.mp3",
+                image: "../../../../../img/Singer/Selena_Gomez_-_Lose_You_to_Love_Me.png"
+            },
+            {
+                name: "Co Chac Yeu La Day",
+                singer: "Son Tung M-TP",
+                path: "../../../../../Music/Co Chac Yeu La Day.m4a",
+                image: "../../../../../img/Singer/Sơn_Tùng_M-TP_-_Có_chắc_yêu_là_đây.jpg"
+            },
+            {
+                name: "Under Cover",
+                singer: "Mellixceil",
+                path: "../../../../../Music/UnderCover-Mellixceil-6066674.mp3",
+                image: "../../../../../img/Singer/UnderCover-Mellixceil.jpg"
+            },
+        ],
+        
+        // 1. Render songs
+        // render
+        render: function(){
+            // lấy dl từ array songs (bên trên)
+            // sử dụng map
+            // lưu vào biến htmls
+
+            // innerHtml vào class 'playList'
+            const htmls = this.songs.map(song => {
+                return `
+                    <div class="song">
+                        <div class="thumb"
+                            style="background-image: url('${song.image}')">
+                        </div>
+                        <div class="body">
+                            <h3 class="title">${song.name}</h3>
+                            <p>${song.singer}</p>
+                        </div>
+                        <div class="option">
+                            <i class="fas fa-ellipsis-h"></i>
+                        </div>
+                    </div>
+                `
+            })
+
+            //inner vao playlist
+            playlist.innerHTML = htmls.join('');
         },
-    ]
+
+        // 2. Scroll top
+        // handle Event / Cử lý các Event
+        handleEvents: function(){
+            // lấy ra offsetWidth
+            const cdWidth = cd.offsetWidth;
+
+
+            //* XỬ LÝ PHÓNG TO / THU NHỎ CD
+
+            // lắng nghe sự kiện kéo trên document
+            document.onscroll = function(){
+                // scrollY: trục dọc, trong trục tọa độ
+                //console.log(window.scrollY);
+
+                //document.documentElement.scrollTop: tương tự như 'window.scrollY' sử dụng khi 'window.scrollY' k hoạt động
+                // console.log(document.documentElement.scrollTop); 
+
+
+                // check lấy 1 trong 2
+                // logic: k có 'window.scrollY' => lấy 'document.documentElement.scrollTop'
+                const scrollTop = window.scrollY || document.documentElement.scrollTop;
+
+                //Hành động thu nhỏ
+                //Kéo lên bao nhiêu => thu nhỏ bấy nhiêu
+                const newCdWidth = cdWidth - scrollTop;
+                // console.log(cdWidth, scrollTop, newCdWidth);
+                // console.log(newCdWidth);
+
+                // set vao css của cd
+                // cd.style.width = newCdWidth + 'px';
+
+                // vì kéo nhanh gây ra bug 'newCdWidth' về số âm mà css k nhận số âm => check 
+                
+                // logic: nếu 'newCdWidth' > 0 => lấy newCdWidth + px ngược lại (nhỏ hơn 0) => lấy giá trị 0
+                cd.style.width = newCdWidth > 0 ? newCdWidth + 'px': 0;
+
+
+                // mờ giần khi kéo / opacity / ía trị từ 0 - 1
+                // opacity
+                // Kích thước mới của cd 'newCdWidth' / Kích thước cũ của cd 'cdWidth' = tỷ lệ
+                const newOpaciy = newCdWidth / cdWidth;
+
+                // set css opacity
+                cd.style.opacity  = newOpaciy;
+
+                //// check lại opacity
+                console.log(newCdWidth / cdWidth, cdWidth, newOpaciy);
+            }
+
+            //* XỬ LÝ KHI CLICK PLAY
+            playBtn.onclick = function(){
+                // play
+                audio.play();
+
+                // thêm class 'playing'
+                player.classList.add('playing');
+            }
+
+
+        },
+
+        // Case2: Tạo ra getter cho obj cho tiện hơn
+        defindProperties: function(){
+            // Định nghĩa ra 1 getter
+            Object.defineProperty(this, 'currentSong', {
+                get: function(){
+                    return this.songs[this.currentIndex];
+                    // defind ra 1 property 'currentSong' => k cần dùng đến 'getCurrentSong()' 
+                    // ở object app -> có currenSong
+                    // cách check
+                    // - Mở Dev tool -> console
+                    // app.currentSong
+
+                    // getter đặc tính: k cần mở ngoặc như hàm
+
+                    // return
+                    // app.currentSong
+                    // {name: 'Angel', singer: 'Xxxtentacion x Shiloh', path: '../../../../../Music/Angel-XxxtentacionShiloh-5290195.mp3', image: '../../../../../img/Singer/Angel-XxxtentacionShiloh.jpg'}
+                }
+            });
+
+            // Tham khao: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+            // Object.defineProperty ()
+            // - The static method Object.defineProperty() defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
+
+            // Ex
+            // const object1 = {};
+
+            // Object.defineProperty(object1, 'property1', {
+            // value: 42,
+            // writable: false
+            // });
+
+            // object1.property1 = 77;
+            // // throws an error in strict mode
+
+            // console.log(object1.property1);
+            // // expected output: 42
+
+            
+            // output: 42
+        },
+
+
+        // // Case1: Thường dùng 
+        // getCurrentSong: function(){
+        //     return this.songs[this.currentIndex];
+        // },
+
+        loadCurrentSong: function(){
+            // heading
+            heading.textContent = this.currentSong.name;
+            // CD Thumbnail
+            cdThumb.style.backgroundImage = `url('${this.currentSong.image}')`;
+            // Audio
+            audio.src = this.currentSong.path;
+
+            console.log(heading, cdThumb, audio); 
+            // <h2>Angel</h2>
+            // <div class="cd-thumb" style="background-image: url('../../../../../img/Singer/Angel-XxxtentacionShiloh.jpg');"> </div>
+            // <audio id="audio" src="../../../../../Music/Angel-XxxtentacionShiloh-5290195.mp3"></audio>
+        },
+
+
+        // start
+        start: function(){
+            // Định nghĩa các thuộc tính cho Object
+            // Case2: Tạo ra getter cho obj cho tiện hơn
+            this.defindProperties();
+
+            // Lắng nghe /xử lý các sự kiện (DOM Events)
+            this.handleEvents();
+
+            // Case1: Thường dùng 
+            // console.log(this.getCurrentSong()); //return {name: 'Angel', singer: 'Xxxtentacion x Shiloh', path: '../../../../../Music/Angel-XxxtentacionShiloh-5290195.mp3', image: '../../../../../img/Singer/Angel-XxxtentacionShiloh.jpg'}
+
+            // Tải thông tin bài đầu tiên vào UI khi chạy ứng dụng
+            this.loadCurrentSong()
+
+
+            // Render playlist
+            this.render();
+        }
+        
+        // run start
+
+    }
+
+    app.start();
+
 
 
 
