@@ -312,9 +312,11 @@
             // lưu vào biến htmls
 
             // innerHtml vào class 'playList'
-            const htmls = this.songs.map(song => {
+            const htmls = this.songs.map((song, index) => {
+                // 8. Active song
+                // Logic: Nếu index = currentIndex -> add class active / ngược lại = k add
                 return `
-                    <div class="song">
+                    <div class="song ${index === this.currentIndex ? 'active' : ''}">
                         <div class="thumb"
                             style="background-image: url('${song.image}')">
                         </div>
@@ -518,6 +520,7 @@
                 }
                 // next xong play lại
                 audio.play();
+                _this.render(); //render lại để load lại cái 'active' trong playlist
             } 
 
             // Khi ấn prev song
@@ -531,6 +534,7 @@
                 }
                 // prev xong play lại
                 audio.play();
+                _this.render(); //render lại để load lại cái 'active' trong playlist
             } 
 
             // => Vẫn còn lỗi, khi chưa nhấn play => mà nhấn 'next or prev' => nhạc chạy nhưng logo html k đổi / sửa lại sau
