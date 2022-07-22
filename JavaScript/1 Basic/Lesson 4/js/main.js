@@ -217,6 +217,7 @@
 
 
 
+
     //tạo biến app = obj  / lưu properties
     const app = {
         // tạo ra 'currentIndex': 0 / để lấy ra pt đàu tiên của mảng (songs)
@@ -521,6 +522,10 @@
                 // next xong play lại
                 audio.play();
                 _this.render(); //render lại để load lại cái 'active' trong playlist
+                // gọi đến hàm scroll to active song
+                _this.scrollToActiveSong();
+
+
             } 
 
             // Khi ấn prev song
@@ -535,6 +540,9 @@
                 // prev xong play lại
                 audio.play();
                 _this.render(); //render lại để load lại cái 'active' trong playlist
+                // gọi đến hàm scroll to active song
+                _this.scrollToActiveSong();
+
             } 
 
             // => Vẫn còn lỗi, khi chưa nhấn play => mà nhấn 'next or prev' => nhạc chạy nhưng logo html k đổi / sửa lại sau
@@ -623,6 +631,49 @@
 
             
             // output: 42
+        },
+
+
+        // 9. Scroll active song into view
+        scrollToActiveSong: function(){
+            setTimeout(() => {
+                // Link: https://developer.mozilla.org/en-US/docs/Web/API/Element/scrollIntoView
+
+                // Element.scrollIntoView()
+                // The Element interface's scrollIntoView() method scrolls the element's parent container such 
+                //  that the element on which scrollIntoView() is called is visible to the user.
+                
+                //lấy ra song duoc active / actived
+                const songActived = $('.song.active'); //return <div class="song active">…</div>flex
+
+                // console.log(songActived);
+
+                // songActived.scrollIntoView();
+
+                // sử dụng scrollIntoView(scrollIntoViewOptions)
+
+                //// Parameters
+                ///scrollIntoViewOptions Optional Experimental
+                // An Object with the following properties:
+
+                // behavior Optional
+                // Defines the transition animation. One of auto or smooth. Defaults to auto.
+
+                // block Optional / căn dọc
+                // Defines vertical alignment. One of start, center, end, or nearest. Defaults to start.
+
+                // inline Optional / căn ngang
+                // Defines horizontal alignment. One of start, center, end, or nearest. Defaults to nearest.
+         
+                
+                songActived.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'center', //căn chiều dọc / center => hợp lý vl :>
+                    // block: 'nearest', //theo f8 thì dùng 'nearest' // => Chê / vừa lỗi (đến cuối nhảy lên đầu bị che 
+                    // / fix: check currentIndexSong nếu qua về đầu đổi block từ 'nearest' -> 'center'), vừa xấu
+                    // Gợi ý fix chi tiết (nếu cần): https://youtu.be/vAecGPWxzFE       / time: (1h25m19s)
+                });
+            }, 300);
         },
 
 
