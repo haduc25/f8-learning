@@ -207,7 +207,12 @@
     const randomBtn = $('.btn-random'); //return <div class="btn btn-random">…</div>
 
     // console.log(randomBtn);
-   
+
+    
+    //lấy ra button repeat
+    const repeatBtn = $('.btn-repeat'); //return <div class="btn btn-repeat">…</div>
+
+    // console.log(repeatBtn);
 
 
 
@@ -221,6 +226,7 @@
         // Tạo ra property
         isPlaying: false,
         isRandom: false,
+        isRepeat: false,
 
         // array / data song / chuyển vào obj
         songs: [
@@ -544,12 +550,30 @@
             }
 
             // 7. Next / Repeat when ended (kết thúc nhạc)
+
+            // Xử lý lặp lại 1 song (repeat)
+            repeatBtn.onclick = function(e){
+                _this.isRepeat = !_this.isRepeat;   
+                this.classList.toggle('active', _this.isRepeat);
+            }
+
+
+
             // Xử lý next song khi audio ended
             audio.onended = function(){
                 // console.log(123);
-                // gọi lại nút next
-                nextBtn.click();
+                if(_this.isRepeat){
+                    audio.play();
+                }else{
+                    // gọi lại nút next
+                    nextBtn.click();
+                }
+
+
             }
+
+
+             
 
 
 
@@ -719,3 +743,6 @@
     // Youtube: 22/07/2022
     // https://youtu.be/PevOZxoIE1A
     // https://youtu.be/foVceyXAk6Y
+    // https://youtu.be/1-frPXYapAg
+
+
