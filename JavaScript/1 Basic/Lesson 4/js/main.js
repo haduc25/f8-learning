@@ -543,6 +543,14 @@
                 this.classList.toggle('active', _this.isRandom);
             }
 
+            // 7. Next / Repeat when ended (kết thúc nhạc)
+            // Xử lý next song khi audio ended
+            audio.onended = function(){
+                // console.log(123);
+                // gọi lại nút next
+                nextBtn.click();
+            }
+
 
 
         },
@@ -710,3 +718,4 @@
 
     // Youtube: 22/07/2022
     // https://youtu.be/PevOZxoIE1A
+    // https://youtu.be/foVceyXAk6Y
