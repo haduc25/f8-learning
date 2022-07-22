@@ -125,7 +125,13 @@
 
     // Youtube: 20/07/2022
     // https://youtu.be/1wqD902BcCI
+
+    // Youtube: 21/07/2022
+    // https://youtu.be/P5VIx6j9KTQ
+    // https://youtu.be/5_5XYYPIIAs
+    // https://youtu.be/tY-Sw0jnAS8
 */
+
 
     // 196. Code Music Player
 
@@ -197,6 +203,10 @@
 
     // console.log(prevBtn, nextBtn);
 
+    //lấy ra button random
+    const randomBtn = $('.btn-random'); //return <div class="btn btn-random">…</div>
+
+    // console.log(randomBtn);
    
 
 
@@ -210,6 +220,7 @@
 
         // Tạo ra property
         isPlaying: false,
+        isRandom: false,
 
         // array / data song / chuyển vào obj
         songs: [
@@ -492,21 +503,46 @@
 
             // Khi ấn next song
             nextBtn.onclick = function(){
-                // gọi đến next song
-                _this.nextSong();
+                if(_this.isRandom){
+                    // call function() random
+                    _this.playRandomSong();
+                }else{
+                    // gọi đến next song
+                    _this.nextSong();
+                }
                 // next xong play lại
                 audio.play();
             } 
 
             // Khi ấn prev song
             prevBtn.onclick = function(){
-                // gọi đến prev song
-                _this.prevSong();
+                if(_this.isRandom){
+                    // call function() random
+                    _this.playRandomSong();
+                }else{
+                    // gọi đến prev song
+                    _this.prevSong();
+                }
                 // prev xong play lại
                 audio.play();
             } 
 
             // => Vẫn còn lỗi, khi chưa nhấn play => mà nhấn 'next or prev' => nhạc chạy nhưng logo html k đổi / sửa lại sau
+
+
+            // Xử lý bật / tắt random song
+            randomBtn.onclick = function(e){
+                // console.log(this);
+                // this hiện tại là randomBtn => dùng this
+                // this.classList.add('active');
+
+                //Đảo ngược lại / đang false -> true / true -> false
+                _this.isRandom = !_this.isRandom;
+
+                // dùng toggle: nếu false -> xóa class / true -> thêm class
+                this.classList.toggle('active', _this.isRandom);
+            }
+
 
 
         },
@@ -597,6 +633,23 @@
             this.loadCurrentSong(); //mục đích là khi ấn next -> tải lại thông tin mới
         },
 
+        playRandomSong: function(){
+            // Tạo biến 'newIndex' để lưu giá trị random
+            let newIndex;
+            do{
+                newIndex = Math.floor(Math.random() * this.songs.length);
+            }while(newIndex === this.currentIndex); //đk: nếu bài mới = bài hiện tại => lặp tiếp
+
+            // console.log(newIndex);
+
+            // set bài hát hiện tại = bài mới sau khi random
+            this.currentIndex = newIndex;
+
+            // load lại currentSong
+            this.loadCurrentSong();
+            
+        },
+
 
         // start
         start: function(){
@@ -653,9 +706,7 @@
 
 
 
-    // Youtube: 21/07/2022
-    // https://youtu.be/P5VIx6j9KTQ
-    // https://youtu.be/5_5XYYPIIAs
-    // https://youtu.be/tY-Sw0jnAS8
 
 
+    // Youtube: 22/07/2022
+    // https://youtu.be/PevOZxoIE1A
