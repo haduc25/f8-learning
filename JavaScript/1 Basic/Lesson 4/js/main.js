@@ -167,6 +167,9 @@
 
     const $ = document.querySelector.bind(document);
     const $$ = document.querySelectorAll.bind(document);
+
+    // Tạo ra hằng số
+    const PLAYER_STORAGE_KEY = 'HADUC25_PLAYER';
     
     //lấy ra playlist
     const playlist = $('.playlist'); //return div.playlist
@@ -234,6 +237,30 @@
         isRandom: false,
         isRepeat: false,
 
+        // 11. Save config / use config
+        // Tạo ra config -> lấy dl từ local storage
+        // Lấy dl từ 'localStorage' dùng hàm 'getItem' / mặc định nếu chưa có thì lấy ra 1 obj
+        // dùng JSON.parse đọc từ storage ra js
+        config: JSON.parse(localStorage.getItem(PLAYER_STORAGE_KEY)) || {}, //lần đầu tiên vào chưa có dl => lấy ra obj
+
+        // tạo hàm set Config
+        setConfig: function(key, value){
+            // set key = value
+            this.config[key] = value;
+
+            // lưu vao local Storage / dùng set Item
+            localStorage.setItem(PLAYER_STORAGE_KEY, JSON.stringify(this.config)) //setItem(key, value) / => lưu value thì mã hóa / lấy ra thì giải mã
+        },
+
+        // Khi load app -> load cofig từ local storage
+        loadConfig: function(){
+            // lấy data từ local storage gán vào value
+            this.isRandom = this.config.isRandom;
+            this.isRepeat = this.config.isRepeat;
+        },
+
+        //Check trên dev-tool: app.settings
+        
         // array / data song / chuyển vào obj
         songs: [
             {
@@ -563,6 +590,9 @@
                 //Đảo ngược lại / đang false -> true / true -> false
                 _this.isRandom = !_this.isRandom;
 
+                // Lưu vào khi nhấn vào random => lưu random current vào local storage
+                _this.setConfig('isRandom', _this.isRandom);
+
                 // dùng toggle: nếu false -> xóa class / true -> thêm class
                 this.classList.toggle('active', _this.isRandom);
             }
@@ -572,6 +602,10 @@
             // Xử lý lặp lại 1 song (repeat)
             repeatBtn.onclick = function(e){
                 _this.isRepeat = !_this.isRepeat;   
+
+                // Lưu vào khi nhấn vào repeat => lưu random current vào local storage
+                _this.setConfig('isRepeat', _this.isRepeat);
+
                 this.classList.toggle('active', _this.isRepeat);
             }
 
@@ -634,7 +668,7 @@
                         // console.log(typeof songNode.dataset.index); //return string
 
                         // Gán currentIndex = data-index / gán nhạc hiện tại -> bài nhạc khi mà user click
-                        _this.currentIndex = Number(songNode.dataset.index); //Covert String -> Number
+                        _this.currentIndex = Number(songNode.dataset.index); //Convert String -> Number
                         // Load lại current song
                         _this.loadCurrentSong();
                         // Render lại
@@ -661,7 +695,7 @@
 
         },
 
-        // Case2: Tạo ra getter cho obj cho tiện hơn
+        // Case2: Tạo ra getter cho obj cho tiệ~n hơn
         defindProperties: function(){
             // Định nghĩa ra 1 getter
             Object.defineProperty(this, 'currentSong', {
@@ -810,6 +844,10 @@
 
         // start
         start: function(){
+            // Load config
+            // Gán cấu hình từ config vào ứng dụng
+            this.loadConfig();
+
             // Định nghĩa các thuộc tính cho Object
             // Case2: Tạo ra getter cho obj cho tiện hơn
             this.defindProperties();
@@ -826,6 +864,10 @@
 
             // Render playlist
             this.render();
+
+            // Hiển thị trạng thái ban đầu của button random & repeat
+            randomBtn.classList.toggle('active', this.isRandom);  
+            repeatBtn.classList.toggle('active', this.isRepeat);  
         }
         
         // run start
