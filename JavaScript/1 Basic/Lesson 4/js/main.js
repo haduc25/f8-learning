@@ -130,6 +130,11 @@
     // https://youtu.be/P5VIx6j9KTQ
     // https://youtu.be/5_5XYYPIIAs
     // https://youtu.be/tY-Sw0jnAS8
+
+    // Youtube: 22/07/2022
+    // https://youtu.be/PevOZxoIE1A
+    // https://youtu.be/foVceyXAk6Y
+    // https://youtu.be/1-frPXYapAg
 */
 
 
@@ -585,6 +590,52 @@
             }
 
 
+            // Lắng nghe hành vi click vào playlist
+            playlist.onclick = function(e) {
+                // console.log(e.target); //lấy được Element khi click
+
+                // closest()
+                // The closest() method in JavaScript is used to retrieve the closest ancestor, 
+                // or parent of the element matches the selectors. If there is no ancestor found, the method returns null.
+            
+                // Link: https://developer.mozilla.org/en-US/docs/Web/API/Element/closest
+                // Element.closest()
+                // https://www.w3schools.com/jsref/met_element_closest.asp
+
+
+                // Logic: closest() return: 1. chính nó, 2. thẻ cha của nó / nếu k tìm thấy element => return null
+                // kiểm tra có phải '.song' hay k? / k tìm đc con -> tìm ra cha
+                // bắt sự kiện mà k có class '.active'
+                // dùng css Selector
+                // e.target.closest('.song') -> e.target.closest('.song:not(.active)') //trừ element đang active ra -> ấn k nhận
+                // vì đang active thì ấn k chuyển bài
+
+                if(e.target.closest('.song:not(.active)') || e.target.closest('.option')){
+                    // Tạo ra songNode / song Element
+                    const songNode = 
+
+                    // Logic của if(nếu k là 'song đang active' hoặc là nút option) => true
+                    console.log(e.target);
+
+                    // Xử lý khi click vào song
+                    if(e.target.closest('.song:not(.active)')){
+                        // Nếu click vào song -> get ra index
+                        // case 1
+                        console.log(e.target.getAtribute('data-index'));
+                    }
+
+                    // Xử lý khi click vào song option
+                    if(e.target.closest('.option')){
+
+                    }
+
+
+
+                }
+
+
+            }
+
              
 
 
@@ -795,9 +846,10 @@
 
 
 
-    // Youtube: 22/07/2022
-    // https://youtu.be/PevOZxoIE1A
-    // https://youtu.be/foVceyXAk6Y
-    // https://youtu.be/1-frPXYapAg
+
+
+    // Youtube: 23/07/2022
+    // https://youtu.be/2bJFaMHbFAs
+    // https://youtu.be/a36PrubVZ1o 
 
 
