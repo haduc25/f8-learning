@@ -321,8 +321,9 @@
             const htmls = this.songs.map((song, index) => {
                 // 8. Active song
                 // Logic: Nếu index = currentIndex -> add class active / ngược lại = k add
+                // Thêm Attribute: data-index
                 return `
-                    <div class="song ${index === this.currentIndex ? 'active' : ''}">
+                    <div class="song ${index === this.currentIndex ? 'active' : ''}" data-index="${index}">
                         <div class="thumb"
                             style="background-image: url('${song.image}')">
                         </div>
@@ -592,6 +593,10 @@
 
             // Lắng nghe hành vi click vào playlist
             playlist.onclick = function(e) {
+                // Tạo ra songNode / song Element
+                const songNode = e.target.closest('.song:not(.active)');
+                // console.log(songNode);
+
                 // console.log(e.target); //lấy được Element khi click
 
                 // closest()
@@ -610,18 +615,32 @@
                 // e.target.closest('.song') -> e.target.closest('.song:not(.active)') //trừ element đang active ra -> ấn k nhận
                 // vì đang active thì ấn k chuyển bài
 
-                if(e.target.closest('.song:not(.active)') || e.target.closest('.option')){
-                    // Tạo ra songNode / song Element
-                    const songNode = 
+                if(songNode || e.target.closest('.option')){
+
 
                     // Logic của if(nếu k là 'song đang active' hoặc là nút option) => true
                     console.log(e.target);
 
                     // Xử lý khi click vào song
-                    if(e.target.closest('.song:not(.active)')){
+                    if(songNode){
                         // Nếu click vào song -> get ra index
                         // case 1
-                        console.log(e.target.getAtribute('data-index'));
+                        // console.log(songNode.getAttribute('data-index'));
+
+                        // case 2: Khi dùng Attribute 'data-index' -> thì dùng luôn dataset.index / Element.dataset.index
+                        // console.log(songNode.dataset.index);
+
+                        // check type / vì là string => nên cần convert qua Number
+                        // console.log(typeof songNode.dataset.index); //return string
+
+                        // Gán currentIndex = data-index / gán nhạc hiện tại -> bài nhạc khi mà user click
+                        _this.currentIndex = Number(songNode.dataset.index); //Covert String -> Number
+                        // Load lại current song
+                        _this.loadCurrentSong();
+                        // Render lại
+                        _this.render();
+                        // play music
+                        audio.play();
                     }
 
                     // Xử lý khi click vào song option
