@@ -1,135 +1,3 @@
-/** Chuong 16.Các bài thực hành
-    195 - Xây dựng Tabs UI
-
-    // Link code mẫu
-
-    // - Link ảnh thiết kế: https://dribbble.com/shots/14483921
-    // - Link code mẫu: https://codepen.io/ng-ngc-sn-the-bashful/pen/BaLXJbz
-
-    // Javascript Bind Method
-    // Tham khảo: https://viblo.asia/p/bind-apply-and-call-trong-javascript-DzVGpoMDvnW 
-
-
-    // Bind là một function nằm trong function prototype do đó chỉ có function mới có thể gọi dc nó. 
-    // Chúng ta gọi Bind method dùng để xác định tham số “this” cho một function.
-    // bind() cho phép chúng ta dễ dàng thiết lập một đối tượng cụ thể sẽ bị ràng buộc này khi một chức năng hoặc phương pháp được gọi.
-
-    // * Các tác dụng của bind
-    // - Cho phép chúng ta set giá trị của biến "this"
-    // - Cho phép tạo một Curry Function
-
-
-
-    // Main.js
-    // Tạo ra 2 biến
-
-    const $ = document.querySelector.bind(document);
-    const $$ = document.querySelectorAll.bind(document);
-
-    // bind: tạm hiểu
-    // bind này là kiểu gán trực tiếp vào document 
-
-    // thay vì sử dụng 'document.querySelector.bind(document);' thì chỉ cần gọi đến '$'
-    // thay vì sử dụng 'document.querySelectorAll.bind(document);' thì chỉ cần gọi đến '$$'
-
-    // Lấy ra 'tab-item'
-    // lưu vào biến 'tabs'
-
-    const tabs = $$('.tab-item');
-    // $: lấy ra 1 element = querySelector();
-    // $$: lấy ra nhiều = querySelectorAll();
-
-    // Tương tụ lấy 'tab-pane'
-    const panes = $$('.tab-pane');
-
-    // check
-    console.log(tabs, panes);
-    // return
-    // NodeList(4) [div.tab-item.active, div.tab-item, div.tab-item, div.tab-item]
-    // NodeList(4) [div.tab-pane.active, div.tab-pane, div.tab-pane, div.tab-pane]
-
-
-    // lấy ra tab đã được active
-    const tabActive = $('.tab-item.active');
-    // console.log(tabActive);
-
-    // cho 'tabActive' vào array để tìm 'offsetLeft' & 'offsetWidth'
-    // để gán cho 'line' = tab
-    console.log([tabActive]);
-    // offsetLeft: 0
-    // offsetWidth: 135
-
-    // lấy ra line
-    const line = $('.tabs .line');
-    // console.log(line);
-    console.log([line]);
-
-    // gán css cho 'line' = tabActive: left, width
-    line.style.left = tabActive.offsetLeft + 'px'; 
-    line.style.width = tabActive.offsetWidth + 'px'; 
-
-
-
-
-
-
-    // => trong querySelector('trong này nè')
-    // nếu trong Element có 2 class => thì k được viết cách
-    // nếu trong Element có 1 class và trong class đó có 1 class con => thì có thể viết cách
-    // ex -  thì có thể viết cách nếu muốn select đến class2
-    // <div class="class1">
-    //     <div class="class2">
-    //     </div>
-    // </div>
-
-    
-
-    // Lặp qua => lấy dl / vì tab & pane đều có 5 element => có thể dùng chung index
-    tabs.forEach((tab, index) => {
-        // tạo ra biến 'pane' -> chuyền vào index
-        const pane = panes[index]
-
-        // lắng nghe sự kiện 'onclick'
-        tab.onclick = function(){
-        
-            // console.log(pane); //return lấy ra đc element & các thẻ div ở trên => lấy ra đc các pane
-            // console.log(this); //return lấy ra đc element & các thẻ div ở trên => lấy ra đc các tab
-
-            // idea: khi click vào 'Angular' -> class 'active' từ 'React' bị xóa và chuyển qua 'Angular'
-
-            
-            // Kiểm tra xem có Element nào đang 'active' -> remove
-            // dùng $ -> select 1 elemet
-            $('.tab-item.active').classList.remove('active');
-            // Tương tự với 'pane'
-            $('.tab-pane.active').classList.remove('active');
-
-            // khi click set lại css cho line
-            line.style.left = this.offsetLeft + 'px'; 
-            line.style.width = this.offsetWidth + 'px'; 
-
-            // Thêm class 'active'
-            this.classList.add('active'); //=> done
-            // Tương tự với 'pane'
-            pane.classList.add('active'); //=> done
-
-
-            // Xử lý với 'line'
-
-        }
-    });
-
-
-
-
-
-
-
-
-
-
-
-
     // 196. Code Music Player
 
     // Jobs 
@@ -356,8 +224,6 @@
                     </div>
                 `
             })
-
-            //inner vao playlist
             playlist.innerHTML = htmls.join('');
         },
 
@@ -366,20 +232,13 @@
         handleEvents: function(){
             // lưu this hiện tại = app
             const _this = this;
-
-
-            // lấy ra offsetWidth
             const cdWidth = cd.offsetWidth;
 
             // 4. CD rotate
             //* XỬ LÝ CD QUAY / DỪNG
-            // sử dụng animate
             const cdThumbAnimate = cdThumb.animate([
-                //truyền thuộc tính css
-                // trong trường hợp quay truyền vào rotate: 360* (độ)
                 { transform: 'rotate(360deg)' }
             ], {
-                // đối số thứ 2: + quay như thế nào?
                 duration: 10000, //10 seconds
                 iterations: Infinity
                 // iterations: lặp bao nhiêu lần?
@@ -388,34 +247,16 @@
 
             // Khi mới bắt đầu => pause
             cdThumbAnimate.pause();
-            // console.log([cdThumbAnimate]); //return [Animation]
-            
             //* XỬ LÝ PHÓNG TO / THU NHỎ CD
-
             // lắng nghe sự kiện kéo trên document
             document.onscroll = function(){
-                // scrollY: trục dọc, trong trục tọa độ
-                //console.log(window.scrollY);
-
-                //document.documentElement.scrollTop: tương tự như 'window.scrollY' sử dụng khi 'window.scrollY' k hoạt động
-                // console.log(document.documentElement.scrollTop); 
-
-
-                // check lấy 1 trong 2
                 // logic: k có 'window.scrollY' => lấy 'document.documentElement.scrollTop'
                 const scrollTop = window.scrollY || document.documentElement.scrollTop;
 
                 //Hành động thu nhỏ
                 //Kéo lên bao nhiêu => thu nhỏ bấy nhiêu
                 const newCdWidth = cdWidth - scrollTop;
-                // console.log(cdWidth, scrollTop, newCdWidth);
-                // console.log(newCdWidth);
 
-                // set vao css của cd
-                // cd.style.width = newCdWidth + 'px';
-
-                // vì kéo nhanh gây ra bug 'newCdWidth' về số âm mà css k nhận số âm => check 
-                
                 // logic: nếu 'newCdWidth' > 0 => lấy newCdWidth + px ngược lại (nhỏ hơn 0) => lấy giá trị 0
                 cd.style.width = newCdWidth > 0 ? newCdWidth + 'px': 0;
 
@@ -439,23 +280,6 @@
                 // hoặc tạo ra biến '_this' để lưu giá trị this
                 // dùng _this
 
-
-                //// Code logic / k nên dùng :> / dùng event 'onplay'
-                // if(_this.isPlaying){
-                //     // nếu đang playing -> pause -> remove class
-                //     _this.isPlaying = false;
-                //     audio.pause();
-                //     player.classList.remove('playing');
-                // }else{
-                //     // khi play -> isPlaying = true
-                //     _this.isPlaying = true;
-                //     // play
-                //     audio.play();
-                //     // thêm class 'playing'
-                //     player.classList.add('playing');
-                // }
-
-                // Rút gọn logic sau khi chuyển vào event
                 if(_this.isPlaying){
                     audio.pause();
                 }else{
@@ -487,10 +311,6 @@
                 // Link: https://www.w3schools.com/tags/ref_av_dom.asp
                 // currentTime	    Sets or returns the current playback position in the audio/video (in seconds)
                 // duration	        Returns the length of the current audio/video (in seconds)
-
-
-                // const progressPercent = (audio.currentTime / audio.duration * 100)
-                // console.log(progressPercent);
 
                 if(audio.duration){
                     // dùng floor làm tròn dưới
@@ -525,14 +345,6 @@
                 // Khi change 'audio.play()'
                 // audio.play(); 
             }
-
-
-
-
-
-
-               
-                
 
 
             // Khi ấn next song
@@ -570,9 +382,6 @@
 
             } 
 
-            // => Vẫn còn lỗi, khi chưa nhấn play => mà nhấn 'next or prev' => nhạc chạy nhưng logo html k đổi / sửa lại sau
-
-
             // Xử lý bật / tắt random song
             randomBtn.onclick = function(e){
                 // console.log(this);
@@ -602,7 +411,6 @@
             }
 
 
-
             // Xử lý next song khi audio ended
             audio.onended = function(){
                 // console.log(123);
@@ -612,8 +420,6 @@
                     // gọi lại nút next
                     nextBtn.click();
                 }
-
-
             }
 
 
@@ -621,10 +427,6 @@
             playlist.onclick = function(e) {
                 // Tạo ra songNode / song Element
                 const songNode = e.target.closest('.song:not(.active)');
-                // console.log(songNode);
-
-                // console.log(e.target); //lấy được Element khi click
-
                 // closest()
                 // The closest() method in JavaScript is used to retrieve the closest ancestor, 
                 // or parent of the element matches the selectors. If there is no ancestor found, the method returns null.
@@ -650,15 +452,6 @@
                     // Xử lý khi click vào song
                     if(songNode){
                         // Nếu click vào song -> get ra index
-                        // case 1
-                        // console.log(songNode.getAttribute('data-index'));
-
-                        // case 2: Khi dùng Attribute 'data-index' -> thì dùng luôn dataset.index / Element.dataset.index
-                        // console.log(songNode.dataset.index);
-
-                        // check type / vì là string => nên cần convert qua Number
-                        // console.log(typeof songNode.dataset.index); //return string
-
                         // Gán currentIndex = data-index / gán nhạc hiện tại -> bài nhạc khi mà user click
                         _this.currentIndex = Number(songNode.dataset.index); //Convert String -> Number
                         // Load lại current song
@@ -680,7 +473,6 @@
 
 
             }
-
 
             //Custom - Làm thêm phím tắt
             
@@ -706,16 +498,8 @@
                         // gọi next()
                         nextBtn.click();
                         break;
-
-
-                    
                 }
             }
-
-             
-
-
-
         },
 
         // Case2: Tạo ra getter cho obj cho tiệ~n hơn
@@ -724,40 +508,9 @@
             Object.defineProperty(this, 'currentSong', {
                 get: function(){
                     return this.songs[this.currentIndex];
-                    // defind ra 1 property 'currentSong' => k cần dùng đến 'getCurrentSong()' 
-                    // ở object app -> có currenSong
-                    // cách check
-                    // - Mở Dev tool -> console
-                    // app.currentSong
-
-                    // getter đặc tính: k cần mở ngoặc như hàm
-
-                    // return
-                    // app.currentSong
-                    // {name: 'Angel', singer: 'Xxxtentacion x Shiloh', path: '../../../../../Music/Angel-XxxtentacionShiloh-5290195.mp3', image: '../../../../../img/Singer/Angel-XxxtentacionShiloh.jpg'}
                 }
             });
-
             // Tham khao: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
-            // Object.defineProperty ()
-            // - The static method Object.defineProperty() defines a new property directly on an object, or modifies an existing property on an object, and returns the object.
-
-            // Ex
-            // const object1 = {};
-
-            // Object.defineProperty(object1, 'property1', {
-            // value: 42,
-            // writable: false
-            // });
-
-            // object1.property1 = 77;
-            // // throws an error in strict mode
-
-            // console.log(object1.property1);
-            // // expected output: 42
-
-            
-            // output: 42
         },
 
 
@@ -892,43 +645,6 @@
             randomBtn.classList.toggle('active', this.isRandom);  
             repeatBtn.classList.toggle('active', this.isRepeat);  
         }
-        
-        // run start
-
     }
 
     app.start();
-
-
-    // Youtube: 19/07/2022
-    // https://youtu.be/j5O70IKkRhY
-
-    // Youtube: 20/07/2022
-    // https://youtu.be/1wqD902BcCI
-
-    // Youtube: 21/07/2022
-    // https://youtu.be/P5VIx6j9KTQ
-    // https://youtu.be/5_5XYYPIIAs
-    // https://youtu.be/tY-Sw0jnAS8
-
-    // Youtube: 22/07/2022
-    // https://youtu.be/PevOZxoIE1A
-    // https://youtu.be/foVceyXAk6Y
-    // https://youtu.be/1-frPXYapAg
-
-    // Youtube: 23/07/2022
-    // https://youtu.be/2bJFaMHbFAs
-    // https://youtu.be/a36PrubVZ1o 
-
-
-*/
-
-    // 197. Cách làm Toast Message
-
-
-
-    // Youtube: 23/07/2022
-    // https://youtu.be/a36PrubVZ1o 
-
-
-
