@@ -76,7 +76,18 @@
         if(formElement){
             // console.log(formElement);
 
+            // lắng nghe sự kiện submit
+            // Khi submit form
+            formElement.onsubmit = function(e){
+                // Bỏ đi hành vi mặc định của btn submit
+                e.preventDefault();
+
+
+            };
+
+
             // vì options.rules = là array => duyệt qua array
+            // Lặp qua mỗi rule và xử lý / gồm các hành vi (lắng nghe sự kiện: blur, input, ...)
             options.rules.forEach((rule) => {
                 // Lưu lại các rules cho mỗi input
                 // nameObj[] / [] thể hiện là key của obj
@@ -355,7 +366,10 @@
                 return document.querySelector('#form-1 #password').value;
             }, 'Mật khẩu nhập lại không chính xác'), //custom message => thêm đối số thứ 3
 
+
+            // List need code
             // Xong phan add nhieu rules cho 1 input => isDone
+            // Bấm vào 'submit' => valid hết tất cả các trường
         ]
     });
 
