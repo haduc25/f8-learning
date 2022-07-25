@@ -49,13 +49,35 @@
 
                         // run function / check error
                         var errorMessage = rule.test(inputElement.value);
-
                         // console.log(errorMessage); //return Vui lòng nhập trường này / undefined
 
-                        // nếu có lỗi
+                        // lấy ra 'form-message'
+                        var errorElement = inputElement.parentElement.querySelector('.form-message');
+                        // console.log(errorElement); //return <span class="form-message"></span>
+
+                        // Lấy ra thẻ cha của inputElement
+                        var parentOfInput = inputElement.parentElement;
+                        // console.log(parentOfInput); //return <div class="form-group">…</div>
+
+                        // Xử lý khi có lỗi
                         if(errorMessage){
-                            // 
+                            // gán tb lỗi ra html
+                            errorElement.innerText = errorMessage;
+                            // add class
+                            parentOfInput.classList.add('invalid');
+                        }else{
+                            // remove error
+                            errorElement.innerText = '';
+                            // remove class 
+                            parentOfInput.classList.remove('invalid');
                         }
+
+                        //// Lấy ra thẻ cha của inputElement
+                        //// dùng parentElement: lấy ra thẻ cha của element hiện tại / (Element.parentElement)
+                        // console.log(inputElement.parentElement); // <div class="form-group">…</div>
+
+                        //// từ thẻ cha -> tìm ra 'form-message'
+                        // console.log(inputElement.parentElement.querySelector('.form-message')); // <span class="form-message"></span>
                     }
                 }
 
@@ -150,3 +172,6 @@
     // Youtube: 24/07/2022
     // https://youtu.be/O2PpHVKGsIg
     // https://youtu.be/Zu3XREOy6_M
+
+    // Youtube: 25/07/2022
+    // https://youtu.be/sYtC6kzzHBE
