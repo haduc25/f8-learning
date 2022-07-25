@@ -8,6 +8,10 @@
     // Tạo function
     // Đối tượng `Validator`
     function Validator(options){
+
+        // Tạo ra 1 biến obj lưu & quản lý rules
+        var selectorRules = {};
+
         console.log(options); //return {form: 'form-1', rules: Array(2)}
         console.log(options.form); //return '#form-1'
         console.log(options.rules);// return (2) [undefined, undefined]
@@ -18,9 +22,39 @@
         // hiện / ẩn lỗi
         // Hàm thực hiện 'validate'
         function validate(inputElement, rule){
-            var errorMessage = rule.test(inputElement.value);
+            // var errorMessage = rule.test(inputElement.value); //vì ở dưới đã gán lại (rules[i](inputElement.value)) => chỉ cần khai báo 'errorMessage'
+            var errorMessage;
             var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
             var parentOfInput = inputElement.parentElement;
+
+
+            // console.log(selectorRules); //{#fullname: ƒ, #email: ƒ, #password: ƒ, #password_confirmation: ƒ}
+            // console.log(rule.selector); //return rule mà users đang tác động vào / ex: #fullname, #email, #password, #password_confirmation
+
+            // lấy ra rule cử từng thẻ input
+            // Lấy ra các rules cửa selector
+            var rules = selectorRules[rule.selector] //VD đang ở input là #fullname => selectorRules[#fullname]
+            // console.log(rules); 
+
+
+            // lặp qua 'rules'
+            // Lặp qua từng rules & kiểm tra
+            // Logic: Nếu có lỗi => dừng việc kiểm tra
+            for (var i = 0; i < rules.length; i++) {
+                // rule[i] tương tự như rule / ở trên 'rules[i](inputElement.value)' / rules[i](inputElement.value): rule thứ i (rules[i]) nhận vào là function nên có thể truyền trực tiếp value
+                // vì là hàm => có thể truyền value 
+                // gán 'errorMessage'
+
+                // check rules
+                // console.log(rules[0]); //
+                // console.log(typeof rules[0]); //function
+
+                errorMessage = rules[i](inputElement.value); //đã giải thích ở trên 
+
+                // check qua từng rule
+                // Logic: Nếu rules nào có lỗi => thoát khỏi vòng lặp (break)
+                if(errorMessage) break;
+            }
 
             // Xử lý khi có lỗi
             if(errorMessage){
@@ -44,6 +78,56 @@
 
             // vì options.rules = là array => duyệt qua array
             options.rules.forEach((rule) => {
+                // Lưu lại các rules cho mỗi input
+                // nameObj[] / [] thể hiện là key của obj
+                // selectorRules[rule.selector] = rule.test;
+
+                // console.log(selectorRules[rule.selector]); // undefined x5 (ban đầu khi chưa gán = rule.test)
+                //// return
+                // ƒ (value){
+                //     // Kiểm tra xem users đã nhập hay chưa?
+    
+                //     // Logic: Nếu users có nhập 'value' (value = true) => return undefined / k có value => return 'Vui lòng nhập trườn…
+                //  ƒ (value){
+                //     // Check E-mail
+                //     // Tham khảo
+    
+                //     // Keyword: javascript email regex
+                //     // Link: https://www.w3resource.com/javascript/form/emai…
+                //  ƒ (value){
+                //     // Logic: nếu mà dữ liệu users nhập vào > hoặc = min => hợp lệ / là email => return 'undefined' ngược lại trả về thông báo lỗi
+                //     return value.length >= min ? …
+                //  ƒ (value){
+                //     // Kiểm tra xem users đã nhập hay chưa?
+    
+                //     // Logic: Nếu users có nhập 'value' (value = true) => return undefined / k có value => return 'Vui lòng nhập trườn…
+                //  ƒ (value){
+                //     // getConfirmValue() return ''
+                //     // Logic: Nếu dl nhập vào (value) = dữ liệu mà (getConfirmValue) 
+
+
+
+                // Xử lý
+                // Vì lúc chưa gán (selectorRules[rule.selector]) = (rule.test) => trả về undefined 
+                // Logic: Nếu là 1 array
+                if(Array.isArray(selectorRules[rule.selector])){
+                    // Nếu là 1 array
+                    // Nếu input nào có 2 rules trở lên => sẽ lọt vào đây => vì khi lần 1 đã là array
+                    // Logic: Vì đã là array => dùng push: để đẩy pt vào array / đẩy rule (thứ 2 trở lên vào array)
+                    selectorRules[rule.selector].push(rule.test)
+                    
+                    //// checking
+                    // var saving = selectorRules[rule.selector].push(rule.test)
+                    // console.log(saving); //return 2 / vì có 2 rules trùng input
+                }else{
+                    // Nếu k phải array
+                    // Logic: k phải array => gán cho nó thành array
+                    selectorRules[rule.selector] = [rule.test];
+                    // console.log(selectorRules[rule.selector]);   
+                }
+
+
+
                 // console.log(rule); //return  {selector: '#fullname', test: ƒ} {selector: '#email', test: ƒ}
 
                 // lấy ra vale từ rules
@@ -132,6 +216,14 @@
                 }
 
             });
+
+
+            //// check obj
+            //console.log(selectorRules); //{#fullname: ƒ, #email: ƒ, #password: ƒ, #password_confirmation: ƒ}
+
+            // khi đã lưu rule
+            // password_confirmation có 2 rules
+            // return {#fullname: Array(1), #email: Array(1), #password: Array(1), #password_confirmation: Array(2)}
         }
     }
 
@@ -146,7 +238,7 @@
 
 
     // isRequired
-    Validator.isRequired = function(selector, message){ //nhận vafp selector
+    Validator.isRequired = function(selector, message){ //nhận vào selector
         // return selector; //(2) ['#fullname', '#email']  
 
         return {
@@ -243,9 +335,11 @@
         errorSelector: '.form-message',
         rules: [
             Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'), //truyền vào CSS Selector của input cần rule 'isRequired()'
+            Validator.isRequired('#email'), //truyền vào CSS Selector của input cần rule 'isRequired()'
             Validator.isEmail('#email'), //truyền vào CSS Selector của input cần rule 'isEmail()'
             // Validator.isRequired('#password'), //truyền vào CSS Selector của input cần rule 'isRequired()'
             Validator.minLength('#password', 6), //truyền vào CSS Selector của input cần rule 'minLength()'
+            Validator.isRequired('#password_confirmation'), //rule 'isRequired()' / đang bị ghi đè
             Validator.isConfirmed('#password_confirmation', function() {
                 // đối số thứ 1 (#password_confirmation) là selector
                 // đối số thứ 2 là function => return ra text
