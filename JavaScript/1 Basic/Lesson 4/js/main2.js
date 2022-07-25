@@ -146,7 +146,7 @@
 
 
     // isRequired
-    Validator.isRequired = function(selector){ //nhận vafp selector
+    Validator.isRequired = function(selector, message){ //nhận vafp selector
         // return selector; //(2) ['#fullname', '#email']  
 
         return {
@@ -156,13 +156,13 @@
 
                 // Logic: Nếu users có nhập 'value' (value = true) => return undefined / k có value => return 'Vui lòng nhập trường này'
                 // dùng trim(): bỏ space đầu, cuối
-                return value.trim() ? undefined : 'Vui lòng nhập trường này'; 
+                return value.trim() ? undefined : message || 'Vui lòng nhập trường này'; 
             }
         } // (2) [{…}, {…}]
     }
 
     // isEmail
-    Validator.isEmail = function(selector){ //nhận vào selector
+    Validator.isEmail = function(selector, message){ //nhận vào selector
         // return selector; //(2) ['#fullname', '#email']  
         
         return {
@@ -179,24 +179,36 @@
                 var regex = /^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/;
 
                 // Logic: nếu mà dữ liệu users nhập vào (regex.test(value)) hợp lệ / là email => return 'undefined' ngược lại trả về thông báo lỗi
-                return regex.test(value) ? undefined : 'Trường này phải là E-mail';
+                return regex.test(value) ? undefined : message || 'Trường này phải là E-mail';
 
             }
         } // (2) [{…}, {…}]
     }
 
     // min Length / độ dài tối thiểu
-    Validator.minLength = function(selector, min){
+    Validator.minLength = function(selector, min, message){
         return {
             selector: selector,
             test: function(value){
                 // Logic: nếu mà dữ liệu users nhập vào > hoặc = min => hợp lệ / là email => return 'undefined' ngược lại trả về thông báo lỗi
-                return value.length >= min ? undefined : `Vui lòng nhập tối thiểu ${min} ký tự`;
+                return value.length >= min ? undefined : message || `Vui lòng nhập tối thiểu ${min} ký tự`;
             }
         } // (2) [{…}, {…}]
     }
 
-
+    // Confirmation password
+    Validator.isConfirmed = function(selector, getConfirmValue, message){
+        // Hàm getConfirmValue => là 1 callback
+        return {
+            selector: selector,
+            test: function(value){
+                // getConfirmValue() return ''
+                // Logic: Nếu dl nhập vào (value) = dữ liệu mà (getConfirmValue) return => thì return 'undefined' ngược lại trả về thông báo lỗi
+                // Nếu message có value => return message ngược lại return giá trị mặc định
+                return value === getConfirmValue() ? undefined : message || 'Giá trị nhập vào không chính xác';
+            }
+        }
+    }  
 
 
 
@@ -230,10 +242,24 @@
         form: '#form-1', //truyền vào form cần validate
         errorSelector: '.form-message',
         rules: [
-            Validator.isRequired('#fullname'), //truyền vào CSS Selector của input cần rule 'isRequired()'
+            Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'), //truyền vào CSS Selector của input cần rule 'isRequired()'
             Validator.isEmail('#email'), //truyền vào CSS Selector của input cần rule 'isEmail()'
             // Validator.isRequired('#password'), //truyền vào CSS Selector của input cần rule 'isRequired()'
             Validator.minLength('#password', 6), //truyền vào CSS Selector của input cần rule 'minLength()'
+            Validator.isConfirmed('#password_confirmation', function() {
+                // đối số thứ 1 (#password_confirmation) là selector
+                // đối số thứ 2 là function => return ra text
+                // return 'HELLO'; //Mong muốn đến khi hoàn thành người dùng nhập trên password phải trùng với text return
+                // getConfirmValue() return 'cái gì đó' / nếu value (ở trong rules check) != return => tb lỗi 
+                // ở vd trên trong form phải nhập đúng 'HELLO' => k xuất ra tb lỗi
+
+                // Lấy ra form password
+                // #form-1: cho selector này vào để k bị nhàm lẫn nếu có nhiều form
+                // Element.value: lấy ra value
+
+                // Logic: khi isConfirmed() được exec -> lấy value của input '#password' & và so sánh với chuỗi users nhập vào input '#password_confirmation'
+                return document.querySelector('#form-1 #password').value;
+            }, 'Mật khẩu nhập lại không chính xác'), //custom message => thêm đối số thứ 3
         ]
     });
 
@@ -251,3 +277,4 @@
 
     // Youtube: 25/07/2022
     // https://youtu.be/sYtC6kzzHBE
+    // https://youtu.be/oWGYoj5rUa4
