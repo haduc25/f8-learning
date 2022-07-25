@@ -354,6 +354,8 @@
                 // Logic: khi isConfirmed() được exec -> lấy value của input '#password' & và so sánh với chuỗi users nhập vào input '#password_confirmation'
                 return document.querySelector('#form-1 #password').value;
             }, 'Mật khẩu nhập lại không chính xác'), //custom message => thêm đối số thứ 3
+
+            // Xong phan add nhieu rules cho 1 input => isDone
         ]
     });
 
