@@ -112,6 +112,7 @@
 
 
                     if(typeof options.onSubmit === 'function'){
+                        // Trường hợp submit với javascript
                             
                         // Lấy ra tất cả thẻ 'input' ở trạng thái 'enable' trong form này
                         // Logic: lấy ra tất cả thẻ có 'name' ([name]), và k có attribute disabled(not([disabled])) 
@@ -171,6 +172,14 @@
                         // trả ra value
 
                         options.onSubmit(formValues);
+                    }
+                    else{
+                        // Trường hợp k có onSubmit / hàm k tồn tại... k là hàm
+                        // Trường hợp submit với hanhf vi mặc định
+
+                        // dùng formElement
+                        // submit(): submit với hành vi mặc định của trình duyệt
+                        formElement.submit();
                     }
 
                 }
@@ -467,10 +476,16 @@
             // Bấm vào 'submit' => valid hết tất cả các trường
         ],
         // onSubmit sẽ được gọi khi form 'submit'
-        onSubmit: function(data){
-            // Logic: khi ấn vào submit => output: xuất ra dl từ form qua biến 'data'
-            console.log(data);  //return {name: 'Ha Duc', age: 22}
-        }
+        // onSubmit: function(data){
+        //     // Logic: khi ấn vào submit => output: xuất ra dl từ form qua biến 'data'
+        //     // console.log(data);  //return {name: 'Ha Duc', age: 22}
+
+        //     // Tương lai
+        //     // Call API
+        //     console.log(data);
+
+
+        // }
         
     });
 
