@@ -95,11 +95,12 @@
                     var inputElement = formElement.querySelector(rule.selector);
                     // dùng biến để check dl return từ validate
                     var isValid = validate(inputElement, rule); //validate luon khi btn clickeds
-                    console.log(isValid);
+                    // console.log(isValid);
 
                     // Nếu 'isValid' = false / k có lỗi / ngược lại 'isValid' = true => có lỗi 
                     // vì 'errorMessage' == true => thêm class & 'errorMessage' == false => xóa class
                     if(isValid){
+                        // khi value return ra là lỗi => gán 'isFormValid' = false => thể hiện việc có lỗi xảy ra
                         // gán 'isFormValid' = false
                         isFormValid = false;
                     }
@@ -107,10 +108,75 @@
 
                 if(isFormValid){
                     // true => k co loi
-                    console.log('Không có lỗi');
-                }else{
-                    console.log('có lỗi');
+                    // console.log('Không có lỗi');
+
+
+                    if(typeof options.onSubmit === 'function'){
+                            
+                        // Lấy ra tất cả thẻ 'input' ở trạng thái 'enable' trong form này
+                        // Logic: lấy ra tất cả thẻ có 'name' ([name]), và k có attribute disabled(not([disabled])) 
+                        var enableInput = formElement.querySelectorAll('[name]:not([disabled])');
+
+                        // // có thể lấy mỗi 'name' / nhưng trong thực tế cần not disabled
+                        // var enableInput = formElement.querySelectorAll('[name]'); //ex - lay moi name
+                        //console.log(enableInput); //NodeList(4) [input#fullname.form-control, input#email.form-control, input#password.form-control, input#password_confirmation.form-control]
+
+                        // Vì NodeList k có các hàm 'reduce, map...' => Convert
+                        // Convert: NodeList -> Array
+                        // Array.from() convert qua array
+                        // su dung reduce lấy dl qua 1 mảng mới
+
+
+                        // Array.prototype.reduce()
+                        // The reduce() method executes a user-supplied "reducer" callback function on each element of the array, in order, 
+                        // passing in the return value from the calculation on the preceding element. 
+                        // The final result of running the reducer across all elements of the array is a single value.
+
+                        // The first time that the callback is run there is no "return value of the previous calculation". 
+                        // If supplied, an initial value may be used in its place. 
+                        // Otherwise the array element at index 0 is used as the initial value and iteration starts from the next element 
+                        // (index 1 instead of index 0).
+                        
+                        // Reduce
+                        // initialValue: đưa vào 1 obj rỗng / {}
+                        var formValues = Array.from(enableInput).reduce((values, input) => {
+                            // console.log(value); //value của các element input
+                            // console.log(input); //các element input
+                            // console.log(input.name); //lấy ra value của thẻ input / return fullname, email, password, password_confirmation
+                            // console.log(input.value); //lấy ra value của thẻ input /return MizGDuc, haducvcvb@gmail.com, (x2) abcd1234
+                            
+                            // Logic: lấy 'name' đưa vào key -> vào obj rỗng / gán key = input.value / lấy dl của thẻ input 
+                            // dùng toán tử '&&' thì sẽ return biến cuối cùng (trong ex này là 'value')
+
+                            // Step: 
+                            // 1. gán 'input.value' cho obj 'values'
+                            // 2. return ra values (obj) / values được gán = { }
+                            // 3. => reduce trả về dl ở biến 'formValues'
+                            
+                            
+                            return (values[input.name] = input.value) && values;
+                        }, {})
+
+                    
+                        //// check value cua tat ca the input
+                        //console.log(formValues); //{fullname: 'MizGDuc', email: 'haducvcvb@gmail.com', password: 'abcd1234', password_confirmation: 'abcd1234'}
+
+
+                        // truyền vào data / test
+                        // options.onSubmit({
+                        //     name: 'Ha Duc',
+                        //     age: 22
+                        // });
+
+                        // trả ra value
+
+                        options.onSubmit(formValues);
+                    }
+
                 }
+                // else{
+                //     console.log('có lỗi');
+                // }
 
             };
 
@@ -403,7 +469,7 @@
         // onSubmit sẽ được gọi khi form 'submit'
         onSubmit: function(data){
             // Logic: khi ấn vào submit => output: xuất ra dl từ form qua biến 'data'
-            console.log(data); 
+            console.log(data);  //return {name: 'Ha Duc', age: 22}
         }
         
     });
