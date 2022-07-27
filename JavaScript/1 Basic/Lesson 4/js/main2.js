@@ -68,6 +68,11 @@
                 // remove class 
                 parentOfInput.classList.remove('invalid');
             }
+
+
+            // convert từ string -> boolean
+            // Logic vd: true -> false -> true => chuyển về boolean / false -> true -> false => chuyển về boolean
+            return !!errorMessage;
         }
 
         // Lấy element của form ELement cần 'validate'
@@ -82,6 +87,30 @@
                 // Bỏ đi hành vi mặc định của btn submit
                 e.preventDefault();
 
+                // tạo biến 'isValid' check loi
+                var isFormValid = true;
+
+                // Lặp qua từng rules và validate
+                options.rules.forEach(rule => {
+                    var inputElement = formElement.querySelector(rule.selector);
+                    // dùng biến để check dl return từ validate
+                    var isValid = validate(inputElement, rule); //validate luon khi btn clickeds
+                    console.log(isValid);
+
+                    // Nếu 'isValid' = false / k có lỗi / ngược lại 'isValid' = true => có lỗi 
+                    // vì 'errorMessage' == true => thêm class & 'errorMessage' == false => xóa class
+                    if(isValid){
+                        // gán 'isFormValid' = false
+                        isFormValid = false;
+                    }
+                });
+
+                if(isFormValid){
+                    // true => k co loi
+                    console.log('Không có lỗi');
+                }else{
+                    console.log('có lỗi');
+                }
 
             };
 
@@ -370,7 +399,13 @@
             // List need code
             // Xong phan add nhieu rules cho 1 input => isDone
             // Bấm vào 'submit' => valid hết tất cả các trường
-        ]
+        ],
+        // onSubmit sẽ được gọi khi form 'submit'
+        onSubmit: function(data){
+            // Logic: khi ấn vào submit => output: xuất ra dl từ form qua biến 'data'
+            console.log(data); 
+        }
+        
     });
 
 
