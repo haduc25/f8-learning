@@ -8,6 +8,32 @@
     // Tạo function
     // Đối tượng `Validator`
     function Validator(options){
+        // Lấy thẻ cha của 'errorElement' / Fix lỗi khi có nhiều thẻ <div> bao quanh 
+        function getParent(element, selector){
+            while(element.parentElement){
+                if(element.parentElement.matches(selector)){
+                    // The matches() method of the Element interface tests whether the element would be selected by the specified CSS selector.
+                    // https://developer.mozilla.org/en-US/docs/Web/API/Element/matches
+
+                    // Logic: Tìm thấy 'selector' / 'form-group' => trả về element cha
+                    return element.parentElement;
+                }
+
+                // Logic: 
+                // Lần lặp 1: element = inputElement
+                // Nếu k matches với 'form-group' => gán với thẻ cha của 'inputElement'
+                // Lần lặp 2: element = thẻ cha của inputElement / ở vd này là div
+                // Nếu k matches với 'form-group' => gán với thẻ cha của thẻ div trên
+                // Lặp cho đến khi matches với 'form-group' => return thẻ cha ra ngoài
+
+                // Ex: từ trong ra 
+                // src: div.form-group>div1>div2>div3
+                // với vòng lặp trên sẽ lặp ra div3 => div2 => div1 => div.form-group / đến đây vòng lặp dừng
+
+                element = element.parentElement;
+
+            }
+        }
 
         // Tạo ra 1 biến obj lưu & quản lý rules
         var selectorRules = {};
@@ -24,8 +50,12 @@
         function validate(inputElement, rule){
             // var errorMessage = rule.test(inputElement.value); //vì ở dưới đã gán lại (rules[i](inputElement.value)) => chỉ cần khai báo 'errorMessage'
             var errorMessage;
-            var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
-            var parentOfInput = inputElement.parentElement;
+            // var errorElement = inputElement.parentElement.querySelector(options.errorSelector); // gây ra lỗi nếu có nhiều thẻ cha của 'inputElement'
+            // Thay thế để fix lỗi nhiều thẻ cha của 'inputElement'
+            // var errorElement = getParent(inputElement, 'form-group');
+            var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
+            // var parentOfInput = inputElement.parentElement; /// Thay thế để fix lỗi nhiều thẻ cha của 'inputElement'
+            var parentOfInput = getParent(inputElement, options.formGroupSelector);
 
 
             // console.log(selectorRules); //{#fullname: ƒ, #email: ƒ, #password: ƒ, #password_confirmation: ƒ}
@@ -154,8 +184,13 @@
                             // 2. return ra values (obj) / values được gán = { }
                             // 3. => reduce trả về dl ở biến 'formValues'
                             
-                            
-                            return (values[input.name] = input.value) && values;
+                            // // Khi có đầy đủ thông tin => gọi đến 'onSubmit' & trả về data / => lỗi khi có trường k cần nhập tt / k có isRequired / 
+                            // return (values[input.name] = input.value) && values; 
+
+                            // Fix 
+                            // đk gán => luôn đc gán
+                            values[input.name] = input.value;
+                            return values; //{fullname: '', email: 'haducvcvb@gmail.com', password: 'abcd1234', password_confirmation: 'abcd1234'}
                         }, {})
 
                     
@@ -316,7 +351,9 @@
                     // Xử lý trường hợp mỗi khi người dùng nhập vào 'input'
                     inputElement.oninput = () => {
                         // console.log(inputElement.value); 
-                        var errorElement = inputElement.parentElement.querySelector(options.errorSelector);
+                        //var errorElement = inputElement.parentElement.querySelector(options.errorSelector); // Thay thế để fix lỗi nhiều thẻ cha của 'inputElement'
+                        var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
+
                         var parentOfInput = inputElement.parentElement;
 
 
@@ -447,6 +484,7 @@
     // Mong muốn sử dụng sau khi hoàn thành thư viện
     Validator({
         form: '#form-1', //truyền vào form cần validate
+        formGroupSelector: '.form-group',
         errorSelector: '.form-message',
         rules: [
             Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'), //truyền vào CSS Selector của input cần rule 'isRequired()'
@@ -475,17 +513,17 @@
             // Xong phan add nhieu rules cho 1 input => isDone
             // Bấm vào 'submit' => valid hết tất cả các trường
         ],
-        // onSubmit sẽ được gọi khi form 'submit'
-        // onSubmit: function(data){
-        //     // Logic: khi ấn vào submit => output: xuất ra dl từ form qua biến 'data'
-        //     // console.log(data);  //return {name: 'Ha Duc', age: 22}
+        //onSubmit sẽ được gọi khi form 'submit'
+        onSubmit: function(data){
+            // Logic: khi ấn vào submit => output: xuất ra dl từ form qua biến 'data'
+            // console.log(data);  //return {name: 'Ha Duc', age: 22}
 
-        //     // Tương lai
-        //     // Call API
-        //     console.log(data);
+            // Tương lai
+            // Call API
+            console.log(data);
 
 
-        // }
+        }
         
     });
 
@@ -510,9 +548,22 @@
     // 200. Review, sửa một số lỗi
     // Youtube: 29/07/2022
     // https://youtu.be/Y0Cn4L5V_Qo
+    // https://youtu.be/knLOUpw2iyQ
 
 
-    // 1. 
-    // 2. 
+    // 1. Nếu có trường k cần nhập / k có isRequired => lỗi / Fixed
+    // 2. Sửa lại cơ chế hiển thị message lỗi / 
+    // Ex 
+    //     <div class="form-group">
+    //     <label for="fullname" class="form-label">Tên đầy đủ</label>
+    //     <div>
+    //     <div>
+    //         <div>
+    //         <input id="fullname" name="fullname" type="text" placeholder="VD: Sơn Đặng" class="form-control" value="MizGDuc">
+    //         </div>
+    //     </div>
+    //     </div>
+    //     <span class="form-message"></span>
+    // </div>
     // 3. 
     // 4. 
