@@ -18,14 +18,7 @@
   
       <div class="form-group">
         <label for="fullname" class="form-label">Tên đầy đủ</label>
-        <div>
-          <div>
-            <div>
-              <input id="fullname" name="fullname" type="text" placeholder="VD: Sơn Đặng" class="form-control" value="MizGDuc">
-            </div>
-          </div>
-        </div>
-        
+        <input id="fullname" name="fullname" type="text" placeholder="VD: Sơn Đặng" class="form-control" value="MizGDuc">
         <span class="form-message"></span>
       </div>
   
@@ -44,6 +37,22 @@
       <div class="form-group">
         <label for="password_confirmation" class="form-label">Nhập lại mật khẩu</label>
         <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control" value="abcd1234">
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label for="password_confirmation" class="form-label">Giới tính</label>
+        <div>
+          <!-- Thêm 'checked' k cần check = js -->
+          <!-- <input name="gender" type="radio" class="form-control" value="male" checked>Male -->
+          <input name="gender" type="radio" class="form-control" value="male">Male
+        </div>
+        <div>
+          <input name="gender" type="radio" class="form-control" value="female">Female
+        </div>
+        <div>
+          <input name="gender" type="radio" class="form-control" value="orther">Orther
+        </div>
         <span class="form-message"></span>
       </div>
   
