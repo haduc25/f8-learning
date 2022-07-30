@@ -71,6 +71,29 @@
             // Lặp qua từng rules & kiểm tra
             // Logic: Nếu có lỗi => dừng việc kiểm tra
             for (var i = 0; i < rules.length; i++) {
+                // Để check radio btn & checkbox => thêm switch case
+                // inputElement.type: lấy ra type của tehr input, vd: text, password, radio...
+                // console.log(inputElement.type); //return 
+
+                switch(inputElement.type){
+                    case 'checkbox':
+                    case 'radio':
+                        // console.log(rule.selector); //return input[name="gender"]
+
+                        errorMessage = rules[i](
+                            // Mong muốn: lấy ra những radio được checked
+                            // rule.selector: là css selector truyền vào / input[name="gender"]
+                            // Logic: nối chuỗi 'rule.selector' + chuỗi ':checked' => input[name="gender"]:checked
+                            formElement.querySelector(rule.selector + ':checked') //tìm radio được checked
+                        );
+                        break;
+                    default:
+                        errorMessage = rules[i](inputElement.value);
+                }
+
+
+
+
                 // rule[i] tương tự như rule / ở trên 'rules[i](inputElement.value)' / rules[i](inputElement.value): rule thứ i (rules[i]) nhận vào là function nên có thể truyền trực tiếp value
                 // vì là hàm => có thể truyền value 
                 // gán 'errorMessage'
@@ -79,7 +102,7 @@
                 // console.log(rules[0]); //
                 // console.log(typeof rules[0]); //function
 
-                errorMessage = rules[i](inputElement.value); //đã giải thích ở trên 
+                // errorMessage = rules[i](inputElement.value); //đã giải thích ở trên // đã thêm vào switch case
 
                 // check qua từng rule
                 // Logic: Nếu rules nào có lỗi => thoát khỏi vòng lặp (break)
@@ -284,7 +307,12 @@
                 // console.log(rule.selector); //return #fullname #email
 
                 // lấy ra thẻ input / đi từ 'formElement'
-                var inputElement = formElement.querySelector(rule.selector);
+                var inputElements = formElement.querySelectorAll(rule.selector); //vi radio có nhiều pt trùng 'name' nên phải dùng 'querySelectorAll'
+
+                // querySelectorAll trả về NodeList => phải lặp để lấy pt trong Node List 
+                // Step
+                // 1. Covert NodeList to Array
+                // 2. Use ForEach lặp lấy các pt trong NodeList
 
                 // console.log(inputElement); 
                 // <input id="fullname" name="fullname" type="text" placeholder="VD: Sơn Đặng" class="form-control">
@@ -400,7 +428,16 @@
 
                 // Logic: Nếu users có nhập 'value' (value = true) => return undefined / k có value => return 'Vui lòng nhập trường này'
                 // dùng trim(): bỏ space đầu, cuối
-                return value.trim() ? undefined : message || 'Vui lòng nhập trường này'; 
+                // return value.trim() ? undefined : message || 'Vui lòng nhập trường này';  //trim() gây ra lỗi vs radio => tạm thời bỏ;
+                // new / khi bỏ trim() 
+                // console.log(typeof value, value);
+                return value ? undefined : message || 'Vui lòng nhập trường này'; 
+
+                // // remake - my idea
+                // if(typeof value === 'object'){
+                //     return value ? undefined : message || 'Vui lòng nhập trường này';
+                // }
+                // return value.trim() ? undefined : message || 'Vui lòng nhập trường này'; 
             }
         } // (2) [{…}, {…}]
     }
@@ -509,7 +546,7 @@
             }, 'Mật khẩu nhập lại không chính xác'), //custom message => thêm đối số thứ 3
             
             // kt radio button / gender
-            Validator.isRequired('input[name="gender"]'), //Truyền vào css selector nếu k có id
+            Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính của bạn'), //Truyền vào css selector nếu k có id
 
 
             // List need code
@@ -554,6 +591,11 @@
     // https://youtu.be/knLOUpw2iyQ
 
 
+    // 200, 201. Xử lý lấy dữ liệu radio, checkbox
+    // Youtube: 30/07/2022
+    // https://youtu.be/E-PBA76DJUw
+
+
     // 1. Nếu có trường k cần nhập / k có isRequired => lỗi / Fixed
     // 2. Sửa lại cơ chế hiển thị message lỗi / 
     // Ex 
@@ -570,3 +612,4 @@
     // </div>
     // 3. 
     // 4. 
+
