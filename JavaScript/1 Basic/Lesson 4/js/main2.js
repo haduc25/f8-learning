@@ -210,10 +210,26 @@
                             // // Khi có đầy đủ thông tin => gọi đến 'onSubmit' & trả về data / => lỗi khi có trường k cần nhập tt / k có isRequired / 
                             // return (values[input.name] = input.value) && values; 
 
-                            // Fix 
-                            // đk gán => luôn đc gán
-                            values[input.name] = input.value;
+                            // // Fix 
+                            // // đk gán => luôn đc gán
+                            // values[input.name] = input.value;
+                            // return values; //{fullname: '', email: 'haducvcvb@gmail.com', password: 'abcd1234', password_confirmation: 'abcd1234'}
+
+                            // Vì 'radio button' có 'name' trùng nhau => cần sửa lại đoạn này
+                            // console.log(input.type); //return: text, password, radio
+
+                            switch(input.type){
+                                case 'checkbox':
+                                    break;
+                                case 'radio':
+                                    values[input.name] = input.value;
+                                    break;
+                                default:
+                                    values[input.name] = input.value;
+                            }
+
                             return values; //{fullname: '', email: 'haducvcvb@gmail.com', password: 'abcd1234', password_confirmation: 'abcd1234'}
+
                         }, {})
 
                     
@@ -307,94 +323,94 @@
                 // console.log(rule.selector); //return #fullname #email
 
                 // lấy ra thẻ input / đi từ 'formElement'
-                var inputElements = formElement.querySelectorAll(rule.selector); //vi radio có nhiều pt trùng 'name' nên phải dùng 'querySelectorAll'
+                var inputElements = formElement.querySelectorAll(rule.selector); //vì radio có nhiều pt trùng 'name' nên phải dùng 'querySelectorAll'
+                    // querySelectorAll trả về NodeList => phải lặp để lấy pt trong Node List 
+                    // Step
+                    // 1. Covert NodeList to Array
+                    // 2. Use ForEach lặp lấy các pt trong NodeList
 
-                // querySelectorAll trả về NodeList => phải lặp để lấy pt trong Node List 
-                // Step
-                // 1. Covert NodeList to Array
-                // 2. Use ForEach lặp lấy các pt trong NodeList
+                    Array.from(inputElements).forEach((inputElement) => {
+                    // console.log(inputElement); 
+                    // <input id="fullname" name="fullname" type="text" placeholder="VD: Sơn Đặng" class="form-control">
+                    // <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
+                    
+                    if(inputElement){
+                        // Event on blur
+                        // Xử lý trường hợp blur khỏi 'input'
+                        inputElement.onblur = () => {
+                            //phần này đã tách ra thành hàm 'validate' / từ đây đến
 
-                // console.log(inputElement); 
-                // <input id="fullname" name="fullname" type="text" placeholder="VD: Sơn Đặng" class="form-control">
-                // <input id="email" name="email" type="text" placeholder="VD: email@domain.com" class="form-control">
-                
-                if(inputElement){
-                    // Event on blur
-                    // Xử lý trường hợp blur khỏi 'input'
-                    inputElement.onblur = () => {
-                        //phần này đã tách ra thành hàm 'validate' / từ đây đến
+                            // console.log('blur: '+ rule.selector);
+                            // return
+                            // blur: #fullname
+                            // blur: #email
 
-                        // console.log('blur: '+ rule.selector);
-                        // return
-                        // blur: #fullname
-                        // blur: #email
+                            // console.log(inputElement.value); //lấy ra value của thẻ 'input'
+                            // console.log(rule); //return {selector: '#fullname', test: ƒ} / khi blur input #fullname
 
-                        // console.log(inputElement.value); //lấy ra value của thẻ 'input'
-                        // console.log(rule); //return {selector: '#fullname', test: ƒ} / khi blur input #fullname
-
-                        // value: inputElement.value
-                        // test function: rule.test
-
-
-                        // // run function / check error
-                        // var errorMessage = rule.test(inputElement.value);
-                        // // console.log(errorMessage); //return Vui lòng nhập trường này / undefined
-
-                        // // lấy ra 'form-message'
-                        // var errorElement = inputElement.parentElement.querySelector('.form-message');
-                        // // console.log(errorElement); //return <span class="form-message"></span>
-
-                        // // Lấy ra thẻ cha của inputElement
-                        // var parentOfInput = inputElement.parentElement;
-                        // // console.log(parentOfInput); //return <div class="form-group">…</div>
-
-                        // // Xử lý khi có lỗi
-                        // if(errorMessage){
-                        //     // gán tb lỗi ra html
-                        //     errorElement.innerText = errorMessage;
-                        //     // add class
-                        //     parentOfInput.classList.add('invalid');
-                        // }else{
-                        //     // remove error
-                        //     errorElement.innerText = '';
-                        //     // remove class 
-                        //     parentOfInput.classList.remove('invalid');
-                        // }
-
-                        //// Lấy ra thẻ cha của inputElement
-                        //// dùng parentElement: lấy ra thẻ cha của element hiện tại / (Element.parentElement)
-                        // console.log(inputElement.parentElement); // <div class="form-group">…</div>
-
-                        //// từ thẻ cha -> tìm ra 'form-message'
-                        // console.log(inputElement.parentElement.querySelector('.form-message')); // <span class="form-message"></span>
-
-                        //phần này đã tách ra thành hàm 'validate' / đến đây nè!
+                            // value: inputElement.value
+                            // test function: rule.test
 
 
-                        // call function
-                        validate(inputElement, rule);
+                            // // run function / check error
+                            // var errorMessage = rule.test(inputElement.value);
+                            // // console.log(errorMessage); //return Vui lòng nhập trường này / undefined
+
+                            // // lấy ra 'form-message'
+                            // var errorElement = inputElement.parentElement.querySelector('.form-message');
+                            // // console.log(errorElement); //return <span class="form-message"></span>
+
+                            // // Lấy ra thẻ cha của inputElement
+                            // var parentOfInput = inputElement.parentElement;
+                            // // console.log(parentOfInput); //return <div class="form-group">…</div>
+
+                            // // Xử lý khi có lỗi
+                            // if(errorMessage){
+                            //     // gán tb lỗi ra html
+                            //     errorElement.innerText = errorMessage;
+                            //     // add class
+                            //     parentOfInput.classList.add('invalid');
+                            // }else{
+                            //     // remove error
+                            //     errorElement.innerText = '';
+                            //     // remove class 
+                            //     parentOfInput.classList.remove('invalid');
+                            // }
+
+                            //// Lấy ra thẻ cha của inputElement
+                            //// dùng parentElement: lấy ra thẻ cha của element hiện tại / (Element.parentElement)
+                            // console.log(inputElement.parentElement); // <div class="form-group">…</div>
+
+                            //// từ thẻ cha -> tìm ra 'form-message'
+                            // console.log(inputElement.parentElement.querySelector('.form-message')); // <span class="form-message"></span>
+
+                            //phần này đã tách ra thành hàm 'validate' / đến đây nè!
+
+
+                            // call function
+                            validate(inputElement, rule);
+                        }
+
+
+                        // Xử lý trường hợp mỗi khi người dùng nhập vào 'input'
+                        inputElement.oninput = () => {
+                            // console.log(inputElement.value); 
+                            //var errorElement = inputElement.parentElement.querySelector(options.errorSelector); // Thay thế để fix lỗi nhiều thẻ cha của 'inputElement'
+                            var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
+
+                            var parentOfInput = inputElement.parentElement;
+
+
+                            // khi người dùng nhập dl => remove error & class
+                            // remove error
+                            errorElement.innerText = '';
+                            // remove class 
+                            parentOfInput.classList.remove('invalid');
+
+                        }
+
                     }
-
-
-                    // Xử lý trường hợp mỗi khi người dùng nhập vào 'input'
-                    inputElement.oninput = () => {
-                        // console.log(inputElement.value); 
-                        //var errorElement = inputElement.parentElement.querySelector(options.errorSelector); // Thay thế để fix lỗi nhiều thẻ cha của 'inputElement'
-                        var errorElement = getParent(inputElement, options.formGroupSelector).querySelector(options.errorSelector);
-
-                        var parentOfInput = inputElement.parentElement;
-
-
-                        // khi người dùng nhập dl => remove error & class
-                        // remove error
-                        errorElement.innerText = '';
-                        // remove class 
-                        parentOfInput.classList.remove('invalid');
-
-                    }
-
-                }
-
+                    });
             });
 
 
