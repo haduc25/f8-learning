@@ -39,9 +39,22 @@
         <input id="password_confirmation" name="password_confirmation" placeholder="Nhập lại mật khẩu" type="password" class="form-control" value="abcd1234">
         <span class="form-message"></span>
       </div>
+  
+      <div class="form-group">
+        <label for="province" class="form-label">Tỉnh/TP</label>
+        <select id="province" name="province" class="form-control">
+          <option value="">-- Chọn Tỉnh/TP--</option>
+          <option value="hni">Hà Nội</option>
+          <option value="bkn">Bắc Kạn</option>
+          <option value="tnn">Thái Nguyên</option>
+          <option value="hcmh">Hồ Chí Minh</option>
+        </select>
+
+        <span class="form-message"></span>
+      </div>
 
       <div class="form-group">
-        <label for="password_confirmation" class="form-label">Giới tính</label>
+        <label class="form-label">Giới tính</label>
         <div>
           <!-- Thêm 'checked' k cần check = js -->
           <!-- <input name="gender" type="radio" class="form-control" value="male" checked>Male -->
@@ -52,6 +65,21 @@
         </div>
         <div>
           <input name="gender" type="radio" class="form-control" value="orther">Orther
+        </div>
+        <span class="form-message"></span>
+      </div>
+
+      <div class="form-group">
+        <label class="form-label">Màu yêu thích</label>
+        <div>
+          <!-- Thêm 'checked' k cần check = js -->
+          <input name="fav-color" type="checkbox" class="form-control" value="red">red
+        </div>
+        <div>
+          <input name="fav-color" type="checkbox" class="form-control" value="blue">blue
+        </div>
+        <div>
+          <input name="fav-color" type="checkbox" class="form-control" value="yellow">yellow
         </div>
         <span class="form-message"></span>
       </div>

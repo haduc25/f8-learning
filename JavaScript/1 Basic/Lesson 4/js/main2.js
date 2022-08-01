@@ -222,7 +222,14 @@
                                 case 'checkbox':
                                     break;
                                 case 'radio':
-                                    values[input.name] = input.value;
+                                    // console.log(input.name); //return gender
+                                    const valueOfRadioButton = 'input[name = "' + input.name + '"]:checked';
+                                    // console.log('value is: ' + valueOfRadioButton);
+                                    // console.log(formElement); //form-1
+
+                                    // gán giá trị vào obj
+                                    values[input.name] = formElement.querySelector('input[name = "' + input.name + '"]:checked').value;    
+                                    // values[input.name] = formElement.querySelector(valueOfRadioButton).value;   
                                     break;
                                 default:
                                     values[input.name] = input.value;
@@ -563,6 +570,12 @@
             
             // kt radio button / gender
             Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính của bạn'), //Truyền vào css selector nếu k có id
+            
+            // kt checkbox / color
+            Validator.isRequired('input[name="fav-color"]', 'Vui lòng chọn màu sắc yêu thích'), //Truyền vào css selector nếu k có id
+
+            //kt selector province
+            Validator.isRequired('#province', 'Vui lòng chọn Tỉnh/TP của bạn'),
 
 
             // List need code
