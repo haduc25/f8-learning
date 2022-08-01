@@ -220,6 +220,12 @@
 
                             switch(input.type){
                                 case 'checkbox':
+                                    // Check box => cần phải trả về 1 array / 
+                                    // Logic: Nếu value của check box (values[input.name]) k phải là 1 array => gán thành 1 array 
+                                    if(!Array.isArray(values[input.name])){
+                                        // gán = array
+                                        values[input.name] = [];
+                                    }
                                     break;
                                 case 'radio':
                                     // console.log(input.name); //return gender
