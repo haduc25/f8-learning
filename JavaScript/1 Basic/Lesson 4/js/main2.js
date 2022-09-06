@@ -220,13 +220,29 @@
 
                             switch(input.type){
                                 case 'checkbox':
+
+                                    // Nếu checkbox => k được check => return value 
+                                    //if(!input.matches(':checked')) return values; //khi return thì đoạn code sau k còn chạy | nếu được checked => push value vao array values
+                                    
+                                    // k nhập gì return 1 chuỗi rỗng
+                                    if(!input.matches(':checked')){
+                                        values[input.name] = ''; //fav-color: ""
+                                        return values;
+                                    } 
+                                 
                                     // Check box => cần phải trả về 1 array / 
                                     // Logic: Nếu value của check box (values[input.name]) k phải là 1 array => gán thành 1 array 
                                     if(!Array.isArray(values[input.name])){
                                         // gán = array
                                         values[input.name] = [];
                                     }
+
+                                    //đến đây => luôn luôn là 1 array
+                                    // push value vào trong array
+                                    values[input.name].push(input.value);
+
                                     break;
+
                                 case 'radio':
                                     // console.log(input.name); //return gender
                                     const valueOfRadioButton = 'input[name = "' + input.name + '"]:checked';
@@ -237,6 +253,12 @@
                                     values[input.name] = formElement.querySelector('input[name = "' + input.name + '"]:checked').value;    
                                     // values[input.name] = formElement.querySelector(valueOfRadioButton).value;   
                                     break;
+
+                                case 'file':
+                                    //gán cho array nhận vào là files
+                                    values[input.name] = input.files; //avatar: FileList {0: File, length: 1}
+                                    break;
+
                                 default:
                                     values[input.name] = input.value;
                             }
@@ -577,11 +599,14 @@
             // kt radio button / gender
             Validator.isRequired('input[name="gender"]', 'Vui lòng chọn giới tính của bạn'), //Truyền vào css selector nếu k có id
             
-            // kt checkbox / color
-            Validator.isRequired('input[name="fav-color"]', 'Vui lòng chọn màu sắc yêu thích'), //Truyền vào css selector nếu k có id
+            //// kt checkbox / color
+            // Validator.isRequired('input[name="fav-color"]', 'Vui lòng chọn màu sắc yêu thích'), //Truyền vào css selector nếu k có id
 
             //kt selector province
             Validator.isRequired('#province', 'Vui lòng chọn Tỉnh/TP của bạn'),
+
+            //kt file / avatar
+            Validator.isRequired('#avatar', 'Vui lòng chọn một bức ảnh của bạn'),
 
 
             // List need code
