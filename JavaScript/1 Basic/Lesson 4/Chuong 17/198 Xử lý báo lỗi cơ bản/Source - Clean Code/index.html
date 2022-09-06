@@ -45,10 +45,9 @@
   
   </div>
 
-  <script src="./app.js"></script>
+  <script src="./app-clean.js"></script>
   <script>
     // Call function
-    // Mong muốn sử dụng sau khi hoàn thành thư viện
     Validator({
         form: '#form-1', //truyền vào form cần validate
         formGroupSelector: '.form-group',
@@ -57,20 +56,10 @@
             Validator.isRequired('#fullname', 'Vui lòng nhập tên đầy đủ của bạn'), //truyền vào CSS Selector của input cần rule 'isRequired()'
             Validator.isRequired('#email'), //truyền vào CSS Selector của input cần rule 'isRequired()'
             Validator.isEmail('#email'), //truyền vào CSS Selector của input cần rule 'isEmail()'
-            // Validator.isRequired('#password'), //truyền vào CSS Selector của input cần rule 'isRequired()'
+            Validator.isRequired('#password'), //truyền vào CSS Selector của input cần rule 'isRequired()'
             Validator.minLength('#password', 6), //truyền vào CSS Selector của input cần rule 'minLength()'
             Validator.isRequired('#password_confirmation'), //rule 'isRequired()' / đang bị ghi đè
             Validator.isConfirmed('#password_confirmation', function() {
-                // đối số thứ 1 (#password_confirmation) là selector
-                // đối số thứ 2 là function => return ra text
-                // return 'HELLO'; //Mong muốn đến khi hoàn thành người dùng nhập trên password phải trùng với text return
-                // getConfirmValue() return 'cái gì đó' / nếu value (ở trong rules check) != return => tb lỗi 
-                // ở vd trên trong form phải nhập đúng 'HELLO' => k xuất ra tb lỗi
-
-                // Lấy ra form password
-                // #form-1: cho selector này vào để k bị nhàm lẫn nếu có nhiều form
-                // Element.value: lấy ra value
-
                 // Logic: khi isConfirmed() được exec -> lấy value của input '#password' & và so sánh với chuỗi users nhập vào input '#password_confirmation'
                 return document.querySelector('#form-1 #password').value;
             }, 'Mật khẩu nhập lại không chính xác'), //custom message => thêm đối số thứ 3
@@ -86,18 +75,10 @@
 
             //kt file / avatar
             Validator.isRequired('#avatar', 'Vui lòng chọn một bức ảnh của bạn'),
-
-
-            // List need code
-            // Xong phan add nhieu rules cho 1 input => isDone
-            // Bấm vào 'submit' => valid hết tất cả các trường
         ],
         //onSubmit sẽ được gọi khi form 'submit'
         onSubmit: function(data){
             // Logic: khi ấn vào submit => output: xuất ra dl từ form qua biến 'data'
-            // console.log(data);  //return {name: 'Ha Duc', age: 22}
-
-            // Tương lai
             // Call API
             console.log(data);
 
