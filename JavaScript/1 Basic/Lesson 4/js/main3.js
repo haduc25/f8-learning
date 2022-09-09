@@ -76,13 +76,18 @@ function Validator(formSelector){
             // Xử lý tách dấu '|' trong attribute
             // Sử dụng 'split()' cắt dấu '|'
             const rules = input.getAttribute('rules').split('|');
+            let ruleInfo;
 
             // lặp qua để lấy giá trị khi đã cắt
             for (var rule of rules) {
                 // Dùng 'includes()' kt có dấu ':' hay k?
-                if(rule.includes(':')){
+
+                // tạo biến 'isRuleHasValue' để kt giá trị được hiểu là = true => có giá trị & ngược lại false = k có value
+                let isRuleHasValue = rule.includes(':');
+
+                if(isRuleHasValue){
                     // Nêu có => cắt :>
-                    const ruleInfo = rule.split(':');
+                    ruleInfo = rule.split(':');
 
                     // console.log(ruleInfo); //return (2) ['min', '6']
 
@@ -90,6 +95,9 @@ function Validator(formSelector){
                     // Logic: gán = pt 0 (chi tiết phần tử trong 'ruleInfo' => ruleInfo[0]= 'min', ruleInfo[1]= '6') //test gán = 6 // rule = ruleInfo[1]; 
                     rule = ruleInfo[0]; 
                    
+                    // console.log(rule); //return min | => hiểu là truyền vào 2 đối số 1 = min, 2 = 6
+                    // console.log(validatorRules[rule]); //return function min | ƒ (min)
+                    // console.log(validatorRules[rule](ruleInfo[1])); //return function min | ƒ (value) (bên trong function min) | ruleInfo[1] = 6
                 }
 
 
@@ -97,19 +105,28 @@ function Validator(formSelector){
                 //return của 'rule' sau khi gán = 'ruleInfo[0]' required, email, required, min
 
                 
-                
+                // tạo biến ruleFunc để gán giá trị = function
+                let ruleFunc = validatorRules[rule];
+
+                if(isRuleHasValue){
+                    // console.log(typeof ruleFunc); //return function 
+                    // console.log(ruleInfo[1]); //return 6
+                    // Logic: gán lại 'function' = chính nó chạy + truyền vào min
+                    ruleFunc = ruleFunc(ruleInfo[1]);
+                }
+
                 // Kiểm tra 
                 if(Array.isArray(formRules[input.name])){
                     // Nếu là array => push thêm rule
                     // Lần chạy thứ 2 push()
-                    formRules[input.name].push([validatorRules[rule]]);
+                    formRules[input.name].push(ruleFunc);
                 }else{
                     // Ban đầu sẽ chạy vào đây => k phải array vì ở trên khai báo là obj
                     // console.log(rule); //return (3)required | (rule)
                     // console.log(validatorRules[rule]); //return function required | (function rule)
                     // k phải array => gán thành array & đưa function rule vào trong array
                     // Lần chạy thứ 1 gán
-                    formRules[input.name] = [validatorRules[rule]];
+                    formRules[input.name] = [ruleFunc];
 
                     
                 }
@@ -197,3 +214,4 @@ Validator('#register-form');
 
 // Youtube: 09/09/2022 (Coding)
 // https://youtu.be/LBVzmoFj46o
+// https://youtu.be/sMBBDzp78WA
