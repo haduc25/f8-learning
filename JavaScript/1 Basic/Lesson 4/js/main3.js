@@ -9,6 +9,20 @@
 
 // nhận vào 'name-form' => 'formSelector'
 function Validator(formSelector){
+    function getParent(element, selector){
+        // dùng 'while' để tìm thẻ cha
+        // Logic: element có element cha => loops run
+        while(element.parentElement){
+            // Logic: Dùng matches() tìm xem có element cha nào trùng với selector hay k? nếu có return | k có gán element cha tiếp theo => lặp từ trong ra ngoài
+            if(element.parentElement.matches(selector)){
+                return element.parentElement;
+            }
+
+            // k có gán cho element cha tiếp
+            element = element.parentElement;
+        } 
+    }
+
 
     // khai báo 1 obj formRules rỗng để chứa các attribute & value từ DOM
     const formRules = {
@@ -145,7 +159,106 @@ function Validator(formSelector){
             // // Sét key & value cho obj 'formRules' (bỏ việc gán string)
             // formRules[input.name] = input.getAttribute('rules');
 
+
+
+
+
+
+
+            // ==========================> Node: Lắng nghe sự kiện để validate (blur, change) <========================== //
+
+            // console.log(input); //return element in DOM
+            // Gán = function 'handleValidate'
+            input.onblur = handleValidate;
+            input.oninput = handleClearError;
+
         }
+
+        // Xử lý event / Function
+        // Node: Hàm thực hiện validate
+        function handleValidate(e){
+            // console.log(e); //return FocusEvent {isTrusted: true, relatedTarget: null, view: Window, detail: 0, sourceCapabilities: InputDeviceCapabilities, …}
+            // console.log(e.target); //return element
+            // console.log(e.target.value); //return value
+            // console.log(e.target.name); //return name of attribute
+
+            // Test: lấy ra rule của element
+            // console.log(formRules[e.target.name]); //return function / rules
+
+
+            // Tạo biến 'rules' lưu function rules khi được target
+            let rules = formRules[e.target.name];
+
+            // Logic: lặp qua rules để tìm xem có lỗi hay k
+            // Idea: Có thể dùng find(), some(), for + break
+
+            //// Some()
+            // let errorMessage = rules.some((rule) => {
+            //     // rule hiện tại = function | (required, email, min, max...) => cần nhận vào value
+            //     return rule(event.target.value);
+            // });
+
+            // console.log(errorMessage); //return true => no value | false => has value
+
+            //// find()
+            let errorMessage;
+            rules.some((rule) => {
+                errorMessage = rule(event.target.value);
+                return errorMessage;
+            });
+
+            // console.log(errorMessage); //return => no value => Vui lòng nhập trường này | has value => undefined
+
+            // * Quy Ước 2: Muốn dùng lib này phải có class 'form-group' & 'form-message'
+            // Node: Nếu có lỗi thì hiển thị messagge lỗi ra UI
+            if(errorMessage){
+                // console.log(event.target); //return element
+
+                // truyền vào 1 = element hiện tại, 2 = 'form cần tìm' => ở đây là '.form-group'
+                let formGroup = getParent(event.target, '.form-group');
+
+                // console.log(formGroup);
+
+                if(formGroup){
+                    let formMessage = formGroup.querySelector('.form-message');
+                    if(formMessage){
+                        // thêm class
+                        formGroup.classList.add('invalid');
+                        // hiện msg
+                        formMessage.innerText = errorMessage;
+                    }
+                }
+                
+            }else{
+                console.log(false);
+            }
+
+
+        }
+
+        // Node: Hàm clear message lỗi
+        function handleClearError(e){
+            // Sử dụng contains(): kt xem có class đó hay k?
+            let formGroup = getParent(event.target, '.form-group');
+            if(formGroup.classList.contains('invalid')){
+                // xóa class
+                formGroup.classList.remove('invalid');
+
+                let formMessage = formGroup.querySelector('.form-message');
+                if(formMessage){
+                    // ẩn msg
+                    formMessage.innerText = '';
+                }
+            }
+        }
+
+
+
+
+
+
+
+
 
         console.log(formRules);
         // return từ 'formRules' (Khi còn gán string)
@@ -183,6 +296,9 @@ function Validator(formSelector){
 
 // Chuẩn bị trong form
 // cần thêm 'rules' vào các trường 'input' cần 'validate' (tạo ra trường tự quy ước)
+
+// * Quy Ước: 
+// + Muốn dùng lib này phải có class 'form-group' & 'form-message' / để hiện / ẩn message 
 
 // KQ khi validater
 // Validator('name-form')
