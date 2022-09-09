@@ -78,7 +78,7 @@ function Validator(formSelector){
             const rules = input.getAttribute('rules').split('|');
 
             // lặp qua để lấy giá trị khi đã cắt
-            for (let rule of rules) {
+            for (var rule of rules) {
                 // Dùng 'includes()' kt có dấu ':' hay k?
                 if(rule.includes(':')){
                     // Nêu có => cắt :>
@@ -93,8 +93,26 @@ function Validator(formSelector){
                 }
 
 
-                console.log(rule); //return required, email, required, min:6
+                // console.log(rule); //return required, email, required, min:6
                 //return của 'rule' sau khi gán = 'ruleInfo[0]' required, email, required, min
+
+                
+                
+                // Kiểm tra 
+                if(Array.isArray(formRules[input.name])){
+                    // Nếu là array => push thêm rule
+                    // Lần chạy thứ 2 push()
+                    formRules[input.name].push([validatorRules[rule]]);
+                }else{
+                    // Ban đầu sẽ chạy vào đây => k phải array vì ở trên khai báo là obj
+                    // console.log(rule); //return (3)required | (rule)
+                    // console.log(validatorRules[rule]); //return function required | (function rule)
+                    // k phải array => gán thành array & đưa function rule vào trong array
+                    // Lần chạy thứ 1 gán
+                    formRules[input.name] = [validatorRules[rule]];
+
+                    
+                }
 
             }
 
@@ -107,19 +125,29 @@ function Validator(formSelector){
             //// lấy ra attribute 'rules'
             // console.log(input.getAttribute('rules')); //return required, required|email, required|min:6
             
-            // Sét key & value cho obj 'formRules'
-            formRules[input.name] = input.getAttribute('rules');
+            // // Sét key & value cho obj 'formRules' (bỏ việc gán string)
+            // formRules[input.name] = input.getAttribute('rules');
 
-
-            
         }
 
         console.log(formRules);
-        // return từ 'formRules'
+        // return từ 'formRules' (Khi còn gán string)
         // {fullname: 'required', email: 'required|email', password: 'required|min:6'}
         // email: "required|email"
         // fullname: "required"
         // password: "required|min:6"
+
+        // return từ 'formRules' (Khi đưa function rule vào trong array | lần chạy thứ 1 => gán)
+        // {fullname: Array(1), email: Array(1), password: Array(1)}
+        // email: [ƒ]
+        // fullname: [ƒ]
+        // password: [ƒ]
+
+        // return từ 'formRules' (Khi đưa function rule vào trong array | lần chạy thứ 2 => push())
+        // {fullname: Array(1), email: Array(2), password: Array(2)}
+        // email: (2) [ƒ, Array(1)]
+        // fullname: [ƒ]
+        // password: (2) [ƒ, Array(1)]
     }
 
 }
