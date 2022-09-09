@@ -201,9 +201,9 @@ function Validator(formSelector){
             // console.log(errorMessage); //return true => no value | false => has value
 
             //// find()
-            let errorMessage;
-            rules.some((rule) => {
-                errorMessage = rule(event.target.value);
+            var errorMessage;
+            rules.find((rule) => {
+                errorMessage = rule(e.target.value);
                 return errorMessage;
             });
 
@@ -215,7 +215,7 @@ function Validator(formSelector){
                 // console.log(event.target); //return element
 
                 // truyền vào 1 = element hiện tại, 2 = 'form cần tìm' => ở đây là '.form-group'
-                let formGroup = getParent(event.target, '.form-group');
+                let formGroup = getParent(e.target, '.form-group');
 
                 // console.log(formGroup);
 
@@ -229,17 +229,20 @@ function Validator(formSelector){
                     }
                 }
                 
-            }else{
-                console.log(false);
+
             }
 
+            // convert qua boolean & return => true: k co loi | false: co loi
+            // console.log(!errorMessage + ' => '+ Math.random());
+            // console.log(!errorMessage);
+            return !errorMessage;
 
         }
 
         // Node: Hàm clear message lỗi
         function handleClearError(e){
             // Sử dụng contains(): kt xem có class đó hay k?
-            let formGroup = getParent(event.target, '.form-group');
+            let formGroup = getParent(e.target, '.form-group');
             if(formGroup.classList.contains('invalid')){
                 // xóa class
                 formGroup.classList.remove('invalid');
@@ -253,6 +256,42 @@ function Validator(formSelector){
         }
 
 
+
+        // Node: Xử lý hành vi submit form
+        formElement.onsubmit = function(e){
+            // bỏ submit mặc định
+            e.preventDefault();
+
+            // lấy ra input từ DOM
+            const inputs = formElement.querySelectorAll('[name][rules]');
+            // tạo biến check form hợp lệ
+            var isValid = true;
+            
+            // duyệt qua tất cả inputs
+            for (const input of inputs) {
+                // console.log(input); //return element
+                // console.log(input.value); //return value in DOM
+                // console.log(input.name); //return name in DOM
+
+
+                // gọi hàm 'handleValidate()' truyền vào obj / gán 'target' = 'input'
+                // handleValidate({target: input}); 
+
+                // Logic: Nếu 'handleValidate({target: input});' return false => có lỗi => gán isValid = false
+                if(!handleValidate({target: input})){
+                    isValid = false;
+                }
+
+                
+            }
+            // console.log(isValid);
+
+            // Node: Khi không có lỗi thì submit form
+            if(isValid){
+                // formElement.submit();
+                alert('Submited :>');
+            }
+        }
 
 
 
