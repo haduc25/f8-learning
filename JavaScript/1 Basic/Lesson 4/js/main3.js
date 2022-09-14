@@ -8,7 +8,7 @@
 // ==========================> My Library 2 <========================== //
 
 // nhận vào 'name-form' => 'formSelector'
-function Validator(formSelector){
+function Validator(formSelector, options = {}){
     function getParent(element, selector){
         // dùng 'while' để tìm thẻ cha
         // Logic: element có element cha => loops run
@@ -288,6 +288,57 @@ function Validator(formSelector){
 
             // Node: Khi không có lỗi thì submit form
             if(isValid){
+                if(typeof options.onSubmit === 'function'){
+                    var enableInput = formElement.querySelectorAll('[name]:not([disabled])');
+                        // Reduce
+                        // initialValue: đưa vào 1 obj rỗng / {}
+                        var formValues = Array.from(enableInput).reduce((values, input) => {
+                            // Logic: lấy 'name' đưa vào key -> vào obj rỗng / gán key = input.value / lấy dl của thẻ input 
+
+                            // Step: 
+                            // 1. gán 'input.value' cho obj 'values'
+                            // 2. return ra values (obj) / values được gán = { }
+                            // 3. => reduce trả về dl ở biến 'formValues'
+                            
+                            // // Khi có đầy đủ thông tin => gọi đến 'onSubmit' & trả về data / => lỗi khi có trường k cần nhập tt / k có isRequired / 
+                            // return (values[input.name] = input.value) && values; 
+                            switch(input.type){
+                                case 'checkbox':
+                                    if(!input.matches(':checked')){
+                                        values[input.name] = ''; //fav-color: ""
+                                        return values;
+                                    } 
+                                    // Logic: Nếu value của check box (values[input.name]) k phải là 1 array => gán thành 1 array 
+                                    if(!Array.isArray(values[input.name])){
+                                        // gán = array
+                                        values[input.name] = [];
+                                    }
+                                    values[input.name].push(input.value);
+                                    break;
+
+                                case 'radio':
+                                    const valueOfRadioButton = 'input[name = "' + input.name + '"]:checked';
+
+                                    // gán giá trị vào obj
+                                    values[input.name] = formElement.querySelector('input[name = "' + input.name + '"]:checked').value;    
+                                    break;
+
+                                case 'file':
+                                    //gán cho array nhận vào là files
+                                    values[input.name] = input.files; //avatar: FileList {0: File, length: 1}
+                                    break;
+
+                                default:
+                                    values[input.name] = input.value;
+                            }
+                            return values; //{fullname: '', email: 'haducvcvb@gmail.com', password: 'abcd1234', password_confirmation: 'abcd1234'}
+                        }, {});
+
+                   // console.log(formValues); //return {fullname: 'MizGDuc', email: 'haduc25@mail.com', password: '123456'}
+                   // Node: Gọi lại hàm 'onSubmit' và trả về kèm giá trị của form    
+                   return options.onSubmit(formValues); //dùng return thay cho 'else'
+                }
+
                 // formElement.submit();
                 alert('Submited :>');
             }
@@ -341,7 +392,14 @@ function Validator(formSelector){
 
 // KQ khi validater
 // Validator('name-form')
-Validator('#register-form');
+// Validator('#register-form');
+// Đối số 2 là obj // Sử dụng khi muốn 'call api'
+Validator('#register-form', {
+    onSubmit: function(data){
+        // console.log('Calling API');
+        console.log(data); //return {fullname: 'MizGDuc', email: 'haduc25@mail.com', password: '123456'}
+     }
+    });
 
 
 
@@ -370,3 +428,6 @@ Validator('#register-form');
 // Youtube: 09/09/2022 (Coding)
 // https://youtu.be/LBVzmoFj46o
 // https://youtu.be/sMBBDzp78WA
+
+// Youtube: 14/09/2022 (Coding)
+// https://youtu.be/nT2b94DuJwI

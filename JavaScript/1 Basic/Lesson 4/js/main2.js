@@ -265,7 +265,7 @@
 
                             return values; //{fullname: '', email: 'haducvcvb@gmail.com', password: 'abcd1234', password_confirmation: 'abcd1234'}
 
-                        }, {})
+                        }, {});
 
                     
                         //// check value cua tat ca the input
