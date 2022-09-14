@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>203 - Phân tích cách triển khai logic</title>
+  <title>204 - Sửa lỗi, xử lý submit form</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -38,27 +38,6 @@
     </form>
   
   </div>
-  <script src="./app.js"></script>
-  <script>
-    // ==========================> Mong muốn / Kỳ vọng / Thành quả đạt được ==> Output là gì? <========================== //
-
-    // Chuẩn bị trong form
-    // cần thêm 'rules' vào các trường 'input' cần 'validate' (tạo ra trường tự quy ước)
-
-    // * Quy Ước: 
-    // + Muốn dùng lib này phải có class 'form-group' & 'form-message' / để hiện / ẩn message 
-
-    // KQ khi validater
-    // Validator('name-form')
-    // Validator('#register-form');
-    // Đối số 2 là obj // Sử dụng khi muốn 'call api'
-    Validator('#register-form', {
-    onSubmit: function(data){
-        // console.log('Calling API');
-        console.log(data); //return {fullname: 'MizGDuc', email: 'haduc25@mail.com', password: '123456'}
-     }
-    });
-  </script>
 
 </body>
 </html>

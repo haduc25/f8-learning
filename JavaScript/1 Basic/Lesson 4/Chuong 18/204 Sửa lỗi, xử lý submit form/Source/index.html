@@ -4,7 +4,7 @@
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>203 - Phân tích cách triển khai logic</title>
+  <title>204 - Sửa lỗi, xử lý submit form</title>
   <link rel="stylesheet" href="./style.css">
 </head>
 <body>
@@ -51,13 +51,19 @@
     // KQ khi validater
     // Validator('name-form')
     // Validator('#register-form');
-    // Đối số 2 là obj // Sử dụng khi muốn 'call api'
-    Validator('#register-form', {
-    onSubmit: function(data){
-        // console.log('Calling API');
-        console.log(data); //return {fullname: 'MizGDuc', email: 'haduc25@mail.com', password: '123456'}
-     }
-    });
+    
+    // * Fix 2: onSubmit: Sử dụng từ khóa 'new'
+    // Sử dụng khi muốn call api / nhận dl
+    const form = new Validator('#register-form');
+    
+    // Mong muốn: khi form submit nhận đc 'formData' (data) 
+    form.onSubmit = function(formData){
+        console.log(formData);
+    }
+    // form.test = '123';
+
+    // // Sử dụng khi muốn submit mặc định
+    // new Validator('#register-form');
   </script>
 
 </body>

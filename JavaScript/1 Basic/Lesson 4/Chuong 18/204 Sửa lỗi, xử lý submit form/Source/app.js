@@ -1,7 +1,20 @@
+/*
+  //> 204. Sửa lỗi, xử lý submit form  
+    * Fix bugs:
+    * - find method
+    * - onSubmit method
+*/
+
+
 // ==========================> My Library 2 <========================== //
 
+// * Fix 2: onSubmit: bỏ đi 'options', lưu biến this => _this / _this = Validator()
 // nhận vào 'name-form' => 'formSelector'
-function Validator(formSelector, options = {}){
+function Validator(formSelector){
+    // khai báo 1 obj formRules rỗng để chứa các attribute & value từ DOM
+    const formRules = {}
+    const _this = this; //save this
+    
     function getParent(element, selector){
         // dùng 'while' để tìm thẻ cha
         // Logic: element có element cha => loops run
@@ -14,15 +27,6 @@ function Validator(formSelector, options = {}){
             // k có gán cho element cha tiếp
             element = element.parentElement;
         } 
-    }
-
-
-    // khai báo 1 obj formRules rỗng để chứa các attribute & value từ DOM
-    const formRules = {
-        // // *Mong muốn
-        // fullname: 'required',
-        // email: 'required|email',
-        // password: 'required|min:6'
     }
 
 
@@ -134,20 +138,11 @@ function Validator(formSelector, options = {}){
             // Logic: lặp qua rules để tìm xem có lỗi hay k
             // Idea: Có thể dùng find(), some(), for + break
 
-            //// Some()
-            // let errorMessage = rules.some((rule) => {
-            //     // rule hiện tại = function | (required, email, min, max...) => cần nhận vào value
-            //     return rule(event.target.value);
-            // });
-
-            // console.log(errorMessage); //return true => no value | false => has value
-
-            //// find()
-            var errorMessage;
-            rules.find((rule) => {
+            // * Fix 1: Bỏ find() thay = for of
+            for (const rule of rules) {
                 errorMessage = rule(e.target.value);
-                return errorMessage;
-            });
+                if(errorMessage) break;
+            }
 
             // * Quy Ước 2: Muốn dùng lib này phải có class 'form-group' & 'form-message'
             // Node: Nếu có lỗi thì hiển thị messagge lỗi ra UI
@@ -187,10 +182,15 @@ function Validator(formSelector, options = {}){
             }
         }
 
+
+        // console.log(this); //return Validator {} / Validator()
         // Node: Xử lý hành vi submit form
         formElement.onsubmit = function(e){
             // bỏ submit mặc định
             e.preventDefault();
+
+            // console.log(this); //return DOM / formElement 
+            // console.log(_this); //return Validator {test: '123', onSubmit: ƒ} / Validator 
 
             // lấy ra input từ DOM
             const inputs = formElement.querySelectorAll('[name][rules]');
@@ -210,7 +210,8 @@ function Validator(formSelector, options = {}){
 
             // Node: Khi không có lỗi thì submit form
             if(isValid){
-                if(typeof options.onSubmit === 'function'){
+                // * Fix 2: onSubmit: Sửa 'options' = '_this'
+                if(typeof _this.onSubmit === 'function'){
                     var enableInput = formElement.querySelectorAll('[name]:not([disabled])');
                         // Reduce
                         // initialValue: đưa vào 1 obj rỗng / {}
@@ -256,7 +257,7 @@ function Validator(formSelector, options = {}){
                             return values; //{fullname: '', email: 'haducvcvb@gmail.com', password: 'abcd1234', password_confirmation: 'abcd1234'}
                         }, {});
                    // Node: Gọi lại hàm 'onSubmit' và trả về kèm giá trị của form    
-                   return options.onSubmit(formValues); //dùng return thay cho 'else'
+                   return _this.onSubmit(formValues); //dùng return thay cho 'else'
                 }
                 // formElement.submit();
                 alert('Submited :>');
@@ -267,16 +268,7 @@ function Validator(formSelector, options = {}){
 
 }
 
-// 203. Phân tích cách triển khai logic
-// Youtube: 06/09/2022
-// https://youtu.be/hthBLeiLogo
 
-// Youtube: 07/09/2022 (Watched Videos)
-// https://youtu.be/iPWKkOmcatM
-
-// Youtube: 09/09/2022 (Coding)
-// https://youtu.be/LBVzmoFj46o
-// https://youtu.be/sMBBDzp78WA
-
+// 204. Sửa lỗi, xử lý submit form
 // Youtube: 14/09/2022 (Coding)
 // https://youtu.be/nT2b94DuJwI
