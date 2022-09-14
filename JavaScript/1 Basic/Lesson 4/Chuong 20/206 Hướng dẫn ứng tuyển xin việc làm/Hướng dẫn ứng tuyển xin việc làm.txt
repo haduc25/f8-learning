@@ -1,0 +1,82 @@
+Hướng dẫn ứng tuyển xin việc làm
+Cập nhật tháng 6 năm 2022
+
+Các bạn hãy làm theo đúng trình tự mà F8 hướng dẫn các bạn dưới đây nhé.
+
+Trong bài này, mình chỉ đề cập tới trường hợp bạn đi làm full time thôi nhé.
+
+Xác định vị trí ứng tuyển
+Lập trình viên Front-end, level intern (thực tập, học việc) hoặc fresher (người mới, đã có một chút kinh nghiệm, cao hơn level intern).
+
+Intern: Bạn chưa đi làm bao giờ, chưa có chút kinh nghiệm làm việc tại doanh nghiệp nào, nhưng bạn đã hoàn thành tốt các khóa học và tự thực hành làm thêm các dự án khác (dự án nằm ngoài khóa học).
+Fresher: Bạn có khả năng hoàn thành hầu hết các chức năng Front-end phổ biến trên các websites. Bạn có khả năng quản lý thời gian, tiến độ công việc, có kỹ làm việc nhóm, kỹ năng báo cáo.
+Các levels cao hơn thì F8 không đề cập tới, vì phần lớn học viên của F8 là người mới, vì vậy 2 levels trên phù hợp với hầu hết các bạn.
+
+Khóa học cần hoàn thành
+HTML, CSS từ Zero đến Hero
+Responsive Với Grid System
+Lập Trình JavaScript Cơ Bản
+Lập Trình JavaScript Nâng Cao
+Xây Dựng Website với ReactJS
+Xác định mức lương mong muốn
+Đầu tiên, đây là một trong những phần khó nhất của người mới. Rất nhiều tình huống có thể xảy ra như sau:
+
+#1 Nhút nhát, không dám nói mức lương mong muốn
+Ứng viên thường trả lời theo cách, “Em không quan trọng mức lương”, “Công ty xem trả em được bao nhiêu”, “Hay để em làm thử rồi công ty đánh giá mức lương cho em”, “Em sợ em còn chưa làm được”, vv
+
+Nhà tuyển dụng không hề thích ứng viên kiểu này, họ tuyển dụng đơn giản vì họ có đầu việc cần người giải quyết. Khi NTD hỏi mức lương mong muốn, họ chỉ muốn nghe câu trả lời thẳng vào trọng tâm câu hỏi một cách rõ ràng. Đừng ngại vì tự cảm thấy mức lương mong muốn của mình hơi cao, vì nếu bạn pass phỏng vấn kiến thức mà offer của bạn hơi cao, NTD sẽ đề xuất lại mức lương phù hợp cho bạn. Nếu bạn đồng ý, thì chốt ngày đi làm và bạn bắt đầu công việc mới.
+
+👉 Đừng bao giờ e dè khi đề xuất mức lương mong muốn, điều này chỉ cho NTD thấy một ứng viên không tin vào chính bản thân mình. Hãy xác định mức lương bạn thấy phù hợp từ trước, và trả lời thẳng thắn, chân thành câu hỏi của NTD.
+
+#2 Mức lương mong muốn quá cao, “ngáo giá”
+Ví dụ, anh bạn A chưa đi làm bao giờ, nghe người khác nói (trung tâm A học, xem quảng cáo hay nghe thằng bạn) là làm IT lương phải “chục củ” hoặc 1000$. Thế là A offer luôn mức đó, và khả năng A tạch phỏng vấn rất cao. Người phỏng vấn A cảm thấy A bị “ngáo giá”.
+
+Mình là Sơn, mình làm trong ngành IT khoảng 7 năm (tính tới 2022 là bước sang năm thứ 8). Vì vậy, mình có mối quan hệ khá rộng với anh em trong ngành. Bạn bè mình ngày ấy tới nay cũng thành lập công ty về IT khá nhiều, quy mô nhân sự cũng từ 40 - 150 người. Tại sao mình kể điều này, vì tình huống “ngáo giá” trên mình được nghe khá nhiều từ những anh bạn của mình, nay đã là “sếp”.
+
+Làm sao để không “ngáo giá”?
+
+Biết cách tự tìm kiếm qua các thống kê, các nguồn đáng tin cậy. Hiện tại, mức lương trung bình cho vị trí Front-end developer khoảng 16 triệu đồng, khoảng phổ biến là từ 11 triệu - 22 triệu (lương trung bình bạn nhé, nếu bạn là người mới thì gần như không thể đạt mức này). Thực tế, mình cũng thấy có nhiều người đạt mức lương 30 triệu - 35 triệu. Tuy nhiên, những người này có nhiều kỹ năng khác chứ không phải chỉ là biết code đâu nhé.
+Suy nghĩ theo hướng mình mang lại được giá trị gì cho doanh nghiệp? Mức lương mình muốn có xứng đáng cho giá trị đó? Nếu mình là sếp, mình có tuyển người như mình với mức lương đó?
+Đừng lo doanh nghiệp “bóc lột” bạn, khi bạn là người mới bạn có gì để công ty “bóc lột” chứ? Với kinh nghiệm làm doanh nghiệp của mình, trong 1 năm đầu bạn đi làm, hầu hết là công ty đang đầu tư vào giá trị của các bạn trong tương lai thôi, từ năm thứ 2, giá trị của bạn mới bắt đầu rõ ràng. Nếu đi làm, hãy chân trọng 1 năm đầu và tích cực học hỏi nếu có cơ hội.
+Tự biết mình cần gì, kiên định với lựa chọn của mình. Ví dụ, bạn thấy ok với mức lương cho vị trí intern là 3 triệu đồng / tháng (intern thường kéo dài từ 2 - 4 tháng). Nhưng lại có “thằng bạn” nó bảo là phải 6 triệu nó mới làm, rồi bạn cũng đi offer 6 triệu như nó(?). Thôi nào, đó là mức lương của “thằng bạn” nó muốn, bạn thấy happy với mức hiện tại của mình là ok rồi nhé. Hết intern, lên fresher rồi lên chính thức, còn nhiều thời điểm phù hợp để bạn đàm phán lại lương với công ty mà.
+👉 Hãy đánh giá đúng giá trị bản thân, biết mình cần gì và kiên định bạn nhé!
+
+#3 Thẳng thắn, chân thành, tự tin, cầu tiến
+Nói đi cũng phải nói lại, rất nhiều bạn trẻ tuy chưa đi làm, chưa có kinh nghiệm, nhưng bù lại kỹ năng mềm của các bạn rất tốt. Khi phỏng vấn các bạn cho thấy có tìm hiểu kỹ về công ty, các bạn chủ động đặt câu hỏi cho NTD về những thắc mắc của mình. Qua vòng phỏng vấn về kỹ thuật, tới khi offer mức lương mong muốn, các bạn trả lời tự nhiên, thẳng thắn và mạch lạc. Sau đó, NTD hỏi “Không biết em có câu hỏi nào cho phía anh chị nữa không?”, bạn đã hỏi hết rồi nên khi ấy bạn trả lời “Em cảm ơn, em không còn câu hỏi nào nữa ạ”. Bạn và NTD chào nhau, hẹn vài ngày sau có kết quả phỏng vấn, vài ngày sau bạn nhận được email đã pass, NTD đồng ý với mức lương của bạn, bạn đi làm và bắt đầu sự nghiệp Web Developer.
+
+Vậy mức lương phù hợp là bao nhiêu?
+Đọc qua phần trên, chắc hẳn vẫn có một số anh em chưa tự xác định được mức lương phù hợp cho mình. Ở phần này, mình đưa ra mức lương để các bạn tham khảo nhé.
+
+Giả sử A chưa đi làm bao giờ, A học tốt và nắm chắc các kỹ năng nền tảng lập trình, A tự thực hành các dự án trong khóa học và còn làm thêm một số dự án ngoài khóa học. A có sản phẩm để show cho NTD và hoàn thành tốt phần phỏng vấn kỹ thuật.
+
+Như vậy, khả năng cao A sẽ có lộ trình lương như sau:
+
+Intern từ 2 - 4 tháng với mức lương khoảng 3-5 triệu / tháng (có thể ngắn hơn nếu A có năng lực tốt)
+Sau intern, A lên fresher với mức lương từ 6-10 triệu / tháng, thường là khoảng 8 triệu
+Phần đông các công ty IT, 6 tháng A sẽ được review đánh giá kết quả công việc và tăng lương 1 lần. Khi ấy, tăng hay không tăng, thăng tiến như nào phụ thuộc hoàn toàn vào kỹ năng của A nhé.
+👉 Theo gợi ý của mình, nếu bạn chưa đi làm bao giờ, bạn chưa tốt trong các kỹ năng mềm, bạn chưa biết làm việc nhóm, chưa biết báo cáo công việc là như thế nào. Hãy bắt đầu với offer từ 3-5 triệu/tháng.
+
+Những việc phải làm tiếp theo là gì?
+Viết CV xin việc tại https://cv.fullstack.edu.vn/, CV được điền sẵn nội dung theo chuẩn xin việc IT, bạn chỉ cần điền thêm thông tin cá nhân và cập nhật lại nội dung cho phù hợp, nên lựa mẫu CV bố cục 1 cột, ít màu mè để NTD dễ đọc hơn. Tham khảo thêm: https://fb.com/sondnf8/posts/2195606467243484
+Ôn tập lại các kiến thức quan trọng, tìm kiếm các bài viết chia sẻ về câu hỏi PV thường gặp, kỹ năng mềm khi phỏng vấn, vv
+Tìm các tin tuyển dụng, đọc mô tả công việc (JD), tìm hiểu về công ty
+Ứng tuyển vào công ty (gửi mail cho công ty hoặc inbox với HR trên MXH)
+Khi có lịch PV, lên nhắc nhở - hẹn giờ và có mặt đúng giờ
+Khi PV, hãy thoải mái, tự tin, thể hiện tinh thần cầu tiến và cố gắng hoàn thành tốt phần trả lời câu hỏi chuyên môn nhé
+Công ty Outsoucing và Product?
+Công ty làm IT - Phần mềm thường chia làm 2 loại là “Công ty Outsourcing” và “Công ty Product”.
+
+Outsourcing
+Công ty nhận các đơn đặt hàng từ cá nhân, tổ chức khác và thực hiện hoàn thành dự án dựa trên các yêu cầu từ phía khách hàng. Ví dụ: Giả sử mình không biết code nhưng lại muốn xây dựng ra trang web như F8, mình đi tìm một công ty IT - Phần mềm và thuê họ làm ra trang web như F8. Như vậy, công ty trên là làm outsourcing.
+
+👉 Làm outsourcing là nhận gia công phần mềm cho đối tượng khách hàng không phải là người dùng cuối (end user) sử dụng sản phẩm đó.
+
+Product
+Công ty xây dựng và phát triển sản phẩm để giải quyết vấn đề của người dùng cuối. Ví dụ như F8, F8 tập trung xây dựng sản phẩm là trang web https://fullstack.edu.vn/. Giúp nhiều người có thể tiếp cận với ngành IT - Phần mềm thông qua các khóa học lập trình online. Như vậy F8 là công ty Product, vì F8 tập trung phát triển sản phẩm cho người dùng cuối.
+
+👉 Làm Product là phát triển sản phẩm cho đối tượng khách hàng là người dùng cuối.
+
+Về cơ bản, 2 hình thái công ty này khác nhau ở đối tượng khách hàng. Outsourcing phục vụ khách hàng là tổ chức, cá nhân muốn xây dựng một sản phẩm (product). Trong khi công ty Product tập trung phát triển sản phẩm phục vụ khách hàng là người dùng cuối.
+
+Người dùng cuối là gì?
+Người dùng cuối (end user) là người trực tiếp sử dụng sản phẩm. Ví dụ, khi team phát triển tại F8 trao đổi công việc và nhắc tới “người dùng cuối”, thì người dùng cuối ở đây chính là những học viên sử dụng trang web https://fullstack.edu.vn/.
