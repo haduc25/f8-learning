@@ -1,6 +1,4 @@
-/** Chuong 19. Tham khảo thêm
-//>205. Polyfill là gì? Khi nào cần sử dụng?
-*/
+// 205. Polyfill là gì? Khi nào cần sử dụng?
 
 // Polyfill
 
@@ -27,9 +25,3 @@ const name = 'Minh Duc learning javascript!';
 var checker = name.includes('Duc', 0);
 console.log(checker); //return true/false
 
-
-
-
-// 205. Polyfill là gì? Khi nào cần sử dụng?
-// Youtube: 14/09/2022 (Chưa upload video)
-// Coming soon....
