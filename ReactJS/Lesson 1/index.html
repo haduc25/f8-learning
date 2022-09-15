@@ -12,7 +12,7 @@
 
       a{
          text-decoration: none;
-         color: #333;
+         color: #5311be;
       }
 
       a:hover{
@@ -27,7 +27,6 @@
 
       .containers{
          padding: 15px;
-         height: 350px;
          border: 1px solid #000;
       }
 
@@ -46,6 +45,11 @@
          margin-bottom: 5px;
       }
 
+      .small-txt{
+         font-size: 16px;
+         font-weight: 400;
+      }
+
     </style>
 </head>
 <body>
@@ -58,13 +62,181 @@
       <ul class="parent">
          <li>1 - ReactJS là gì? Tại sao nên học ReactJS?</li>
          <ul class="children">
-            <h2></h2>
+            <li>Youtube: <a href="https://youtu.be/Qkq4MEEizGI" target="_blank">ReactJS - Learning | OPTC x TL // [15/09/2022] #1</a></li>
             <li>Keyword: <a href="https://github.com/facebook/react" target="_blank">react github (github.com)</a></li>
             <li>Keyword: <a href="https://reactjs.org/" target="_blank">react js (reactjs.org)</a></li>
             <li>Keyword: <a href="https://2021.stateofjs.com/en-US/" target="_blank">the state of javascript 2022 (stateofjs.com)</a></li>
             <li>Keyword: <a href="https://trends.google.com.vn/trends/explore?q=vue,react,angular" target="_blank">google trend (trends.google.com.vn)</a></li>
          </ul>
       </ul>
+      <ul class="parent">
+         <li>2 - SPA/MPA là gì?</li>
+         <ul class="children">
+            <li>Youtube: <a href="https://youtu.be/-HYOEb0P2vI" target="_blank">ReactJS - Learning | OPTC x TL // [15/09/2022] #2</a></li>
+            <li>*SPA - Single-Page Application</li>
+            <ul class="children">
+               <li class="small-txt">- Được cho là cách tiếp cận hiện đại hơn</li>
+               <li class="small-txt">- Không yêu cầu tải lại trang trong quá trình sử dụng</li>
+               <li>*Tốc độ</li>
+               <li class="small-txt">- Nhanh hơn khi sử dụng: phần lớn tài nguyên được tải trong lần đầu, trang chỉ tải thêm dữ liệu mới khi cần</li>
+               <li>*Bóc tách</li>
+               <li class="small-txt">- Có phần Front-end riêng biệt</li>
+               <li>*SEO</li>
+               <li class="small-txt">- K thân thiện vs SEO như MPA</li>
+               <li>*UX</li>
+               <li class="small-txt">- Cho trải nghiệm tốt hơn, nhất là các thao tác chuyển trang</li>
+               <li>*Quá trình phát triển</li>
+               <li class="small-txt">- Dễ dàng tái sử dụng code (compinent)</li>
+               <li class="small-txt">- Bóc tách FE & BE: chia team phát triển song song, phát triển thêm mobile app dễ dàng</li>
+               <li>*Phụ thuộc vào JS</li>
+               <li class="small-txt">- Phụ thuộc hoàn toàn vào js</li>
+            
+            </ul>
+            <li>*MPA - Multi-Page Application</li>
+            <ul class="children">
+               <li class="small-txt">- Được cho là cách tiếp cận cổ điển hơn</li>
+               <li class="small-txt">- Tải lại trang trong quá trình sử dụng</li>
+               <li>*Tốc độ</li>
+               <li class="small-txt">- Chậm hơn khi sử dụng: luôn tải lại toàn bộ trang khi truy cập và chuyển hướng</li>
+               <li>*Bóc tách</li>
+               <li class="small-txt">- FE & BE phụ thuộc nhau nhiề hơn, được đặt trong cùng 1 dự án</li>
+               <li>*SEO</li>
+               <li class="small-txt">- Trải nghiệm trên mobile tốt hơn</li>
+               <li>*UX</li>
+               <li class="small-txt">- Trải nghiệm trên mobile tốt hơn</li>
+               <li>*Phụ thuộc vào JS</li>
+               <li class="small-txt">- Có thể k cần js</li>
+            </ul>
+         </ul>
+      </ul>
+      <ul class="parent">
+         <li>3 - Ưu điểm của SPA</li>
+         <ul class="children">
+            <li>Youtube: <a href="https://youtu.be/-HYOEb0P2vI" target="_blank">ReactJS - Learning | OPTC x TL // [15/09/2022] #2</a></li>
+            <li>- Không yêu cầu tải lại trang khi chuyển trang là 1 ưu điểm đặc trưng của SPA so với MPA.</li>
+         </ul>
+      </ul>
+    </div>
+
+    <!-- Chương 2 -->
+    <h2>Chương 2. Ôn lại ES6+<h2> 
+    <div class="containers">
+      <ul class="parent">
+         <li>4 - Arrow function</li>
+         <ul class="children">
+            <li>Youtube: <a href="#" target="_blank">ReactJS - Learning | OPTC x TL & XSET x FNC // [15/09/2022] #4</a></li>
+         </ul>
+      </ul>
+      <ul class="parent">
+         <li>5 - Thực hành tạo Arrow function</li>
+         <ul class="children">
+            <li>Youtube: <a href="#" target="_blank">ReactJS - Learning | OPTC x TL & XSET x FNC // [15/09/2022] #4</a></li>
+            <li>Sử dụng arrow function để tạo hàm triple nhận vào 1 tham số x và trả về giá trị x * 3.</li>
+            <li><code> 
+               const triple = (x) => x*3
+
+               <br>
+               // Expected results: <br>
+               // console.log(triple(2)) // Output: 6 <br>
+               // console.log(triple(3)) // Output: 9 <br>
+               // console.log(triple(5)) // Output: 15 <br>
+            </code></li>
+         </ul>
+      </ul>
+      <ul class="parent">
+         <li>6 - Enhanced object literals</li>
+         <ul class="children">
+            <li>Youtube: <a href="#" target="_blank">ReactJS - Learning | OPTC x TL & XSET x FNC // [15/09/2022] #4</a></li>
+         </ul>
+      </ul>
+      <ul class="parent">
+         <li>7 - Thực hành sử dụng Enhanced object literals</li>
+         <ul class="children">
+            <li>Youtube: <a href="#" target="_blank">ReactJS - Learning | OPTC x TL & XSET x FNC // [15/09/2022] #4</a></li>
+            <li>Cho trước mảng infoArr, hãy viết hàm arrToObj để chuyển array thành object. <br><code>//Gợi ý: Sử dụng phương thức reduce</code></li>
+            <li><code> 
+               <br>
+               function arrToObj(arr) {
+                  return Object.fromEntries(arr)
+               }
+               <br>
+               <br>
+               // Expected results:<br>
+               /**
+               const obj1 = arrToObj([
+                  ['name', 'Son Dang'], 
+                  ['age', 21], 
+                  ['address', 'Ha Noi']
+               ])
+               <br>
+               console.log(obj1)<br>
+               Output: { name: 'Son Dang', age: 21, address: 'Ha Noi' }<br>
+               <br>
+               const obj2 = arrToObj([
+                  ['name', 'Duc Long'], 
+                  ['age', 18], 
+                  ['address', 'Ha Noi']
+               ])
+               <br>
+               console.log(obj2)
+               <br>
+               Output: { name: 'Duc Long', age: 18, address: 'Ha Noi' }
+               */
+            </code></li>
+            <li><br><br>Code Solution 1: - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/reduce">Reduce()</a></li>
+            <li><code>
+               function arrToObj(arr) {
+                  return arr.reduce((obj, item) => ({...obj,[item[0]] : item[1]}),{})
+              }
+            </code></li>
+            <li><br><br>Code Solution 2: - <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">fromEntries()</a></li>
+            <li><code>
+               function arrToObj(arr) {
+                  return Object.fromEntries(arr)
+               }
+            </code></li>
+            <li><br>Link tham khảo về <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/fromEntries">fromEntries() - (developer.mozilla.org)</a></li>
+         </ul>
+      </ul>
+      <ul class="parent">
+         <li>8 - Destructuring, Rest</li>
+         <ul class="children">
+            <li>Youtube: <a href="#" target="_blank">ReactJS - Learning | OPTC x TL & XSET x FNC // [15/09/2022] #4</a></li>
+         </ul>
+      </ul>
+      <ul class="parent">
+         <li>9 - Ôn tập Destructuring, Rest</li>
+         <ul class="children">
+            <li>Youtube: <a href="#" target="_blank">ReactJS - Learning | OPTC x TL & XSET x FNC // [15/09/2022] #4</a></li>
+            <li><code>
+               const { 
+                  a = 'default', 
+                  b, 
+                  ...rest 
+              } = {
+                  b: 'val1',
+                  c: 'val2',
+                  d: 'val3'
+              };
+              <br>
+              console.log(a, b, rest); // Output: ?
+            </code></li>
+            <li><br>Câu trả lời đúng: <code>'default', 'val1', { c: 'val2', d: 'val3' }</code></li>
+            <li>Giải thích:</li>
+            <ul class="children">
+               <li class="small-txt">Do object không chứa key a nên a sẽ nhận giá trị mặc định là 'default'.</li>
+               <li class="small-txt">Giá trị b bằng 'val1' do object có 1 key b có giá trị là 'val1'.</li>
+               <li class="small-txt">Toán tử rest lấy ra tất cả các key còn lại chưa được lấy ra bằng destructuring. Lúc này, rest bằng object, chứa 2 key còn lại là c và d.</li>
+            </ul>
+         </ul>
+      </ul>
+      <ul class="parent">
+         <li>10 - Spread operator</li>
+         <ul class="children">
+            <li>Youtube: <a href="#" target="_blank">ReactJS - Learning | OPTC x TL & XSET x FNC // [15/09/2022] #5</a></li>
+         </ul>
+      </ul>
+      
     </div>
 
 
