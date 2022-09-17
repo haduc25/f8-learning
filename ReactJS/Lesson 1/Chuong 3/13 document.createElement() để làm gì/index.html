@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>13 - document.createElement() để làm gì?</title>
+</head>
+<body style="text-align: center;">
+    <h1>13 - document.createElement() để làm gì?</h1>
+
+    <!-- EX1 -->
+    <h2 id="heading">MizGDuc - 25/09/2001</h2>
+    
+    <!-- EX2 - createElement(), appendChild() / Dùng JS-->
+
+    <!-- EX3 - Get ra root & thêm dl / Dùng JS -->
+    <div id="root"></div>
+
+
+    <!-- JS -->
+    <script>
+        /**
+         * 1. document.createElement()
+         * 2. document.body.appendChild()
+         * 3. console.dir()
+         * 4. innerText, id, className, style
+        */
+
+
+        //// Ex1: ở file 'index.html' có '<h2 id="heading">MizGDuc - 25/09/2001</h2>'
+        // const h2 = document.querySelector('#heading');
+
+        // console.log(h2); //return <h2>MizGDuc - 25/09/2001</h2>
+        // console.log(typeof h2); //return object
+        // console.dir(h2); //h2#heading
+
+        // // Sự khác biệt giữa console.dir và console.log là gì?: 
+        // // shttps://helpex.vn/question/su-khac-biet-giua-console.dir-va-console.log-la-gi-5cb71a56ae03f62598ddf939
+        // // console.log in phần tử trong cây giống như HTML
+        // // console.dir in phần tử trong cây giống như JSON
+
+
+        //// Ex2: ở file 'index.html' k có gì
+
+        // // tạo h2
+        // const h2 = document.createElement('h2'); 
+
+        // // thêm text
+        // h2.innerHTML = 'Hello im h2, im made from js!';
+
+        // // console.log(h2); //return <h2>Hello im h2, im made from js!</h2>
+
+        // // add vào html
+        // document.body.appendChild(h2); //Hello im h2, im made from js!
+
+
+        //// Ex3: ở file 'index.html' có '#root'
+
+        // lấy ra #root
+        const root = document.getElementById('root');
+
+        // tạo h2
+        const h2 = document.createElement('h2'); 
+
+        // thêm text
+        h2.innerHTML = 'Hello im h2, im made from js! | EX3';
+
+        // add vào html
+        root.appendChild(h2); //Hello im h2, im made from js!
+
+
+
+    </script>
+</body>
+</html>
