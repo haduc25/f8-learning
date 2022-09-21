@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>19 - ReactDOM là gì Tại sao phải sử dụng</title>
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js" crossorigin> </script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js" crossorigin></script> 
+
+</head>
+<body style="text-align: center;">
+        <h1>19 - ReactDOM là gì Tại sao phải sử dụng</h1>
+
+        <div id="root"></div>
+        <div id="root2"></div>
+        <div id="root3"></div>
+
+        <!-- JS -->
+        <script>
+        /**
+        *  1. Tại sao phải sử dụng React-DOM ?
+        *  - Render ra Browsers
+        *  2. Tại sao lại tách React - DOM ra ?
+        *  - React-DOM / React-Native
+        *  3. Render UI
+        */
+
+        console.log(ReactDOM); //return {__SECRET_INTERNALS_DO_NOT_USE_OR_YOU_WILL_BE_FIRED: {…}, createPortal: ƒ, findDOMNode: ƒ, flushSync: ƒ, hydrate: ƒ, …}
+        console.log(ReactDOM.version); //return 17.0.0
+        
+        /** EX1 | Render BT EX3 (Bài 17)
+        *           <div class="post-item" >
+        *              <h2 title="Học React tại F8">Học ReactJS</h2>
+        *              <p> Học ReactJS từ cơ bản tới nâng cao</p>
+        *           </div>
+        */
+ 
+
+        // React
+        const postItem = React.createElement(
+            'div',
+            {
+                className: 'post-item'
+            },
+            React.createElement(
+                'h2',
+                {
+                    title: 'Học React tại F8'
+                },
+                'Học ReactJS'
+            ),
+            React.createElement(
+                'p',
+                {},
+                'Học ReactJS từ cơ bản tới nâng cao'
+            )
+        )
+
+
+        console.log(postItem); //return {$$typeof: Symbol(react.element), type: 'div', key: null, ref: null, props: {…}, …}
+
+
+        // Get root element
+        const root = document.getElementById('root');
+        // console.log(root);
+
+        // React-DOM -> render UI
+        // ReactDOM.render(element, container, callback)
+        ReactDOM.render(postItem, root); //return element
+
+
+
+
+
+        /** EX2 | Render BT EX1 (Bài 17)
+         *        <h1 title="Hello" class="heading">Hello guys!</h1>
+        */
+        
+        // React
+        const h1React = React.createElement(
+            'h1',
+            {
+                title: 'Hello',
+                className: 'heading'
+            },
+            'Hello guys!'
+        )
+
+
+        // get element root
+        const root2 = document.getElementById('root2');
+        
+        // render
+        ReactDOM.render(h1React, root2);
+
+
+
+
+
+
+
+
+
+
+        /** EX3 | Render BT EX2 (Bài 17)
+         *         <ul>
+         *              <li>Javascript</li>
+         *              <li>ReactJS</li>
+         *          </ul>
+        */
+
+     
+        // React
+        const ulReact = React.createElement(
+            'ul',
+            null,
+            React.createElement(
+                'li',
+                null,
+                'Javascript'
+            ),
+            React.createElement(
+                'li',
+                null,
+                'ReactJS'
+            )
+        )
+
+        // get root
+        const root3 = document.getElementById('root3');
+
+        // render
+        ReactDOM.render(ulReact, root3);
+
+        </script>
+    
+</body>
+</html>

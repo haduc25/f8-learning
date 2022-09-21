@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>20 - Sử dụng ReactDOM phiên bản 18</title>
+     <!--ver 17  -->
+    <!-- <script src="https://unpkg.com/react@17.0.0/umd/react.development.js" crossorigin> </script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js" crossorigin></script> -->
+     <!--ver 18  -->
+    <script src="https://unpkg.com/react@18/umd/react.development.js" crossorigin> </script>
+    <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js" crossorigin></script> 
+
+</head>
+<body style="text-align: center;">
+        <h1>20 - Sử dụng ReactDOM phiên bản 18</h1>
+
+        <div id="root"></div>
+
+        <!-- JS -->
+        <script>
+        
+        /** EX | Render BT EX3 (Bài 17) - version 18
+        *           <div class="post-item" >
+        *              <h2 title="Học React tại F8">Học ReactJS</h2>
+        *              <p> Học ReactJS từ cơ bản tới nâng cao</p>
+        *           </div>
+        */
+ 
+
+        // React
+        const postItem = React.createElement(
+            'div',
+            {
+                className: 'post-item'
+            },
+            React.createElement(
+                'h2',
+                {
+                    title: 'Học React tại F8'
+                },
+                'Học ReactJS'
+            ),
+            React.createElement(
+                'p',
+                {},
+                'Học ReactJS từ cơ bản tới nâng cao'
+            )
+        )
+
+        /** | @17 
+        // Get root element
+        const root = document.getElementById('root');
+
+        // React-DOM -> render UI
+        ReactDOM.render(postItem, root); //return element
+        */
+
+
+        /** | @18 - Dùng createRoot */
+        // Get root element
+        const container = document.getElementById('root');
+
+        // React-DOM -> render UI
+        const root = ReactDOM.createRoot(container);
+
+        console.log(root); //ReactDOMRoot {_internalRoot: FiberRootNode
+        
+        root.render(postItem);
+        </script>
+    
+</body>
+</html>
