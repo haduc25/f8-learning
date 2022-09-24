@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>25 - JSX render Arrays | JSX FQA</title>
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js" crossorigin> </script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+<body style="text-align: center;">
+        <h1>25 - JSX render Arrays | JSX FQA</h1>
+
+        <div id="root"></div>
+        <div id="root2"></div>
+        <div id="root3"></div>
+        <div id="root4"></div>
+
+        <!-- JS -->
+        <script type="text/babel">
+        /** Chữa bài tập: Render list khóa học*/
+
+        /** Câu hỏi thường gặp (Q&A)
+         * 1. Tại sao khi code thuần dùng map phải join()...
+         *  + VD code js thuần: 
+         *  + element.innerText = '...HTML, CSS'; 
+         *  * => Vì 'innerText' cần nhận vào string => dùng join('') chuyển từ array => string 
+         * 
+         *   //React -> k cần 'join()'
+         * 
+         * 2. Gặp lỗi khi render từ mảng (prop "key")
+         * 3. Không render được 2 elements cùng lúc
+        */
+
+
+        // => Chữa bài tập
+        const courses = [
+            {
+                name: 'HTML, CSS'
+            },
+            {
+                name: 'Responsive web design'
+            },
+            {
+                name: 'ReactJS'
+            },
+        ]
+
+        const jsx = 
+            <ul>
+                {
+                    courses.map( course => <li>{course.name}</li> )
+                }
+            </ul>
+
+        console.log(jsx); //return {$$typeof: Symbol(react.element), type: 'ul', key: null, ref: null, props: {…}, …}
+
+         
+        // render
+        ReactDOM.render(jsx, document.getElementById('root'));
+
+
+
+        // => 2. Fix lỗi render từ mảng (prop "key")
+        /** Detail: 
+         *  Warning / chưa thêm key
+         * 
+         *  Warning: Each child in a list should have a unique "key" prop.
+         *  Check the top-level render call using <ul>. See https://reactjs.org/link/warning-keys for more information. at li
+         * 
+         * => Thêm 'key'
+         * 
+         * 
+         *  Warning / key trùng
+         *  Warning: Encountered two children with the same key, `true`. 
+         *  Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. at ul
+         */
+
+         const jsx2 = 
+            <ul>
+                {
+                    courses.map((course, index) =>{
+                        return <li key={index}>{course.name}</li>
+                    })
+                }
+            </ul>
+
+
+        // render
+        ReactDOM.render(jsx2, document.getElementById('root2'));
+
+        
+
+
+        // => 3. Fix không render được 2 elements cùng lúc
+        /** Error / Khi chạy 2 element cùng lúc
+         * Uncaught SyntaxError: Inline Babel script: Adjacent JSX elements must be wrapped in an enclosing tag
+         * 
+         * Ex:         
+         * const jsx3 = 
+         *  <ul>
+         *      <li>Content 1</li>
+         *      <li>Content 2</li>
+         *  </ul>
+         *
+         *  <h2>Content 3</h2>
+         * 
+         * 
+         * //Fix 1: Thêm thẻ 'div' bọc bên ngoài 2 element
+         * Ex1:
+         * const jsx3 = 
+         *  <div>
+         *      <ul>
+         *          <li>Content 1</li>
+         *          <li>Content 2</li>
+         *      </ul>
+         *
+         *      <h2>Content 3</h2>
+         *  <div>
+         * 
+         * => Nhược điểm render ra cả thẻ 'div' thừa
+         * 
+         * 
+         * 
+         * //Fix 2: Dùng 'React.Fragment' trong 'Babel'
+         * Ex2:
+         *  const jsx3 = 
+         *  <React.Fragment>
+         *       <ul>
+         *          <li>Content 1</li>
+         *          <li>Content 2</li>
+         *       </ul>
+         *
+         *      <h2>Content 3</h2>
+         *   </React.Fragment>
+         * 
+         * 
+         * 
+         * //Fix 3: Dùng 'React.Fragment' trong React
+         * Ex3:
+         *         
+         *  const jsx4 = React.createElement(
+         *      React.Fragment,
+         *      null,
+         *      React.createElement('h1', null, 'Content 4'),
+         *      React.createElement('h1', null, 'Content 5'),
+         *  )
+        */
+
+        //case 1
+        const jsx3 = 
+        <React.Fragment>
+            <ul>
+                <li>Content 1</li>
+                <li>Content 2</li>
+            </ul>
+
+            <h2>Content 3</h2>
+        </React.Fragment>
+
+
+        //case 2
+        const jsx4 = React.createElement(
+            React.Fragment,
+            null,
+            React.createElement('h1', null, 'Content 4'),
+            React.createElement('h1', null, 'Content 5'),
+        )
+
+
+        
+        
+        
+        // render
+        ReactDOM.render(jsx3, document.getElementById('root3'));
+        ReactDOM.render(jsx4, document.getElementById('root4'));
+
+        </script>
+        
+    
+</body>
+</html>
