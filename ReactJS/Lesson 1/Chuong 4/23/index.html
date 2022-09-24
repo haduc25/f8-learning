@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>23 - JSX là gì? Tại sao cần JSX?</title>
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js" crossorigin> </script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+<body style="text-align: center;">
+        <h1>23 - JSX là gì? Tại sao cần JSX?</h1>
+
+        <div id="root"></div>
+        <div id="root2"></div>
+        <div id="root3"></div>
+
+        <!-- JS -->
+        <script type="text/babel">
+        /** JSX -> Javascript XML
+        * 1. Luôn dùng React.createElement()? Vấn đề? 
+        * 2. JSX?
+        * 3. JSX k phải HTML, Cần có trong Javascript, Babel để dùng JSX
+        * 4. JSX và React DOM
+        * 
+        * Exec
+        * 1. add 'babel'
+        * 2. đổi type => type="text/babel";
+        */
+
+        // console.log(Babel);
+        // console.log(Babel.version);
+        
+
+
+        /** EX1 | 
+        *         <ul>
+        *              <li>Javascript</li>
+        *              <li>ReactJS</li>
+        *          </ul>
+        */
+
+        // // React
+        // const ulReact = React.createElement('ul',null,
+        //     React.createElement('li',null,'Javascript'),
+        //     React.createElement('li',null,'ReactJS')
+        // )
+
+        // React + Babel
+        const ulReact =
+         <ul>
+            <li>Javascript</li>
+            <li>ReactJS</li>
+         </ul>
+         
+        // render
+        ReactDOM.render(ulReact, document.getElementById('root'));
+
+        
+
+
+
+        /** EX2 | Custom ex1 -> add attribute
+         *         <ul>
+         *              <li>Javascript</li>
+         *              <li>ReactJS</li>
+         *          </ul>
+        */
+
+     
+        // React + Babel
+        const jsCourse = 'Javascript';
+        const reactCourse = 'ReactJS';
+
+        const myStyle = {
+            color: 'red',
+            fontSize: '32px'
+        }
+
+        const ulReact2 =
+         <ul className='ul-ex2'>
+            <li style={{color: 'red',  backgroundColor: "DodgerBlue"}}>{jsCourse}</li>
+            <li style={myStyle}>{reactCourse}</li>
+         </ul>
+
+         
+         
+        // render
+        ReactDOM.render(ulReact2, document.getElementById('root2'));
+        
+
+
+
+        /** EX3 | Custom ex2 -> array
+         *         <ul>
+         *              <li>Javascript</li>
+         *              <li>ReactJS</li>
+         *          </ul>
+         * 
+         *  add value of array to DOM above
+         *  
+        */
+
+        // array
+        const courses = [
+            {
+                name: 'HTML, CSS'
+            },
+            {
+                name: 'Responsive web design'
+            },
+            {
+                name: 'ReactJS'
+            },
+        ]
+
+     
+        // React + Babel + Array
+        //  const courseName = 
+        //     <ul>
+        //         {
+        //             courses.map( course => <li>{course.name}</li> )
+        //         }
+        //     </ul>
+         const courseName = 
+            <ul>
+                {
+                    courses.map( course => <li>{course.name}</li> )
+                }
+            </ul>
+
+         
+        // render
+        ReactDOM.render(courseName, document.getElementById('root2'));
+
+        </script>
+    
+</body>
+</html>
