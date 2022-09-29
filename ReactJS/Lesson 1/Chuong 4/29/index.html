@@ -1,0 +1,460 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>29 - Props là gì? Dùng props khi nào?</title>
+    <script src="https://unpkg.com/react@17.0.0/umd/react.development.js" crossorigin> </script>
+    <script src="https://unpkg.com/react-dom@17.0.0/umd/react-dom.development.js" crossorigin></script>
+    <script src="https://unpkg.com/babel-standalone@6/babel.min.js"></script>
+
+</head>
+<body style="text-align: center;">
+        <h1>29 - Props là gì? Dùng props khi nào?</h1>
+
+        <h2>==================================> ROOT V1 <==================================</h2>
+        <div id="root"></div>
+        <h2>==================================> ROOT V2 <==================================</h2>
+        <div id="root2"></div>
+        <h2>==================================> ROOT V3 <==================================</h2>
+        <div id="root3"></div>
+        <h2>==================================> ROOT V4 <==================================</h2>
+        <div id="root4"></div>
+        <h2>==================================> ROOT V5 <==================================</h2>
+        <div id="root5"></div>
+
+        <!-- JS -->
+        <script type="text/babel">
+        /** Props
+         *  - Chữa bài tập
+         * 1. React Element
+         *      - Sử dụng props giống như với attribute của thẻ HTML
+         *      - 2 props class , for = > className , htmlFor
+         *      - Phải tuân theo quy ước có sẵn
+         * 2. React components
+         *      - Sử dụng props giống như đối số cho Component
+         *      - Tự do đặt tên props
+         *          - Đặt theo camelCase
+         *          - *Có thể bao gồm dấu gạch ngang
+         * #Chú ý:
+         *      - Prop "key" là prop đặc biệt
+         *      - Props cơ bản là đối số của Component
+         *          => Props có thể là bất cứ kiểu dữ liệu gì
+         *      - Sử dụng destructuring
+         * 
+        */
+
+        /** Chữa Bài tập / Áp dụng như trong thực tế
+         * 
+         * Ex: Đề bài - chuyển code thành 'PostItem component'   
+         * const app2 = (
+         * <div className='post-list'>
+         *     <div className='post-item'>
+         *         <img src="https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg" alt="Learn JavaScript" />
+         *         <h2 className='post-title'>Learn JavaScript</h2>
+         *         <p className='post-desc'>What is JavaScript ? JavaScript is a dynamic computer programming language. It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages.</p>
+         *         <p className='post-published'>1 day ago | 5 minute</p>
+         *     </div>
+         * </div>
+         *  )
+         *
+         * 
+        */
+
+        
+        // File: PostItem.js
+        function PostItem(){
+            return(
+                <div className='post-item'>
+                    <img src="https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg" alt="Learn JavaScript" />
+                    <h2 className='post-title'>Learn JavaScript</h2>
+                    <p className='post-desc'>What is JavaScript ? JavaScript is a dynamic computer programming language. It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages.</p>
+                    <p className='post-published'>1 day ago | 5 minute</p>
+                </div>
+            )
+        }
+
+        // File: App.js
+        function App(){
+            return(
+                <div id='wrapper'>
+                    <PostItem />
+                    <PostItem />
+                    <PostItem />
+                </div>
+            )
+        }
+
+
+        // File: index.js
+        ReactDOM.render(<App/>, document.getElementById('root'));
+
+
+
+
+
+        /**
+         * => React Elements -> các thẻ trong html
+         * => React Components -> các function
+         * 
+         * //thay "for" => "htmlFor" / trong "React Elements"
+         */ 
+
+
+
+
+        /** Props vs React Components*/
+
+        // File: PostItem.js
+        function PostItem2(props){
+            // console.log(props); //return {title: 'Learn JavaScript', image: 'https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg', description: 'What is JavaScript ? JavaScript is a dynamic compu…to interact with the user and make dynamic pages.', publishedAt: '1 day ago | 5 minute'}
+            
+            //Không đc sử dụng key trong props
+            //console.log(props.key); //return Warning: PostItem2: `key` is not a prop. Trying to access it will result in `undefined` being returned. If you need to access the same value within the child component, you should pass it as a different prop. (https://reactjs.org/link/special-props)
+            return(
+                <div className='post-item'>
+                    <img src={props.image} alt={props.title} />
+                    <h2 className='post-title'>{props.title}</h2>
+                    <p className='post-desc'>{props.description}</p>
+                    <p className='post-published'>{props.publishedAt}</p>
+                </div>
+            )
+        }
+        
+        
+        // File: App.js
+        function App2(){
+            // console.log(<PostItem2 title='testing' />); //return {$$typeof: Symbol(react.element), key: null, ref: null, props: {…}, type: ƒ, …}
+            // props: {title: 'testing'}
+            // Hoạt động gần giống với Object
+
+            return(
+                <div id='wrapper'>
+                    <PostItem2 
+                        title='Learn JavaScript'
+                        image='https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg'
+                        description='What is JavaScript ? JavaScript is a dynamic computer programming language. It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages.'
+                        publishedAt='1 day ago | 5 minute'
+                    />
+                    <PostItem2 
+                        title='Learn JavaScript V2.0'
+                        image='https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg'
+                        description='It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages.'
+                        publishedAt='365 day ago | 949 minute'
+                    />
+                    <PostItem2 
+                        title='Copycat'
+                        image='https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg'
+                        description='Meow meow'
+                        publishedAt=' 1 million years ago | 999999 minute'
+                    />
+                    <PostItem2 
+                        title='Copycat V2.0'
+                        image='https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg'
+                        description='Meow meow meow'
+                        publishedAt=' 10 million years ago | 9999909 minute'
+                        //Testing
+                        key={123} //Không đc sử dụng key trong props => gây ra lỗi
+                    />
+                </div>
+            )
+        }
+
+
+        // File: index.js
+        ReactDOM.render(<App2/>, document.getElementById('root2'));
+
+
+
+
+
+
+
+        /** Props có thể là bất cứ kiểu dữ liệu gì (function & array and callback)*/
+
+        // File: PostItem.js
+        function PostItem3(props){
+            // console.log(props.data); //return (2) [{…}, {…}]
+            
+            //callback
+            // props.callback(Math.random())
+
+            // check 
+            if(props.data){
+                console.log(props.data);
+            }
+
+            if(typeof props.callback === 'function'){
+                props.callback(Math.random())
+            }
+
+
+            return(
+                <div className='post-item'>
+                    <img src={props.image} alt={props.title} />
+                    <h2 className='post-title'>{props.title}</h2>
+                    <p className='post-desc'>{props.description}</p>
+                    <p className='post-published'>{props.publishedAt}</p>
+                </div>
+            )
+        }
+        
+        
+        // File: App.js
+        function App3(){
+            return(
+                <div id='wrapper'>
+                    <PostItem3 
+                        title='Learn JavaScript'
+                        image='https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg'
+                        description='What is JavaScript ? JavaScript is a dynamic computer programming language. It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages.'
+                        publishedAt='1 day ago | 5 minute'
+                        data= {[{a: 1}, {b: 2}]}
+                        callback= {(random)=>{
+                            console.log('random: ', random);
+                        }}
+                    />
+                    <PostItem3 
+                        title='Copycat'
+                        image='https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg'
+                        description='Meow meow'
+                        publishedAt=' 1 million years ago | 999999 minute'
+                    />
+                </div>
+            )
+        }
+
+
+        // File: index.js
+        ReactDOM.render(<App3/>, document.getElementById('root3'));
+
+
+
+
+
+
+
+        /** Props sử dụng destructuring*/
+
+        // File: PostItem.js
+        function PostItem4({
+            image,
+            title,
+            description,
+            publishedAt,
+            callback = () => {},
+        }){
+
+            callback()
+            return(
+                <div className='post-item'>
+                    <img src={image} alt={title} />
+                    <h2 className='post-title'>{title}</h2>
+                    <p className='post-desc'>{description}</p>
+                    <p className='post-published'>{publishedAt}</p>
+                </div>
+            )
+        }
+        
+        
+        // File: App.js
+        function App4(){
+            return(
+                <div id='wrapper'>
+                    <PostItem4 
+                        title='Learn JavaScript'
+                        image='https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg'
+                        description='What is JavaScript ? JavaScript is a dynamic computer programming language. It is lightweight and most commonly used as a part of web pages, whose implementations allow client-side script to interact with the user and make dynamic pages.'
+                        publishedAt='1 day ago | 5 minute'
+                        callback= {(random)=>{
+                            console.log('random: ', random);
+                        }}
+                    />
+                    <PostItem4 
+                        title='Copycat'
+                        image='https://i.pinimg.com/originals/71/ee/32/71ee32577432648f9e45fbd63b2cf261.jpg'
+                        description='Meow meow'
+                        publishedAt=' 1 million years ago | 999999 minute'
+                    />
+                </div>
+            )
+        }
+
+
+        // File: index.js
+        ReactDOM.render(<App4/>, document.getElementById('root4'));
+
+
+
+
+
+
+
+        /** Bài tập */
+
+        // CourseItem
+        const courses = [
+            {
+                "id": 760,
+                "title": "Sinh viên IT đi thực tập tại doanh nghiệp cần biết những gì?",
+                "slug": "sinh-vien-it-di-thuc-tap-tai-doanh-nghiep-can-biet-nhung-gi",
+                "image": "https://i.ytimg.com/vi/YH-E4Y3EaT4/maxresdefault.jpg",
+                "video": "YH-E4Y3EaT4",
+                "duration": 2091,
+                "yt_view_count": 206559,
+                "yt_comment_count": 228,
+                "yt_like_count": 5333,
+                "image_url": "https://i.ytimg.com/vi/YH-E4Y3EaT4/maxresdefault.jpg",
+                "video_url": null
+            },
+            {
+                "id": 696,
+                "title": "\"Code Thiếu Nhi Battle\" Tranh Giành Trà Sữa Size L",
+                "slug": "code-thieu-nhi-battle-tranh-gianh-tra-sua-size-l",
+                "image": "https://i.ytimg.com/vi/sgq7BH6WxL8/maxresdefault.jpg",
+                "video": "sgq7BH6WxL8",
+                "duration": 1510,
+                "yt_view_count": 250194,
+                "yt_comment_count": 187,
+                "yt_like_count": 5294,
+                "image_url": "https://i.ytimg.com/vi/sgq7BH6WxL8/maxresdefault.jpg",
+                "video_url": null
+            },
+            {
+                "id": 456,
+                "title": "Phương pháp học lập trình của Admin F8?",
+                "slug": "phuong-phap-hoc-lap-trinh-cua-admin-f8",
+                "image": "https://i.ytimg.com/vi/DpvYHLUiZpc/maxresdefault.jpg",
+                "video": "DpvYHLUiZpc",
+                "duration": 1446,
+                "yt_view_count": 92388,
+                "yt_comment_count": 305,
+                "yt_like_count": 4842,
+                "image_url": "https://i.ytimg.com/vi/DpvYHLUiZpc/maxresdefault.jpg",
+                "video_url": null
+            },
+            {
+                "id": 44,
+                "title": "Bạn sẽ làm được gì sau khóa học?",
+                "slug": "ban-se-lam-duoc-gi-sau-khoa-hoc",
+                "image": "https://i.ytimg.com/vi/R6plN3FvzFY/maxresdefault.jpg",
+                "video": "R6plN3FvzFY",
+                "duration": 195,
+                "yt_view_count": 493348,
+                "yt_comment_count": 120,
+                "yt_like_count": 3162,
+                "image_url": "https://i.ytimg.com/vi/R6plN3FvzFY/maxresdefault.jpg",
+                "video_url": null
+            },
+            {
+                "id": 533,
+                "title": "Làm sao để có thu nhập cao và đi xa hơn trong ngành IT?",
+                "slug": "lam-sao-de-co-thu-nhap-cao-va-di-xa-hon-trong-nganh-it",
+                "image": "https://i.ytimg.com/vi/oF7isq9IjZM/maxresdefault.jpg",
+                "video": "oF7isq9IjZM",
+                "duration": 1540,
+                "yt_view_count": 66505,
+                "yt_comment_count": 225,
+                "yt_like_count": 2972,
+                "image_url": "https://i.ytimg.com/vi/oF7isq9IjZM/maxresdefault.jpg",
+                "video_url": null
+            },
+            {
+                "id": 692,
+                "title": "Javascript có thể làm được gì? Giới thiệu qua về trang F8 | Học lập trình Javascript cơ bản",
+                "slug": "javascript-co-the-lam-duoc-gi-gioi-thieu-qua-ve-trang-f8-hoc-lap-trinh-javasc",
+                "image": "https://i.ytimg.com/vi/0SJE9dYdpps/maxresdefault.jpg",
+                "video": "0SJE9dYdpps",
+                "duration": 473,
+                "yt_view_count": 441459,
+                "yt_comment_count": 107,
+                "yt_like_count": 2569,
+                "image_url": "https://i.ytimg.com/vi/0SJE9dYdpps/maxresdefault.jpg",
+                "video_url": null
+            },
+            {
+                "id": 690,
+                "title": "ReactJS là gì? Tại sao nên học ReactJS?",
+                "slug": "reactjs-la-gi-tai-sao-nen-hoc-reactjs",
+                "image": "https://i.ytimg.com/vi/x0fSBAgBrOQ/maxresdefault.jpg",
+                "video": "x0fSBAgBrOQ",
+                "duration": 641,
+                "yt_view_count": 189902,
+                "yt_comment_count": 343,
+                "yt_like_count": 2526,
+                "image_url": "https://i.ytimg.com/vi/x0fSBAgBrOQ/maxresdefault.jpg",
+                "video_url": null
+            },
+            {
+                "id": 547,
+                "title": "Code Music Player",
+                "slug": "code-music-player",
+                "image": "https://i.ytimg.com/vi/vAecGPWxzFE/maxresdefault.jpg",
+                "video": "vAecGPWxzFE",
+                "duration": 6701,
+                "yt_view_count": 97633,
+                "yt_comment_count": 204,
+                "yt_like_count": 2048,
+                "image_url": "https://i.ytimg.com/vi/vAecGPWxzFE/maxresdefault.jpg",
+                "video_url": null
+            }
+        ]
+
+
+        /** Suggestions
+        *  courses.map((courses) => {
+        *     <CoursesItem />
+        *  })
+        */
+
+        // File: CoursesItem.js
+        function CoursesItem({
+            id,
+            image,
+            title,
+            view,
+            like,
+            comment,
+        }){
+            return(
+                <div className='post-item'>
+                    <h2 className='post-id'>PostID: ID_{id}</h2>
+                    <img src={image} alt={title} />
+                    <h2 className='post-title'>{title}</h2>
+                    <p className='post-desc'>View: {view}, Like: {like}, Comment: {comment}</p>
+                </div>
+            )
+        }
+        
+        
+        // File: App.js
+        function App5(){
+            return(
+                <div id='wrapper'>
+                    {courses.map((course, index) => {
+                        return(
+                            <CoursesItem 
+                                key = {index}
+                                image = {course.image}
+                                title = {course.title}
+                                id = {course.id}
+                                view = {course.yt_view_count}
+                                like = {course.yt_like_count}
+                                comment = {course.yt_comment_count}
+                            />
+                        )
+                    })}
+                </div>
+            )
+        }
+
+
+        // File: index.js
+        ReactDOM.render(<App5/>, document.getElementById('root5'));
+
+        </script>
+
+    
+</body>
+</html>
