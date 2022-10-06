@@ -911,10 +911,99 @@
            <li>48 - useState hook</li>
            <ul class="children">
                <li>Youtube: <a href="https://youtu.be/w5HpzrzEa-o" target="_blank">ReactJS - Learning, Chill Music // [06/10/2022] #20</a></li>
+               <li>[?] Dùng khi nào?</li>
+               <ul>
+                  <li class="small-txt">Khi muốn dữ liệu thay đổi thì dữ liệu tự động được cập nhập (render lại dữ liệu).</li>
+               </ul>
+               <br>
+               <li>[?] Cách dùng</li>
+               <ul>
+                  <li><code>
+                     import { useState } from 'react'
+                     <br>
+                     function Component(){<br>
+                        const [state, setState] = useState(initState)<br>
+
+                        ....
+                     }
+                  </code></li>
+               </ul>
+               <br>
+               <li>[?] What is value?</li>
+               <ul>
+                  <li class="small-txt"><code>initState</code>: Giá trị khởi tạo / chỉ dùng 1 lần trong lần đầu</li>
+                  <li class="small-txt"><code>state</code>: Lần chạy đầu tiên giá trị của <code>state</code> bằng với <code>initState</code> / initState = 1 => state = 1</li>
+                  <li class="small-txt"><code>setState</code>: Sử dụng để thay đổi <code>state</code></li>
+               </ul>
+               <br>
+               <li>[!] Lưu ý</li>
+               <ul>
+                  <li class="small-txt"><code>Component</code> được re-render sau khi <code>setState</code></li>
+                  <li class="small-txt"><code>Initial state</code> chỉ dùng cho lần đầu</li>
+                  <li class="small-txt"><code>Set state</code> với <code>callback</code>?</li>
+                  <li class="small-txt"><code>Initial state</code> với <code>callback</code>?</li>
+                  <li class="small-txt"><code>Set state</code> là thay thế <code>state</code> bằng giá trị mới</li>
+               </ul>
+               <br>
+               <li>[!] Start Project</li>
+               <ul>
+                  <li class="small-txt">Go to folder (from F8_Learning): (terminal)=> <code>cd "ReactJS/Lesson 1/Chuong 5/reactjs/tiktok"</code></li>
+                  <li class="small-txt"><code>npm start</code></li>
+               </ul>
+               
+               <br>
+               <li><a href="./Chuong 5/reactjs/tiktok/src/App.js" target="_blank">Source code from AppJS</a></li>
+               <br>
+               <li><a href="http://localhost:3000/" target="_blank">Server ReactJS Running</a></li>
             </ul>
+            <li>49 - Ôn tập useState Hook</li>
+            <ul class="children">
+                <li>Youtube: <a href="https://youtu.be/w5HpzrzEa-o" target="_blank">ReactJS - Learning, Chill Music // [06/10/2022] #20</a></li>
+                <li><code>
+                  import { useState } from 'react';
+                  <br>
+                  function App() {<br>
+                     const [cars, setCars] = useState(['Bugatti', 'Roll-Royce', 'Maybach']);<br>
+                     <br>
+                     const handleUpdate = () => {<br>
+                           setCars((prevState) => {<br>
+                              return [...prevState, 'Lamborghini']<br>
+                           })<br>
+                     }<br>
+                     <br>
+                     console.log(cars) // Output: ?<br>
+                     <br>
+                     return (&lt;br&gt;
+                        &lt;div&gt;
+                              &lt;h1&gt;ReactJS&lt;/h1&gt;
+                              &lt;button onClick={handleUpdate}&gt;Update&lt;/button&gt;
+                        &lt;/div&gt;
+                     )
+                     <br>
+                  }
+                  <br>
+                  export default App;
+                </code></li>
+                <br>
+                <li>Sau khi click vào button <code>Update</code> 1 lần thì mảng <code>cars</code> có giá trị như nào?</li>
+                <br>
+                <li>Output: ["Bugatti", "Roll-Royce", "Maybach", "Lamborghini"]</li>
+                <li>Giải thích:</li>
+                <ul>
+                   <li class="small-txt">Khi <code>setCars</code> được gọi chúng ta sẽ gán <code>cars</code> một array mới. Trong array mới chúng ta sử dụng toán tử <code>spread</code> để đưa tất cả các giá trị cũ cho array mới và thêm một phần từ mới là chuỗi <code>"Lamborghini"</code>.</li>
+                </ul>
+             </ul>
+             <li>50 - Two-way binding trong React?</li>
+             <ul class="children">
+                 <li>Youtube: <a href="https://youtu.be/w5HpzrzEa-o" target="_blank">ReactJS - Learning, Chill Music // [06/10/2022] #20</a></li>
+                 <li>Youtube: <a href="#" target="_blank">#</a></li>
+
+
+              </ul>
+
+
+
         </ul>  
-       
-          
       </div>
 
      
