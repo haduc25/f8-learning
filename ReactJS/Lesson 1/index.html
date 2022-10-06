@@ -753,7 +753,108 @@
             <li>44 - NPM, NPX và YARN là gì?</li>
             <ul class="children">
                <li>Youtube: <a href="https://youtu.be/wPF4R58VPaQ" target="_blank">ReactJS - Learning, Chill Music // [05/10/2022] #18</a></li>
+               <li>Youtube: <a href="https://youtu.be/KI2nk_KvrR4" target="_blank">ReactJS - Learning, Chill Music // [06/10/2022] #19</a></li>
+               <li>*NPM</li>
+               <ul>
+                  <li class="small-txt">[*] Project scope</li>
+                  <ul>
+                     <li class="small-txt">=> Chỉ sử dụng trong 1 Project | Cài thẳng vào Project</li>
+                     <li class="small-txt">[+] dependencies</li>
+                     <li class="small-txt"><code>- npm install react react-dom</code> => dependencies</li>
+                     <li class="small-txt">Shorthand: <code>- npm i react react-dom</code> => dependencies</li>
+                     <br>
+                     <li class="small-txt">[+] devDependencies</li>
+                     <li class="small-txt"><code>- npm install --save-dev react react-dom</code> => devDependencies</li>
+                     <li class="small-txt">Shorthand: <code>- npm i -D react react-dom</code> => devDependencies</li>
+                     <br>
+                     <li class="small-txt">[-] Remove Library from Project</li>
+                     <li class="small-txt"><code>- npm uninstall react react-dom</code> | Không cần chỉ định <code>dependencies</code> hay <code>devDependencies</code></li>
+                  </ul>
+                  <br>
+                  <li class="small-txt">[*] Global scope</li>
+                  <ul>
+                     <li class="small-txt">=> Sử dụng trong nhiều Project | Cài thẳng vào máy (Users/admin)</li>
+                     <li class="small-txt">[+] Install</li>
+                     <li class="small-txt"><code>- npm install --global create-react-app</code></li>
+                     <li class="small-txt">Shorthand: <code>- npm i --g create-react-app</code></li>
+                     <br>
+                     <li class="small-txt">[-] Uninstall</li>
+                     <li class="small-txt"><code>- npm uninstall --g create-react-app</code></li>
+                  </ul>
+               </ul>
+               <br><br>
+               <li>*NPX: NodeJS => (NPM, NPX)</li>
+               <ul>
+                  <li class="small-txt">Check version: <code>npx -v</code> | 8.11.0</li>
+                  <li class="small-txt">Xem commands: <code>npx create-react-app --help</code></li>
+                  <li class="small-txt">[?] Tại sao dùng NPX ?</li>
+                  <ul>
+                     <li class="small-txt">=> - Không cần cài thư viện lên máy, luôn cập nhập phiên bản mới</li>
+                  </ul>
+               </ul>
+               <br><br>
+               <li>*YARN & NPM</li>
+               <ul>
+                  <li class="small-txt">Keyword: <a href="https://www.sitepoint.com/yarn-vs-npm/" target="_blank">difference between yarn and npm - (sitepoint.com)</a></li>
+                  <li class="small-txt">[*] Compare</li>
+                  <br>
+                  <li class="small-txt">NPM</li>
+                  <ul>
+                     <li class="small-txt">- a website for managing various aspects of your npm experience</li>
+                     <li class="small-txt">- a registry for accessing an extensive public database of JavaScript packages</li>
+                     <li class="small-txt">- a command-line interface (CLI) for interacting with npm via the terminal</li>
+                     <br>
+                     <li class="small-txt">- Download lại lib nếu lỗi/xóa: <code>npm i</code></li>
+                     <br>
+                     <li class="small-txt">Khi cài nhiều lib: Cài tuần tự</li>
+                     <br>
+                     <li class="small-txt">Cache: K tốt bằng YARN / Nếu xóa/lỗi fileNote => download</li>
 
+                  </ul>
+                  <br>
+                  <li class="small-txt">YARN</li>
+                  <ul>
+                     <li class="small-txt">- 2010: npm is released with support for Node.</li>
+                     <li class="small-txt">- 2016: Yarn is released. It shows much greater performance than npm. It also generate a yarn.lock file that makes sharing and exact replication of repos much easier and predictable.</li>
+                     <li class="small-txt">- 2017: npm 5 is released. It offers auto-generation of a package-lock.json file in answer to yarn.lock.</li>
+                     <li class="small-txt">- 2018: npm 6 is released with improved security. Now npm checks security vulnerabilities before dependencies are installed.</li>
+                     <li class="small-txt">- 2020: Yarn 2 and npm 7 are released. Both packages come with great new features, as we’ll see later in this tutorial.</li>
+                     <li class="small-txt">- 2021: Yarn 3 is released with various improvements.</li>
+                     <br>
+                     <li class="small-txt">Khi cài nhiều lib: Cài song song</li>
+                     <br>
+                     <li class="small-txt">Cache: lưu thư viện vào 1 vùng trên PC / Nếu xóa/lỗi fileNote => kiểm tra fileNote trên PC => Nếu có kéo về Project | download</li>
+                  </ul>
+                  <br>
+                  <li class="small-txt">[*] Tổng Kết</li>
+                  <ul>
+                     <li class="small-txt">NPM: Cài tốn ít dung tài nguyên hơn</li>
+                     <li class="small-txt">YARN: Nhanh hơn nhờ có cơ chế đồng bộ nhưng tốn nhiều tài nguyên hơn</li>
+                  </ul>
+               </ul>
+               <br><br>
+               <li>*YARN install</li>
+               <ul>
+                  <br>
+                  <li class="small-txt">[+] Install</li>
+                  <ul>
+                     <li class="small-txt"><code>npm i -g yarn</code></li>
+                  </ul>
+                  <br>
+                  <li class="small-txt">[-] Uninstall</li>
+                  <ul>
+                     <li class="small-txt"><code>npm uninstall -g yarn</code></li>
+                  </ul>
+                  <li class="small-txt">Keyword: <a href="https://www.google.com/search?q=difference+between+yarn+and+npm+syntax&rlz=1C1KNTJ_enVN1024VN1024&oq=difference+between+yarn+and+npm+syntax&aqs=chrome..69i57.196j0j7&sourceid=chrome&ie=UTF-8" target="_blank">difference between yarn and npm syntax - (google.com)</a></li>
+               </ul>
+               <br><br>
+               <li>*Lưu ý:</li>
+               <ul>
+                  <li class="small-txt">- Luôn bật development server ( npm start || yarn start )</li>
+                  <li class="small-txt">- Start: <code>npm start</code> || <code>yarn start</code></li>
+               </ul>
+  
+              
             </ul>
          </ul> 
         
