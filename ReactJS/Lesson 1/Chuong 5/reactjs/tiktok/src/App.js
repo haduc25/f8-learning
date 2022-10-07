@@ -456,7 +456,9 @@ function App() {
   // Nhận job từ input
   const [job, setJob] = useState('')
   // array save Worklist
-  const [jobs, setJobs] = useState([])
+  const [jobs, setJobs] = useState(storageJobs ?? [])
+  // syntax: ??
+  // storageJobs ?? [] | Trong trường hợp vế thứ 1(storageJobs) là 'null' or 'undefined' => lấy vế thứ 2([])
 
   console.log(job,jobs);
 
