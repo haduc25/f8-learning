@@ -439,25 +439,44 @@
 
 
 
- //======================> 50 - Two-way binding trong React? <======================//
+ //======================> 51 - Todolist with useState <======================//
 
 
 //Ex - Simple Todolist
 import { useState } from "react";
 function App() {
+  // lấy dl từ localStorage / convert
+  const storageJobs = JSON.parse(localStorage.getItem('jobs'))
+
+  console.log('Value of storageJobs: ', storageJobs);
+
+  // convert json -> array
+  // console.log(JSON.parse(storageJobs)) //return (khi chưa convert => storageJobs = localStorage.getItem('jobs')) => (2) ['ahihi', 'meowmeo'] 
+
   // Nhận job từ input
   const [job, setJob] = useState('')
   // array save Worklist
   const [jobs, setJobs] = useState([])
 
-  console.log(job);
-  console.log(jobs);
+  console.log(job,jobs);
 
 
   // function handleSubmit
   const handleSubmit = () =>{
     // push dl vao array | dat lai jobs
-    setJobs(prev => [...prev, job])
+    setJobs(prev => {
+      const newJobs = [...prev, job]
+
+      // convert qua json
+      // Node: Save to localStorage
+      const jsonJobs = JSON.stringify(newJobs)
+      console.log('localStorage JSON: ', jsonJobs)
+
+      // save vao LocalStorage
+      localStorage.setItem('jobs', jsonJobs)
+
+      return newJobs;
+    })
   }
 
 
