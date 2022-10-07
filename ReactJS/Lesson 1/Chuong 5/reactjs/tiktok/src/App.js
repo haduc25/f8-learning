@@ -442,45 +442,129 @@
  //======================> 51 - Todolist with useState <======================//
 
 
-//Ex - Simple Todolist
+// //Ex - Simple Todolist
+// import { useState } from "react";
+// function App() {
+//   // Nhận job từ input
+//   const [job, setJob] = useState('')
+//   // array save Worklist
+
+//   //case 1 - dung toan tu ??
+//   // const [jobs, setJobs] = useState(storageJobs ?? [])
+//   // // syntax: ??
+//   // // storageJobs ?? [] | Trong trường hợp vế thứ 1(storageJobs) là 'null' or 'undefined' => lấy vế thứ 2([])
+
+
+//   //case 2 - dung toan tu ?? + dung callback (recommend => tang performance)
+//   // Fix: giai quyet van de performance khi bi goi den ham 'JSON.parse' moi khi them dl / render nhieu lan
+//   // => cho vao gia tri ban dau (callback)
+
+//   const [jobs, setJobs] = useState(() => {
+//     // lấy dl từ localStorage / convert
+//     const storageJobs = JSON.parse(localStorage.getItem('jobs'))
+//     console.log('Value of storageJobs: ', storageJobs);
+
+//     // convert json -> array
+//     // console.log(JSON.parse(storageJobs)) //return (khi chưa convert => storageJobs = localStorage.getItem('jobs')) => (2) ['ahihi', 'meowmeo'] 
+
+
+//     return storageJobs ?? [];
+//   })
+
+//   console.log(job,jobs);
+
+
+//   // function handleSubmit
+//   const handleSubmit = () =>{
+//     // push dl vao array | dat lai jobs
+//     setJobs(prev => {
+//       const newJobs = [...prev, job]
+
+//       // convert qua json
+//       // Node: Save to localStorage
+//       const jsonJobs = JSON.stringify(newJobs)
+//       console.log('localStorage JSON: ', jsonJobs)
+
+//       // save vao LocalStorage
+//       localStorage.setItem('jobs', jsonJobs)
+
+//       return newJobs;
+//     })
+//     // xoa dl tren input
+//     setJob('')
+//   }
+
+
+
+//   return (
+//     <div className="App" style={{ textAlign: 'center' }}>
+//         <input
+//           value={job}
+//           onChange={e => setJob(e.target.value)}
+//         />
+
+//         <button onClick={handleSubmit}>Add</button>
+
+//         <ul>
+//           {jobs.map((job, index) => (
+//             <li style={{ listStyleType: 'none' }} key={index}>{job}</li>
+//           ))}
+//         </ul>
+
+//     </div>
+//   );
+
+// }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+//Ex - Simple Todolist => clean + delete / Tham khảo: https://codesandbox.io/s/throbbing-dawn-9165bv?file=/src/App.js
 import { useState } from "react";
 function App() {
-  // lấy dl từ localStorage / convert
-  const storageJobs = JSON.parse(localStorage.getItem('jobs'))
-
-  console.log('Value of storageJobs: ', storageJobs);
-
-  // convert json -> array
-  // console.log(JSON.parse(storageJobs)) //return (khi chưa convert => storageJobs = localStorage.getItem('jobs')) => (2) ['ahihi', 'meowmeo'] 
-
-  // Nhận job từ input
   const [job, setJob] = useState('')
-  // array save Worklist
-  const [jobs, setJobs] = useState(storageJobs ?? [])
-  // syntax: ??
-  // storageJobs ?? [] | Trong trường hợp vế thứ 1(storageJobs) là 'null' or 'undefined' => lấy vế thứ 2([])
+  const [jobs, setJobs] = useState(() => {
+    // lấy dl từ localStorage / convert
+    const storageJobs = JSON.parse(localStorage.getItem('jobs'))
+    console.log('Value of storageJobs: ', storageJobs);
+    return storageJobs ?? [];
+  })
 
-  console.log(job,jobs);
-
-
-  // function handleSubmit
+  //hàm thêm job
   const handleSubmit = () =>{
-    // push dl vao array | dat lai jobs
     setJobs(prev => {
       const newJobs = [...prev, job]
-
-      // convert qua json
-      // Node: Save to localStorage
-      const jsonJobs = JSON.stringify(newJobs)
-      console.log('localStorage JSON: ', jsonJobs)
-
-      // save vao LocalStorage
-      localStorage.setItem('jobs', jsonJobs)
-
-      return newJobs;
+      //gọi hàm render để lưu vào store local
+      renderJob(newJobs);
+      return newJobs
     })
+    setJob('')
   }
 
+  //hàm xóa job
+  const handleRemove = (job) =>{
+    const newJobs = jobs.filter((value) => value !== job);
+    setJobs(newJobs);
+    renderJob(newJobs); //lua lai
+  }
+
+  const renderJob = (newJobs) => {
+    //Lưu vào localStorage
+    const jsonJobs = JSON.stringify(newJobs);
+    localStorage.setItem("jobs", jsonJobs);
+  }
 
 
   return (
@@ -489,12 +573,13 @@ function App() {
           value={job}
           onChange={e => setJob(e.target.value)}
         />
-
         <button onClick={handleSubmit}>Add</button>
-
         <ul>
           {jobs.map((job, index) => (
-            <li style={{ listStyleType: 'none' }} key={index}>{job}</li>
+            <li style={{ listStyleType: 'none' }} key={index}>
+              {job}_________
+              <button onClick={() => handleRemove(job)}>x</button>
+            </li>
           ))}
         </ul>
 
