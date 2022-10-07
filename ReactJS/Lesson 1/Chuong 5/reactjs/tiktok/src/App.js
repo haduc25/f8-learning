@@ -140,7 +140,7 @@
 // }
 
 
- */
+
 
 
 
@@ -349,87 +349,136 @@
 
 
 
-//Ex - Two-way Binding | Ứng dụng - Textbox
-import { useState } from "react";
+// //Ex - Two-way Binding | Ứng dụng - Textbox
+// import { useState } from "react";
 
 
-// Response from API
-const courses = [
-  {
-    id: 1,
-    name: 'HTML, CSS, Javascript'
-  },
-  {
-    id: 2,
-    name: 'PHP'
-  },
-  {
-    id: 3,
-    name: 'Ruby'
-  },
-  {
-    id: 4,
-    name: 'Your Crush <3'
-  },
-  {
-    id: 5,
-    name: 'ReactJS'
-  }
-]
+// // Response from API
+// const courses = [
+//   {
+//     id: 1,
+//     name: 'HTML, CSS, Javascript'
+//   },
+//   {
+//     id: 2,
+//     name: 'PHP'
+//   },
+//   {
+//     id: 3,
+//     name: 'Ruby'
+//   },
+//   {
+//     id: 4,
+//     name: 'Your Crush <3'
+//   },
+//   {
+//     id: 5,
+//     name: 'ReactJS'
+//   }
+// ]
 
 
 
-function App() {
-  //// check textbox => khởi tạo là 1 array
-  const [checked, setChecked] = useState([])
+// function App() {
+//   //// check textbox => khởi tạo là 1 array
+//   const [checked, setChecked] = useState([])
 
-  const handleCheck = (id) => {
+//   const handleCheck = (id) => {
     
-    setChecked(prev => {
-      const isChecked = checked.includes(id);
-      if(isChecked){
-        // Uncheck
-        // dùng 'filter' loại bỏ id đang lựa chọn
-        // Logic: lọc ra những 'id' khác 'id' đã có trong array
-        return checked.filter(item => item !== id)
-      }else{
-        // giải array cũ & thêm id vào array
-        return [...prev, id]
-      }
-    })
-  }
+//     setChecked(prev => {
+//       const isChecked = checked.includes(id);
+//       if(isChecked){
+//         // Uncheck
+//         // dùng 'filter' loại bỏ id đang lựa chọn
+//         // Logic: lọc ra những 'id' khác 'id' đã có trong array
+//         return checked.filter(item => item !== id)
+//       }else{
+//         // giải array cũ & thêm id vào array
+//         return [...prev, id]
+//       }
+//     })
+//   }
 
-  const handleSubmit = () =>{
-    // CALL API
-    console.log({ ids: checked });
+//   const handleSubmit = () =>{
+//     // CALL API
+//     console.log({ ids: checked });
     
-  }
+//   }
   
-  console.log(checked);
+//   console.log(checked);
+
+//   return (
+//     <div className="App" style={{ textAlign: 'center' }}>
+//         {courses.map(course => (
+//             <div key={course.id}>
+//               <input 
+//                 type="checkbox"
+//                 checked = {checked.includes(course.id)}
+//                 onChange={() => handleCheck(course.id)}  
+//               />
+//               {course.name}
+//             </div>
+//         ))}
+//         <br/>
+//         <button onClick={handleSubmit}>Register</button>
+//     </div>
+//   );
+
+//   // logic: khi click push 'id' vào array
+//   // logic check: dùng 'includes' check trong array có 'id' đó hay k? => nếu true truyền cho checked 
+//   // 'includes' return true nếu array 'courses' có chứa id đã check 
+
+
+//   // Fix lặp kết quả / bỏ check khi đã có value trong array
+
+// }
+
+
+ */
+
+
+
+
+ //======================> 50 - Two-way binding trong React? <======================//
+
+
+//Ex - Simple Todolist
+import { useState } from "react";
+function App() {
+  // Nhận job từ input
+  const [job, setJob] = useState('')
+  // array save Worklist
+  const [jobs, setJobs] = useState([])
+
+  console.log(job);
+  console.log(jobs);
+
+
+  // function handleSubmit
+  const handleSubmit = () =>{
+    // push dl vao array | dat lai jobs
+    setJobs(prev => [...prev, job])
+  }
+
+
 
   return (
     <div className="App" style={{ textAlign: 'center' }}>
-        {courses.map(course => (
-            <div key={course.id}>
-              <input 
-                type="checkbox"
-                checked = {checked.includes(course.id)}
-                onChange={() => handleCheck(course.id)}  
-              />
-              {course.name}
-            </div>
-        ))}
-        <br/>
-        <button onClick={handleSubmit}>Register</button>
+        <input
+          value={job}
+          onChange={e => setJob(e.target.value)}
+        />
+
+        <button onClick={handleSubmit}>Add</button>
+
+        <ul>
+          {jobs.map((job, index) => (
+            <li style={{ listStyleType: 'none' }} key={index}>{job}</li>
+          ))}
+        </ul>
+
     </div>
   );
-
-  // logic: khi click push 'id' vào array
-  // logic check: dùng 'includes' check trong array có 'id' đó hay k? => nếu true truyền cho checked 
-  // 'includes' return true nếu array 'courses' có chứa id đã check 
-
-
-  // Fix lặp kết quả / bỏ check khi đã có value trong array
 
 }
 
