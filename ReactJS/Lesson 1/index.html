@@ -1043,6 +1043,40 @@
                  <br>
                  <li class="small-txt">(terminal)=> <code>cd "ReactJS/Lesson 1/Chuong 5/reactjs/tiktok"</code></li>
               </ul>
+              <li>54 - Ôn tập useEffect Hook</li>
+             <ul class="children">
+                  <li>Youtube: <a href="https://youtu.be/A9aNhNu1CcU" target="_blank">ReactJS - Learning, Chill Music // [08/10/2022] #23</a></li>
+                  <li>console.log() nào sẽ hiện ra trước?</li><br>
+                  <li><code>
+                     import { useEffect } from 'react';
+                     <br>
+                     function App() {
+                        useEffect(() => {
+                           console.log(1)
+                        })<br>
+                        <br><br>
+                        return (
+                            &lt;div&gt;
+                                {console.log(2)}
+                                &lt;h1&gt;F8 - Học lập trình để đi làm&lt;/h1&gt;
+                            &lt;/div&gt;
+                        )
+                     }
+                     <br>
+                     export default App;
+                  </code></li>
+                  <br>
+                  <li>Output: <code>console.log(2)</code> hiện ra trước</li>
+                  <li>Giải thích:</li>
+                  <ul>
+                     <li class="small-txt"><code>Callback</code> trong <code>useEffect</code> chỉ được gọi sau khi element đã được render vào DOM.</li>
+                  </ul>
+              </ul>
+              <li>55 - useEffect with dependencies</li>
+             <ul class="children">
+                  <li>Youtube: <a href="https://youtu.be/A9aNhNu1CcU" target="_blank">ReactJS - Learning, Chill Music // [08/10/2022] #23</a></li>
+                  <li>Youtube: <a href="#" target="_blank">ReactJS - Learning, Chill Music // [?/10/2022] #24</a></li>
+               </ul>
 
 
 
