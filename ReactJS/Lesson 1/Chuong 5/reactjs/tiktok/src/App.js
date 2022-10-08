@@ -434,13 +434,9 @@
 // }
 
 
- */
-
-
 
 
  //======================> 51 - Todolist with useState <======================//
-
 
 // //Ex - Simple Todolist
 // import { useState } from "react";
@@ -524,67 +520,90 @@
 
 
 
+// //Ex - Simple Todolist => clean + delete / Tham khảo: https://codesandbox.io/s/throbbing-dawn-9165bv?file=/src/App.js
+// import { useState } from "react";
+// function App() {
+//   const [job, setJob] = useState('')
+//   const [jobs, setJobs] = useState(() => {
+//     // lấy dl từ localStorage / convert
+//     const storageJobs = JSON.parse(localStorage.getItem('jobs'))
+//     console.log('Value of storageJobs: ', storageJobs);
+//     return storageJobs ?? [];
+//   })
+
+//   //hàm thêm job
+//   const handleSubmit = () =>{
+//     setJobs(prev => {
+//       const newJobs = [...prev, job]
+//       //gọi hàm render để lưu vào store local
+//       renderJob(newJobs);
+//       return newJobs
+//     })
+//     setJob('')
+//   }
+
+//   //hàm xóa job
+//   const handleRemove = (job) =>{
+//     const newJobs = jobs.filter((value) => value !== job);
+//     setJobs(newJobs);
+//     renderJob(newJobs); //lua lai
+//   }
+
+//   const renderJob = (newJobs) => {
+//     //Lưu vào localStorage
+//     const jsonJobs = JSON.stringify(newJobs);
+//     localStorage.setItem("jobs", jsonJobs);
+//   }
+
+
+//   return (
+//     <div className="App" style={{ textAlign: 'center' }}>
+//         <input
+//           value={job}
+//           onChange={e => setJob(e.target.value)}
+//         />
+//         <button onClick={handleSubmit}>Add</button>
+//         <ul>
+//           {jobs.map((job, index) => (
+//             <li style={{ listStyleType: 'none' }} key={index}>
+//               {job}_________
+//               <button onClick={() => handleRemove(job)}>x</button>
+//             </li>
+//           ))}
+//         </ul>
+
+//     </div>
+//   );
+
+// }
+
+ */
 
 
 
+ //======================> 52 - Mounted & Unmounted? <======================//
+  // Mounted: gắn vào
+  // Unmounted: tháo ra, gỡ ra
 
 
-
-
-//Ex - Simple Todolist => clean + delete / Tham khảo: https://codesandbox.io/s/throbbing-dawn-9165bv?file=/src/App.js
+// inport content
+import Content from "./52/Content";
 import { useState } from "react";
 function App() {
-  const [job, setJob] = useState('')
-  const [jobs, setJobs] = useState(() => {
-    // lấy dl từ localStorage / convert
-    const storageJobs = JSON.parse(localStorage.getItem('jobs'))
-    console.log('Value of storageJobs: ', storageJobs);
-    return storageJobs ?? [];
-  })
-
-  //hàm thêm job
-  const handleSubmit = () =>{
-    setJobs(prev => {
-      const newJobs = [...prev, job]
-      //gọi hàm render để lưu vào store local
-      renderJob(newJobs);
-      return newJobs
-    })
-    setJob('')
-  }
-
-  //hàm xóa job
-  const handleRemove = (job) =>{
-    const newJobs = jobs.filter((value) => value !== job);
-    setJobs(newJobs);
-    renderJob(newJobs); //lua lai
-  }
-
-  const renderJob = (newJobs) => {
-    //Lưu vào localStorage
-    const jsonJobs = JSON.stringify(newJobs);
-    localStorage.setItem("jobs", jsonJobs);
-  }
+  const [show, setShow] = useState(false) //giá trị ban đầu = fasle => ẩn
 
 
   return (
     <div className="App" style={{ textAlign: 'center' }}>
-        <input
-          value={job}
-          onChange={e => setJob(e.target.value)}
-        />
-        <button onClick={handleSubmit}>Add</button>
-        <ul>
-          {jobs.map((job, index) => (
-            <li style={{ listStyleType: 'none' }} key={index}>
-              {job}_________
-              <button onClick={() => handleRemove(job)}>x</button>
-            </li>
-          ))}
-        </ul>
-
+        <button onClick={() => setShow(!show)}>Toggle</button>
+        { show && <Content />}
     </div>
   );
+  // setShow(!show): phủ định của 'show' | đang true -> false | false -> true
+
+  // Mounted: khi đưa '<Content />' vào sử dụng => Mounted / hiện
+  // Unmounted: khi đưa '<Content />' bị gỡ => Unmounted / ẩn
+
 
 }
 
