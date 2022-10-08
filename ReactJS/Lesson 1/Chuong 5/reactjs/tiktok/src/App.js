@@ -625,15 +625,38 @@ function App() {
       </div>
     );
   }
+  
+  
+  
+   //======================> 55 - useEffect with dependencies <======================//
+  
+  
+  // inport content
+  import Content from "./55/Content";
+  import { useState } from "react";
+  function App() {
+    const [show, setShow] = useState(false)
+  
+  
+    return (
+      <div className="App" style={{ textAlign: 'center' }}>
+          <button onClick={() => setShow(!show)}>Toggle</button>
+          { show && <Content />}
+      </div>
+    );
+  }
+
+
+  
  */
 
 
 
- //======================> 55 - useEffect with dependencies <======================//
+ //======================> 55 - useEffect with dependencies (Bài tập) <======================//
 
 
 // inport content
-import Content from "./55/Content";
+import Content from "./55-BaiTap/Content";
 import { useState } from "react";
 function App() {
   const [show, setShow] = useState(false)

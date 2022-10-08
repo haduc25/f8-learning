@@ -1084,6 +1084,36 @@
                  <br>
                  <li class="small-txt">(terminal)=> <code>cd "ReactJS/Lesson 1/Chuong 5/reactjs/tiktok"</code></li>
                </ul>
+               <li>56 - Ôn tập useEffect with dependencies</li>
+               <ul class="children">
+                    <li>Youtube: <a href="https://youtu.be/RBZoX9rJjrM" target="_blank">ReactJS - Learning, Chill Music // [08/10/2022] #24</a></li>
+                    <li><code>
+                     import { useState, useEffect } from 'react';
+                     <br>
+                     function App() {
+                        const [check, setCheck] = useState(false); <br>
+                        const [posts, setPosts] = useState([]);<br>
+                        <br>
+                        useEffect(() => {
+                           console.log('Fullstack');
+                        }, [posts]);   
+                        <br><br>
+                        return (
+                           &lt;div&gt;F8 - Học lập trình để đi làm&lt;/div&gt;
+                        )
+                     }
+                     <br>
+                     export default App;
+                    </code></li>
+                    <br>
+                    <li><code>Callback</code> của <code>useEffect</code> sẽ được gọi lại khi nào?</li>
+                    <br>
+                    <li>Output: Khi <code>state posts</code> thay đổi</li>
+                    <li>Giải thích:</li>
+                    <ul>
+                       <li class="small-txt">Chỉ khi <code>dependencies</code> thay đổi thì <code>callback</code> trong <code>useEffect</code> mới được gọi lại.</li>
+                    </ul>
+                </ul>
 
 
 
