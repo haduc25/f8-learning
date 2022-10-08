@@ -577,7 +577,7 @@
 
 // }
 
- */
+
 
 
 
@@ -605,6 +605,28 @@ function App() {
   // Unmounted: khi đưa '<Content />' bị gỡ => Unmounted / ẩn
 
 
+}
+
+ */
+
+
+
+ //======================> 53 - useEffect hook <======================//
+
+
+// inport content
+import Content from "./53/Content";
+import { useState } from "react";
+function App() {
+  const [show, setShow] = useState(false) //giá trị ban đầu = fasle => ẩn
+
+
+  return (
+    <div className="App" style={{ textAlign: 'center' }}>
+        <button onClick={() => setShow(!show)}>Toggle</button>
+        { show && <Content />}
+    </div>
+  );
 }
 
 
