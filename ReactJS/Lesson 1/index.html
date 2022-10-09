@@ -1114,6 +1114,62 @@
                        <li class="small-txt">Chỉ khi <code>dependencies</code> thay đổi thì <code>callback</code> trong <code>useEffect</code> mới được gọi lại.</li>
                     </ul>
                 </ul>
+               <li>57 - useEffect with DOM events</li>
+               <ul class="children">
+                    <li>Youtube: <a href="https://youtu.be/6KPYyRFe228" target="_blank">ReactJS - Learning, Chill Music // [09/10/2022] #25</a></li>
+                    <br>
+                    <li><a href="./Chuong 5/reactjs/tiktok/src/App.js" target="_blank">Source code from AppJS</a></li>
+                    <br>
+                    <li><a href="http://localhost:3000/" target="_blank">Server ReactJS Running</a></li>
+                    <br>
+                    <li class="small-txt">(terminal)=> <code>cd "ReactJS/Lesson 1/Chuong 5/reactjs/tiktok"</code></li>
+                </ul>
+               <li>58 - Ôn tập useEffect with DOM events</li>
+               <ul class="children">
+                    <li>Youtube: <a href="https://youtu.be/6KPYyRFe228" target="_blank">ReactJS - Learning, Chill Music // [09/10/2022] #25</a></li>
+
+                    <li><code>
+                     import { useState, useEffect } from 'react';
+                     <br>
+                     function App() {
+                        const [type, setType] = useState(false);   
+                        <br><br>
+                        useEffect(() => {
+                           console.log(3)
+
+                           return () => console.log(2)
+                        }, [type]);  
+                        <br><br>
+                        return (
+                           &lt;div&gt;
+                              &lt;h1&gt;F8 - Học lập trình để đi làm&lt;/h1&gt;<br><br>
+                              {console.log(1)}
+                           &lt;/div&gt;
+                        )
+                     }
+                     <br>
+                     export default App;
+
+                    </code></li>
+                    <br>
+                    <li>Khi <code>component</code> được <code>unmount</code> thì <code>console.log()</code> nào sẽ được hiển thị?</li>
+                    <br>
+                    <li>Output: <code>console.log(2)</code></li>
+                    <li>Giải thích:</li>
+                    <ul>
+                       <li class="small-txt"><code>Cleanup function</code> luôn được gọi trước khi <code>component unmount</code>.</li>
+                    </ul>
+                </ul>
+                <li>59 - useEffect with timer functions</li>
+                <ul class="children">
+                     <li>Youtube: <a href="https://youtu.be/6KPYyRFe228" target="_blank">ReactJS - Learning, Chill Music // [09/10/2022] #25</a></li>
+                     <br>
+                     <li><a href="./Chuong 5/reactjs/tiktok/src/App.js" target="_blank">Source code from AppJS</a></li>
+                     <br>
+                     <li><a href="http://localhost:3000/" target="_blank">Server ReactJS Running</a></li>
+                     <br>
+                     <li class="small-txt">(terminal)=> <code>cd "ReactJS/Lesson 1/Chuong 5/reactjs/tiktok"</code></li>
+                 </ul>
 
 
 

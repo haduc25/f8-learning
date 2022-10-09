@@ -45,7 +45,7 @@
  * 2. useEffects(callback, [])
  *  - Chỉ gọi 'callback' 1 lần mỗi khi 'component' mounted
  * 3. useEffects(callback, [deps])
- * 
+ *  - Callback sẽ được gọi lại mỗi khi 'deps' thay đổi
  * ------------------------
  * Trong cả 3 trường hợp trên: 
  *  - 'callback' luôn được gọi sau khi 'component' mounted
