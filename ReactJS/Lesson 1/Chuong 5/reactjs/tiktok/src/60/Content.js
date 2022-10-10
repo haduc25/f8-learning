@@ -62,6 +62,20 @@ function Content(){
     // dat avatar
     const [avatar, setAvatar] = useState()
 
+    // xoa image khi image thay doi / avatar thay doi | avatar = deps
+    useEffect(() => {
+
+        // Xóa image cũ => Cleanup
+        return () => {
+            // Dùng URL.revokeObjectURL() để xóa image khỏi bộ nhớ
+            // case 1: kt = avatar
+            // avatar && URL.revokeObjectURL(avatar.preview)
+
+            // case 2: if else
+            if(avatar) URL.revokeObjectURL(avatar.preview)
+        }
+    }, [avatar])
+
 
     // handlePreviewAvatar
     const handlePreviewAvatar = (e) =>{
