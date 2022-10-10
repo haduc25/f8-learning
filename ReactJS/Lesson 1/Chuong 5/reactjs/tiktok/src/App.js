@@ -668,15 +668,35 @@ function App() {
   // }
 
   
+  
+  
+   //======================> 57 - useEffect with DOM events <======================//
+  
+  
+  // inport content
+  import Content from "./57/Content";
+  import { useState } from "react";
+  function App() {
+    const [show, setShow] = useState(false)
+  
+  
+    return (
+      <div className="App" style={{ textAlign: 'center' }}>
+          <button onClick={() => setShow(!show)}>Toggle</button>
+          { show && <Content />}
+      </div>
+    );
+  }
+  
  */
 
 
 
- //======================> 57 - useEffect with DOM events <======================//
+ //======================> 59 - useEffect with timer functions <======================//
 
 
 // inport content
-import Content from "./57/Content";
+import Content from "./59/Content";
 import { useState } from "react";
 function App() {
   const [show, setShow] = useState(false)
