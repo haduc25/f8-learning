@@ -772,15 +772,35 @@ function App() {
     );
   }
 
- */
+  
+  
+  
+   //======================> 62 - useLayoutEffect hook <======================//
+  
+  
+  // inport content
+  import Content from "./62/Content";
+  import { useState } from "react";
+  function App() {
+    const [show, setShow] = useState(false)
+  
+  
+    return (
+      <div className="App" style={{ textAlign: 'center' }}>
+          <button onClick={() => setShow(!show)}>Toggle</button>
+          { show && <Content />}
+      </div>
+    );
+  }
+
+ */  
 
 
-
- //======================> 62 - useLayoutEffect hook <======================//
+ //======================> 64 - useRef hook <======================//
 
 
 // inport content
-import Content from "./62/Content";
+import Content from "./64/Content";
 import { useState } from "react";
 function App() {
   const [show, setShow] = useState(false)
