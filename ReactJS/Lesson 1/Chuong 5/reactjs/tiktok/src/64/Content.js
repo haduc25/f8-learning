@@ -193,24 +193,144 @@
 
 
 
-// // //===> Ex - Lấy giá trị hiện tại & trước đó của 'State'
-import { useRef, useState } from 'react'
+// // // //===> Ex - Lấy giá trị hiện tại & trước đó của 'State'
+// import { useRef, useState, useEffect } from 'react'
+
+
+
+// function Content(){
+//     // count / default = 60
+//     const [count, setCount] = useState(60)
+
+//     // ref for timerId | default = undefined 
+//     const timerId = useRef()
+
+//     // ref for prevCount (lấy giá trị trước đó của 'count') | default = undefined 
+//     const prevCount = useRef()
+
+//     // useEffect | count = deps
+//     useEffect(() => {
+//         // lưu 'count' vào 'prevCount'
+//         prevCount.current = count;
+//         console.log('Prev Count inside useEffect is: ', prevCount.current); //ban dau lay gia tri la 60
+//     }, [count])
+
+
+//     // handleStart
+//     const handleStart = () => {
+//         timerId.current = setInterval(() => {
+//             // set lai count
+//             setCount(prevCount => prevCount - 1)
+//         }, 1000)
+//         console.log('Start -> ', timerId.current);
+//     }
+
+//     console.log(`Count: ${count}, PreCount: ${prevCount.current}`);
+
+//     // handleStop
+//     const handleStop = () => {
+//         // cleanup
+//         clearInterval(timerId.current)
+//         console.log('Stop -> ', timerId.current);
+//     }
+
+
+
+//     return (
+//         <div>
+//             <h1>{count}</h1>
+//             <button onClick={handleStart} style={{marginRight: '10px'}}>Start</button>
+//             <button onClick={handleStop} style={{marginLeft: '10px'}}>Stop</button>
+//         </div>
+//     )
+
+// }
 
 
 
 
-// được ref nó đưa ra đây nè!
+
+
+
+// // // //===> Ex - Lấy giá trị hiện tại & trước đó của 'State' | giống trên nhưng clean hơn khi print ra console
+// import { useRef, useState, useEffect } from 'react'
+
+
+
+// function Content(){
+//     // count / default = 60
+//     const [count, setCount] = useState(60)
+
+//     // ref for timerId | default = undefined 
+//     const timerId = useRef()
+
+//     // ref for prevCount (lấy giá trị trước đó của 'count') | default = undefined 
+//     const prevCount = useRef()
+
+//     // useEffect | count = deps
+//     useEffect(() => {
+//         prevCount.current = count;
+//     }, [count])
+
+
+//     // handleStart
+//     const handleStart = () => {
+//         timerId.current = setInterval(() => {
+//             // set lai count
+//             setCount(prevCount => prevCount - 1)
+//         }, 1000)
+//         console.log('Start -> ', timerId.current);
+//     }
+
+//     console.log(count, prevCount.current);
+
+//     // handleStop
+//     const handleStop = () => {
+//         // cleanup
+//         clearInterval(timerId.current)
+//         console.log('Stop -> ', timerId.current);
+//     }
+
+
+
+//     return (
+//         <div>
+//             <h1>{count}</h1>
+//             <button onClick={handleStart} style={{marginRight: '10px'}}>Start</button>
+//             <button onClick={handleStop} style={{marginLeft: '10px'}}>Stop</button>
+//         </div>
+//     )
+
+// }
+
+
+
+
+
+
+// // //===> Ex - Dùng Ref lưu giá trị DOM Element
+import { useRef, useState, useEffect } from 'react'
+
+
 
 function Content(){
     // count / default = 60
     const [count, setCount] = useState(60)
 
-    // gán mặc định ref = undefined 
+    // ref for timerId | default = undefined 
     const timerId = useRef()
+
+    // ref for prevCount (lấy giá trị trước đó của 'count') | default = undefined 
+    const prevCount = useRef()
+
+    // useEffect | count = deps
+    useEffect(() => {
+        prevCount.current = count;
+    }, [count])
+
 
     // handleStart
     const handleStart = () => {
-        // Logic: khi start -> id của 'setInterval' sẽ được lưu vào 'timerId.current' -> được đưa ra ngoài tham chiếu của App()
         timerId.current = setInterval(() => {
             // set lai count
             setCount(prevCount => prevCount - 1)
@@ -218,10 +338,10 @@ function Content(){
         console.log('Start -> ', timerId.current);
     }
 
+    console.log(count, prevCount.current);
 
     // handleStop
     const handleStop = () => {
-        // vì được ref đưa ra ngoài => có thể clean đc 
         // cleanup
         clearInterval(timerId.current)
         console.log('Stop -> ', timerId.current);
