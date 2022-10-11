@@ -793,15 +793,58 @@ function App() {
     );
   }
 
- */  
+  
+  
+   //======================> 64 - useRef hook <======================//
+  
+  
+  // inport content
+  import Content from "./64/Content";
+  import { useState } from "react";
+  function App() {
+    const [show, setShow] = useState(false)
+  
+  
+    return (
+      <div className="App" style={{ textAlign: 'center' }}>
+          <button onClick={() => setShow(!show)}>Toggle</button>
+          { show && <Content />}
+      </div>
+    );
+  }
+
+ */    
 
 
- //======================> 64 - useRef hook <======================//
+
+ //======================> 66 - React.memo HOC <======================//
 
 
 // inport content
-import Content from "./64/Content";
-import { useState } from "react";
+import Content from "./66/Content";
+import { useState, memo } from "react";
+
+
+/** memo
+ * 1. memo() -> Higher Order Component (HOC)
+ * 2. useCallback()
+ */
+
+/** KN chính trong React
+ * Hooks
+ * HOC
+ * Render props
+ */
+
+/** Sử dụng memo
+ * - gọi memo() & truyền 'component' làm đối số
+ * - 
+ */
+
+
+
+
+
 function App() {
   const [show, setShow] = useState(false)
 
