@@ -44,10 +44,15 @@ function Content(){
         console.log(detail); //return (lesson-1) Nội dung comment của lesson 1
     }
 
-    // Listen Custom Event
+    // Listen Custom Event | lessonId = deps
     useEffect(() => {
-        window.addEventListener(`lesson-1`, handleComment)
-    })
+        window.addEventListener(`lesson-${lessonId}`, handleComment)
+
+        // Cleanup
+        return () => {
+            window.removeEventListener(`lesson-${lessonId}`, handleComment)
+        }
+    }, [lessonId])
 
     return (
         <div>
