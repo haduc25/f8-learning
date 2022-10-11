@@ -34,6 +34,21 @@ function Content(){
     // lesson id / id default = 1
     const [lessonId, setLessonId] = useState(1)
 
+    // // handleComment
+    // const handleComment = (e) => {
+    //     console.log(e); //return (lesson-1) CustomEvent {isTrusted: false, detail: 'Nội dung comment của lesson 1', type: 'lesson-1', target: Window, currentTarget: Window, …}
+    // }
+
+    // handleComment - lấy ra detail - dùng destructuring
+    const handleComment = ({ detail }) => {
+        console.log(detail); //return (lesson-1) Nội dung comment của lesson 1
+    }
+
+    // Listen Custom Event
+    useEffect(() => {
+        window.addEventListener(`lesson-1`, handleComment)
+    })
+
     return (
         <div>
             <ul>
