@@ -822,7 +822,7 @@ function App() {
 
 // inport content
 import Content from "./66/Content";
-import { useState, memo } from "react";
+import { useState } from "react"; //memo dungf trong 'Content'
 
 
 /** memo
@@ -846,13 +846,17 @@ import { useState, memo } from "react";
 
 
 function App() {
-  const [show, setShow] = useState(false)
+  const [count, setCount] = useState(0)
 
+  const increase = () => {
+    setCount(count + 1)
+  }
 
   return (
     <div className="App" style={{ textAlign: 'center' }}>
-        <button onClick={() => setShow(!show)}>Toggle</button>
-        { show && <Content />}
+        <Content />
+        <h2>{count}</h2>
+        <button onClick={increase}>Click me!</button>
     </div>
   );
 }
