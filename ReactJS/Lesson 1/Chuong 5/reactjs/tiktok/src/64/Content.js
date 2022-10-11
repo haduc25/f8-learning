@@ -323,10 +323,33 @@ function Content(){
     // ref for prevCount (lấy giá trị trước đó của 'count') | default = undefined 
     const prevCount = useRef()
 
+    // get value tu DOM Element | k khác gì thay thế code thuần 'getElementById' & 'QuerySelector'
+    const h1Ref = useRef() //lấy ntn nếu DOM Element có update -> tự update
+
     // useEffect | count = deps
     useEffect(() => {
         prevCount.current = count;
     }, [count])
+
+    // useEffect | count = deps
+    useEffect(() => {
+        // lấy Elememt
+        console.log(h1Ref.current); //return <h1>60</h1>
+
+        // lấy tọa độ / code thuần
+        const rect = h1Ref.current.getBoundingClientRect()
+        console.log(rect); //return DOMRect {x: 0, y: 46.03750228881836, width: 819.2000122070312, height: 42.400001525878906, top: 46.03750228881836, …}
+
+
+        /** ==> Element.getBoundingClientRect()
+         * Element.getBoundingClientRect()
+         * Original: The Element.getBoundingClientRect() method returns a DOMRect object providing information about the size of an element and its position relative to the viewport.
+         * Translate: Phương Element.getBoundingClientRect()thức này trả về một DOMRectđối tượng cung cấp thông tin về kích thước của một phần tử và vị trí của nó so với khung nhìn.
+         * 
+         * Link: https://developer.mozilla.org/en-US/docs/Web/API/Element/getBoundingClientRect
+         */ 
+
+    })
 
 
     // handleStart
@@ -351,7 +374,7 @@ function Content(){
 
     return (
         <div>
-            <h1>{count}</h1>
+            <h1 ref={h1Ref}>{count}</h1>
             <button onClick={handleStart} style={{marginRight: '10px'}}>Start</button>
             <button onClick={handleStop} style={{marginLeft: '10px'}}>Stop</button>
         </div>
