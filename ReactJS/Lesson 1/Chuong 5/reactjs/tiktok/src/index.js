@@ -4,6 +4,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 
+/** Tạm tắt di vì k dùng đến :)
 // //===> Ex - Ứng dụng fake Chat App + File index.js (Bai 61)
 // Fake events cho toàn bộ file
 // Node: Fake comments
@@ -42,6 +43,7 @@ enitComment(3)
 enitComment(4)
 enitComment(5)
 
+*/
 
 
 const root = ReactDOM.createRoot(document.getElementById('root'));

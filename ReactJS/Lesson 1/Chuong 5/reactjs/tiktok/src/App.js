@@ -750,16 +750,37 @@ function App() {
   //     </div>
   //   );
   // }
+
   
+  
+  
+   //======================> 61 - Chữa bài useEffect with preview avatar <======================//
+  
+  
+  // inport content
+  import Content from "./61-chua-bt-60/Content";
+  import { useState } from "react";
+  function App() {
+    const [show, setShow] = useState(false)
+  
+  
+    return (
+      <div className="App" style={{ textAlign: 'center' }}>
+          <button onClick={() => setShow(!show)}>Toggle</button>
+          { show && <Content />}
+      </div>
+    );
+  }
+
  */
 
 
 
- //======================> 61 - Chữa bài useEffect with preview avatar <======================//
+ //======================> 62 - useLayoutEffect hook <======================//
 
 
 // inport content
-import Content from "./61-chua-bt-60/Content";
+import Content from "./62/Content";
 import { useState } from "react";
 function App() {
   const [show, setShow] = useState(false)
