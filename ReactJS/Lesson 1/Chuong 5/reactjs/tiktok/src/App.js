@@ -854,7 +854,20 @@ function App() {
 
   return (
     <div className="App" style={{ textAlign: 'center' }}>
-        <Content />
+        {/*============> no memo <============*/}
+        {/*  ==> Ex - k sử dụng memo & k muốn re-render */}
+        {/* <Content /> */}
+
+        {/* ==> Ex - k sử dụng memo & muốn re-render | trường hợp này k nhất thiết cần memo */}
+        {/* <Content count={count}/> */}
+
+        {/* ============> memo <============*/}
+        {/*  ==> Ex - Sử dụng memo & dl k thay đổi => k re-render */}
+        {/* <Content /> */}
+
+        {/*  ==> Ex - Ex - Sử dụng memo & truyền giá trị => re-render / vì nhận vào giá trị bi thay đổi */}
+        <Content count={count}/>
+
         <h2>{count}</h2>
         <button onClick={increase}>Click me!</button>
     </div>
