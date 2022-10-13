@@ -16,7 +16,7 @@ function Content() {
     // array for product
     const [products, setProducts] = useState([]) //init is empty array
 
-    // dùng useRef() để láy element ra forcus
+    // dùng useRef() để lấy element ra focus
     const nameRef = useRef() 
 
 
@@ -39,7 +39,7 @@ function Content() {
         setName('')
         setPrice('')
 
-        // forcus vào input: dùng useRef() lấy elemnt từ DOM
+        // focus vào input: dùng useRef() lấy elemnt từ DOM
         // focus() laf method của DOM Element
         nameRef.current.focus()
 
