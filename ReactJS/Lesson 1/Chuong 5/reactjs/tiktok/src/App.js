@@ -878,97 +878,113 @@ function App() {
 
 
 
- //======================> 68 - useCallback hook <======================//
+//  //======================> 68 - useCallback hook <======================//
 
 
- // memo
- // 1. memo() -> Higher Order Component (HOC)
- // 2. useCallback()
- //   - Reference types / js nâng cao
- //   - React memo()  
+//  // memo
+//  // 1. memo() -> Higher Order Component (HOC)
+//  // 2. useCallback()
+//  //   - Reference types / js nâng cao
+//  //   - React memo()  
 
 
-import Content from "./68/Content";
-import { useState, useCallback } from "react";
+// import Content from "./68/Content";
+// import { useState, useCallback } from "react";
 
 
+
+// function App() {
+//   const [count, setCount] = useState(0)
+
+
+//   //// ===> Ex - k sử dụng 'useCallback()' / vấn đề gặp phải: 'Reference types'
+//   /* Hoạt động:
+//    * 1. Khi click tăng lên 1 -> setCount() => re-render App()
+//    * 2. Khi re-render lại tạo ra 1 'handleIncrease' mới độc lập k liên quan tới hàm cũ / (Reference types/ vd so sánh 2 func = toán tử '===' nhưng kq = false / vì khác ô nhớ, đai chỉ bộ nhớ)
+//    * 3. và 'handleIncrease' là tham chiếu mới => khi memo so sánh
+//    * 4. vì memo sử dụng toán tử '===' để so sánh => so sánh tham chiếu mới vs cũ kq = false => re-render
+//    */
+
+//     // // handleIncrease
+//     // const handleIncrease = () => {
+//     //    setCount(prevCount => prevCount + 1)
+//     // }
+
+
+
+//   // ===> Ex - Sử dụng 'useCallback()'
+
+//   /** useCallback() 
+//    *  - Nhận 2 đối số (callback, [] có thể chứ deps => [deps])
+//    *  - useCallback(callback, []),  useCallback(callback, [deps])
+//    *  - hoạt dộng tương tự như 'useEffect'
+//    * 
+//    * 
+//    *  *Cách hoạt động
+//    *  1, Lần 1: 
+//    *      - khi chạy qua useCallback() -> 
+//    *      - tạo ra hàm trong 'callback' -> 
+//    *      - nhận lại tham chiếu -> 
+//    *      - lưu ra ngoài phạm vi hàm App() -> 
+//    *      - return lại tham chiếu đó cho biến 'handleIncrease'
+//    *  2, Khi re-render
+//    *      - Nếu trong useCallback(callback, []) // k có deps
+//    *          - Return lại tham chiếu trước đó / thay vì tạo ra tham chiếu mới =>
+//    *          - Tham chiếu k bị thay đối -> k re-render
+//    * 
+//    *      * Nếu trong 'useCallback' có sử dụng biến bên ngoài có khả năng bị thay đổi sau mỗi lần bị re-render -> đưa vào deps
+//    *      - Nếu trong useCallback(callback, [deps]) // có deps / hoạt động như 'useEffect'
+//    *          - Nếu deps bị thay đổi sau mỗi lần re-render
+//    *          - 'useCallback' tạo ra 1 'callback' mới & tham chiếu mới ->
+//    *          - return về tham chiếu mới
+//    * 
+//    *          - Nếu deps k bị thay đổi sau mỗi lần re-render
+//    *          - return về tham chiếu trước đó
+//    */ 
+
+
+//   /** Kết luận 
+//    * - 1. 'Component' có thể nhận nhiều 'props' / props có kiểu dl nguyên thủy or tham chiếum obj, array...
+//    * - 2. Nếu có sử dụng 'memo' thì function luôn phải sử dụng 'useCallback()' => tránh bị re-render k cần thiết
+//    * - 3. Nếu k có sử dụng 'memo' thì không sử dụng 'useCallback()' => k có 'memo' thì chắc chắc re-render => thừa, vô nghĩa
+//    * 
+//   */
+
+
+
+//   // handleIncrease
+//   const handleIncrease = useCallback(() => {
+//       setCount(prevCount => prevCount + 1)
+//   }, []) 
+
+
+
+
+//   //* Quy ước đặt tên
+//   //  - Hàm trực tiếp xử lý logic: dùng từ 'handle' đằng trước
+//   //  - Những 'props' chờ hành động đấy xảy ra: thay 'handle' = 'on'
+//   return (
+//     <div className="App" style={{ textAlign: 'center' }}>
+//         <Content onIncrease={handleIncrease}/>
+
+//         <h2>{count}</h2>
+       
+//     </div>
+//   );
+// }
+
+
+
+
+
+ //======================> 70 - useMemo hook <======================//
+
+import Content from "./70/Content";
 
 function App() {
-  const [count, setCount] = useState(0)
-
-
-  //// ===> Ex - k sử dụng 'useCallback()' / vấn đề gặp phải: 'Reference types'
-  /* Hoạt động:
-   * 1. Khi click tăng lên 1 -> setCount() => re-render App()
-   * 2. Khi re-render lại tạo ra 1 'handleIncrease' mới độc lập k liên quan tới hàm cũ / (Reference types/ vd so sánh 2 func = toán tử '===' nhưng kq = false / vì khác ô nhớ, đai chỉ bộ nhớ)
-   * 3. và 'handleIncrease' là tham chiếu mới => khi memo so sánh
-   * 4. vì memo sử dụng toán tử '===' để so sánh => so sánh tham chiếu mới vs cũ kq = false => re-render
-   */
-
-    // // handleIncrease
-    // const handleIncrease = () => {
-    //    setCount(prevCount => prevCount + 1)
-    // }
-
-
-
-  // ===> Ex - Sử dụng 'useCallback()'
-
-  /** useCallback() 
-   *  - Nhận 2 đối số (callback, [] có thể chứ deps => [deps])
-   *  - useCallback(callback, []),  useCallback(callback, [deps])
-   *  - hoạt dộng tương tự như 'useEffect'
-   * 
-   * 
-   *  *Cách hoạt động
-   *  1, Lần 1: 
-   *      - khi chạy qua useCallback() -> 
-   *      - tạo ra hàm trong 'callback' -> 
-   *      - nhận lại tham chiếu -> 
-   *      - lưu ra ngoài phạm vi hàm App() -> 
-   *      - return lại tham chiếu đó cho biến 'handleIncrease'
-   *  2, Khi re-render
-   *      - Nếu trong useCallback(callback, []) // k có deps
-   *          - Return lại tham chiếu trước đó / thay vì tạo ra tham chiếu mới =>
-   *          - Tham chiếu k bị thay đối -> k re-render
-   * 
-   *      * Nếu trong 'useCallback' có sử dụng biến bên ngoài có khả năng bị thay đổi sau mỗi lần bị re-render -> đưa vào deps
-   *      - Nếu trong useCallback(callback, [deps]) // có deps / hoạt động như 'useEffect'
-   *          - Nếu deps bị thay đổi sau mỗi lần re-render
-   *          - 'useCallback' tạo ra 1 'callback' mới & tham chiếu mới ->
-   *          - return về tham chiếu mới
-   * 
-   *          - Nếu deps k bị thay đổi sau mỗi lần re-render
-   *          - return về tham chiếu trước đó
-   */ 
-
-
-  /** Kết luận 
-   * - 1. 'Component' có thể nhận nhiều 'props' / props có kiểu dl nguyên thủy or tham chiếum obj, array...
-   * - 2. Nếu có sử dụng 'memo' thì function luôn phải sử dụng 'useCallback()' => tránh bị re-render k cần thiết
-   * - 3. Nếu k có sử dụng 'memo' thì không sử dụng 'useCallback()' => k có 'memo' thì chắc chắc re-render => thừa, vô nghĩa
-   * 
-  */
-
-
-
-  // handleIncrease
-  const handleIncrease = useCallback(() => {
-      setCount(prevCount => prevCount + 1)
-  }, []) 
-
-
-
-
-  //* Quy ước đặt tên
-  //  - Hàm trực tiếp xử lý logic: dùng từ 'handle' đằng trước
-  //  - Những 'props' chờ hành động đấy xảy ra: thay 'handle' = 'on'
   return (
     <div className="App" style={{ textAlign: 'center' }}>
-        <Content onIncrease={handleIncrease}/>
-
-        <h2>{count}</h2>
-       
+        <Content />
     </div>
   );
 }
