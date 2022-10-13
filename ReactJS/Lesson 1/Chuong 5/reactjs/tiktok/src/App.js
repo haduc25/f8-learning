@@ -878,7 +878,7 @@ function App() {
 
 
 
- //======================> 67 - useCallback hook <======================//
+ //======================> 68 - useCallback hook <======================//
 
 
  // memo
@@ -888,7 +888,7 @@ function App() {
  //   - React memo()  
 
 
-import Content from "./67/Content";
+import Content from "./68/Content";
 import { useState, useCallback } from "react";
 
 

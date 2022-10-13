@@ -1,3 +1,4 @@
+ //======================> 66 - React.memo HOC <======================//
 
 // // ==> Ex - k sử dụng memo & k muốn re-render
 // function Content() {
