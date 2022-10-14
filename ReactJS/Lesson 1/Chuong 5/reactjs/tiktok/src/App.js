@@ -976,10 +976,26 @@ function App() {
 
 
 
+/*
+//  //======================> 70 - useMemo hook <======================//
 
- //======================> 70 - useMemo hook <======================//
+// import Content from "./70/Content";
 
-import Content from "./70/Content";
+// function App() {
+//   return (
+//     <div className="App" style={{ textAlign: 'center' }}>
+//         <Content />
+//     </div>
+//   );
+// }
+*/
+
+
+
+
+ //======================> 72 - useReducer hook <======================//
+
+import Content from "./72/Content";
 
 function App() {
   return (
