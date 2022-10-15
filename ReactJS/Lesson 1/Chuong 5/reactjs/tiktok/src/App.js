@@ -1005,7 +1005,6 @@ function App() {
     </div>
   );
 }
-*/
 
 
 
@@ -1020,6 +1019,18 @@ function App() {
         <Content />
     </div>
   );
+}
+*/
+
+
+
+
+ //======================> 75 - useReducer recap <======================//
+
+import TodoApp from "./75/Todo";
+
+function App() {
+  return <TodoApp />
 }
 
 
