@@ -41,9 +41,42 @@ const SET_JOB = 'set_job' //đi set lại (job: '') ở trên
 const ADD_JOB = 'add_job'
 const DELETE_JOB = 'delete_job'
 
+/** => Vì cần truyền dữ liệu
+ *      - Cần tạo ra 3 action dưới dạng funtion
+ *      - return ra obj
+ * 
+ *  => payload: là dữ liệu mang theo đi
+ *      - payload là dữ liệu tương ứng với người dùng gõ vào input (e.target.value)
+ */
+
+const setJob = payload => {
+    return {
+        type: SET_JOB,
+        payload //payload = payload truyền vào 
+    }
+}
+
+// checking
+// console.log(setJob()); //return {type: 'set_job', payload: undefined}
+// console.log(setJob('First Love <3')); //return {type: 'set_job', payload: 'First Love <3'}
+
+
 // 3. Tạo ra 'Reducer'
 const reducer = (state, action) => {
+    // console.log(action);
 
+    switch(action.type){
+        case SET_JOB:
+            return {
+                // update: job '' => cần bảo lưu state bên cạnh
+                ...state, //bảo lưu state
+                job: action.payload // set lại job
+            }
+            default:
+                throw new Error('Invalid action.')
+    
+    }
+    // return state
 }
 
 
@@ -58,7 +91,7 @@ function Content() {
     // tạo state
     const [state, dispatch] = useReducer(reducer, initState)
 
-    console.log(state); //return {job: '', jobs: Array(0)}
+    // console.log(state); //return {job: '', jobs: Array(0)}
 
     // dùng destructuring lấy dl ra
     const { job, jobs } = state
@@ -67,13 +100,21 @@ function Content() {
         <>
             <h3>TodoList</h3>
             <input
+            value={job}
                 placeholder='Enter your new todo...'
+                onChange={e => {
+                    // Cần lấy dữ liệu: e.target.value => truyền lên reducer
+                    dispatch(setJob(e.target.value))
+                }}
             />
             <button>Add new todo</button>
             <ul>
-                <li>First Love &times;</li>
+                {jobs.map((job, index) => (
+                    <li key={index}>{job} &times;</li>
+                ))}
+                {/* <li>First Love &times;</li>
                 <li>Learning React &times;</li>
-                <li>Selling Account Valorant &times;</li>
+                <li>Selling Account Valorant &times;</li> */}
             </ul>
         </>
     )
