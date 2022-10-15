@@ -67,6 +67,15 @@ const addJob = payload => {
     }
 }
 
+
+// deleteJob
+const deleteJob = payload => {
+    return {
+        type: DELETE_JOB,
+        payload
+    }
+}
+
 // checking
 // console.log(setJob()); //return {type: 'set_job', payload: undefined}
 // console.log(setJob('First Love <3')); //return {type: 'set_job', payload: 'First Love <3'}
@@ -94,6 +103,26 @@ const reducer = (state, action) => {
                 ...state, //bảo lưu state cũ
                 // Sửa lại array cũ
                 jobs: [...state.jobs, action.payload] //bảo lưu array cũ & thêm job mới
+            }
+            break
+
+        case DELETE_JOB:
+            const newJobs = [...state.jobs] //tránh sửa mảng cũ => lưu vào mảng mới
+
+            /** ==> Để xóa bỏ index => sử dụng splice()
+             *  - Array.prototype.splice()
+             *  - The splice() method changes the contents of an array by removing or replacing existing elements and/or adding new elements in place. 
+             *      To access part of an array without modifying it, see slice().
+             *  - Link: https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+            */
+
+            // xóa theo index
+            newJobs.splice(action.payload, 1) //action.payload vì action.payload = index / 1 là xóa 1 phần tử
+
+            newState = {
+                ...state, //bảo lưu state cũ
+                // set lại jobs = array mới
+                jobs: newJobs
             }
             break
         
@@ -153,11 +182,14 @@ function Content() {
             <button onClick={handleSubmit}>Add new todo</button>
             <ul>
                 {jobs.map((job, index) => (
-                    <li key={index}>{job} &times;</li>
+                    <li key={index}>
+                        {job}
+                        {/* truyền index vào để xóa / index = payload */}
+                        <span onClick={() => dispatch(deleteJob(index))}>
+                            &times;
+                        </span>
+                    </li>
                 ))}
-                {/* <li>First Love &times;</li>
-                <li>Learning React &times;</li>
-                <li>Selling Account Valorant &times;</li> */}
             </ul>
         </>
     )
