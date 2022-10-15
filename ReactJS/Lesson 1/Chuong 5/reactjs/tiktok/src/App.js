@@ -988,7 +988,8 @@ function App() {
 //     </div>
 //   );
 // }
-*/
+
+
 
 
 
@@ -996,6 +997,22 @@ function App() {
  //======================> 72 - useReducer hook <======================//
 
 import Content from "./72/Content";
+
+function App() {
+  return (
+    <div className="App" style={{ textAlign: 'center' }}>
+        <Content />
+    </div>
+  );
+}
+*/
+
+
+
+
+ //======================> 74 - Todo App with useReducer hook <======================//
+
+import Content from "./74/Content";
 
 function App() {
   return (

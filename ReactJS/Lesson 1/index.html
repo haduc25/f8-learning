@@ -74,6 +74,40 @@
             border-color: #0d6efd;
          }
 
+      .btn-go-top{
+         top: 0; 
+         margin-top: 15px;
+      }
+
+      .btn-right{
+         position: fixed; 
+         right: 0; 
+         margin-right: 15px;
+      }
+
+      .div-source-and-server{
+         border: 1px solid #000;
+         position: fixed;
+         right: 0;
+         margin-top: 145px;
+         margin-right: 15px;
+         top: 0;
+         width: 30%;
+         background: lightblue;
+         opacity: .2;
+      }
+
+      .div-source-and-server:hover{
+         opacity: 1;
+         transition: .5s;
+      }
+
+      .terminal:hover{
+         color: #B94366;
+         text-decoration: underline;
+         cursor: pointer;
+      }
+
     </style>
 </head>
 <body>
@@ -81,8 +115,8 @@
     <h1 id="heading" class="headingClass">ReactJS Learning...</h1>
 
     <!-- Coming to bottom page -->
-    <button style="position: fixed; right: 0; top: 0; margin-right: 15px; margin-top: 15px;" onclick="{window.scrollTo(0, 0)}">Go to Topfrag</button>
-    <button style="position: fixed; right: 0; margin-right: 15px;" onclick="{window.scrollTo(0, document.body.scrollHeight)}">Go to Botfrag</button>
+    <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">Go to Topfrag</button>
+    <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">Go to Botfrag</button>
 
     <!-- Chương 1 -->
     <h2>Chương 1. Giới thiệu<h2> 
@@ -1325,12 +1359,7 @@
                           <li>Youtube: <a href="https://youtu.be/hhkgw9-0cSU" target="_blank">ReactJS - Learning, Chill Music, Capcut Editing // [13/10/2022] #29</a></li>
                          
                            <br>
-                           <li><a href="./Chuong 5/reactjs/tiktok/src/App.js" target="_blank">Source code from AppJS</a></li>
                            <li><a href="./Chuong 5/reactjs/tiktok/src/68/Content.js" target="_blank">Source code from Content</a></li>
-                           <br>
-                           <li><a href="http://localhost:3000/" target="_blank">Server ReactJS Running</a></li>
-                           <br>
-                           <li class="small-txt">(terminal)=> <code>cd "ReactJS/Lesson 1/Chuong 5/reactjs/tiktok"</code></li>
                        </ul>
                        <li>69 - Ôn tập useCallback hook</li>
                        <ul class="children">
@@ -1402,15 +1431,10 @@
                             <li>74 - Todo App with useReducer hook</li>
                             <ul class="children">
                                 <li>Youtube: <a href="https://youtu.be/DV5XgPTaDXE" target="_blank">ReactJS - Learning, Chill Music, Capcut Editing // [14/10/2022] #31</a></li>
-                                <li>Youtube: <a href="#" target="_blank">ReactJS - Learning, Chill Music, Capcut Editing // [?/10/2022] #32</a></li>
+                                <li>Youtube: <a href="https://youtu.be/PPktD-WLkMQ" target="_blank">ReactJS - Learning, Chill Music, Capcut Editing // [15/10/2022] #32</a></li>
                                
                                  <br>
-                                 <li><a href="./Chuong 5/reactjs/tiktok/src/App.js" target="_blank">Source code from AppJS</a></li>
-                                 <li><a href="./Chuong 5/reactjs/tiktok/src/73/Content.js" target="_blank">Source code from Content</a></li>
-                                 <br>
-                                 <li><a href="http://localhost:3000/" target="_blank">Server ReactJS Running</a></li>
-                                 <br>
-                                 <li class="small-txt">(terminal)=> <code>cd "ReactJS/Lesson 1/Chuong 5/reactjs/tiktok"</code></li>
+                                 <li><a href="./Chuong 5/reactjs/tiktok/src/74/Content.js" target="_blank">Source code from Content</a></li>
                              </ul>
 
 
@@ -1418,7 +1442,31 @@
         </ul>  
       </div>
 
+      <!-- Something has same value -->
+      <div class="div-source-and-server">
+         <ul>
+            <li><a href="./Chuong 5/reactjs/tiktok/src/App.js" target="_blank">Source code from AppJS</a></li>
+            <br>
+            <li><a href="http://localhost:3000/" target="_blank">Server ReactJS Running</a></li>
+            <br>
+            <li class="small-txt terminal" onclick="copyNow(this)"><code>cd "ReactJS/Lesson 1/Chuong 5/reactjs/tiktok"</code></li>
+         </ul>
+      </div>
+
+
      
 
 </body>
+<script>
+   function copyNow(valueOfThisFromDOM){
+      var inp = document.createElement('input');
+      document.body.appendChild(inp)
+      inp.value = valueOfThisFromDOM.textContent
+      inp.select();
+      document.execCommand('copy',false);
+      inp.remove();
+
+      alert("Copied" + inp.value);
+   }
+</script>
 </html>
