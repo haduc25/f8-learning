@@ -27,7 +27,7 @@
 
 
 // import
-import { useReducer } from 'react'
+import { useReducer, useRef } from 'react'
 
 
 // 1. Init state
@@ -49,10 +49,21 @@ const DELETE_JOB = 'delete_job'
  *      - payload là dữ liệu tương ứng với người dùng gõ vào input (e.target.value)
  */
 
+
+// setJob
 const setJob = payload => {
     return {
         type: SET_JOB,
         payload //payload = payload truyền vào 
+    }
+}
+
+
+// addJob
+const addJob = payload => {
+    return {
+        type: ADD_JOB,
+        payload
     }
 }
 
@@ -63,20 +74,38 @@ const setJob = payload => {
 
 // 3. Tạo ra 'Reducer'
 const reducer = (state, action) => {
-    // console.log(action);
+    console.log('Action: ', action)
+    console.log('Prev state: ', state)
+    
+    // tạo ra newState / mục đích có thể console.log ra đc newState
+    let newState
 
     switch(action.type){
         case SET_JOB:
-            return {
+            newState = {
                 // update: job '' => cần bảo lưu state bên cạnh
                 ...state, //bảo lưu state
                 job: action.payload // set lại job
             }
-            default:
+            break
+
+        case ADD_JOB:
+            newState = {
+                ...state, //bảo lưu state cũ
+                // Sửa lại array cũ
+                jobs: [...state.jobs, action.payload] //bảo lưu array cũ & thêm job mới
+            }
+            break
+        
+        
+        default:
                 throw new Error('Invalid action.')
     
     }
-    // return state
+    
+    console.log('New state: ', newState)
+
+    return newState
 }
 
 
@@ -96,18 +125,32 @@ function Content() {
     // dùng destructuring lấy dl ra
     const { job, jobs } = state
 
+    // lấy element input
+    const inputRef = useRef()
+
+
+    // handleSubmit
+    const handleSubmit = () => {
+        // dispatch
+        dispatch(addJob(job)) //truyền job hiện tại
+        dispatch(setJob('')) //cleanup text sau khi added
+        // focus
+        inputRef.current.focus()
+    }
+
     return (
         <>
             <h3>TodoList</h3>
             <input
-            value={job}
+                ref={inputRef}
+                value={job}
                 placeholder='Enter your new todo...'
                 onChange={e => {
                     // Cần lấy dữ liệu: e.target.value => truyền lên reducer
                     dispatch(setJob(e.target.value))
                 }}
             />
-            <button>Add new todo</button>
+            <button onClick={handleSubmit}>Add new todo</button>
             <ul>
                 {jobs.map((job, index) => (
                     <li key={index}>{job} &times;</li>
