@@ -1039,45 +1039,99 @@ function App() {
  //======================> 76 - useContext hook <======================//
 
  import Content from "./76/Content";
- import { useState } from 'react'
+ import { useState, createContext } from 'react'
  import './76/style.css'
 
-//  KN Context
-//  Cho 3 Comp (CompA, CompB, CompC) - (C là con của B và B là con của A)
+
+//  
+// //  KN Context
+// //  Cho 3 Comp (CompA, CompB, CompC) - (C là con của B và B là con của A)
+// // CompA => CompB => CompC
 
 
-// Vi du: Làm chuyển Theme: Dark / Light
+// // Vi du: Làm chuyển Theme: Dark / Light
 
-// ==> Ex - TRuyền thông thường khi k sử dụng 'Context'
+// // ==> Ex - Truyền thông thường khi k sử dụng 'Context'
 
-/** ==> Vấn đề xảy ra
- *    - 'Content.js' đứng trung gian => k cần dl theme nhưng vẫn phải truyền trung gian qua 'Paragraph.js'
- *    - Nếu bỏ đi 1 Comp ở giữa => Phải sửa lại mất công => Với 'Context' thì bỏ đi k ảnh hưởng
+// /** ==> Vấn đề xảy ra
+//  *    - 'Content.js' đứng trung gian => k cần dl theme nhưng vẫn phải truyền trung gian qua 'Paragraph.js'
+//  *    - Nếu bỏ đi 1 Comp ở giữa => Phải sửa lại mất công => Với 'Context' thì bỏ đi k ảnh hưởng
+//  */
+//  function App() {
+//   // tao state theme / default = dark
+//   const [theme, setTheme] = useState('dark')
+
+//   // toggleTheme
+//   const toggleTheme = () => {
+//     // Logic: kiểm tra nếu theme đang dark -> light -> ngược lại
+//     setTheme(theme === 'dark' ? 'light' : 'dark')
+//   }
+  
+//    return (
+//      <div className="App" style={{ textAlign: 'center' }}>
+//          <button onClick={toggleTheme}>Toggle theme</button>
+//          {/* <Content /> */}
+
+//          {/* Truyền dl qua props */}
+//          <Content theme={theme} />
+//      </div>
+//    );
+//  }
+
+
+
+
+
+
+
+// ==> Ex - Sử dụng 'Context' giải quyết vấn đề trên
+
+/** ==> Để học 'Context' cần 3 bước
+ *    1. Create context
+ *    2. Provider / Nhà cung cấp
+ *    3. Consumer / Nhận dữ liệu từ nhà cung cấp
+ * 
+ *  ==> Context 
+ *  CompA => CompB => CompC
+ *  
+ * 
+ * => 'context': ngữ cảnh, tạo ra 1 phạm vi giúp truyền dl trong phạm bi đó
+ *  - Giả sử tạo 'Context' trong CompA => ôm cả CompA => có thể truyền dl từ Comp A xuống bất cứ Comp Con nào trong A
+ *  - Để truyền đi dl thì cần sử dụng 'Provider'
+ *  - Để nhận dl thì cần dùng 'Customer'
+ * 
+ * 
+ * ==> import createContext /  import { createContext } from 'react'
+ * ==> Trong 1 app có thể tạo nhiều 'Context' khác nhau
  */
- function App() {
+
+
+
+// Tạo ra 'Context' / export ra ngoài để file 'Paragraph.js' có thể import
+export const ThemeContext = createContext()
+
+console.log(ThemeContext); //return Consumer: {$$typeof: Symbol(react.context), _context: {…}, …} / Provider: {$$typeof: Symbol(react.provider), _context: {…}}
+// Trong Obj có 2 Component là: Consumer & Provider để cung cấp dl & nhận dl
+
+function App() {
   // tao state theme / default = dark
   const [theme, setTheme] = useState('dark')
 
   // toggleTheme
   const toggleTheme = () => {
-    // Logic: kiểm tra nếu theme đang dark -> light -> ngược lại
     setTheme(theme === 'dark' ? 'light' : 'dark')
   }
   
    return (
-     <div className="App" style={{ textAlign: 'center' }}>
-         <button onClick={toggleTheme}>Toggle theme</button>
-         {/* <Content /> */}
-
-         {/* Truyền dl qua props */}
-         <Content theme={theme} />
-     </div>
+    // Provider: Dùng ở Component cha, có props là value
+    <ThemeContext.Provider value={theme}>
+        <div className="App" style={{ textAlign: 'center' }}>
+            <button onClick={toggleTheme}>Toggle theme</button>
+            <Content />
+        </div>
+     </ThemeContext.Provider>
    );
  }
-
-
-
-
 
 
 
