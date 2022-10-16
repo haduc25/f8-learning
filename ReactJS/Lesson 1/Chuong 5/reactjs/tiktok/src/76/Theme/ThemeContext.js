@@ -12,9 +12,15 @@ function ThemeProvider({ children }) {
     const toggleTheme = () => {
         setTheme(theme === 'dark' ? 'light' : 'dark')
     }
+
+    // truyền obj qua value
+    const value = {
+        theme,
+        toggleTheme
+    }
     
     return (
-        <ThemeContext.Provider value={theme}>
+        <ThemeContext.Provider value={value}>
             {children}
         </ThemeContext.Provider>
     )

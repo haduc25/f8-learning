@@ -7,13 +7,15 @@ import { ThemeContext } from '../Theme/ThemeContext'
 function Paragraph() {
 
     // Nhận dữ liệu / Consumer
-    const theme = useContext(ThemeContext) //từ 'ThemeContext.Provider' có value là gì thì 'theme' sẽ nhận đc value tương ứng
+    const context = useContext(ThemeContext) //từ 'ThemeContext.Provider' có value là gì thì 'theme' sẽ nhận đc value tương ứng 
+    //ở đây nhận vào obj value từ file 'ThemeContext.js'
 
-    console.log('theme: ', theme);
+    console.log('(Paragraph.js) - obj from ThemeContext.js: ', context);
+    console.log('Status of theme is: ', context.theme);
 
     return (
         // add class
-        <p className={theme}>
+        <p className={context.theme}>
             This is fun. Who needs training dummies when you have real dummies!?
         </p>
     )

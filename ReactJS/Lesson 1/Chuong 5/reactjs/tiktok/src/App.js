@@ -1149,6 +1149,10 @@ function App() {
  import Content from "./76/Theme/Content";
 //  import { ThemeProvider } from "./76/Theme/ThemeContext"; //Ex1 - Dùng trong file App.js / thông thường là dùng trong index.js => vì là file cấp cao nhất
  import './76/style.css'
+//import nhận dl từ 'ThemeContext.js'
+import { useContext } from 'react'
+import { ThemeContext } from "./76/Theme/ThemeContext";
+
 
 
 
@@ -1172,10 +1176,12 @@ function App() {
 //  Ex2 - Sau khi đã chuyển qua file index.js
 
 function App(){
+  const context = useContext(ThemeContext)
+  console.log('(App.js) - obj from ThemeContext.js is: ', context);
 
   return (
         <div className="App" style={{ textAlign: 'center' }}>
-            <button>Toggle theme</button>
+            <button onClick={context.toggleTheme}>Toggle theme</button>
             <Content />
         </div>
   )
