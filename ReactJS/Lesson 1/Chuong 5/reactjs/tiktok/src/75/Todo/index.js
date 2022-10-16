@@ -12,6 +12,7 @@
 import { useReducer, useRef } from 'react'
 import reducer, { initState } from './reducer'
 import { setJob, addJob, deleteJob } from './actions'
+import logger from './logger'
 
 
 // 2. Actions => File: constants.js, actions.js
@@ -22,8 +23,16 @@ import { setJob, addJob, deleteJob } from './actions'
 
 // ===> Ex - Sử dụng useReducer() / App todoList / Cho trước App todoList chưa xử lý Logic
 function Content() {
-    // tạo state
-    const [state, dispatch] = useReducer(reducer, initState)
+    // // tạo state
+    // const [state, dispatch] = useReducer(reducer, initState)
+
+    // dung logger
+    const [state, dispatch] = useReducer(logger(reducer), initState)
+
+    /** Tạo ra logger() ôm reducer nhưng vẫn hoạt động
+     * logger(reducer)
+     * - Trong hàm cần return lại 'reducer'
+     */
 
     // console.log(state); //return {job: '', jobs: Array(0)}
 
