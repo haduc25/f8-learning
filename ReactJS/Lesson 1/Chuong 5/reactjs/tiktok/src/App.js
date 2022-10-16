@@ -1020,7 +1020,6 @@ function App() {
     </div>
   );
 }
-*/
 
 
 
@@ -1032,7 +1031,29 @@ import TodoApp from "./75/Todo";
 function App() {
   return <TodoApp />
 }
+*/
 
+
+
+
+ //======================> 76 - useContext hook <======================//
+
+ import Content from "./76/Content";
+
+//  KN Context
+//  Cho 3 Comp (CompA, CompB, CompC) - (C là con của B và B là con của A)
+
+
+// Vi du: Làm chuyển Theme: Dark / Light
+
+ function App() {
+   return (
+     <div className="App" style={{ textAlign: 'center' }}>
+         <button>Toggle theme</button>
+         <Content />
+     </div>
+   );
+ }
 
 
 
