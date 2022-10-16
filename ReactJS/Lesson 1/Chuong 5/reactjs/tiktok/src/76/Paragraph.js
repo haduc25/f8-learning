@@ -1,6 +1,10 @@
-function Paragraph() {
+function Paragraph({ theme }) {
+
+    console.log('theme: ', theme);
+
     return (
-        <p>
+        // add class
+        <p className={theme}>
             This is fun. Who needs training dummies when you have real dummies!?
         </p>
     )

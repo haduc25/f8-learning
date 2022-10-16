@@ -1039,6 +1039,8 @@ function App() {
  //======================> 76 - useContext hook <======================//
 
  import Content from "./76/Content";
+ import { useState } from 'react'
+ import './76/style.css'
 
 //  KN Context
 //  Cho 3 Comp (CompA, CompB, CompC) - (C là con của B và B là con của A)
@@ -1046,11 +1048,29 @@ function App() {
 
 // Vi du: Làm chuyển Theme: Dark / Light
 
+// ==> Ex - TRuyền thông thường khi k sử dụng 'Context'
+
+/** ==> Vấn đề xảy ra
+ *    - 'Content.js' đứng trung gian => k cần dl theme nhưng vẫn phải truyền trung gian qua 'Paragraph.js'
+ *    - Nếu bỏ đi 1 Comp ở giữa => Phải sửa lại mất công => Với 'Context' thì bỏ đi k ảnh hưởng
+ */
  function App() {
+  // tao state theme / default = dark
+  const [theme, setTheme] = useState('dark')
+
+  // toggleTheme
+  const toggleTheme = () => {
+    // Logic: kiểm tra nếu theme đang dark -> light -> ngược lại
+    setTheme(theme === 'dark' ? 'light' : 'dark')
+  }
+  
    return (
      <div className="App" style={{ textAlign: 'center' }}>
-         <button>Toggle theme</button>
-         <Content />
+         <button onClick={toggleTheme}>Toggle theme</button>
+         {/* <Content /> */}
+
+         {/* Truyền dl qua props */}
+         <Content theme={theme} />
      </div>
    );
  }

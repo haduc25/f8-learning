@@ -1,12 +1,18 @@
 import Paragraph from "./Paragraph";
 
-function Content() {
+
+// ==> Ex - TRuyền thông thường khi k sử dụng 'Context'
+function Content({ theme }) {
     return (
         <div>
-            <Paragraph />
+            <Paragraph theme={ theme }/>
         </div>
     )
 }
+
+
+
+
 
 
 
