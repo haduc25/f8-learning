@@ -1036,11 +1036,12 @@ function App() {
 
 
 
- //======================> 76 - useContext hook <======================//
+//  //======================> 76 - useContext hook <======================//
 
- import Content from "./76/Content";
- import { useState, createContext } from 'react'
- import './76/style.css'
+// Dùng chung
+//  import Content from "./76/Content";
+//  import { useState, createContext } from 'react'
+//  import './76/style.css'
 
 
 //  
@@ -1106,7 +1107,9 @@ function App() {
  */
 
 
-
+/** //Tạm đóng để làm bài sau
+ * <===========================================================>
+ 
 // Tạo ra 'Context' / export ra ngoài để file 'Paragraph.js' có thể import
 export const ThemeContext = createContext()
 
@@ -1132,17 +1135,51 @@ function App() {
      </ThemeContext.Provider>
    );
  }
+ 
+ * <===========================================================>
+ */
 
 
 
 
 
 
+ //======================> 76 - useContext hook / Sort lai cap truc file <======================//
+
+ import Content from "./76/Theme/Content";
+//  import { ThemeProvider } from "./76/Theme/ThemeContext"; //Ex1 - Dùng trong file App.js / thông thường là dùng trong index.js => vì là file cấp cao nhất
+ import './76/style.css'
 
 
 
+// //  Ex1 - Dùng trong file App.js
+
+// function App(){
+
+//   return (
+//     // dữ liệu trong 'ThemeProvider' => chuyển sang 'children'
+//     <ThemeProvider>
+//         <div className="App" style={{ textAlign: 'center' }}>
+//             <button>Toggle theme</button>
+//             <Content />
+//         </div>
+//     </ThemeProvider>
+//   )
+// }
 
 
+
+//  Ex2 - Sau khi đã chuyển qua file index.js
+
+function App(){
+
+  return (
+        <div className="App" style={{ textAlign: 'center' }}>
+            <button>Toggle theme</button>
+            <Content />
+        </div>
+  )
+}
 
 
 
