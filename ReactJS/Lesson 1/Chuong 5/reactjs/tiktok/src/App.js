@@ -1145,6 +1145,8 @@ function App() {
 
 
  //======================> 76 - useContext hook / Sort lai cap truc file <======================//
+/** CLosed
+ * <===========================================================>
 
  import Content from "./76/Theme/Content";
 //  import { ThemeProvider } from "./76/Theme/ThemeContext"; //Ex1 - Dùng trong file App.js / thông thường là dùng trong index.js => vì là file cấp cao nhất
@@ -1186,6 +1188,38 @@ function App(){
         </div>
   )
 }
+
+
+ * <===========================================================>
+*/
+
+
+
+
+
+
+
+ //======================> 78 - Context + useReducer <======================//
+
+ import Main from "./78/Main";
+
+
+ function App(){
+   return (
+      <div className="App" style={{ textAlign: 'center' }}>
+          <Main />
+      </div>
+    )
+ }
+
+
+
+
+
+
+
+
+
 
 
 
