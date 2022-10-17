@@ -1202,12 +1202,16 @@ function App(){
  //======================> 78 - Context + useReducer <======================//
 
  import Main from "./78/Main";
+ import Provider from "./78/store/Provider";
 
-
+// Thay vì viết vào file: index.js => tôi viết ở file này cho gọn / vì hiện tại file này cũng là file cha
+// App.js => index.js
  function App(){
    return (
       <div className="App" style={{ textAlign: 'center' }}>
+        <Provider>
           <Main />
+        </Provider>
       </div>
     )
  }
