@@ -1,10 +1,9 @@
  //======================> 78 - Context + useReducer <======================//
- import { useContext } from "react";
- import { StoreContext } from "./store"
+ import { useStore } from "./store" //hooks custom
 
 
  function Main(){
-    const [state, dispatch] = useContext(StoreContext)
+    const [state, dispatch] = useStore()
     console.log(state) //return {todos: Array(0), todoInput: ''}
 
     

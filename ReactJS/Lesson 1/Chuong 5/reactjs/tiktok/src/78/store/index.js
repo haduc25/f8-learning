@@ -2,3 +2,5 @@
 
 export { default as StoreProvider } from './Provider'
 export { default as StoreContext } from './Context'
+// export tất cả trong hooks
+export * from './hooks'
