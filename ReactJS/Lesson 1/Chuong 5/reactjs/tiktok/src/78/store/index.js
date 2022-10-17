@@ -4,3 +4,5 @@ export { default as StoreProvider } from './Provider'
 export { default as StoreContext } from './Context'
 // export tất cả trong hooks
 export * from './hooks'
+// export * actions nhưng dùng alias name | actions là obj | => lấy tất cả bên trong file -> quy thành obj
+export * as actions from './actions'
