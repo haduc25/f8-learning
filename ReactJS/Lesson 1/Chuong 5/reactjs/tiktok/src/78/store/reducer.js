@@ -1,5 +1,5 @@
 // import constants
-import { SET_TODO_INPUT } from './constants'
+import { SET_TODO_INPUT, ADD_TODO } from './constants'
 
 //init State
 const initState = {
@@ -16,6 +16,13 @@ function reducer (state, action){
                 //bảo lưu state cũ & set lại todoInput
                 ...state,
                 todoInput: action.payload
+            }
+
+        case ADD_TODO:
+            return {
+                //bảo lưu state cũ & set lại todos
+                ...state,
+                todos: [...state.todos, action.payload]
             }
 
         default:

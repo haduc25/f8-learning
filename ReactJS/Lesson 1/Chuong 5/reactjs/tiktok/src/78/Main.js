@@ -11,6 +11,15 @@
 
     console.log('todoInput: ', todoInput)
 
+
+    // handleAdd
+    const handleAdd = () => {
+        // dispatch action / add 
+        dispatch(actions.addTodo(todoInput))
+
+        
+    }
+
     return (
         <div>
             <h2>First Love ❤ | They couldn't kill us. Now, they're dead.</h2>
@@ -20,10 +29,15 @@
                 value={todoInput}
                 placeholder='Enter your todo...'
                 onChange={e => {
-                    // Cần dispatch action
+                    // Cần dispatch action / set
                     dispatch(actions.setTodoInput(e.target.value))
                 }}
             />
+
+            <button onClick={handleAdd}>Add new todo</button>
+            {todos.map((todo, index) => (
+                <li key={index}>{todo}</li>
+            ))}
         </div>
     )
  }
