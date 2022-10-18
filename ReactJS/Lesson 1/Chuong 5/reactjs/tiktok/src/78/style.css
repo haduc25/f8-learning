@@ -1,0 +1,7 @@
+ul, li{
+    list-style-type: none;
+}
+
+li > button, li > span{
+    margin-left: 50px;
+}

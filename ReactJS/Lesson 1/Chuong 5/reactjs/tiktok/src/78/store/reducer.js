@@ -1,5 +1,5 @@
 // import constants
-import { SET_TODO_INPUT, ADD_TODO, DELETE_TODO } from './constants'
+import { SET_TODO_INPUT, ADD_TODO, DELETE_TODO, UPDATE_TODO_INPUT } from './constants'
 
 //init State
 const initState = {
@@ -36,6 +36,17 @@ function reducer (state, action){
                 // set lại todos = array mới
                 todos: newTodos
             }
+
+        case UPDATE_TODO_INPUT:
+            const updateTodos = [...state.todos];
+            
+            console.log('Action index: ', action.index);
+
+            updateTodos[action.index] = action.payload;
+            return {
+                ...state,
+                todos: updateTodos
+            };
 
         default:
             throw new Error('Invalid action!')
