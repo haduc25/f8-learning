@@ -39,7 +39,7 @@ function Video(props, ref, callback){
         playAndPause(){
             // case 1
             videoRef.current.paused ? videoRef.current.play() : videoRef.current.pause()
-            console.log('Video Paused? ', videoRef.current.paused);
+            console.log('Video is Paused? ', videoRef.current.paused);
 
             // case 2
             // if(videoRef.current.paused)
