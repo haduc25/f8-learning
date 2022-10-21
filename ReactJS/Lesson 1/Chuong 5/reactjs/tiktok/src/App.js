@@ -1216,23 +1216,70 @@ function App(){
     )
  }
 
+
+
+ 
+ 
+ 
+ 
+  //======================> 79 - useImperativeHandle hook & forwardRef() <======================//
+ 
+  import Main from "./79/Main";
+  import './79/style.css'
+ 
+  function App(){
+    return (
+       <div className="App" style={{ textAlign: 'center' }}>
+           <Main />
+       </div>
+     )
+  }
 */
 
 
+ 
+ 
+ 
+// ==============================================> Chương 7. CSS, SCSS và CSS modules <============================================== //
+// #                                                                                                                                  #
+// #                                                                                                                                  #
+// #                                                                                                                                  #
+// #                                                                                                                                  #
+// # ================================================================================================================================ #
+ 
+
+  /** 
+  //======================> 82 - Sử dụng CSS <======================//
+ 
+  import Main from "./82/Main";
+ 
+  function App(){
+    return (
+       <div className="App" style={{ textAlign: 'center' }}>
+           <Main />
+       </div>
+     )
+  }
 
 
- //======================> 79 - useImperativeHandle hook & forwardRef() <======================//
 
- import Main from "./79/Main";
- import './79/style.css'
 
- function App(){
-   return (
-      <div className="App" style={{ textAlign: 'center' }}>
-          <Main />
-      </div>
-    )
- }
+
+  */
+ 
+
+
+  //======================> 83 - CSS module <======================//
+ 
+  import Main from "./83/Main";
+ 
+  function App(){
+    return (
+       <div className="App" style={{ textAlign: 'center' }}>
+           <Main />
+       </div>
+     )
+  }
 
 
 
