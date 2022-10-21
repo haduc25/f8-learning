@@ -1,7 +1,6 @@
 import clsx from 'clsx'
 import styles from './Button.module.css'
 
-
 function Button(){
     return(
         <>
@@ -37,6 +36,7 @@ function Button(){
             })}>
                 Click me now!
             </button>
+
         </>
     )
 }
