@@ -1,4 +1,4 @@
-//======================> 82 - useImperativeHandle hook & forwardRef() <======================//
+   //======================> 83 - CSS module <======================//
 import Heading from './components/Heading/'
 import Paragraph from './components/Paragraph/'
 import GlobalStyles from './components/GlobalStyles'

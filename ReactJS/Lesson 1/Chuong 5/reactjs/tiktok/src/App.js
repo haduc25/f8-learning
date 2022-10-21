@@ -1264,14 +1264,28 @@ function App(){
 
 
 
+  
+ 
+ 
+   //======================> 83 - CSS module <======================//
+  
+   import Main from "./83/Main";
+  
+   function App(){
+     return (
+        <div className="App" style={{ textAlign: 'center' }}>
+            <Main />
+        </div>
+      )
+   }
 
   */
  
 
 
-  //======================> 83 - CSS module <======================//
+  //======================> 85 - Thư viện clsx và classnames <======================//
  
-  import Main from "./83/Main";
+  import Main from "./85/Main";
  
   function App(){
     return (

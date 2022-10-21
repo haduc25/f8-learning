@@ -1,0 +1,15 @@
+.btn{
+    padding: 4px 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    margin: 10px 8px;
+}
+
+.btn:hover{
+    cursor: pointer;
+    opacity: .4;
+}
+
+.active{
+    background-color: red;
+}
