@@ -8,7 +8,7 @@ function Main(){
     const videoRef = useRef()
 
     useEffect(() => {
-        console.log(videoRef.current) //return undefined
+        console.log(videoRef.current) //return undefined | {play: ƒ, pause: ƒ}
 
         // k truyền đc dl => phải dùng forwardRef()
     })
