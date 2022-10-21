@@ -10,8 +10,22 @@ function Main(){
     useEffect(() => {
         console.log(videoRef.current) //return undefined
 
-        // k truyền đc dl
+        // k truyền đc dl => phải dùng forwardRef()
     })
+
+
+    // handlePlay
+    const handlePlay = () => {
+        // xảy ra vấn đề bảo mật -> có thể xóa Element, rủi ro
+        // videoRef.current.remove()
+
+        videoRef.current.play()
+    }
+
+    // handlePause
+    const handlePause = () => {
+        videoRef.current.pause()
+    }
 
     return(
         <div>
@@ -19,8 +33,8 @@ function Main(){
 
             <Video ref={videoRef} />
             <br/>
-            <button>Play</button>
-            <button>Pause</button>
+            <button onClick={handlePlay}>Play</button>
+            <button onClick={handlePause}>Pause</button>
         </div>
     )
 }
