@@ -1,14 +1,29 @@
 //======================> 82 - useImperativeHandle hook & forwardRef() <======================//
 import Heading from './components/Heading/'
 import Paragraph from './components/Paragraph/'
+import GlobalStyles from './components/GlobalStyles'
 
  function Main(){
  
      return(
-         <div>
-             <Heading />
-             <Paragraph />
-         </div>
+        // k dùng global
+        //  <div>
+        //      <Heading />
+        //      <Paragraph />
+        //  </div>
+
+        //  Phần này là css all (global)
+        <GlobalStyles>
+            <div>
+                <Heading />
+                <Paragraph />
+            </div>
+            <div className='d-flex'>
+                <div>Item 1</div>
+                <div>Item 2</div>
+            </div>
+            <div className='text-big-60'>This text too big</div>
+        </GlobalStyles>
      )
  }
  
