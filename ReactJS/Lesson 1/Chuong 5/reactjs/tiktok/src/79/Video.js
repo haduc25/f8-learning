@@ -27,6 +27,36 @@ function Video(props, ref, callback){
         },
         pause(){
             videoRef.current.pause()
+        },
+        
+        // custom
+        muted(){
+            videoRef.current.muted = videoRef.current.muted ? false : true
+            console.log('Mute status is: ', videoRef.current.muted)
+
+        },
+
+        playAndPause(){
+            // case 1
+            videoRef.current.paused ? videoRef.current.play() : videoRef.current.pause()
+            console.log('Video Paused? ', videoRef.current.paused);
+
+            // case 2
+            // if(videoRef.current.paused)
+            //     videoRef.current['play']()
+            // else
+            //     videoRef.current['pause']()
+        },
+
+        loop(){
+            videoRef.current.loop = videoRef.current.loop ? false : true
+            console.log('Loop status is: ', videoRef.current.loop)
+
+        },
+
+        controls(){
+            videoRef.current.controls = videoRef.current.controls ? false : true
+            console.log('Controls status is: ', videoRef.current.controls)
         }
     }))
 
@@ -35,7 +65,7 @@ function Video(props, ref, callback){
             ref={videoRef}
             src={video_1}
             width={350}
-            controls
+            // controls
             autoPlay
         ></video>
     )

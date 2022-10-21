@@ -27,6 +27,27 @@ function Main(){
         videoRef.current.pause()
     }
 
+
+    // Custom
+    const handleMuted = () => {
+        videoRef.current.muted()
+    }
+
+    const handleLoop = () => {
+        videoRef.current.loop()
+    }
+
+    const handlePlayAndPause = () => {
+        videoRef.current.playAndPause()
+    }
+
+    const handleControls = () => {
+        videoRef.current.controls()
+    }
+
+
+
+
     return(
         <div>
             <h2>Money, baby! This is money!</h2>
@@ -35,6 +56,13 @@ function Main(){
             <br/>
             <button onClick={handlePlay}>Play</button>
             <button onClick={handlePause}>Pause</button>
+            {/* Custom */}
+            <br/><br/>
+            <button onClick={handleMuted}>Muted</button>
+            <button onClick={handleLoop}>Loop</button>
+            <button onClick={handlePlayAndPause}>Play/Pause</button>
+            <button onClick={handleControls}>Show/Hide Controls</button>
+
         </div>
     )
 }
