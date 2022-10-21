@@ -7,3 +7,9 @@
     background-color: #333; 
     /* style đang bị ảnh hưởng qua Heading.css => sử dụng modules*/
 }
+
+
+/* k đc dùng đc tag name */
+/* *{
+    display: none;
+} */
