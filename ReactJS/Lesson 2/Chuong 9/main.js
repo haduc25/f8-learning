@@ -6,5 +6,5 @@ function copyNow(valueOfThisFromDOM) {
     document.execCommand('copy', false);
     inp.remove();
 
-    alert("Copied" + inp.value);
+    // alert("Copied" + inp.value);
  }

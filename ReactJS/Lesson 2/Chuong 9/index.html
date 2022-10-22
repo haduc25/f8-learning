@@ -52,7 +52,71 @@
                      <li class="small-txt">2. <code>.env.local</code> //PORT=3000 //đổi thành 3001<br>
                         <code>PORT=3001</code>
                      </li>
-                     <li class="small-txt"></li>
+
+                  </ul>
+               </ul>
+
+
+               <li>91 - Cài đặt customize-cra</li>
+               <ul class="children">
+                  <li>Youtube: <a href="https://youtu.be/jl9rb3Qx4ME" target="_blank">ReactJS - Learning, Chill Music
+                        //[22/10/2022] #39</a></li><br>
+
+                  <!-- Tham khảo -->
+                  <li>Keyword: <a href="https://github.com/arackaf/customize-cra" target="_blank">customize-cra github
+                        (github.com)</a>
+                  </li><br>
+
+                  <li><code>customize-cra</code> - Để cấu hình webpack mà k cần <code>eject</code></li>
+
+
+                  <!-- How to install? -->
+                  <br>
+                  <li>How to install?</li>
+                  <ul>
+                     <li class="small-txt">* This project relies on <code>react-app-rewired</code>. You'll need to
+                        install that in order for <code>customize-cra</code> to work.</li><br>
+                     <li class="small-txt">- root => terminal: <code>npm i customize-cra react-app-rewired -D</code>
+                     </li>
+                     <li><br>========================================================</li>
+                     <li class="small-txt"><a
+                           href="https://github.com/timarney/react-app-rewired/"><code>react-app-rewired</code></a></li>
+                     <li class="small-txt">=====> How to rewire your create-react-app project</li>
+                     <li class="small-txt">1. Install <code>react-app-rewired</code> (đã cài ở trên -> bỏ qua)</li>
+                     <li class="small-txt">2. Create a <code>config-overrides.js</code> file in the root directory</li>
+                     <ul>
+                        <li class="small-txt">- root: <code>config-overrides.js</code></li>
+
+                        <li class="small-txt">File: <code>config-overrides.js</code><br><br>
+                           <code>
+                           module.exports = function override(config, env) { <br>
+                              //do stuff with the webpack config... br
+                              return config; <br>
+                            }
+                        </code>
+                        </li>
+                     </ul><br>
+                     <li class="small-txt">3. 'Flip' the existing calls to <code>react-scripts</code> in npm scripts for
+                        start, build and test</li>
+                     <ul>
+                        <li class="small-txt">1. Mở file <code>package.json</code></li>
+                        <li class="small-txt">2. Thay thế <code>"start": "react-scripts start",</code> =>
+                           <code>"start": "react-app-rewired start",</code></li><br>
+                        <code>
+                           /* package.json */ <br>
+
+                                 "scripts": { <br>
+                                    -   "start": "react-scripts start", <br>
+                                    +   "start": "react-app-rewired start", <br>
+                                    -   "build": "react-scripts build", <br>
+                                    +   "build": "react-app-rewired build", <br>
+                                    -   "test": "react-scripts test", <br>
+                                    +   "test": "react-app-rewired test", <br>
+                                       "eject": "react-scripts eject" <br>
+                                    }
+                        </code>
+
+                     </ul>
 
                   </ul>
                </ul>
@@ -69,14 +133,14 @@
          <!-- Something has same value -->
          <div class="div-source-and-server">
             <ul>
-               <li><a href="./Chuong 5/reactjs/tiktok/src/App.js" target="_blank">Source code from AppJS</a>
+               <li><a href="./reactjs/tiktok-ui/src/App.js" target="_blank">Source code from AppJS</a>
                </li>
                <br>
                <li><a href="http://localhost:3000/" target="_blank">Server
                      ReactJS Running</a></li>
                <br>
                <li class="small-txt terminal" onclick="copyNow(this)">
-                  <code>cd "ReactJS/Lesson 1/Chuong 5/reactjs/tiktok"</code>
+                  <code>cd "ReactJS/Lesson 2/Chuong 9/reactjs/tiktok-ui"</code>
                </li>
             </ul>
          </div>
