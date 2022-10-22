@@ -3,14 +3,20 @@
     border: 1px solid #ccc;
     border-radius: 4px;
     margin: 10px 8px;
-}
 
-.btn:hover{
-    cursor: pointer;
-    opacity: .4;
+    // Dùng scss
+    &:hover{
+        cursor: pointer;
+        opacity: .4;
+    }
 }
 
 .primary{
     background-color: #007bfe;
     color: #fff;
+}
+
+.disabled{
+    opacity: .5;
+    pointer-events: none;
 }

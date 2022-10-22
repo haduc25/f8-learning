@@ -8,7 +8,9 @@ import GlobalStyles from './components/GlobalStyles'
      return(
         <GlobalStyles>
             <div>
+                <Button2/>
                 <Button2 primary/>
+                <Button2 primary disabled/>
             </div>
         </GlobalStyles>
      )
@@ -16,10 +18,8 @@ import GlobalStyles from './components/GlobalStyles'
  
 
 /** SCSS Usage
- * 1. đổi tên file css |  
- * 
- * 
- * 
+ * 1. đổi tên file css |  Button2.module.css -> Button2.module.scss
+ * 2. install lib: npm i sass
 */
 
 
