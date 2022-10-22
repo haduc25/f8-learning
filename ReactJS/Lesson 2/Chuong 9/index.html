@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta http-equiv="X-UA-Compatible" content="IE=edge">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Lesson 1 (Chương 1 - 5 [FIRST LESSION])</title>
+   <link rel="stylesheet" href="./style.css">
+</head>
+
+<body>
+
+   <h1 id="heading" class="headingClass">ReactJS Learning...</h1>
+
+   <!-- Coming to bottom page -->
+   <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">Go to Topfrag</button>
+   <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">Go to Botfrag</button>
+
+   <!-- Chương 9 -->
+   <h2>Chương 9. Dựng base dự án Tiktok<h2>
+         <div class="containers">
+            <ul class="parent">
+               <!-- PARENT START -->
+               <li>89 - Giới thiệu dự án Tiktok</li>
+               <ul class="children">
+                  <li>Youtube: <a href="https://youtu.be/jl9rb3Qx4ME" target="_blank">ReactJS - Learning, Chill Music
+                        //[22/10/2022] #39</a></li>
+               </ul>
+
+
+               <li>90 - Tạo dự án và đẩy lên Github</li>
+               <ul class="children">
+                  <li>Youtube: <a href="https://youtu.be/jl9rb3Qx4ME" target="_blank">ReactJS - Learning, Chill Music
+                        //[22/10/2022] #39</a></li>
+                  <!-- Tham khảo -->
+                  <li>Keyword: <a href="https://github.com/sondnpt00343/tiktok-ui"
+                        target="_blank">sondnpt00343/tiktok-ui (github.com)</a>
+                  </li><br>
+
+                  <!-- Tạo dự án -->
+                  <li>Tạo dự án <code>tiktok-ui</code></li>
+                  <ul>
+                     <li class="small-txt">1. Ở thư mục <code>root</code> (Chuong 9) tạo folder <code>reactjs</code>
+                     </li>
+                     <li class="small-txt">2. Mở terminal: <code>npx create-react-app tiktok-ui</code></li>
+                     <li class="small-txt">3. <code>cd tiktok-ui</code></li>
+                     <li class="small-txt">4. <code>npm start</code></li>
+                     <li><br>========================================================</li>
+                     <li class="small-txt">* Đổi port nếu bị trùng (mặc định là: http://localhost:3000/)</li>
+                     <li class="small-txt">1. Ở thư mục <code>root</code> tạo file <code>.env.local</code></li>
+                     <li class="small-txt">2. <code>.env.local</code> //PORT=3000 //đổi thành 3001<br>
+                        <code>PORT=3001</code>
+                     </li>
+                     <li class="small-txt"></li>
+
+                  </ul>
+               </ul>
+
+
+               <!-- PARENT END -->
+            </ul>
+         </div>
+
+
+
+
+
+         <!-- Something has same value -->
+         <div class="div-source-and-server">
+            <ul>
+               <li><a href="./Chuong 5/reactjs/tiktok/src/App.js" target="_blank">Source code from AppJS</a>
+               </li>
+               <br>
+               <li><a href="http://localhost:3000/" target="_blank">Server
+                     ReactJS Running</a></li>
+               <br>
+               <li class="small-txt terminal" onclick="copyNow(this)">
+                  <code>cd "ReactJS/Lesson 1/Chuong 5/reactjs/tiktok"</code>
+               </li>
+            </ul>
+         </div>
+</body>
+<script src="./main.js"></script>
+
+</html>
