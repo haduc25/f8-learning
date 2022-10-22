@@ -1,0 +1,9 @@
+/* CSS chung cho cả trang -> Giải quyết kế thừa */
+
+.d-flex{
+    display: flex;
+}
+
+.text-big-60{
+    font-size: 60px;
+}

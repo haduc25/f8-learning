@@ -1279,13 +1279,31 @@ function App(){
       )
    }
 
+   
+
+  
+  
+    //======================> 85 - Thư viện clsx và classnames <======================//
+   
+    import Main from "./85/Main";
+   
+    function App(){
+      return (
+         <div className="App" style={{ textAlign: 'center' }}>
+             <Main />
+         </div>
+       )
+    }
+
+
+
   */
  
 
 
-  //======================> 85 - Thư viện clsx và classnames <======================//
+  //======================> 87 - Install SASS để dùng SCSS? <======================//
  
-  import Main from "./85/Main";
+  import Main from "./86/Main";
  
   function App(){
     return (
