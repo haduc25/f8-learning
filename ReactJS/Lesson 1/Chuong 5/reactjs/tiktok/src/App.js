@@ -1296,25 +1296,53 @@ function App(){
     }
 
 
+    
+   
+   
+     //======================> 87 - Install SASS để dùng SCSS? <======================//
+    
+     import Main from "./87/Main";
+    
+     function App(){
+       return (
+          <div className="App" style={{ textAlign: 'center' }}>
+              <Main />
+          </div>
+        )
+     }
 
   */
  
+  
+  
+   
+   
+   
+  // ==================================================> Chương 8. React Router V6 <================================================== //
+  // #                                                                                                                                  #
+  // #                                                                                                                                  #
+  // #                                                                                                                                  #
+  // #                                                                                                                                  #
+  // # ================================================================================================================================ #
+ 
+  //======================> 88 - Cài đặt và tạo router <======================//
 
 
-  //======================> 87 - Install SASS để dùng SCSS? <======================//
+  // ở bài này coi App.js là index.js vì chỉ cần cài vào bài này => cài ở đây | trong dự án chính thì cài vào index.js
+  // Quy ước: import thư viện lên trên => file trong source code cho xuống dưới
+  import { BrowserRouter } from 'react-router-dom'
+  
+  import Main from "./88/Main";
  
-  import Main from "./87/Main";
- 
-  function App(){
+  function App(){ //coi App = index.js
     return (
        <div className="App" style={{ textAlign: 'center' }}>
-           <Main />
+          <BrowserRouter>
+            <Main />
+          </BrowserRouter>
        </div>
      )
   }
-
-
-
 
 
 
