@@ -1,12 +1,12 @@
 import clsx from 'clsx'
-import styles from './Button2.module.scss'
+import styles from './Button.module.scss'
 
-function Button2({ primary, disabled }){
-
+// Nhận primary ở đây
+function Button({ primary, disabled }){
     // tạo biến lưu class
     const classes = clsx(styles.btn, {
         [styles.primary]: primary,
-        [styles.disabled]: disabled //nếu k có key 'disabled' -> undefined
+        [styles.disabled]: disabled
     })
 
     return(
@@ -18,4 +18,4 @@ function Button2({ primary, disabled }){
     )
 }
 
-export default Button2
+export default Button

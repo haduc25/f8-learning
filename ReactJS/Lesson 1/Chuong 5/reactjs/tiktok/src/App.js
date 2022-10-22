@@ -1303,7 +1303,7 @@ function App(){
 
   //======================> 87 - Install SASS để dùng SCSS? <======================//
  
-  import Main from "./86/Main";
+  import Main from "./87/Main";
  
   function App(){
     return (

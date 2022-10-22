@@ -1,6 +1,6 @@
 //======================> 87 - Install SASS để dùng SCSS? <======================//
 
-import Button2 from './components/Button2/'
+import Button from './components/Button/'
 import GlobalStyles from './components/GlobalStyles'
 
  function Main(){
@@ -8,9 +8,9 @@ import GlobalStyles from './components/GlobalStyles'
      return(
         <GlobalStyles>
             <div>
-                <Button2/>
-                <Button2 primary/>
-                <Button2 primary disabled/>
+                <Button/>
+                <Button primary/>
+                <Button primary disabled/>
             </div>
         </GlobalStyles>
      )
@@ -18,7 +18,7 @@ import GlobalStyles from './components/GlobalStyles'
  
 
 /** SCSS Usage
- * 1. đổi tên file css |  Button2.module.css -> Button2.module.scss
+ * 1. đổi tên file css |  Button.module.css -> Button.module.scss
  * 2. install lib: npm i sass
 */
 
