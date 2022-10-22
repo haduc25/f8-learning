@@ -122,6 +122,83 @@
                </ul>
 
 
+               
+
+               <li>92 - Cài đặt babel-plugin-module-resolver</li>
+               <ul class="children">
+                  <li>Youtube: <a href="https://youtu.be/jl9rb3Qx4ME" target="_blank">ReactJS - Learning, Chill Music
+                        //[22/10/2022] #39</a></li>
+                  <!-- Tham khảo -->
+                  <li>Keyword: <a href="https://github.com/tleunen/babel-plugin-module-resolver"
+                        target="_blank">github babel-plugin-module-resolver (github.com)</a>
+                  </li>
+                  <li>Keyword: <a href="https://github.com/arackaf/customize-cra"
+                        target="_blank">github customize-cra (github.com)</a>
+                  </li><br>
+
+                  <!-- How to install -->
+                  <li>How to install</li>
+                  <ul>
+                     <li class="small-txt">1. root => terminal: <code>npm install --save-dev babel-plugin-module-resolver</code></li>
+                     <li class="small-txt">2. root create file<code>.babelrc</code></li>
+                     <li>File: <code>.babelrc</code><br>
+                           <!-- Code default / tuy nhiên trong bài thay đổi k dùng default mà dùng 'alias' -->
+                           <code>
+                              {
+                                 "plugins": [
+                                   ["module-resolver", {
+                                     "root": ["./src"],
+                                     "alias": {
+                                       "test": "./test",
+                                       "underscore": "lodash"
+                                     }
+                                   }]
+                                 ]
+                               }
+                           </code>
+                     </li><br>
+                     <li class="small-txt">3. Editors autocompletion => root create file<code>jsconfig.json</code></li>
+                     <li>File: <code>jsconfig.json</code><br>
+                           <!-- Code default / tuy nhiên trong bài thay đổi k dùng default mà dùng 'alias' -->
+                           <code>
+                              {
+                                 "compilerOptions": {
+                                   "baseUrl": ".",
+                                   "paths": {
+                                     "*": ["src/*"],
+                                     "test/*": ["test/*"],
+                                     "underscore": ["lodash"]
+                                   }
+                                 }
+                               }
+                           </code>
+                     </li>
+
+
+
+
+                     <li class="small-txt">4. <code>npm start</code></li>
+                     <li><br>========================================================</li>
+                     <li class="small-txt">* Đổi port nếu bị trùng (mặc định là: http://localhost:3000/)</li>
+                     <li class="small-txt">1. Ở thư mục <code>root</code> tạo file <code>.env.local</code></li>
+                     <li class="small-txt">2. <code>.env.local</code> //PORT=3000 //đổi thành 3001<br>
+                        <code>PORT=3001</code>
+                     </li>
+
+                  </ul>
+               </ul>
+
+
+
+               <li>93 - Cài đặt và cấu hình Prettier</li>
+               <ul class="children">
+                  <li>Youtube: <a href="https://youtu.be/jl9rb3Qx4ME" target="_blank">ReactJS - Learning, Chill Music
+                        //[22/10/2022] #39</a></li>
+                  <li>Youtube: <a href="#" target="_blank">ReactJS - Learning, Chill Music
+                        //[?/10/2022] #40</a></li>
+               </ul>
+
+
                <!-- PARENT END -->
             </ul>
          </div>
