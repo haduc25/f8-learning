@@ -1330,16 +1330,16 @@ function App(){
 
   // ở bài này coi App.js là index.js vì chỉ cần cài vào bài này => cài ở đây | trong dự án chính thì cài vào index.js
   // Quy ước: import thư viện lên trên => file trong source code cho xuống dưới
-  import { BrowserRouter } from 'react-router-dom'
+  import { BrowserRouter as Router} from 'react-router-dom' //đổi tên cho gọn
   
   import Main from "./88/Main";
  
   function App(){ //coi App = index.js
     return (
        <div className="App" style={{ textAlign: 'center' }}>
-          <BrowserRouter>
+          <Router>
             <Main />
-          </BrowserRouter>
+          </Router>
        </div>
      )
   }

@@ -1,3 +1,10 @@
+import { Routes, Route } from 'react-router-dom'
+
+import HomePage from './pages/Home'
+import NewsPage from './pages/News'
+import ContactPage from './pages/Contact'
+
+
 function Main(){
     return (
        <>
@@ -16,8 +23,14 @@ function Main(){
             </nav>
 
 
+            {/* Routes, Route: sử dụng ở nơi nội dung có thể thay đổi trong tương lai  */}
+            <Routes>
+                {/* <Route path='' element={reactElement} /> */}
 
-            <h2>Home Page</h2>
+                <Route path='/' element={<HomePage />} />
+                <Route path='/news' element={<NewsPage />} />
+                <Route path='/contact' element={<ContactPage />} />
+            </Routes>
        </>
      )
 }
