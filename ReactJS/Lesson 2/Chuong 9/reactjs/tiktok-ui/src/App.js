@@ -30,11 +30,32 @@ function App() {
 
 
 
-*/
-
 // =============================> 94. Cấu hình sử dụng CSS/SASS <============================= //
 import GlobalStyles from './94/components/GlobalStyles';
 import Main from './94/Main';
+
+// App.js == index.js //tạm thời => app chính add vào index.js
+// wrap = Ctrl + Shift + P => wrap => GlobalStyles
+function App() {
+    return (
+        <div style={{ textAlign: 'center' }}>
+            <GlobalStyles>
+                <Main />
+            </GlobalStyles>
+        </div>
+    );
+}
+
+
+
+
+
+
+*/
+
+// =============================> 95. Cấu hình Router/Layout cho dự án <============================= //
+import GlobalStyles from './95/components/GlobalStyles';
+import Main from './95/Main';
 
 // App.js == index.js //tạm thời => app chính add vào index.js
 // wrap = Ctrl + Shift + P => wrap => GlobalStyles
