@@ -1,5 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { publicRoutes } from '~/routes';
+import DefaultLayout from './components/Layout/DefaultLayout';
 
 // Main.js == App.js //tạm thời => app chính add vào App.js
 function Main() {
