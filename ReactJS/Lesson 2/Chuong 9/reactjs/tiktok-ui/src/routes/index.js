@@ -3,6 +3,10 @@ import Home from '~/95/pages/Home';
 import Following from '~/95/pages/Following';
 import Profile from '~/95/pages/Profile';
 
+/** Quy ước
+ *  - Nếu k chỉ định layout => mặc định là DefaultLayout
+ */
+
 // Public Routes
 const publicRoutes = [
     //Dùng cho nhưng router k cần đăng nhập vẫn xem được
