@@ -25,6 +25,15 @@ function Main() {
                          * - Nếu có layout => lấy layout
                          * - Nếu layout = null => lấy Fragment
                          * - Mặc định thì lấy Default
+                         *
+                         *
+                         *  let Layout = DefaultLayout;
+                         *  if (route.layout) {
+                         *      Layout = route.layout;
+                         *  } else if (route.layout === null) {
+                         *      Layout = Fragment;
+                         *  }
+                         *
                          */
 
                         let Layout = DefaultLayout;
