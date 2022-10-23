@@ -1,7 +1,5 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-
-import Home from '~/95/pages/Home';
-import Following from '~/95/pages/Following';
+import { publicRoutes } from '~/routes';
 
 // Main.js == App.js //tạm thời => app chính add vào App.js
 function Main() {
@@ -9,8 +7,14 @@ function Main() {
         <Router>
             <div>
                 <Routes>
-                    <Route path="/" element={<Home />} />
-                    <Route path="/following" element={<Following />} />
+                    {/*  />
+                    <Route path="/following" element={<Following />} /> */}
+
+                    {/* Dùng map() => lấy dl ra */}
+                    {publicRoutes.map((route, index) => {
+                        const Page = route.component; //lấy key từ obj publicRoutes
+                        return <Route key={index} path={route.path} element={<Page />} />;
+                    })}
                 </Routes>
             </div>
         </Router>
