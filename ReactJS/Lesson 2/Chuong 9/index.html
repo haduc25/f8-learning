@@ -101,7 +101,8 @@
                      <ul>
                         <li class="small-txt">1. Mở file <code>package.json</code></li>
                         <li class="small-txt">2. Thay thế <code>"start": "react-scripts start",</code> =>
-                           <code>"start": "react-app-rewired start",</code></li><br>
+                           <code>"start": "react-app-rewired start",</code>
+                        </li><br>
                         <code>
                            /* package.json */ <br>
 
@@ -122,28 +123,29 @@
                </ul>
 
 
-               
+
 
                <li>92 - Cài đặt babel-plugin-module-resolver</li>
                <ul class="children">
                   <li>Youtube: <a href="https://youtu.be/jl9rb3Qx4ME" target="_blank">ReactJS - Learning, Chill Music
                         //[22/10/2022] #39</a></li>
                   <!-- Tham khảo -->
-                  <li>Keyword: <a href="https://github.com/tleunen/babel-plugin-module-resolver"
-                        target="_blank">github babel-plugin-module-resolver (github.com)</a>
+                  <li>Keyword: <a href="https://github.com/tleunen/babel-plugin-module-resolver" target="_blank">github
+                        babel-plugin-module-resolver (github.com)</a>
                   </li>
-                  <li>Keyword: <a href="https://github.com/arackaf/customize-cra"
-                        target="_blank">github customize-cra (github.com)</a>
+                  <li>Keyword: <a href="https://github.com/arackaf/customize-cra" target="_blank">github customize-cra
+                        (github.com)</a>
                   </li><br>
 
                   <!-- How to install -->
                   <li>How to install</li>
                   <ul>
-                     <li class="small-txt">1. root => terminal: <code>npm install --save-dev babel-plugin-module-resolver</code></li>
+                     <li class="small-txt">1. root => terminal:
+                        <code>npm install --save-dev babel-plugin-module-resolver</code></li>
                      <li class="small-txt">2. root create file<code>.babelrc</code></li>
                      <li>File: <code>.babelrc</code><br>
-                           <!-- Code default / tuy nhiên trong bài thay đổi k dùng default mà dùng 'alias' -->
-                           <code>
+                        <!-- Code default / tuy nhiên trong bài thay đổi k dùng default mà dùng 'alias' -->
+                        <code>
                               {
                                  "plugins": [
                                    ["module-resolver", {
@@ -159,8 +161,8 @@
                      </li><br>
                      <li class="small-txt">3. Editors autocompletion => root create file<code>jsconfig.json</code></li>
                      <li>File: <code>jsconfig.json</code><br>
-                           <!-- Code default / tuy nhiên trong bài thay đổi k dùng default mà dùng 'alias' -->
-                           <code>
+                        <!-- Code default / tuy nhiên trong bài thay đổi k dùng default mà dùng 'alias' -->
+                        <code>
                               {
                                  "compilerOptions": {
                                    "baseUrl": ".",
@@ -194,8 +196,56 @@
                <ul class="children">
                   <li>Youtube: <a href="https://youtu.be/jl9rb3Qx4ME" target="_blank">ReactJS - Learning, Chill Music
                         //[22/10/2022] #39</a></li>
-                  <li>Youtube: <a href="#" target="_blank">ReactJS - Learning, Chill Music
-                        //[?/10/2022] #40</a></li>
+                  <li>Youtube: <a href="https://youtu.be/hcVakSLZgrY" target="_blank">ReactJS - Learning, Chill Music
+                        //[23/10/2022] #40</a></li>
+    
+                  <li>Keyword: <a href="https://github.com/sondnpt00343/tiktok-ui/commit/b0f8e67a0a37d8d0c13216f0965485ea8794c663" target="_blank">Bài 60: Cài đặt và cấu hình prettier (github.com)</a></li>
+                  <li>Keyword: <a href="https://prettier.io/docs/en/index.html" target="_blank">prettier (prettier.io)</a></li>
+
+                  <br>
+                  <li>Prettier? - Giúp Format, cấu hình lại file code cho gọn gàng, ngay ngắn hơn</li>
+                  <li>Có 2 cách cài: vs code extentions & trên github</li>
+                  <li>1. VS Code => Extentions => <code>Prettier - Code formatter</code></li>
+
+                  <!-- Install -->
+                  <li>How to install</li>
+                  <ul>
+                     <li class="small-txt">1. Tạo file trong root => <code>.prettierrc</code></li>
+                     <li class="small-txt">2. Trong file: <code>.prettierrc</code> <br>
+                        <code>
+                           {
+                              "arrowParens": "always",
+                              "bracketSameLine": false,
+                              "bracketSpacing": true,
+                              "embeddedLanguageFormatting": "auto",
+                              "htmlWhitespaceSensitivity": "css",
+                              "insertPragma": false,
+                              "jsxSingleQuote": false,
+                              "printWidth": 120,
+                              "proseWrap": "preserve",
+                              "quoteProps": "as-needed",
+                              "requirePragma": false,
+                              "semi": true,
+                              "singleQuote": true,
+                              "tabWidth": 4,
+                              "trailingComma": "all",
+                              "useTabs": false,
+                              "vueIndentScriptAndStyle": false
+                          }
+                        </code>
+                     </li>
+                     <li class="small-txt">3. Tạo file, folder trong root => <code>.vscode/settings.json</code></li>
+                     <li class="small-txt">4. Trong file: <code>settings.json</code> <br>
+                        <code>
+                           {
+                              "editor.formatOnSave": true,
+                              "editor.defaultFormatter": "esbenp.prettier-vscode"
+                           }
+                        </code>
+                     </li>
+
+                     <li class="small-txt"></li>
+                  </ul>
                </ul>
 
 
