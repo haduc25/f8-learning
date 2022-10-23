@@ -1,0 +1,3 @@
+cho file .vscode & .prettierrc nằm ở ngoài vì lúc mở file mở từ Chương 9 => phải để ngoài mới tự format / nếu để ở trong mà bật live server -> k truy vấn đến index.html
+
+=> xong dự án => chuyển 2 file trên vào trong reactjs/tiktok-ui => là ok

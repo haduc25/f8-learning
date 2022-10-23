@@ -1,3 +1,4 @@
+/**
 // =============================> 92. Cài đặt babel-plugin-module-resolver <============================= //
 
 import logo from './logo.svg';
@@ -21,6 +22,23 @@ function App() {
                     Learn React
                 </a>
             </header>
+        </div>
+    );
+}
+
+
+
+
+
+*/
+
+// =============================> 94. Cấu hình sử dụng CSS/SASS <============================= //
+import Main from './94/Main';
+
+function App() {
+    return (
+        <div style={{ textAlign: 'center' }}>
+            <Main />
         </div>
     );
 }
