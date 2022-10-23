@@ -1,4 +1,6 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { Fragment } from 'react';
+
 import { publicRoutes } from '~/routes';
 import { DefaultLayout } from './components/Layout';
 
@@ -11,8 +13,13 @@ function Main() {
                     {/* Dùng map() => lấy dl ra */}
                     {publicRoutes.map((route, index) => {
                         // check Layout, Page
-                        // Logic: Nếu k có 'route.layout' => lấy DefaultLayout
-                        const Layout = route.layout || DefaultLayout;
+                        /** Logic
+                         * Nếu 'route.layout' = null => Dùng 'Fragment' để k có layout / Fragment chỉ là thẻ chứa
+                         * Ngược lại thì lấy DefaultLayout
+                         *
+                         */
+
+                        const Layout = route.layout === null ? Fragment : DefaultLayout;
                         const Page = route.component; //lấy key từ obj publicRoutes
 
                         return (

@@ -2,6 +2,7 @@
 import Home from '~/95/pages/Home';
 import Following from '~/95/pages/Following';
 import Profile from '~/95/pages/Profile';
+import Upload from '~/95/pages/Upload';
 
 /** Quy ước
  *  - Nếu k chỉ định layout => mặc định là DefaultLayout
@@ -13,6 +14,7 @@ const publicRoutes = [
     { path: '/', component: Home },
     { path: '/following', component: Following },
     { path: '/profile', component: Profile },
+    { path: '/upload', component: Upload, layout: null },
 ];
 
 // Private Routes
