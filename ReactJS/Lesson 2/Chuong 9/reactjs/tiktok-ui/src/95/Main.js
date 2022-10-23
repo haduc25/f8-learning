@@ -13,13 +13,28 @@ function Main() {
                     {/* Dùng map() => lấy dl ra */}
                     {publicRoutes.map((route, index) => {
                         // check Layout, Page
-                        /** Logic
+                        /** Old Logic:
                          * Nếu 'route.layout' = null => Dùng 'Fragment' để k có layout / Fragment chỉ là thẻ chứa
                          * Ngược lại thì lấy DefaultLayout
+                         * const Layout = route.layout === null ? Fragment : DefaultLayout;
                          *
+                         *
+                         * ========================================================================
+                         *
+                         * New Logic:
+                         * - Nếu có layout => lấy layout
+                         * - Nếu layout = null => lấy Fragment
+                         * - Mặc định thì lấy Default
                          */
 
-                        const Layout = route.layout === null ? Fragment : DefaultLayout;
+                        let Layout = DefaultLayout;
+
+                        if (route.layout) {
+                            Layout = route.layout;
+                        } else if (route.layout === null) {
+                            Layout = Fragment;
+                        }
+
                         const Page = route.component; //lấy key từ obj publicRoutes
 
                         return (

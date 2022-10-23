@@ -1,4 +1,9 @@
 // 5. Đưa cấu hình routes ra ngoài
+
+// Layout
+import { HeaderOnly } from '~/95/components/Layout';
+
+// Pages
 import Home from '~/95/pages/Home';
 import Following from '~/95/pages/Following';
 import Profile from '~/95/pages/Profile';
@@ -14,7 +19,7 @@ const publicRoutes = [
     { path: '/', component: Home },
     { path: '/following', component: Following },
     { path: '/profile', component: Profile },
-    { path: '/upload', component: Upload, layout: null },
+    { path: '/upload', component: Upload, layout: HeaderOnly },
 ];
 
 // Private Routes
