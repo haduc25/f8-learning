@@ -7,7 +7,7 @@
 
 */
 
-// =============================> 95. Cấu hình Router/Layout cho dự án <============================= //
+// =============================> 95. Dựng khung Layout mặc định <============================= //
 import GlobalStyles from './96/components/GlobalStyles';
 import Main from './96/Main';
 
