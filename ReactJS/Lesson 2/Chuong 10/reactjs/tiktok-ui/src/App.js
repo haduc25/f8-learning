@@ -15,7 +15,7 @@ import Main from './96/Main';
 // wrap = Ctrl + Shift + P => wrap => GlobalStyles
 function App() {
     return (
-        <div style={{ textAlign: 'center' }}>
+        <div>
             <GlobalStyles>
                 <Main />
             </GlobalStyles>

@@ -6,7 +6,6 @@
         60px
     ); //truyền biến để sau dễ đổi => ít trùng lặp | nếu k có biến => lấy 60px
     box-shadow: 0px 1px 1px rgb(0 0 0 / 12%);
-    // căn giữa
     display: flex;
     justify-content: center;
 }
@@ -15,4 +14,26 @@
     height: 100%;
     width: var(--default-layout-width);
     background-color: #ccc;
+
+    // căn giữa logo (trên, dưới) -> căn giữa ở inner -> chiều cao của logo nhỏ
+    display: flex;
+    align-items: center;
+
+    // căn giữa logo, search, actions (ngang)
+    justify-content: space-between;
+}
+
+.logo {
+}
+
+.search {
+}
+
+.clear {
+}
+
+.loading {
+}
+
+.search-btn {
 }
