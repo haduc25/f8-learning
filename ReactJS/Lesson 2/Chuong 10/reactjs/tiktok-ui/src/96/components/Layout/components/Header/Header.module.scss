@@ -13,7 +13,7 @@
 .inner {
     height: 100%;
     width: var(--default-layout-width);
-    background-color: #ccc;
+    // background-color: #ccc; //có thể tắt lúc đầu test
 
     // căn giữa logo (trên, dưới) -> căn giữa ở inner -> chiều cao của logo nhỏ
     display: flex;
@@ -27,6 +27,18 @@
 }
 
 .search {
+    width: 361px;
+    height: 46px;
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: 92px;
+    padding: 12px 16px;
+
+    // input
+    input {
+        font-size: 1.6rem;
+        color: #161823;
+        background-color: transparent; //transparent trong suốt
+    }
 }
 
 .clear {
