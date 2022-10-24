@@ -1,5 +1,7 @@
 // Header
 .wrapper {
+    --search-border-radius: 92px;
+
     width: 100%;
     height: var(
         --default-layout-header-height,
@@ -27,11 +29,12 @@
 }
 
 .search {
+    position: relative;
     display: flex;
     width: 361px;
     height: 46px;
     background-color: rgba(22, 24, 35, 0.06);
-    border-radius: 92px;
+    border-radius: var(--search-border-radius);
     // padding: 0 16px; //chir cho padding bên trái
     padding-left: 16px;
 
@@ -44,6 +47,17 @@
         color: #161823; //video: #828282 / var(--black)
         background-color: transparent; //transparent trong suốt
     }
+
+    // after
+    &::after {
+        content: '';
+        position: absolute;
+        top: 9px;
+        right: 52px; //right = width: 52px; trong search-btn
+        height: 28px;
+        width: 1px;
+        background-color: rgba(22, 24, 35, 0.12);
+    }
 }
 
 .clear {
@@ -55,4 +69,19 @@
 .search-btn {
     width: 52px;
     height: 100%;
+
+    // border-radius cho btn | top/bottom
+    // border-radius: top-left top-right bottom-right bottom-left;
+    border-radius: 0 var(--search-border-radius) var(--search-border-radius) 0;
+    // border: 2px solid #000; //for checking
+
+    // set cho icon
+    font-size: 1.8rem;
+    color: rgba(22, 24, 35, 0.34);
+
+    // hover
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
 }
