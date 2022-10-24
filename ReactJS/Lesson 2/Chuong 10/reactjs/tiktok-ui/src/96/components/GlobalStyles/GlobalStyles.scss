@@ -5,6 +5,8 @@
 
 :root {
     --primary: #fe2c55;
+    --black: #000;
+    --text-color: #333;
 
     // Default Layout
     --default-layout-header-height: 60px;
@@ -26,4 +28,19 @@ body {
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
+    color: var(--text-color);
+}
+
+// loại bỏ outerline & border, của btn, input và bất cứ thẻ nào có tabindex
+button,
+input,
+[tabindex] {
+    outline: none;
+    border: none;
+}
+
+//reset color của thẻ a
+a[href] {
+    color: var(--text-color);
+    text-decoration: none;
 }
