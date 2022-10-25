@@ -2,10 +2,10 @@ import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 // import 'tippy.js/dist/tippy.css'; // optional
-
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
+import { Wrapper as PopperWrapper } from '~/96/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
 
@@ -44,9 +44,11 @@ function Header() {
                     // Logic(visible): Nếu có kq => return true => show result
                     visible={searchResult.length > 0}
                     render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex={-1}>
-                            ket qua
-                        </div>
+                        <PopperWrapper>
+                            <div className={cx('search-result')} tabIndex={-1}>
+                                ket qua
+                            </div>
+                        </PopperWrapper>
                     )}
                 >
                     <div className={cx('search')}>
