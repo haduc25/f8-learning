@@ -50,6 +50,10 @@ function Header() {
                                 {/* search-title */}
                                 <h4 className={cx('search-title')}>Accounts</h4>
                                 <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
+                                <AccountItem />
                             </PopperWrapper>
                         </div>
                     )}

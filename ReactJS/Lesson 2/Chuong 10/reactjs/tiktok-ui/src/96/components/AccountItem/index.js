@@ -17,11 +17,11 @@ function AccountItem() {
             {/* info */}
             <div className={cx('info')}>
                 {/* name */}
-                <p className={cx('name')}>
+                <h4 className={cx('name')}>
                     <span>Đào Lê Phương Hoa</span>
                     {/* check icon */}
-                    <FontAwesomeIcon icon={faCheckCircle} />
-                </p>
+                    <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+                </h4>
                 {/* username */}
                 <span className={cx('username')}>@hoaa.hanassii</span>
             </div>
