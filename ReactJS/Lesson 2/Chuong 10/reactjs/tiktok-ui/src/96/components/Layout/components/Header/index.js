@@ -21,9 +21,7 @@ function Header() {
         <header className={cx('wrapper')}>
             <div className={cx('inner')}>
                 {/* Logo */}
-                <div className={cx('logo')}>
-                    <img src={images.logo} alt="Tiktok" />
-                </div>
+                <img src={images.logo} alt="Tiktok" />
 
                 {/* Search */}
                 <div className={cx('search')}>
