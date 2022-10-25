@@ -8,6 +8,7 @@ import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-s
 import { Wrapper as PopperWrapper } from '~/96/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
+import AccountItem from '~/96/components/AccountItem';
 
 // tạo biến cx
 const cx = classNames.bind(styles); //dùng method bind()
@@ -44,11 +45,13 @@ function Header() {
                     // Logic(visible): Nếu có kq => return true => show result
                     visible={searchResult.length > 0}
                     render={(attrs) => (
-                        <PopperWrapper>
-                            <div className={cx('search-result')} tabIndex={-1}>
-                                ket qua
-                            </div>
-                        </PopperWrapper>
+                        <div className={cx('search-result')} tabIndex={-1}>
+                            <PopperWrapper>
+                                {/* search-title */}
+                                <h4 className={cx('search-title')}>Accounts</h4>
+                                <AccountItem />
+                            </PopperWrapper>
+                        </div>
                     )}
                 >
                     <div className={cx('search')}>
