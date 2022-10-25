@@ -1,4 +1,7 @@
 import classNames from 'classnames/bind';
+import Tippy from '@tippyjs/react';
+import 'tippy.js/dist/tippy.css'; // optional
+
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
@@ -33,9 +36,11 @@ function Header() {
                     {/* Loading */}
                     <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
                     {/* Search */}
-                    <button className={cx('search-btn')}>
-                        <FontAwesomeIcon icon={faMagnifyingGlass} />
-                    </button>
+                    <Tippy content="Tìm kiếm" placement="right">
+                        <button className={cx('search-btn')}>
+                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                        </button>
+                    </Tippy>
                 </div>
 
                 {/* Actions */}
