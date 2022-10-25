@@ -1,6 +1,8 @@
 // Header
 .wrapper {
     --search-border-radius: 92px;
+    --search-height: 46px;
+    --search-top-spacer: 9px; //khoảng cách bên trên
 
     width: 100%;
     height: var(
@@ -32,7 +34,7 @@
     position: relative;
     display: flex;
     width: 361px;
-    height: 46px;
+    height: var(--search-height);
     background-color: rgba(22, 24, 35, 0.06);
     border-radius: var(--search-border-radius);
     // padding: 0 16px; //chir cho padding bên trái
@@ -52,11 +54,19 @@
     &::after {
         content: '';
         position: absolute;
-        top: 9px;
+        top: var(--search-top-spacer);
         right: 52px; //right = width: 52px; trong search-btn
-        height: 28px;
+        height: calc(var(--search-height) - var(--search-top-spacer) * 2); //46px - (9px * 2) => spacer
         width: 1px;
         background-color: rgba(22, 24, 35, 0.12);
+    }
+
+    // :focus-within
+    // Link: https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within
+
+    &:focus-within {
+        // khi input đc focus -> code trong này đc active
+        border: 1.5px solid rgba(22, 24, 35, 0.2);
     }
 }
 
