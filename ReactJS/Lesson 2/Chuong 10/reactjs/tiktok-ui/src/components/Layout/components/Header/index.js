@@ -80,8 +80,26 @@ function Header() {
                     {/* <Button primary onClick={() => alert('Hello bro!')}>Login</Button> */}
                     {/* <Button primary to="./login">Login</Button> */}
                     {/* <Button primary href="https://www.youtube.com/25sdev" target="_blank">Login</Button> */}
+
                     {/* <Button primary>Login</Button> */}
-                    <Button outline>Login</Button>
+                    {/* <Button outline>Login</Button> */}
+
+                    {/* size mặc đinh là medium */}
+                    {/* <Button outline small>Login</Button> */}
+                    {/* <Button outline large>Login</Button> */}
+
+                    {/* <Button primary>Login</Button> */}
+                    {/* <Button outline>Register</Button> */}
+
+                    {/* Text old version */}
+                    {/* <Button text>Upload</Button> */}
+                    {/* <Button primary>Login</Button> */}
+
+                    {/* Disabled */}
+                    {/* <Button primary disabled>Login</Button> */}
+                    {/* <Button primary disabled onClick={() => alert('Hello bro!')}>Login</Button> */}
+                    {/* <Button primary disabled onClick={() => alert('Hello bro!')} onMouseUp={() => console.log('Up')}>Login</Button> */}
+                    {/* <Button primary onClick={() => alert('Hello bro!')} onMouseUp={() => console.log('Up')}>Login</Button> */}
                 </div>
             </div>
         </header>
