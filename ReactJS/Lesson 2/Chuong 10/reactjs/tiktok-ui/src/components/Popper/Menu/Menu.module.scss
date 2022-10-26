@@ -14,3 +14,16 @@
 .menu-popper {
     padding-bottom: 8px;
 }
+
+// File: MenuItem.js
+// Menu items
+.menu-item {
+    width: 100%; //cho btn tràn ra hết menu
+    // căn lên đầu => vì mặc định đã có căn giữa
+    justify-content: flex-start;
+    border-radius: 0;
+    padding: 11px 16px;
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+    }
+}
