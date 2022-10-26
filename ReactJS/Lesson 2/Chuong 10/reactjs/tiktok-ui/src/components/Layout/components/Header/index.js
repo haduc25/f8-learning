@@ -3,7 +3,7 @@ import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 // import 'tippy.js/dist/tippy.css'; // optional
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
+import { faCircleXmark, faSpinner, faMagnifyingGlass, faSignIn } from '@fortawesome/free-solid-svg-icons';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
@@ -102,7 +102,22 @@ function Header() {
                     {/* <Button primary onClick={() => alert('Hello bro!')} onMouseUp={() => console.log('Up')}>Login</Button> */}
 
                     {/* Rounded */}
-                    <Button rounded>Login</Button>
+                    {/* <Button rounded>Login</Button> */}
+
+                    {/* Primary + Rounded & Outline + Rounded */}
+                    {/* <Button primary rounded>Login</Button> */}
+                    {/* <Button outline rounded>Login</Button> */}
+
+                    {/* Custom style */}
+                    {/* <Button rounded className={cx('custom-login')}>Login</Button> */}
+
+                    {/* Icon Left & Right */}
+                    {/* <Button primary leftIcon={<FontAwesomeIcon icon={faSignIn} />}>Login</Button> */}
+                    {/* <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>Login</Button> */}
+
+                    {/* Căn giữa lại text -> trong file scss */}
+                    <Button text>Upload</Button>
+                    <Button primary>Login</Button>
                 </div>
             </div>
         </header>

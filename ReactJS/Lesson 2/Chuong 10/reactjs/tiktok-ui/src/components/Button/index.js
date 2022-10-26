@@ -16,6 +16,9 @@ function Button({
     small = false,
     large = false,
     children,
+    className, //để custom text
+    leftIcon,
+    rightIcon,
     onClick,
     ...passProps
 }) {
@@ -61,6 +64,7 @@ function Button({
 
     // Tách class ra thành biến
     const classes = cx('wrapper', {
+        [className]: className, //khi có 'className' -> lấy giá trị của 'className' làm key => ở đây là 'custom-login'
         primary,
         outline,
         text,
@@ -72,7 +76,10 @@ function Button({
 
     return (
         <Comp className={classes} {...props}>
-            <span>{children}</span>
+            {/* Logic: Nếu có leftIcon || rightIcon => thêm thẻ <span style='icon'></span> */}
+            {leftIcon && <span className={cx('icon')}>{leftIcon}</span>}
+            <span className={cx('title')}>{children}</span>
+            {rightIcon && <span className={cx('icon')}>{rightIcon}</span>}
         </Comp>
     );
 }
