@@ -100,6 +100,9 @@ function Header() {
                     {/* <Button primary disabled onClick={() => alert('Hello bro!')}>Login</Button> */}
                     {/* <Button primary disabled onClick={() => alert('Hello bro!')} onMouseUp={() => console.log('Up')}>Login</Button> */}
                     {/* <Button primary onClick={() => alert('Hello bro!')} onMouseUp={() => console.log('Up')}>Login</Button> */}
+
+                    {/* Rounded */}
+                    <Button rounded>Login</Button>
                 </div>
             </div>
         </header>
