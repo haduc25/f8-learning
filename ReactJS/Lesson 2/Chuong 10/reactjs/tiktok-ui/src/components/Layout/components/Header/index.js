@@ -3,7 +3,13 @@ import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 // import 'tippy.js/dist/tippy.css'; // optional
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faCircleXmark, faSpinner, faMagnifyingGlass, faSignIn } from '@fortawesome/free-solid-svg-icons';
+import {
+    faCircleXmark,
+    faSpinner,
+    faMagnifyingGlass,
+    faSignIn,
+    faEllipsisVertical,
+} from '@fortawesome/free-solid-svg-icons';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
@@ -118,6 +124,29 @@ function Header() {
                     {/* Căn giữa lại text -> trong file scss */}
                     <Button text>Upload</Button>
                     <Button primary>Login</Button>
+
+                    <Tippy
+                        interactive
+                        // visible
+                        placement="bottom-end" //chỉnh vị trí của Tippy
+                        render={(attrs) => (
+                            <div className={cx('menu-items')} tabIndex={-1}>
+                                <PopperWrapper>
+                                    {/* search-title */}
+                                    <h4 className={cx('search-title')}>Accounts</h4>
+                                    <AccountItem />
+                                    <AccountItem />
+                                    <AccountItem />
+                                    <AccountItem />
+                                </PopperWrapper>
+                            </div>
+                        )}
+                    >
+                        {/* see more icon */}
+                        <button className={cx('more-btn')}>
+                            <FontAwesomeIcon icon={faEllipsisVertical} />
+                        </button>
+                    </Tippy>
                 </div>
             </div>
         </header>
