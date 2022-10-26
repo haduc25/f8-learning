@@ -21,10 +21,8 @@ function Menu({ children, items = [] }) {
             placement="bottom-end" //chỉnh vị trí của Tippy
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex={-1}>
-                    <PopperWrapper>
-                        <h2>Menu item</h2>
-                        {renderItems()}
-                    </PopperWrapper>
+                    {/* Custom PopperWrapper: đang có padding-top: 8px => giờ cần custom thêm padding-bottom: 8px*/}
+                    <PopperWrapper className={cx('menu-popper')}>{renderItems()}</PopperWrapper>
                 </div>
             )}
         >

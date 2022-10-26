@@ -1,4 +1,9 @@
 import Button from '~/components/Button';
+import classNames from 'classnames/bind';
+
+import styles from './Menu.module.scss';
+
+const cx = classNames.bind(styles);
 
 function MenuItem({ data }) {
     // test
@@ -7,7 +12,7 @@ function MenuItem({ data }) {
     // return <button>{JSON.stringify(data)}</button>;
 
     return (
-        <Button leftIcon={data.icon} to={data.to}>
+        <Button className={cx('menu-item')} leftIcon={data.icon} to={data.to}>
             {data.title}
         </Button>
     );

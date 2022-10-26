@@ -39,6 +39,14 @@
     margin-left: 8px;
 }
 
+.icon {
+    display: inline-block; //để có thể set width
+    width: 24px;
+
+    // căn giữa icon
+    text-align: center;
+}
+
 // Button types
 
 .rounded {

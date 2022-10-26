@@ -1,3 +1,16 @@
+// File: index.js
+// Menu wrapper
 .menu-list {
     width: 224px;
+
+    // File: MenuItem.js
+    // Menu items | Cho vào trong này (trong 1 cấp nữa) để đc ưu tiên hơn
+    .menu-item {
+        margin-left: 0;
+    }
+}
+
+// custom của PopperWrapper
+.menu-popper {
+    padding-bottom: 8px;
 }
