@@ -5,10 +5,10 @@ import Tippy from '@tippyjs/react/headless';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faCircleXmark, faSpinner, faMagnifyingGlass } from '@fortawesome/free-solid-svg-icons';
 
-import { Wrapper as PopperWrapper } from '~/96/components/Popper';
+import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
 import images from '~/assets/images';
-import AccountItem from '~/96/components/AccountItem';
+import AccountItem from '~/components/AccountItem';
 
 // tạo biến cx
 const cx = classNames.bind(styles); //dùng method bind()
