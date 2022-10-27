@@ -14,8 +14,13 @@ import {
     faCircleQuestion,
     faKeyboard,
     faPlus,
+    faVideo,
+    faGear,
+    faUser,
+    faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
 import { faMessage } from '@fortawesome/free-regular-svg-icons';
+import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
@@ -123,9 +128,43 @@ const MENU_ITEMS = [
     },
 ];
 
+const userMenu = [
+    {
+        icon: <FontAwesomeIcon icon={faUser} />,
+        title: 'View profile',
+        to: '/@hoaa.hanassii',
+        // to: '/profile/@hoaa.hanassii',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faBitcoin} />,
+        title: 'Get coins',
+        to: '/coins',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faVideo} />,
+        title: 'LIVE Studio',
+        to: '/studio',
+    },
+    {
+        icon: <FontAwesomeIcon icon={faGear} />,
+        title: 'Settings',
+        to: '/setting',
+    },
+    // tận dụng array trên => giải
+    ...MENU_ITEMS,
+    {
+        icon: <FontAwesomeIcon icon={faSignOut} />,
+        title: 'Log out',
+        to: '/logout',
+    },
+];
+
 function Header() {
     // Search Result, default = array
     const [searchResult, setSearchResult] = useState([]);
+
+    // currentUser
+    const currentUser = true;
 
     // Fake API
     useEffect(() => {
@@ -135,9 +174,6 @@ function Header() {
             setSearchResult([]);
         }, 0);
     }, []);
-
-    // currentUser
-    const currentUser = true;
 
     // handleMenuChange | Handle Logic
     const handleMenuChange = (menuItem) => {
@@ -199,7 +235,12 @@ function Header() {
                     {/* Logic: Nếu có currentUser => lấy thông tin của currentUser ngược lại render ra đăng nhập */}
                     {currentUser ? (
                         <>
-                            <Tippy content="Upload video" placement="bottom" trigger="click">
+                            <Tippy
+                                delay={[0, 200]}
+                                content="Upload video"
+                                placement="bottom"
+                                // trigger="click"
+                            >
                                 <button className={cx('actions-btn')}>
                                     <FontAwesomeIcon icon={faPlus} />
                                 </button>
@@ -254,7 +295,8 @@ function Header() {
                         </>
                     )}
 
-                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
+                    {/* Logic: Nếu có 'currentUser' -> dùng 'userMenu' ngược lại 'MENU_ITEMS' */}
+                    <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {/* Logic: Check currentUser để xem hiện avatar hay dấu more-btn */}
                         {currentUser ? (
                             <img

@@ -1,7 +1,9 @@
 //import lib
 @import 'normalize.css';
-// fonts.google
+// fonts.google //case 1
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
+//case 2
+@import url('http://fonts.cdnfonts.com/css/proxima-nova-2');
 
 :root {
     --primary: #fe2c55;
@@ -26,7 +28,11 @@ html {
 }
 
 body {
+    // font 1
     font-family: 'Open Sans', sans-serif;
+    // font 2
+    font-family: 'Proxima Nova', sans-serif;
+
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
