@@ -9,7 +9,10 @@ import styles from './Menu.module.scss';
 
 const cx = classNames.bind(styles);
 
-function Menu({ children, items = [] }) {
+// tránh trường hợp k truyền onChange
+const defaultFunc = () => {};
+
+function Menu({ children, items = [], onChange = defaultFunc }) {
     // lịch sử đi vào trang / default trang đầu tiên của menu
     const [history, setHistory] = useState([{ data: items }]);
     // console.log(history); //0 : {data: Array(3)} / đang có 1 phần tử
@@ -40,6 +43,8 @@ function Menu({ children, items = [] }) {
 
                             // push thêm dl vào array
                             setHistory((prev) => [...prev, item.children]); //bảo lưu array cũ => add array mới => re-render
+                        } else {
+                            onChange(item);
                         }
                     }}
                 />
@@ -50,7 +55,7 @@ function Menu({ children, items = [] }) {
     return (
         <Tippy
             interactive
-            visible
+            // visible
             delay={[0, 700]}
             placement="bottom-end" //chỉnh vị trí của Tippy
             render={(attrs) => (

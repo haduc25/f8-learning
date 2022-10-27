@@ -40,15 +40,74 @@ const MENU_ITEMS = [
             title: 'Language',
             data: [
                 {
+                    type: 'language', //để sau này xác định đang ở trang nào
+                    code: 'en',
+                    title: 'English',
+                },
+                {
+                    type: 'language',
+                    code: 'vi',
+                    title: 'Tiếng Việt',
+                },
+            ],
+        },
+
+        //// Testing nhiều children
+        /**
+        children: {
+            title: 'Language',
+            data: [
+                {
                     code: 'en',
                     title: 'English',
                 },
                 {
                     code: 'vi',
                     title: 'Tiếng Việt',
+                    children: {
+                        title: 'Language',
+                        data: [
+                            {
+                                code: 'en',
+                                title: 'English Level 1',
+                            },
+                            {
+                                code: 'vi',
+                                title: 'Tiếng Việt Cấp 1',
+                                children: {
+                                    title: 'Language',
+                                    data: [
+                                        {
+                                            code: 'en',
+                                            title: 'English Level 2',
+                                        },
+                                        {
+                                            code: 'vi',
+                                            title: 'Tiếng Việt Cấp 2',
+                                            children: {
+                                                title: 'Language',
+                                                data: [
+                                                    {
+                                                        code: 'en',
+                                                        title: 'English Level 3',
+                                                    },
+                                                    {
+                                                        code: 'vi',
+                                                        title: 'Tiếng Việt Cấp 3',
+                                                    },
+                                                ],
+                                            },
+                                        },
+                                    ],
+                                },
+                            },
+                        ],
+                    },
                 },
             ],
         },
+
+         */
     },
     {
         icon: <FontAwesomeIcon icon={faCircleQuestion} />,
@@ -68,10 +127,24 @@ function Header() {
     // Fake API
     useEffect(() => {
         // // sau 3s => set lai result
-        // setTimeout(() => {
-        //     setSearchResult([1, 2, 3]);
-        // }, 3000);
-    });
+        setTimeout(() => {
+            // setSearchResult([1, 2, 3]);
+            setSearchResult([]);
+        }, 0);
+    }, []);
+
+    // handleMenuChange | Handle Logic
+    const handleMenuChange = (menuItem) => {
+        console.log(menuItem);
+
+        switch (menuItem.type) {
+            case 'language':
+                // Handle change language / Xử lý thay đổi ngôn ngữ...
+                console.log(menuItem.code);
+                break;
+            default:
+        }
+    };
 
     // console.log(images.logo.default); //return "/static/media/logo.e8af434aa91f33b2c32bb97d5fee0a28.svg"
 
@@ -160,7 +233,7 @@ function Header() {
                     <Button text>Upload</Button>
                     <Button primary>Login</Button>
 
-                    <Menu items={MENU_ITEMS}>
+                    <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
                         {/* see more icon */}
                         <button className={cx('more-btn')}>
                             <FontAwesomeIcon icon={faEllipsisVertical} />
