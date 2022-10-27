@@ -17,7 +17,7 @@ function Menu({ children, items = [] }) {
     return (
         <Tippy
             interactive
-            // visible
+            visible
             delay={[0, 700]}
             placement="bottom-end" //chỉnh vị trí của Tippy
             render={(attrs) => (

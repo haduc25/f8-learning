@@ -20,6 +20,8 @@
     width: var(--default-layout-width);
     // background-color: #ccc; //có thể tắt lúc đầu test
 
+    padding: 0 var(--default-layout-horizontal-spacer);
+
     // căn giữa logo (trên, dưới) -> căn giữa ở inner -> chiều cao của logo nhỏ
     display: flex;
     align-items: center;
@@ -141,4 +143,5 @@
     font-size: 2rem;
     margin-left: 24px;
     background-color: transparent;
+    cursor: pointer;
 }

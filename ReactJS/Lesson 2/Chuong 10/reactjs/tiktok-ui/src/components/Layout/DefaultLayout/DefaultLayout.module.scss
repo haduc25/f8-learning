@@ -7,13 +7,14 @@
 
 .container {
     width: var(--default-layout-width);
-    min-height: 1000px;
+    padding: 0 var(--default-layout-horizontal-spacer);
+    min-height: 1000px; //có thể xóa đang để demo
     // background-color: #333; //lúc đầu để test có thể xóa
     display: flex;
 }
 
 .content {
     flex: 1; //chiếm hết khoảng không còn lại
-    background-color: lightblue;
-    min-height: 1000px;
+    background-color: lightblue; //có thể xóa đang để demo
+    min-height: 1000px; //có thể xóa đang để demo
 }

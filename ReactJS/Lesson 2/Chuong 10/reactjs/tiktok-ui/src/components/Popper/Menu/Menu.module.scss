@@ -23,6 +23,8 @@
     justify-content: flex-start;
     border-radius: 0;
     padding: 11px 16px;
+    // thêm line-height fix chiều cao k cân đối giữa các menu-item
+    line-height: 1.8rem;
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }
