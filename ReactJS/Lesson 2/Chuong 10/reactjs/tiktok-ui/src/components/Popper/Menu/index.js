@@ -55,8 +55,9 @@ function Menu({ children, items = [], onChange = defaultFunc }) {
     return (
         <Tippy
             interactive
-            // visible
+            visible
             delay={[0, 700]}
+            offset={[12, 8]} //offset[x, y] | x: chiều ngang, y chiều cao
             placement="bottom-end" //chỉnh vị trí của Tippy
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex={-1}>

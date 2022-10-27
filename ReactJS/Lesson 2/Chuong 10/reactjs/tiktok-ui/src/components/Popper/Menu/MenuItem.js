@@ -11,8 +11,13 @@ function MenuItem({ data, onClick }) {
     // return <button>{data.title}</button>;
     // return <button>{JSON.stringify(data)}</button>;
 
+    const classes = cx('menu-item', {
+        // thêm class separate khi mà data có separate
+        separate: data.separate,
+    });
+
     return (
-        <Button className={cx('menu-item')} leftIcon={data.icon} to={data.to} onClick={onClick}>
+        <Button className={classes} leftIcon={data.icon} to={data.to} onClick={onClick}>
             {data.title}
         </Button>
     );

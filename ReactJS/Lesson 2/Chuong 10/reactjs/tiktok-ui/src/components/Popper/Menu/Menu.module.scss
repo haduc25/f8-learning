@@ -25,6 +25,14 @@
     padding: 11px 16px;
     // thêm line-height fix chiều cao k cân đối giữa các menu-item
     line-height: 1.8rem;
+    font-weight: 600;
+
+    // separate
+    &.separate {
+        border-top: 1px solid rgba(22, 24, 35, 0.12);
+    }
+
+    // hover
     &:hover {
         background-color: rgba(22, 24, 35, 0.03);
     }

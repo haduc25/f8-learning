@@ -156,6 +156,7 @@ const userMenu = [
         icon: <FontAwesomeIcon icon={faSignOut} />,
         title: 'Log out',
         to: '/logout',
+        separate: true, //vạch border-top
     },
 ];
 
