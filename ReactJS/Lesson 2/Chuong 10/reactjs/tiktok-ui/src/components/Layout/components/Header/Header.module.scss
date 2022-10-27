@@ -134,6 +134,18 @@
 }
 
 //  ==> actions
+.actions {
+    display: flex;
+    align-items: center;
+}
+
+.actions-btn {
+    color: #161823;
+    font-size: 2.2rem;
+    background-color: transparent;
+    padding: 4px 12px;
+}
+
 // custom text
 .custom-login {
     color: rgba(22, 24, 35, 0.75);

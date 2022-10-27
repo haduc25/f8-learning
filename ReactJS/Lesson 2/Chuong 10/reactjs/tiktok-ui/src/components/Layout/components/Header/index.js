@@ -12,7 +12,9 @@ import {
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
+    faPlus,
 } from '@fortawesome/free-solid-svg-icons';
+import { faMessage } from '@fortawesome/free-regular-svg-icons';
 
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import styles from './Header.module.scss';
@@ -133,6 +135,9 @@ function Header() {
         }, 0);
     }, []);
 
+    // currentUser
+    const currentUser = true;
+
     // handleMenuChange | Handle Logic
     const handleMenuChange = (menuItem) => {
         console.log(menuItem);
@@ -153,7 +158,6 @@ function Header() {
             <div className={cx('inner')}>
                 {/* Logo */}
                 <img src={images.logo} alt="Tiktok" />
-
                 {/* Search */}
                 <Tippy
                     interactive //interactive : it can be hovered over or clicked without hiding.
@@ -191,53 +195,78 @@ function Header() {
 
                 {/* Actions */}
                 <div className={cx('actions')}>
-                    {/* <Button primary onClick={() => alert('Hello bro!')}>Login</Button> */}
-                    {/* <Button primary to="./login">Login</Button> */}
-                    {/* <Button primary href="https://www.youtube.com/25sdev" target="_blank">Login</Button> */}
+                    {/* Logic: Nếu có currentUser => lấy thông tin của currentUser ngược lại render ra đăng nhập */}
+                    {currentUser ? (
+                        <>
+                            <button className={cx('actions-btn')}>
+                                <FontAwesomeIcon icon={faPlus} />
+                            </button>
+                            <button className={cx('actions-btn')}>
+                                <FontAwesomeIcon icon={faMessage} />
+                            </button>
+                        </>
+                    ) : (
+                        <>
+                            {/* <Button primary onClick={() => alert('Hello bro!')}>Login</Button> */}
+                            {/* <Button primary to="./login">Login</Button> */}
+                            {/* <Button primary href="https://www.youtube.com/25sdev" target="_blank">Login</Button> */}
 
-                    {/* <Button primary>Login</Button> */}
-                    {/* <Button outline>Login</Button> */}
+                            {/* <Button primary>Login</Button> */}
+                            {/* <Button outline>Login</Button> */}
 
-                    {/* size mặc đinh là medium */}
-                    {/* <Button outline small>Login</Button> */}
-                    {/* <Button outline large>Login</Button> */}
+                            {/* size mặc đinh là medium */}
+                            {/* <Button outline small>Login</Button> */}
+                            {/* <Button outline large>Login</Button> */}
 
-                    {/* <Button primary>Login</Button> */}
-                    {/* <Button outline>Register</Button> */}
+                            {/* <Button primary>Login</Button> */}
+                            {/* <Button outline>Register</Button> */}
 
-                    {/* Text old version */}
-                    {/* <Button text>Upload</Button> */}
-                    {/* <Button primary>Login</Button> */}
+                            {/* Text old version */}
+                            {/* <Button text>Upload</Button> */}
+                            {/* <Button primary>Login</Button> */}
 
-                    {/* Disabled */}
-                    {/* <Button primary disabled>Login</Button> */}
-                    {/* <Button primary disabled onClick={() => alert('Hello bro!')}>Login</Button> */}
-                    {/* <Button primary disabled onClick={() => alert('Hello bro!')} onMouseUp={() => console.log('Up')}>Login</Button> */}
-                    {/* <Button primary onClick={() => alert('Hello bro!')} onMouseUp={() => console.log('Up')}>Login</Button> */}
+                            {/* Disabled */}
+                            {/* <Button primary disabled>Login</Button> */}
+                            {/* <Button primary disabled onClick={() => alert('Hello bro!')}>Login</Button> */}
+                            {/* <Button primary disabled onClick={() => alert('Hello bro!')} onMouseUp={() => console.log('Up')}>Login</Button> */}
+                            {/* <Button primary onClick={() => alert('Hello bro!')} onMouseUp={() => console.log('Up')}>Login</Button> */}
 
-                    {/* Rounded */}
-                    {/* <Button rounded>Login</Button> */}
+                            {/* Rounded */}
+                            {/* <Button rounded>Login</Button> */}
 
-                    {/* Primary + Rounded & Outline + Rounded */}
-                    {/* <Button primary rounded>Login</Button> */}
-                    {/* <Button outline rounded>Login</Button> */}
+                            {/* Primary + Rounded & Outline + Rounded */}
+                            {/* <Button primary rounded>Login</Button> */}
+                            {/* <Button outline rounded>Login</Button> */}
 
-                    {/* Custom style */}
-                    {/* <Button rounded className={cx('custom-login')}>Login</Button> */}
+                            {/* Custom style */}
+                            {/* <Button rounded className={cx('custom-login')}>Login</Button> */}
 
-                    {/* Icon Left & Right */}
-                    {/* <Button primary leftIcon={<FontAwesomeIcon icon={faSignIn} />}>Login</Button> */}
-                    {/* <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>Login</Button> */}
+                            {/* Icon Left & Right */}
+                            {/* <Button primary leftIcon={<FontAwesomeIcon icon={faSignIn} />}>Login</Button> */}
+                            {/* <Button primary rightIcon={<FontAwesomeIcon icon={faSignIn} />}>Login</Button> */}
 
-                    {/* Căn giữa lại text -> trong file scss */}
-                    <Button text>Upload</Button>
-                    <Button primary>Login</Button>
+                            {/* Căn giữa lại text -> trong file scss */}
+                            <Button text>Upload</Button>
+                            <Button primary>Login</Button>
+                        </>
+                    )}
 
                     <Menu items={MENU_ITEMS} onChange={handleMenuChange}>
-                        {/* see more icon */}
-                        <button className={cx('more-btn')}>
-                            <FontAwesomeIcon icon={faEllipsisVertical} />
-                        </button>
+                        {/* Logic: Check currentUser để xem hiện avatar hay dấu more-btn */}
+                        {currentUser ? (
+                            <img
+                                className={cx('user-avatar')}
+                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f89b316574f8f0ab300e20d4b7ff6a29~c5_100x100.jpeg?x-expires=1667030400&x-signature=nycDqbhu%2Bp0SIOy13dBN1dNwKFk%3D"
+                                alt="Đào Lê Phương Hoa"
+                            />
+                        ) : (
+                            <>
+                                {/* see more icon */}
+                                <button className={cx('more-btn')}>
+                                    <FontAwesomeIcon icon={faEllipsisVertical} />
+                                </button>
+                            </>
+                        )}
                     </Menu>
                 </div>
             </div>

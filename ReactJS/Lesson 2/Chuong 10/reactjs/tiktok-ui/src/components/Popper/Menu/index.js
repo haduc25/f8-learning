@@ -77,6 +77,10 @@ function Menu({ children, items = [], onChange = defaultFunc }) {
                     </PopperWrapper>
                 </div>
             )}
+            // khi ẩn => set vể phần tử đầu tiên
+            onHide={() => {
+                setHistory((prev) => prev.slice(0, 1));
+            }}
         >
             {children}
         </Tippy>
