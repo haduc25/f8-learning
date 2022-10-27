@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react';
 import classNames from 'classnames/bind';
-import Tippy from '@tippyjs/react/headless';
-// import 'tippy.js/dist/tippy.css'; // optional
+import Tippy from '@tippyjs/react';
+import HeadlessTippy from '@tippyjs/react/headless';
+import 'tippy.js/dist/tippy.css'; // optional
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleXmark,
@@ -159,7 +160,7 @@ function Header() {
                 {/* Logo */}
                 <img src={images.logo} alt="Tiktok" />
                 {/* Search */}
-                <Tippy
+                <HeadlessTippy
                     interactive //interactive : it can be hovered over or clicked without hiding.
                     // Logic(visible): Nếu có kq => return true => show result
                     visible={searchResult.length > 0}
@@ -191,19 +192,21 @@ function Header() {
                             <FontAwesomeIcon icon={faMagnifyingGlass} />
                         </button>
                     </div>
-                </Tippy>
+                </HeadlessTippy>
 
                 {/* Actions */}
                 <div className={cx('actions')}>
                     {/* Logic: Nếu có currentUser => lấy thông tin của currentUser ngược lại render ra đăng nhập */}
                     {currentUser ? (
                         <>
-                            <button className={cx('actions-btn')}>
-                                <FontAwesomeIcon icon={faPlus} />
-                            </button>
-                            <button className={cx('actions-btn')}>
+                            <Tippy content="Upload video" placement="bottom" trigger="click">
+                                <button className={cx('actions-btn')}>
+                                    <FontAwesomeIcon icon={faPlus} />
+                                </button>
+                            </Tippy>
+                            {/* <button className={cx('actions-btn')}>
                                 <FontAwesomeIcon icon={faMessage} />
-                            </button>
+                            </button> */}
                         </>
                     ) : (
                         <>
