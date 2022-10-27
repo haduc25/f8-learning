@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
 
@@ -9,10 +10,41 @@ import styles from './Menu.module.scss';
 const cx = classNames.bind(styles);
 
 function Menu({ children, items = [] }) {
+    // lịch sử đi vào trang / default trang đầu tiên của menu
+    const [history, setHistory] = useState([{ data: items }]);
+    // console.log(history); //0 : {data: Array(3)} / đang có 1 phần tử
+
+    // lấy phần tử cuối / => lấy data ra
+    const current = history[history.length - 1];
+    // console.log('current: ', current);
+    console.log('current data: ', current.data);
+    // console.log('items: ', items);
+    // console.log('1. history.length: ', history.length); //1
+
     // render
     const renderItems = () => {
-        // dùng map()
-        return items.map((item, index) => <MenuItem key={index} data={item} />);
+        // dùng map() / thay thế items = current.data
+        return current.data.map((item, index) => {
+            // kt xem pt nào là parent
+            // covert obj => booleam | mặc định có dl return obj & k có return undefined => true/false
+            const isParent = !!item.children;
+
+            return (
+                <MenuItem
+                    key={index}
+                    data={item}
+                    onClick={() => {
+                        if (isParent) {
+                            console.log(item.children); //return {title: 'Language', data: Array(2)}
+                            // console.log('2. history.length: ', history.length); //1
+
+                            // push thêm dl vào array
+                            setHistory((prev) => [...prev, item.children]); //bảo lưu array cũ => add array mới => re-render
+                        }
+                    }}
+                />
+            );
+        });
     };
 
     return (
@@ -25,7 +57,17 @@ function Menu({ children, items = [] }) {
                 <div className={cx('menu-list')} tabIndex={-1}>
                     {/* Custom PopperWrapper: đang có padding-top: 8px => giờ cần custom thêm padding-bottom: 8px*/}
                     <PopperWrapper className={cx('menu-popper')}>
-                        <Header title={'Language'} />
+                        {/* Logic: Nếu có 2 item => k ở trang 1 => show | khi vào children => history.length > 1 => show */}
+                        {history.length > 1 && (
+                            <Header
+                                title={'Language'}
+                                onBack={() => {
+                                    // Logic: current lúc nào cũng lấy phàn tử cuối => xóa phần tử cuối là lùi về 1 cấp
+                                    // dùng slice(): cát từ phần tử số 0 đến phàn tử gần cuối
+                                    setHistory((prev) => prev.splice(0, prev.length - 1));
+                                }}
+                            />
+                        )}
                         {renderItems()}
                     </PopperWrapper>
                 </div>
