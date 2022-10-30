@@ -1,35 +1,28 @@
-import { useEffect, useState } from 'react';
-import classNames from 'classnames/bind';
-import Tippy from '@tippyjs/react';
-import HeadlessTippy from '@tippyjs/react/headless';
-import 'tippy.js/dist/tippy.css'; // optional
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
 import {
-    faCircleXmark,
-    faSpinner,
+    faCircleQuestion,
+    faEarthAsia,
     // faMagnifyingGlass,
     // faSignIn,
     faEllipsisVertical,
-    faEarthAsia,
-    faCircleQuestion,
+    faGear,
     faKeyboard,
+    faSignOut,
+    faUser,
     // faPlus,
     faVideo,
-    faGear,
-    faUser,
-    faSignOut,
 } from '@fortawesome/free-solid-svg-icons';
-import { faMessage } from '@fortawesome/free-regular-svg-icons';
-import { faBitcoin } from '@fortawesome/free-brands-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import Tippy from '@tippyjs/react';
+import classNames from 'classnames/bind';
+import 'tippy.js/dist/tippy.css'; // optional
 
-import { Wrapper as PopperWrapper } from '~/components/Popper';
-import styles from './Header.module.scss';
 import images from '~/assets/images';
-import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
-import Menu from '~/components/Popper/Menu';
-import { InboxIcon, MessageIcon, UploadIcon, SearchIcon } from '~/components/Icons';
+import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
+import Menu from '~/components/Popper/Menu';
+import styles from './Header.module.scss';
 
 // tạo biến cx
 const cx = classNames.bind(styles); //dùng method bind()
@@ -163,20 +156,8 @@ const userMenu = [
 ];
 
 function Header() {
-    // Search Result, default = array
-    const [searchResult, setSearchResult] = useState([]);
-
     // currentUser
     const currentUser = true;
-
-    // Fake API
-    useEffect(() => {
-        // // sau 3s => set lai result
-        setTimeout(() => {
-            // setSearchResult([1, 2, 3]);
-            setSearchResult([]);
-        }, 0);
-    }, []);
 
     // handleMenuChange | Handle Logic
     const handleMenuChange = (menuItem) => {
@@ -199,40 +180,6 @@ function Header() {
                 {/* Logo */}
                 <img src={images.logo} alt="Tiktok" />
                 {/* Search */}
-                <HeadlessTippy
-                    interactive //interactive : it can be hovered over or clicked without hiding.
-                    // Logic(visible): Nếu có kq => return true => show result
-                    visible={searchResult.length > 0}
-                    render={(attrs) => (
-                        <div className={cx('search-result')} tabIndex={-1}>
-                            <PopperWrapper>
-                                {/* search-title */}
-                                <h4 className={cx('search-title')}>Accounts</h4>
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                                <AccountItem />
-                            </PopperWrapper>
-                        </div>
-                    )}
-                >
-                    <div className={cx('search')}>
-                        <input placeholder="Search accounts and videos" spellCheck={false} />
-                        {/* Clear */}
-                        <button className={cx('clear')}>
-                            <FontAwesomeIcon icon={faCircleXmark} />
-                        </button>
-                        {/* Loading */}
-                        <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />
-                        {/* Search Button*/}
-
-                        <button className={cx('search-btn')}>
-                            {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
-                            <SearchIcon />
-                        </button>
-                    </div>
-                </HeadlessTippy>
 
                 {/* Actions */}
                 <div className={cx('actions')}>
