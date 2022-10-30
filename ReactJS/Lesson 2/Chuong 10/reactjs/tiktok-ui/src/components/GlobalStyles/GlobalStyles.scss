@@ -1,9 +1,12 @@
 //import lib
 @import 'normalize.css';
+
+/** Phần này tạm bỏ vì đã nhúng fonts bên dưới
 // fonts.google //case 1
 @import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&display=swap');
 //case 2
 @import url('http://fonts.cdnfonts.com/css/proxima-nova-2');
+*/
 
 :root {
     --primary: #fe2c55;
@@ -28,11 +31,14 @@ html {
 }
 
 body {
+    /** tạm bỏ vì bên dưới đã nhúng font
     // font 1
     font-family: 'Open Sans', sans-serif;
     // font 2
     font-family: 'Proxima Nova', sans-serif;
+    */
 
+    font-family: 'ProximaNova', sans-serif; //font từ folder fonts
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;
@@ -51,6 +57,35 @@ input,
 a[href] {
     color: var(--text-color);
     text-decoration: none;
+}
+
+// Fonts emmbeded
+// Regular
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Regular.woff2');
+    font-weight: 400;
+}
+
+//Semibold
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/ProximaNova-Semibold.woff2');
+    font-weight: 600;
+}
+
+// Bold
+@font-face {
+    font-family: ProximaNova;
+    src: url('/assets/fonts/Proxima-Nova-Bold.woff');
+    font-weight: 700;
+}
+
+// SofiaPro - Bold
+@font-face {
+    font-family: SofiaPro;
+    src: url('/assets/fonts/sofiapro-bold.woff2');
+    font-weight: 700;
 }
 
 // Custom Tippy Tooltip
