@@ -16,14 +16,26 @@ import styles from './Image.module.scss';
 
 // case 2: Dùng forwardRef
 
-const Image = forwardRef(({ src, alt, className, ...props }, ref) => {
+const Image = forwardRef(({ src, alt, className, fallback: customFallback = images.noImage, ...props }, ref) => {
     // fallback: khi lỗi / default = ''
     const [fallback, setFallback] = useState('');
 
     // handleError
     const handleError = () => {
         // Khi link image bị lỗi
-        setFallback(images.noImage);
+        // setFallback(images.noImage);
+        setFallback(customFallback);
+
+        /**
+         * - Nhận fallback từ ngoài vào bị trùng tên => có 2 cách xử lý
+         * 1. Đổi tên 'fallback' của useState() => _fallback / quy ước '_fallback' chỉ dùng troing component
+         * 2. Đổi tên 'fallback' truyền từ ngoài vào = ES6
+         * //Before: src, alt, className, fallback, ...props
+         * //After: src, alt, className, fallback: customFallback, ...props
+         *
+         * => customFallback = images.noImage
+         * - mặc đinh nếu k có 'fallback' từ ngoài truyền vào => lấy 'noImage'
+         */
     };
 
     return (
