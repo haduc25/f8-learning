@@ -7,13 +7,13 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import {
     faCircleXmark,
     faSpinner,
-    faMagnifyingGlass,
-    faSignIn,
+    // faMagnifyingGlass,
+    // faSignIn,
     faEllipsisVertical,
     faEarthAsia,
     faCircleQuestion,
     faKeyboard,
-    faPlus,
+    // faPlus,
     faVideo,
     faGear,
     faUser,
@@ -29,6 +29,7 @@ import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
 import { InboxIcon, MessageIcon, UploadIcon, SearchIcon } from '~/components/Icons';
+import Image from '~/components/Image';
 
 // tạo biến cx
 const cx = classNames.bind(styles); //dùng method bind()
@@ -267,7 +268,7 @@ function Header() {
                             >
                                 <button className={cx('actions-btn')}>
                                     <InboxIcon />
-                                    <span className={cx('badge')}>12</span>
+                                    <span className={cx('badge')}>99</span>
                                 </button>
                             </Tippy>
                         </>
@@ -321,9 +322,10 @@ function Header() {
                     <Menu items={currentUser ? userMenu : MENU_ITEMS} onChange={handleMenuChange}>
                         {/* Logic: Check currentUser để xem hiện avatar hay dấu more-btn */}
                         {currentUser ? (
-                            <img
+                            <Image
                                 className={cx('user-avatar')}
-                                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f89b316574f8f0ab300e20d4b7ff6a29~c5_100x100.jpeg?x-expires=1667030400&x-signature=nycDqbhu%2Bp0SIOy13dBN1dNwKFk%3D"
+                                src="link nay bi loi roi"
+                                // src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f89b316574f8f0ab300e20d4b7ff6a29~c5_100x100.jpeg?x-expires=1667030400&x-signature=nycDqbhu%2Bp0SIOy13dBN1dNwKFk%3D"
                                 alt="Đào Lê Phương Hoa"
                             />
                         ) : (
