@@ -23,6 +23,7 @@ import { InboxIcon, MessageIcon, UploadIcon } from '~/components/Icons';
 import Image from '~/components/Image';
 import Menu from '~/components/Popper/Menu';
 import styles from './Header.module.scss';
+import Search from '../Search';
 
 // tạo biến cx
 const cx = classNames.bind(styles); //dùng method bind()
@@ -180,6 +181,7 @@ function Header() {
                 {/* Logo */}
                 <img src={images.logo} alt="Tiktok" />
                 {/* Search */}
+                <Search />
 
                 {/* Actions */}
                 <div className={cx('actions')}>

@@ -1,0 +1,103 @@
+// Search
+.search,
+.search-result {
+    width: 361px;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    width: 361px;
+    height: var(--search-height);
+    background-color: rgba(22, 24, 35, 0.06);
+    border-radius: var(--search-border-radius);
+    // padding: 0 16px; //chỉ cho padding bên trái
+    padding-left: 16px;
+    border: 1.5px solid transparent;
+
+    // input
+    input {
+        flex: 1; // cho input tràn ra
+        // padding: 12px 0; //case 1 - cho input to hơn
+        height: 100%; //case 2 - cho input to hơn
+        font-size: 1.6rem;
+        color: #161823; //video: #828282 / var(--black)
+        background-color: transparent; //transparent trong suốt
+        caret-color: var(--primary); //caret-color cái thanh nhấp nháy khi focus vào input :>
+    }
+
+    // input /
+    /**
+     * Logic: Khi k có placeholder-shown => code trong đc active & chuyển hướng sang (~) .search-btn
+     * Selector: ~
+     * // element1~element2	p ~ ul	Selects every <ul> element that is preceded by a <p> element
+     * // Link: https://www.w3schools.com/cssref/css_selectors.php
+     * // => từ input select cho .search-btn
+    */
+    input:not(:placeholder-shown) ~ .search-btn {
+        color: rgba(22, 24, 35, 0.75);
+    }
+
+    // after
+    &::after {
+        content: '';
+        position: absolute;
+        top: var(--search-top-spacer);
+        right: var(--search-button-width); //right = width: 52px; trong search-btn
+        height: calc(var(--search-height) - var(--search-top-spacer) * 2); //46px - (9px * 2) => spacer
+        width: 1px;
+        background-color: rgba(22, 24, 35, 0.12);
+    }
+
+    // :focus-within
+    // Link: https://developer.mozilla.org/en-US/docs/Web/CSS/:focus-within
+
+    &:focus-within {
+        // khi input đc focus -> code trong này đc active
+        border-color: rgba(22, 24, 35, 0.2);
+    }
+}
+
+.search-title {
+    padding: 5px 12px;
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: rgba(22, 24, 35, 0.5);
+}
+
+.clear,
+.loading {
+    position: absolute;
+    right: calc(
+        var(--search-button-width) + 16px
+    ); //cách ra 52px -> vì cái btn + 16px => có tăng width thì sẽ tự cách ra 16px
+    // căn giữa (trên, dưới)
+    top: 50%;
+    transform: translateY(-50%); //translateY() chiều cao -50% => căn đc giữa
+    color: rgba(22, 24, 35, 0.34);
+}
+
+.search-btn {
+    width: var(--search-button-width);
+    height: 100%;
+
+    // border-radius cho btn | top/bottom
+    // border-radius: top-left top-right bottom-right bottom-left;
+    border-radius: 0 var(--search-border-radius) var(--search-border-radius) 0;
+    // border: 2px solid #000; //for checking
+
+    // set cho icon
+    font-size: 1.8rem;
+    color: rgba(22, 24, 35, 0.34);
+
+    // hover
+    &:hover {
+        background-color: rgba(22, 24, 35, 0.03);
+        cursor: pointer;
+    }
+
+    // active
+    &:active {
+        background-color: rgba(22, 24, 35, 0.06);
+    }
+}
