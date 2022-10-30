@@ -16,6 +16,8 @@ function Search() {
     const [searchValue, setSearchValue] = useState('');
     // Search Result, default = array
     const [searchResult, setSearchResult] = useState([]);
+    // Show result: thể hiện trang thái có đang focus hay k, default = true
+    const [showResult, setShowResult] = useState(true);
 
     const inputRef = useRef();
 
@@ -30,11 +32,28 @@ function Search() {
         }, 0);
     }, []);
 
+    // handleClear
+    const handleClear = () => {
+        setSearchValue(''); //set lại value / xóa kq text input
+        setSearchResult([]); //set lại kq tìm kiếm
+        inputRef.current.focus(); //focus
+    };
+
+    // handleHideResult
+    const handleHideResult = () => {
+        setShowResult(false); //hide result
+    };
+
     return (
         <HeadlessTippy
             interactive //interactive : it can be hovered over or clicked without hiding.
             // Logic(visible): Nếu có kq => return true => show result
-            visible={searchResult.length > 0}
+            visible={showResult && searchResult.length > 0}
+            /** showResult && searchResult.length > 0
+             *  có 2 đk: showResult default = true
+             *  - vì khi lần đầu truy cập vào website searchResult sẽ k có gì  => searchResult.length = 0
+             * - khi tìm kiếm có kq => set lại showResult
+             */
             render={(attrs) => (
                 <div className={cx('search-result')} tabIndex={-1}>
                     <PopperWrapper>
@@ -47,6 +66,11 @@ function Search() {
                     </PopperWrapper>
                 </div>
             )}
+            onClickOutside={handleHideResult}
+
+            /**onClickOutside
+             * - bấm ra ngoài khu vực của Tippy => gọi onClickOutside
+             */
         >
             <div className={cx('search')}>
                 <input
@@ -55,6 +79,7 @@ function Search() {
                     placeholder="Search accounts and videos"
                     spellCheck={false}
                     onChange={(e) => setSearchValue(e.target.value)} //set lai value
+                    onFocus={() => setShowResult(true)} //show result
                 />
 
                 {/* Clear */}
@@ -62,13 +87,7 @@ function Search() {
                     /** !!searchValue: Convert sang boolean
                      * Logic Khi có searchValue mới hiển thị nút Clear
                      */
-                    <button
-                        className={cx('clear')}
-                        onClick={() => {
-                            setSearchValue(''); //set lại value
-                            inputRef.current.focus(); //focus
-                        }}
-                    >
+                    <button className={cx('clear')} onClick={handleClear}>
                         <FontAwesomeIcon icon={faCircleXmark} />
                     </button>
                 )}
