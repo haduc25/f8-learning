@@ -18,6 +18,9 @@
     --default-layout-header-height: 60px;
     --default-layout-width: 1150px;
     --default-layout-horizontal-spacer: 24px;
+
+    // Default Font
+    --font-family: 'ProximaNova', sans-serif;
 }
 
 html {
@@ -38,7 +41,7 @@ body {
     font-family: 'Proxima Nova', sans-serif;
     */
 
-    font-family: 'ProximaNova', sans-serif; //font từ folder fonts
+    font-family: var(--font-family); //font từ folder fonts
     font-size: 1.6rem;
     line-height: 1.5;
     text-rendering: optimizeSpeed;

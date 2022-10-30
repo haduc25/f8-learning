@@ -28,6 +28,7 @@ import images from '~/assets/images';
 import AccountItem from '~/components/AccountItem';
 import Button from '~/components/Button';
 import Menu from '~/components/Popper/Menu';
+import { InboxIcon, MessageIcon, UploadIcon, SearchIcon } from '~/components/Icons';
 
 // tạo biến cx
 const cx = classNames.bind(styles); //dùng method bind()
@@ -226,7 +227,8 @@ function Header() {
                         {/* Search Button*/}
 
                         <button className={cx('search-btn')}>
-                            <FontAwesomeIcon icon={faMagnifyingGlass} />
+                            {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
+                            <SearchIcon />
                         </button>
                     </div>
                 </HeadlessTippy>
@@ -243,12 +245,31 @@ function Header() {
                                 // trigger="click"
                             >
                                 <button className={cx('actions-btn')}>
-                                    <FontAwesomeIcon icon={faPlus} />
+                                    {/* <FontAwesomeIcon icon={faPlus} /> */}
+                                    <UploadIcon />
                                 </button>
                             </Tippy>
-                            {/* <button className={cx('actions-btn')}>
-                                <FontAwesomeIcon icon={faMessage} />
-                            </button> */}
+                            <Tippy
+                                delay={[0, 200]}
+                                content="Messages"
+                                placement="bottom"
+                                // trigger="click"
+                            >
+                                <button className={cx('actions-btn')}>
+                                    <MessageIcon />
+                                </button>
+                            </Tippy>
+                            <Tippy
+                                delay={[0, 200]}
+                                content="Inbox"
+                                placement="bottom"
+                                // trigger="click"
+                            >
+                                <button className={cx('actions-btn')}>
+                                    <InboxIcon />
+                                    <span className={cx('badge')}>12</span>
+                                </button>
+                            </Tippy>
                         </>
                     ) : (
                         <>
