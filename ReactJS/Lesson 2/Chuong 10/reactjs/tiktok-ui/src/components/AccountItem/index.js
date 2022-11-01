@@ -6,25 +6,21 @@ import styles from './AccountItem.module.scss';
 
 const cx = classNames.bind(styles);
 
-function AccountItem() {
+function AccountItem({ data }) {
     return (
         <div className={cx('wrapper')}>
             {/* avatar */}
-            <Image
-                className={cx('avatar')}
-                src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f89b316574f8f0ab300e20d4b7ff6a29~c5_100x100.jpeg?x-expires=1666850400&x-signature=MjlKCFqdUbbDlfkiRr5ujqSUrDM%3D"
-                alt="Hoa"
-            />
+            <Image className={cx('avatar')} src={data.avatar} alt={data.full_name} />
             {/* info */}
             <div className={cx('info')}>
                 {/* name */}
                 <h4 className={cx('name')}>
-                    <span>Đào Lê Phương Hoa</span>
-                    {/* check icon */}
-                    <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+                    <span>{data.full_name}</span>
+                    {/* check icon thêm logic check tink true/false */}
+                    {data.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
                 </h4>
                 {/* username */}
-                <span className={cx('username')}>@hoaa.hanassii</span>
+                <span className={cx('username')}>{data.nickname}</span>
             </div>
         </div>
     );

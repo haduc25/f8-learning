@@ -23,14 +23,26 @@ function Search() {
 
     console.log(searchValue);
 
-    // Fake API
+    // Fake API, Call API, deps = searchValue
     useEffect(() => {
-        // // sau 3s => set lai result
-        setTimeout(() => {
-            setSearchResult([1, 2, 3]);
-            // setSearchResult([]);
-        }, 0);
-    }, []);
+        // // Fake Api
+        // // // sau 3s => set lai result
+        // setTimeout(() => {
+        //     setSearchResult([1, 2, 3]);
+        //     // setSearchResult([]);
+        // }, 0);
+
+        // Call api
+        fetch('https://tiktok.fullstack.edu.vn/api/users/search?q=c&type=less')
+            .then((res) => res.json())
+            .then((res) => {
+                // console.log(res);
+                // console.log(res.data);
+
+                // set lai array setSearchResult
+                setSearchResult(res.data);
+            });
+    }, [searchValue]);
 
     // handleClear
     const handleClear = () => {
@@ -59,10 +71,11 @@ function Search() {
                     <PopperWrapper>
                         {/* search-title */}
                         <h4 className={cx('search-title')}>Accounts</h4>
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
-                        <AccountItem />
+                        {/* render dl từ API */}
+                        {searchResult.map((result) => (
+                            <AccountItem key={result.id} data={result} />
+                            // truyền obj vào trong vs props là data
+                        ))}
                     </PopperWrapper>
                 </div>
             )}
