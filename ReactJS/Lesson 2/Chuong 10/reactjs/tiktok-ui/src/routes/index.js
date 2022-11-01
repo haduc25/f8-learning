@@ -19,7 +19,7 @@ const publicRoutes = [
     //Dùng cho nhưng router k cần đăng nhập vẫn xem được
     { path: '/', component: Home },
     { path: '/following', component: Following },
-    { path: '/profile', component: Profile },
+    { path: '/@:nickname', component: Profile }, //@ là ký tự muốn matches cố địnb, :nickname là patten có thể thay đổi
     { path: '/upload', component: Upload, layout: HeaderOnly },
     { path: '/search', component: Search, layout: null },
 ];
