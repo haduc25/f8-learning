@@ -77,6 +77,26 @@
     color: rgba(22, 24, 35, 0.34);
 }
 
+.loading {
+    /** animation: spinner 0.8s linear infinite ;
+        - thời gian quay: 0.8s
+        - quay đều: linear
+        - quay vô hạn: infinite
+    */
+    animation: spinner 0.6s linear infinite;
+}
+
+@keyframes spinner {
+    //thêm translateY(-50%) => để k bị ghi đè
+    from {
+        transform: translateY(-50%) rotate(0);
+    }
+
+    to {
+        transform: translateY(-50%) rotate(360deg); //quay tròn
+    }
+}
+
 .search-btn {
     width: var(--search-button-width);
     height: 100%;

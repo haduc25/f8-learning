@@ -18,6 +18,8 @@ function Search() {
     const [searchResult, setSearchResult] = useState([]);
     // Show result: thể hiện trang thái có đang focus hay k, default = true
     const [showResult, setShowResult] = useState(true);
+    // Loading, default = false, vì ban đầu k loading
+    const [loading, setLoading] = useState(false);
 
     const inputRef = useRef();
 
@@ -32,8 +34,17 @@ function Search() {
         //     // setSearchResult([]);
         // }, 0);
 
-        // Call api
-        fetch('https://tiktok.fullstack.edu.vn/api/users/search?q=c&type=less')
+        // check searchValue rỗng or k cớ
+        if (!searchValue.trim()) {
+            setSearchResult([]); // Khi k có dl gì => xóa => set lại array
+            return; //cho thoát khỏi hàm
+        }
+
+        // Loading trước khi gọi API
+        setLoading(true);
+
+        // Call api / encodeURIComponent(): Mã hóa sang định dạng cho URL, để có thể nhập đc các ký tự như @&?...
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
             .then((res) => res.json())
             .then((res) => {
                 // console.log(res);
@@ -41,6 +52,13 @@ function Search() {
 
                 // set lai array setSearchResult
                 setSearchResult(res.data);
+
+                // Gọi xong loading  = fasle
+                setLoading(false);
+            })
+            .catch(() => {
+                // lỗi: mất mạng...
+                setLoading(false);
             });
     }, [searchValue]);
 
@@ -96,16 +114,19 @@ function Search() {
                 />
 
                 {/* Clear */}
-                {!!searchValue && (
+                {!!searchValue && !loading && (
                     /** !!searchValue: Convert sang boolean
                      * Logic Khi có searchValue mới hiển thị nút Clear
+                     * Nếu có value nhưng k có loading => show
                      */
                     <button className={cx('clear')} onClick={handleClear}>
                         <FontAwesomeIcon icon={faCircleXmark} />
                     </button>
                 )}
-                {/* Loading */}
-                {/* <FontAwesomeIcon className={cx('loading')} icon={faSpinner} /> */}
+
+                {/* Loading / Logic: Nếu có loading => show */}
+                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+
                 {/* Search Button*/}
 
                 <button className={cx('search-btn')}>
