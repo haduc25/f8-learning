@@ -124,6 +124,7 @@ function Search() {
         */
 
         // Dùng Axios import từ file 'utils/request' dùng custom get / async - await
+        /**
         request
             .get('users/search', {
                 params: {
@@ -138,6 +139,31 @@ function Search() {
             .catch(() => {
                 setLoading(false);
             });
+        */
+
+        // Dùng Async/Await trong useEffect()
+        // fetchApi
+        const fetchApi = async () => {
+            // Chuyển đổi từ Promise -> Async/Await
+            // Await luôn ở trước Promise
+
+            try {
+                // nhận res
+                const res = await request.get('users/search', {
+                    params: {
+                        q: debounced,
+                        type: 'less',
+                    },
+                });
+                // khi nào await xong mởi chạy bên dưới này
+                setSearchResult(res.data);
+                setLoading(false);
+            } catch (error) {
+                console.log(error);
+                setLoading(false);
+            }
+        };
+        fetchApi();
     }, [debounced]);
 
     // handleClear
