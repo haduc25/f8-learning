@@ -1,4 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
+import axios from 'axios';
 import classNames from 'classnames/bind';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
@@ -59,6 +60,8 @@ function Search() {
         // Loading trước khi gọi API
         setLoading(true);
 
+        // Fetch
+        /**
         // Call api / encodeURIComponent(): Mã hóa sang định dạng cho URL, để có thể nhập đc các ký tự như @&?...
         fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
             .then((res) => res.json())
@@ -74,6 +77,27 @@ function Search() {
             })
             .catch(() => {
                 // lỗi: mất mạng...
+                setLoading(false);
+            });
+        */
+
+        // Dùng Axios
+        axios
+            .get('https://tiktok.fullstack.edu.vn/api/users/search', {
+                params: {
+                    q: debounced,
+                    type: 'less',
+                },
+            })
+            .then((res) => {
+                // console.log(res); //{data: {…}, status: 200, statusText: '', headers: AxiosHeaders, config: {…}, …}
+                // console.log(res.data.data);
+                // console.log(res.status, res.config.params, res.config.url); //200 {q: 'mwo', type: 'less'} 'https://tiktok.fullstack.edu.vn/api/users/search'
+
+                setSearchResult(res.data.data);
+                setLoading(false);
+            })
+            .catch(() => {
                 setLoading(false);
             });
     }, [debounced]);
