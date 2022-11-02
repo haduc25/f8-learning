@@ -1,10 +1,12 @@
 import { useEffect, useState, useRef } from 'react';
-import axios from 'axios';
+// import axios from 'axios';
 import classNames from 'classnames/bind';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
+// import request from '~/utils/request';
+import * as request from '~/utils/request'; //lấy hết các export lẻ (get, port, push...)
 import { SearchIcon } from '~/components/Icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
@@ -60,7 +62,7 @@ function Search() {
         // Loading trước khi gọi API
         setLoading(true);
 
-        // Fetch
+        // Dùng Fetch
         /**
         // Call api / encodeURIComponent(): Mã hóa sang định dạng cho URL, để có thể nhập đc các ký tự như @&?...
         fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
@@ -82,6 +84,7 @@ function Search() {
         */
 
         // Dùng Axios
+        /** Tạm tắt import Axios ở đầu 
         axios
             .get('https://tiktok.fullstack.edu.vn/api/users/search', {
                 params: {
@@ -95,6 +98,41 @@ function Search() {
                 // console.log(res.status, res.config.params, res.config.url); //200 {q: 'mwo', type: 'less'} 'https://tiktok.fullstack.edu.vn/api/users/search'
 
                 setSearchResult(res.data.data);
+                setLoading(false);
+            })
+            .catch(() => {
+                setLoading(false);
+            });
+        */
+
+        // Dùng Axios import từ file 'utils/request'
+        /**
+        request
+            .get('users/search', {
+                params: {
+                    q: debounced,
+                    type: 'less',
+                },
+            })
+            .then((res) => {
+                setSearchResult(res.data.data);
+                setLoading(false);
+            })
+            .catch(() => {
+                setLoading(false);
+            });
+        */
+
+        // Dùng Axios import từ file 'utils/request' dùng custom get / async - await
+        request
+            .get('users/search', {
+                params: {
+                    q: debounced,
+                    type: 'less',
+                },
+            })
+            .then((res) => {
+                setSearchResult(res.data); //giống trên mà đoạn này bỏ đc cái .data / :>
                 setLoading(false);
             })
             .catch(() => {
