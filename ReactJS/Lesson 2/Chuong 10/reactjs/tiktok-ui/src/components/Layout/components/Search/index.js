@@ -1,12 +1,13 @@
 import { useEffect, useState, useRef } from 'react';
-// import axios from 'axios';
+// import axios from 'axios'; //đã chuyển vào file: utils>request.js
 import classNames from 'classnames/bind';
 import HeadlessTippy from '@tippyjs/react/headless';
 import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // import request from '~/utils/request';
-import * as request from '~/utils/request'; //lấy hết các export lẻ (get, port, push...)
+// import * as request from '~/utils/request'; //lấy hết các export lẻ (get, port, push...) //đã chuyển vào file: apiServices>searchServices.js
+import * as searchServices from '~/apiServices/searchServices';
 import { SearchIcon } from '~/components/Icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
@@ -60,7 +61,7 @@ function Search() {
         }
 
         // Loading trước khi gọi API
-        setLoading(true);
+        // setLoading(true); //tạm tắt ở vd: Dùng Async/Await trong useEffect() file: apiServices>searchServices.js
 
         // Dùng Fetch
         /**
@@ -141,7 +142,8 @@ function Search() {
             });
         */
 
-        // Dùng Async/Await trong useEffect()
+        // Dùng Async/Await trong useEffect() / đã chuyển vào file: apiServices>searchServices.js
+        /** 
         // fetchApi
         const fetchApi = async () => {
             // Chuyển đổi từ Promise -> Async/Await
@@ -162,6 +164,18 @@ function Search() {
                 console.log(error);
                 setLoading(false);
             }
+        };
+        fetchApi();
+        */
+
+        // Dùng Async/Await trong useEffect() file: apiServices>searchServices.js | tạm tắt setLoading(true); mấy bài trên cần mở ra
+        const fetchApi = async () => {
+            setLoading(true);
+
+            const result = await searchServices.search(debounced); //type có default = less => k cần truyền
+            setSearchResult(result);
+
+            setLoading(false);
         };
         fetchApi();
     }, [debounced]);
