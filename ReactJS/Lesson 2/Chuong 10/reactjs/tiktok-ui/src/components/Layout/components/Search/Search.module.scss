@@ -21,6 +21,7 @@
         // padding: 12px 0; //case 1 - cho input to hơn
         height: 100%; //case 2 - cho input to hơn
         font-size: 1.6rem;
+        font-family: var(--font-family);
         color: #161823; //video: #828282 / var(--black)
         background-color: transparent; //transparent trong suốt
         caret-color: var(--primary); //caret-color cái thanh nhấp nháy khi focus vào input :>

@@ -1,5 +1,7 @@
 // 5. Đưa cấu hình routes ra ngoài
 
+import routesConfig from '~/config/routes';
+
 // Layout
 import { HeaderOnly } from '~/components/Layout';
 
@@ -17,11 +19,11 @@ import Search from '~/pages/Search';
 // Public Routes
 const publicRoutes = [
     //Dùng cho nhưng router k cần đăng nhập vẫn xem được
-    { path: '/', component: Home },
-    { path: '/following', component: Following },
-    { path: '/@:nickname', component: Profile }, //@ là ký tự muốn matches cố địnb, :nickname là patten có thể thay đổi
-    { path: '/upload', component: Upload, layout: HeaderOnly },
-    { path: '/search', component: Search, layout: null },
+    { path: routesConfig.home, component: Home },
+    { path: routesConfig.following, component: Following },
+    { path: routesConfig.profile, component: Profile }, //@ là ký tự muốn matches cố địnb, :nickname là patten có thể thay đổi
+    { path: routesConfig.upload, component: Upload, layout: HeaderOnly },
+    { path: routesConfig.search, component: Search, layout: null },
 ];
 
 // Private Routes
