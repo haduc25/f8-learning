@@ -2,212 +2,286 @@
 <html lang="en">
 
 <head>
-   <meta charset="UTF-8">
-   <meta http-equiv="X-UA-Compatible" content="IE=edge">
-   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-   <title>Lesson 2 (Chương 10)</title>
-   <link rel="stylesheet" href="./style.css">
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Lesson 2 (Chương 10)</title>
+      <link rel="stylesheet" href="./style.css">
 </head>
 
 <body>
 
-   <h1 id="heading" class="headingClass">ReactJS Learning...</h1>
+      <h1 id="heading" class="headingClass">ReactJS Learning...</h1>
 
-   <!-- Coming to bottom page -->
-   <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">Go to Topfrag</button>
-   <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">Go to Botfrag</button>
+      <!-- Coming to bottom page -->
+      <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">Go to Topfrag</button>
+      <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">Go to Botfrag</button>
 
-   <!-- Chương 10 -->
-   <h2>Chương 10. Xây dựng phần Header<h2>
-         <div class="containers">
-            <ul class="parent">
-               <!-- PARENT START -->
+      <!-- Chương 10 -->
+      <h2>Chương 10. Xây dựng phần Header<h2>
+                  <div class="containers">
+                        <ul class="parent">
+                              <!-- PARENT START -->
 
-               <li>96 - Dựng khung Layout mặc định</li>
-               <ul class="children">
-                  <li>Youtube: <a href="https://youtu.be/hcVakSLZgrY" target="_blank">ReactJS - Learning, Chill Music
-                        //[23/10/2022] #40</a></li>
-                  <li>Youtube: <a href="https://youtu.be/ly2EEzOITJU" target="_blank">ReactJS - Learning, Chill Music
-                        //[23/10/2022] #41</a></li>
-                  <li>Youtube: <a href="https://youtu.be/8xkG1folbDM" target="_blank">ReactJS - Learning, Chill Music,
-                        Reaction Lalisa, Money //[24/10/2022] #42</a></li>
-                  <br>
-                  <li>Cài thư viện classnames (root ~ reactjs/tiktok-ui): <code>npm i classnames</code></li>
-                  <br>
-               </ul>
+                              <li>96 - Dựng khung Layout mặc định</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/hcVakSLZgrY" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[23/10/2022] #40</a></li>
+                                    <li>Youtube: <a href="https://youtu.be/ly2EEzOITJU" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[23/10/2022] #41</a></li>
+                                    <li>Youtube: <a href="https://youtu.be/8xkG1folbDM" target="_blank">ReactJS -
+                                                Learning, Chill Music,
+                                                Reaction Lalisa, Money //[24/10/2022] #42</a></li>
+                                    <br>
+                                    <li>Cài thư viện classnames (root ~ reactjs/tiktok-ui):
+                                          <code>npm i classnames</code>
+                                    </li>
+                                    <br>
+                              </ul>
 
 
 
-               <li>97 - Xây dựng UI phần Header #1</li>
-               <ul class="children">
-                  <li>Youtube: <a href="https://youtu.be/8xkG1folbDM" target="_blank">ReactJS - Learning, Chill Music,
-                        Reaction Lalisa, Money //[24/10/2022] #42</a></li>
-                  <li>Youtube: <a href="https://youtu.be/LomC5FOCbo8" target="_blank">ReactJS - Learning, Chill Music
-                        //[24/10/2022] #43</a></li>
-                  <li>Youtube: <a href="https://youtu.be/-a0W-avGdec" target="_blank">ReactJS - Learning, Chill Music
-                        //[24/10/2022] #44</a></li>
-                  <li>Youtube: <a href="https://youtu.be/VTalaw84Pd4" target="_blank">ReactJS - Learning, Chill Music,
-                        Học online Học Máy //[24/10/2022] #45</a></li>
-                  <li>Youtube: <a href="https://youtu.be/CsuEXiz3a58" target="_blank">ReactJS - Learning, Chill Music
-                        //[25/10/2022] #46</a></li>
-                  <br>
-                  <li>Font Icon (F8) <br>
-                     <code>
+                              <li>97 - Xây dựng UI phần Header #1</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/8xkG1folbDM" target="_blank">ReactJS -
+                                                Learning, Chill Music,
+                                                Reaction Lalisa, Money //[24/10/2022] #42</a></li>
+                                    <li>Youtube: <a href="https://youtu.be/LomC5FOCbo8" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[24/10/2022] #43</a></li>
+                                    <li>Youtube: <a href="https://youtu.be/-a0W-avGdec" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[24/10/2022] #44</a></li>
+                                    <li>Youtube: <a href="https://youtu.be/VTalaw84Pd4" target="_blank">ReactJS -
+                                                Learning, Chill Music,
+                                                Học online Học Máy //[24/10/2022] #45</a></li>
+                                    <li>Youtube: <a href="https://youtu.be/CsuEXiz3a58" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[25/10/2022] #46</a></li>
+                                    <br>
+                                    <li>Font Icon (F8) <br>
+                                          <code>
                         "@fortawesome/fontawesome-svg-core": "^1.3.0",
                         "@fortawesome/free-brands-svg-icons": "^6.0.0",
                         "@fortawesome/free-regular-svg-icons": "^6.0.0",
                         "@fortawesome/free-solid-svg-icons": "^6.0.0",
                         "@fortawesome/react-fontawesome": "^0.1.17",
                      </code>
-                  </li>
-                  <br>
-                  <li><code>npm i</code></li>
+                                    </li>
+                                    <br>
+                                    <li><code>npm i</code></li>
 
-                  <br>
-               </ul>
+                                    <br>
+                              </ul>
 
 
 
-               <li>98 - Xây dựng UI phần Header #2</li>
-               <ul class="children">
-                  <li>Youtube: <a href="https://youtu.be/CsuEXiz3a58" target="_blank">ReactJS - Learning, Chill Music
-                        //[25/10/2022] #46</a></li>
-                  <li>Youtube: <a href="https://youtu.be/td4G9FqrPeg" target="_blank">ReactJS - Learning, Chill Music
-                        //[25/10/2022] #47</a></li>
-                  <li>Youtube: <a href="https://youtu.be/mtfL3r9AtoQ" target="_blank">ReactJS - Learning, Chill Music
-                        //[25/10/2022] #48</a></li>
-                  <li>Youtube (Record): <a href="https://youtu.be/kjhpW1ivVf8" target="_blank">ReactJS - Learning, Chill
-                        Music, Mạng Lag //[25/10/2022] #49</a></li>
-                  <br>
-                  <li>Keyword: <a href="https://github.com/atomiks/tippyjs" target="_blank">tippy js github
-                        (github.com)</a></li>
-                  <li>Keyword: <a href="https://github.com/atomiks/tippyjs-react" target="_blank">tippyjs-react
-                        (github.com)</a></li>
-                  <li>Keyword: <a href="https://popper.js.org/" target="_blank">popper js (popper.js.org)</a></li>
-                  <li>Keyword: <a href="https://atomiks.github.io/tippyjs/v5/all-props/" target="_blank">tippy react
-                        props (atomiks.github.io)</a></li>
-                  <li>Keyword: <a href="https://github.com/atomiks/tippyjs-react#default-tippy" target="_blank">Default
-                        Tippy (github.com)</a></li>
-                  <li>Keyword: <a href="https://github.com/atomiks/tippyjs-react#headless-tippy"
-                        target="_blank">Headless Tippy (github.com)</a></li>
-                  <li>Keyword: <a href="https://github.com/atomiks/tippyjs-react#visible-boolean-controlled-mode"
-                        target="_blank">visible?: boolean (controlled mode) (github.com)</a></li>
-                  <li>Keyword: <a href="https://atomiks.github.io/tippyjs/v5/all-props/" target="_blank">interactive
-                        (atomiks.github.io)</a></li>
-                  <br>
-                  <li>Installation (TippyJS-ReactJS)</li>
-                  <ul>
-                     <li class="small-txt"><code>npm i @tippyjs/react</code></li>
-                     <li class="small-txt">Mở file package.json để check = terminal <code>cat package.json</code></li>
-                  </ul>
-                  <li>Tips: Muốn xem css của Element nếu ấn vào tự tắt</li>
-                  <ul>
-                     <li class="small-txt">1. Devtool > Console</li>
-                     <li class="small-txt">2.
-                        <code>
+                              <li>98 - Xây dựng UI phần Header #2</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/CsuEXiz3a58" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[25/10/2022] #46</a></li>
+                                    <li>Youtube: <a href="https://youtu.be/td4G9FqrPeg" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[25/10/2022] #47</a></li>
+                                    <li>Youtube: <a href="https://youtu.be/mtfL3r9AtoQ" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[25/10/2022] #48</a></li>
+                                    <li>Youtube (Record): <a href="https://youtu.be/kjhpW1ivVf8" target="_blank">ReactJS
+                                                - Learning, Chill
+                                                Music, Mạng Lag //[25/10/2022] #49</a></li>
+                                    <br>
+                                    <li>Keyword: <a href="https://github.com/atomiks/tippyjs" target="_blank">tippy js
+                                                github
+                                                (github.com)</a></li>
+                                    <li>Keyword: <a href="https://github.com/atomiks/tippyjs-react"
+                                                target="_blank">tippyjs-react
+                                                (github.com)</a></li>
+                                    <li>Keyword: <a href="https://popper.js.org/" target="_blank">popper js
+                                                (popper.js.org)</a></li>
+                                    <li>Keyword: <a href="https://atomiks.github.io/tippyjs/v5/all-props/"
+                                                target="_blank">tippy react
+                                                props (atomiks.github.io)</a></li>
+                                    <li>Keyword: <a href="https://github.com/atomiks/tippyjs-react#default-tippy"
+                                                target="_blank">Default
+                                                Tippy (github.com)</a></li>
+                                    <li>Keyword: <a href="https://github.com/atomiks/tippyjs-react#headless-tippy"
+                                                target="_blank">Headless Tippy (github.com)</a></li>
+                                    <li>Keyword: <a
+                                                href="https://github.com/atomiks/tippyjs-react#visible-boolean-controlled-mode"
+                                                target="_blank">visible?: boolean (controlled mode) (github.com)</a>
+                                    </li>
+                                    <li>Keyword: <a href="https://atomiks.github.io/tippyjs/v5/all-props/"
+                                                target="_blank">interactive
+                                                (atomiks.github.io)</a></li>
+                                    <br>
+                                    <li>Installation (TippyJS-ReactJS)</li>
+                                    <ul>
+                                          <li class="small-txt"><code>npm i @tippyjs/react</code></li>
+                                          <li class="small-txt">Mở file package.json để check = terminal
+                                                <code>cat package.json</code>
+                                          </li>
+                                    </ul>
+                                    <li>Tips: Muốn xem css của Element nếu ấn vào tự tắt</li>
+                                    <ul>
+                                          <li class="small-txt">1. Devtool > Console</li>
+                                          <li class="small-txt">2.
+                                                <code>
                            setTimeout(()=>{
                               debugger
                           }, 5000)
                         </code>
-                     </li>
-                  </ul>
-                  <br>
-               </ul>
+                                          </li>
+                                    </ul>
+                                    <br>
+                              </ul>
 
 
-               <li>99 - Xây dựng UI phần Header #3</li>
-               <ul class="children">
-                  <li>Youtube: <a href="https://youtu.be/jiDQnLcL280" target="_blank">ReactJS - Learning, Chill Music
-                        //[26/10/2022] #50</a></li>
-                  <br>
-               </ul>
+                              <li>99 - Xây dựng UI phần Header #3</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/jiDQnLcL280" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[26/10/2022] #50</a></li>
+                                    <br>
+                              </ul>
 
 
-               <li>100 - Xây dựng UI phần Header #4</li>
-               <ul class="children">
-                  <li>Youtube: <a href="https://youtu.be/pfsjZkWMFzs" target="_blank">ReactJS - Learning, Chill Music
-                        //[26/10/2022] #51</a></li>
-                  <br>
-               </ul>
+                              <li>100 - Xây dựng UI phần Header #4</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/pfsjZkWMFzs" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[26/10/2022] #51</a></li>
+                                    <br>
+                              </ul>
 
 
-               <li>101 - Xây dựng UI phần Header #5</li>
-               <ul class="children">
-                  <li>Youtube: <a href="https://youtu.be/8epnnl9HN1I" target="_blank">ReactJS - Learning, Chill Music
-                        //[27/10/2022] #52</a></li>
-                  <br>
-               </ul>
+                              <li>101 - Xây dựng UI phần Header #5</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/8epnnl9HN1I" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[27/10/2022] #52</a></li>
+                                    <br>
+                              </ul>
 
 
-               <li>102 - Xây dựng UI phần Header #6</li>
-               <ul class="children">
-                  <li>Youtube: <a href="https://youtu.be/ANw5sZcEapY" target="_blank">ReactJS - Learning, Chill Music
-                        //[27/10/2022] #53</a></li>
-                  <br>
-               </ul>
+                              <li>102 - Xây dựng UI phần Header #6</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/ANw5sZcEapY" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[27/10/2022] #53</a></li>
+                                    <br>
+                              </ul>
 
 
-               <li>103 - Xây dựng UI phần Header #7</li>
-               <ul class="children">
-                  <li>Youtube: <a href="https://youtu.be/6lW7T_kCML0" target="_blank">ReactJS - Learning, Chill Music
-                        //[30/10/2022] #54</a></li>
-                  <br>
-                  <li>Tạo image online - Keyword: <a href="https://placeholder.imageonline.co/"
-                        target="_blank">placeholder create online (placeholder.imageonline.co)</a></li>
-                  <li>Giảm dung lượng image - Keyword: <a href="https://tinypng.com/" target="_blank">tinypng
-                        (tinypng.com)</a></li>
-                  <br>
-               </ul>
+                              <li>103 - Xây dựng UI phần Header #7</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/6lW7T_kCML0" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[30/10/2022] #54</a></li>
+                                    <br>
+                                    <li>Tạo image online - Keyword: <a href="https://placeholder.imageonline.co/"
+                                                target="_blank">placeholder create online
+                                                (placeholder.imageonline.co)</a></li>
+                                    <li>Giảm dung lượng image - Keyword: <a href="https://tinypng.com/"
+                                                target="_blank">tinypng
+                                                (tinypng.com)</a></li>
+                                    <br>
+                              </ul>
 
 
-               <li>104 - Xây dựng Logic phần Header #1</li>
-               <ul class="children">
-                  <li>Youtube: <a href="https://youtu.be/6lW7T_kCML0" target="_blank">ReactJS - Learning, Chill Music
-                        //[30/10/2022] #54</a></li>
-                  <br>
-                  <li><code>onClickOutside</code></li>
-               </ul>
+                              <li>104 - Xây dựng Logic phần Header #1</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/6lW7T_kCML0" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[30/10/2022] #54</a></li>
+                                    <br>
+                                    <li><code>onClickOutside</code></li>
+                              </ul>
 
 
-               <li>105 - Xây dựng Logic phần Header #2</li>
-               <ul class="children">
-                  <li>Youtube: <a href="https://youtu.be/6lW7T_kCML0" target="_blank">ReactJS - Learning, Chill Music
-                        //[01/11/2022] #55</a></li>
-                  <li>Keyword: <a
-                        href="https://www.google.com/search?q=query+prameter&rlz=1C1KNTJ_enVN1024VN1024&oq=query+prameter&aqs=chrome..69i57j0i13i512l5j0i13i30l4.3456j0j7&sourceid=chrome&ie=UTF-8"
-                        target="_blank">query parameter - tham số truy vấn dữ liệu (google.com)</a></li>
-                  <br>
-               </ul>
+                              <li>105 - Xây dựng Logic phần Header #2</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/6lW7T_kCML0" target="_blank">ReactJS -
+                                                Learning, Chill Music
+                                                //[01/11/2022] #55</a></li>
+                                    <li>Keyword: <a
+                                                href="https://www.google.com/search?q=query+prameter&rlz=1C1KNTJ_enVN1024VN1024&oq=query+prameter&aqs=chrome..69i57j0i13i512l5j0i13i30l4.3456j0j7&sourceid=chrome&ie=UTF-8"
+                                                target="_blank">query parameter - tham số truy vấn dữ liệu
+                                                (google.com)</a></li>
+                                    <br>
+                              </ul>
 
 
-               <!-- PARENT END -->
-            </ul>
-         </div>
+                              <li>106 - Xây dựng Logic phần Header #3</li>
+                              <ul class="children">
+                                    <li>Youtube: <a href="https://youtu.be/s5WS80n6Rdw" target="_blank">ReactJS -
+                                                Learning, Chill Music//[02/11/2022] #56</a></li>
+                                    <li>Keyword: <a href="https://codestus.com/posts/debounce-la-gi-trong-javascript"
+                                                target="_blank">Debounce
+                                                (codestus.com)</a></li>
+                                    <li>Debounce là gì trong javascript?</li>
+                                    <ul>
+                                          <li class="small-txt">- debounce() là kỹ thuật buộc một hàm phải đợi một
+                                                khoảng thời gian nhất định trước khi thực thi. Trong khoản thời gian
+                                                đợi, mọi tác động sẽ đều bị bỏ qua và chỉ nhận duy nhất 1 hành động diễn
+                                                ra trong thời gian chúng ta định trước.</li>
+                                    </ul>
+                                    <li>Keyword: <a
+                                                href="https://www.freecodecamp.org/news/javascript-debounce-example/"
+                                                target="_blank">Debounce js
+                                                (freecodecamp.org)</a></li>
+                                    <br>
+                                    <li>Debounce – How to Delay a Function in JavaScript (JS ES6 Example)</li>
+                                    <ul>
+                                          <li class="small-txt">[?] What is debounce?</li>
+                                          <li class="small-txt">
+                                                - The term debounce comes from electronics. When you’re pressing a
+                                                button, let’s say on your TV remote, the signal travels to the microchip
+                                                of the remote so quickly that before you manage to release the button,
+                                                it bounces, and the microchip registers your “click” multiple times.
+                                          </li>
+                                          <li class="small-txt">[?] Debounce in JavaScript</li>
+                                          <li class="small-txt">- In JavaScript, the use case is similar. We want to
+                                                trigger a function, but only once per use case.</li>
+                                          <li class="small-txt">- Let's say that we want to show suggestions for a
+                                                search query, but only after a visitor has finished typing it.</li>
+                                          <li class="small-txt">- Or we want to save changes on a form, but only when
+                                                the user is not actively working on those changes, as every "save" costs
+                                                us a database trip.</li>
+                                    </ul>
+                              </ul>
+
+
+                              <!-- PARENT END -->
+                        </ul>
+                  </div>
 
 
 
 
 
-         <!-- Something has same value -->
-         <div class="div-source-and-server">
-            <ul>
-               <li><a href="./reactjs/tiktok-ui/src/App.js" target="_blank">Source code from AppJS</a>
-               </li>
-               <br>
-               <li><a href="http://localhost:3000/" target="_blank">Server
-                     ReactJS Running</a></li>
-               <br>
-               <li><a href="./reactjs/tiktok-ui/src/Main.js" target="_blank">Main.js</a></li>
-               <br>
-               <li class="small-txt terminal" onclick="copyNow(this)">
-                  <code>cd "ReactJS/Lesson 2/Chuong 10/reactjs/tiktok-ui"</code>
-               </li>
-               <br>
-               <li class="small-txt terminal" onclick="copyNow(this)">
-                  <code>cd "reactjs/tiktok-ui"</code>
-               </li>
-            </ul>
-         </div>
+                  <!-- Something has same value -->
+                  <div class="div-source-and-server">
+                        <ul>
+                              <li><a href="./reactjs/tiktok-ui/src/App.js" target="_blank">Source code from AppJS</a>
+                              </li>
+                              <br>
+                              <li><a href="http://localhost:3000/" target="_blank">Server
+                                          ReactJS Running</a></li>
+                              <br>
+                              <li><a href="./reactjs/tiktok-ui/src/Main.js" target="_blank">Main.js</a></li>
+                              <br>
+                              <li class="small-txt terminal" onclick="copyNow(this)">
+                                    <code>cd "ReactJS/Lesson 2/Chuong 10/reactjs/tiktok-ui"</code>
+                              </li>
+                              <br>
+                              <li class="small-txt terminal" onclick="copyNow(this)">
+                                    <code>cd "reactjs/tiktok-ui"</code>
+                              </li>
+                        </ul>
+                  </div>
 </body>
 <script src="./main.js"></script>
 

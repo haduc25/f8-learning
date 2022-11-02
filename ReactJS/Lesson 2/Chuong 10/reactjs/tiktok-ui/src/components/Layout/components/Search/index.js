@@ -7,6 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { SearchIcon } from '~/components/Icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
+import { useDebounce } from '~/hooks';
 import styles from './Search.module.scss';
 
 const cx = classNames.bind(styles);
@@ -25,6 +26,21 @@ function Search() {
 
     console.log(searchValue);
 
+    // useDebounce
+    /** useDebounce cách hoạt động
+     *   1. Lần 1 comp chạy xong => debounced có giá trị là 1 chuỗi rỗng ('') // do chuỗi rỗng => return
+     *   2. Lần 2 comp chạy xong => debounced có giá trị là ('h')
+     *       // vì initalstate lấy giá trị đầu tiên => debouncedValue k thay đỗi
+     *       // => lọt vào useEffect(file: useDebounce.js) nhưng vì đang gõ liên tục => return debouncedValue => chuỗi rỗng
+     *       // => debounced k thay đổi => k search
+     *   3. Lần 3 comp chạy xong => debounced có giá trị là ('ho') // tương tự lần 2 - khi đang gõ liên tục
+     *   4. Lần 4 comp chạy xong => debounced có giá trị là ('hoa') // khi ngừng gõ => useEffect(file: useDebounce.js)
+     *      // => sau delay ms sau set lại debouncedValue => thành chữ 'hoa' (setDebouncedValue(value))
+     *      // => return ra debouncedValue = 'hoa' => debounced = 'hoa' => vào useEffect(file: Search) => gửi đi API
+     */
+    // Logic: Khi user ngừng gõ 'delay' ms => debounced mới đc update = giá trị mới nhất của searchValue
+    const debounced = useDebounce(searchValue, 600); //delay: 500 ~ 800
+
     // Fake API, Call API, deps = searchValue
     useEffect(() => {
         // // Fake Api
@@ -34,8 +50,8 @@ function Search() {
         //     // setSearchResult([]);
         // }, 0);
 
-        // check searchValue rỗng or k cớ
-        if (!searchValue.trim()) {
+        // check debounced rỗng or k có
+        if (!debounced.trim()) {
             setSearchResult([]); // Khi k có dl gì => xóa => set lại array
             return; //cho thoát khỏi hàm
         }
@@ -44,7 +60,7 @@ function Search() {
         setLoading(true);
 
         // Call api / encodeURIComponent(): Mã hóa sang định dạng cho URL, để có thể nhập đc các ký tự như @&?...
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(searchValue)}&type=less`)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
             .then((res) => res.json())
             .then((res) => {
                 // console.log(res);
@@ -60,7 +76,7 @@ function Search() {
                 // lỗi: mất mạng...
                 setLoading(false);
             });
-    }, [searchValue]);
+    }, [debounced]);
 
     // handleClear
     const handleClear = () => {
