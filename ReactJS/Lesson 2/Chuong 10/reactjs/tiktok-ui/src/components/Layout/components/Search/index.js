@@ -192,6 +192,16 @@ function Search() {
         setShowResult(false); //hide result
     };
 
+    // handleChange
+    const handleChange = (e) => {
+        const searchValue = e.target.value;
+        // kt searchValue
+        if (!searchValue.startsWith(' ')) {
+            // Nếu dl nhập vào đầu tiên k là đấu ' ' => set lại value
+            setSearchValue(searchValue);
+        }
+    };
+
     return (
         <HeadlessTippy
             interactive //interactive : it can be hovered over or clicked without hiding.
@@ -227,7 +237,7 @@ function Search() {
                     value={searchValue}
                     placeholder="Search accounts and videos"
                     spellCheck={false}
-                    onChange={(e) => setSearchValue(e.target.value)} //set lai value
+                    onChange={handleChange} //set lai value
                     onFocus={() => setShowResult(true)} //show result
                 />
 
@@ -247,7 +257,7 @@ function Search() {
 
                 {/* Search Button*/}
 
-                <button className={cx('search-btn')}>
+                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
                     {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
                     <SearchIcon />
                 </button>

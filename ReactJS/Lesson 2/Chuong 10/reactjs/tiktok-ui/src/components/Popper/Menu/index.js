@@ -12,7 +12,7 @@ const cx = classNames.bind(styles);
 // tránh trường hợp k truyền onChange
 const defaultFunc = () => {};
 
-function Menu({ children, items = [], onChange = defaultFunc }) {
+function Menu({ children, items = [], hideOnClick = false, onChange = defaultFunc }) {
     // lịch sử đi vào trang / default trang đầu tiên của menu
     const [history, setHistory] = useState([{ data: items }]);
     // console.log(history); //0 : {data: Array(3)} / đang có 1 phần tử
@@ -58,6 +58,7 @@ function Menu({ children, items = [], onChange = defaultFunc }) {
             // visible
             delay={[0, 700]}
             offset={[12, 8]} //offset[x, y] | x: chiều ngang, y chiều cao
+            hideOnClick={hideOnClick}
             placement="bottom-end" //chỉnh vị trí của Tippy
             render={(attrs) => (
                 <div className={cx('menu-list')} tabIndex={-1}>
