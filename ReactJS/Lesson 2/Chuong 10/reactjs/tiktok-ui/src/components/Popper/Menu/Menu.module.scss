@@ -15,6 +15,11 @@
     padding-bottom: 8px;
 }
 
+//menu-scrollable / trong video là menu-body
+.menu-scrollable {
+    overflow-y: auto;
+}
+
 // File: MenuItem.js
 // Menu items
 .menu-item {
@@ -42,7 +47,8 @@
 .header {
     position: relative;
     height: 50px;
-
+    flex-shrink: 0; //do header bị co lại (do Popper>.wrapper dùng flex)
+    // => dùng flex-shrink: 0 để kéo dãn ra
     // fix padding-top mặc định của menu là 8px => thêm margin âm
     margin-top: -8px;
 }

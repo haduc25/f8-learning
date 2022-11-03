@@ -11,6 +11,7 @@
     min-height: 1000px; //có thể xóa đang để demo
     // background-color: #333; //lúc đầu để test có thể xóa
     display: flex;
+    margin-top: var(--default-layout-header-height);
 }
 
 .content {
