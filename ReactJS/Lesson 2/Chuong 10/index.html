@@ -431,10 +431,64 @@
                                           <ul>
                                                 <li class="small-txt">+ apiServices => services</li>
                                                 <li class="small-txt">+ searchServices.js => searchService.js</li>
+                                                <li class="small-txt">+ utils/request.js => utils/httpRequest.js</li>
                                           </ul>
                                           <li class="small-txt">*Change Source & Rename:</li>
                                           <ul>
                                                 <li class="small-txt">+ src/components/Layout => src/layouts</li>
+                                          </ul>
+                                          <li class="small-txt">*Cấu hình lại: routes config:</li>
+                                          <ul>
+                                                <li class="small-txt">+ routesConfig => config.routes</li>
+                                          </ul>
+                                          <li class="small-txt">*Cấu hình lại: export DefaultLayout:</li>
+                                          <ul>
+                                                <li class="small-txt">+ import default | { DefaultLayout } =>
+                                                      DefaultLayout </li>
+                                          </ul>
+                                          <li class="small-txt">*Tạo file .env:</li>
+                                          <ul>
+                                                <li class="small-txt">+ .env => environment / Môi trường</li>
+                                                <li class="small-txt">*Gồm các môi trường như: </li>
+                                                <ul>
+                                                      <li class="small-txt">+ Local / development</li>
+                                                      <li class="small-txt">+ Test / Staging</li>
+                                                      <li class="small-txt">+ UAT / Chạy test nhưng dl ở Production =>
+                                                            Đảm bảo k lỗi khi ở Production</li>
+                                                      <li class="small-txt">+ Production / Người dùng cuối </li>
+                                                </ul>
+                                                <br>
+                                                <li class="small-txt">*Các bước tạo:</li>
+                                                <ul>
+                                                      <li class="small-txt">1. Tại folder gốc (reactjs/tiktok-ui) </li>
+                                                      <li class="small-txt">2. Created file .env.development</li>
+                                                      <li class="small-txt">3. Trong file gồm key & value </li>
+                                                      <li class="small-txt">4. key luôn theo quy ước: REACT_APP_YOURNAME
+                                                      </li>
+                                                      <li class="small-txt">5. K cần dấu '' => env tự hiểu là string
+                                                      </li>
+
+                                                      <li class="small-txt">* Lưu ý:</li>
+                                                      <ul>
+                                                            <li class="small-txt">.env.local: chứa cấu hình chỉ một mình
+                                                                  có / nếu làm trong team nên ignore</li>
+                                                            <li class="small-txt">.env.development: chứa cáu hình cho
+                                                                  dev có thể dùng trong team</li>
+                                                            <li class="small-txt">.env.production: cho người dùng cuối
+                                                            </li>
+                                                            <li class="small-txt">- có thể có nhiều file .env (có thể
+                                                                  tạo song song) có nhiều
+                                                                  dạng đuôi file khác nhau để chạy trên từng môi trường
+                                                                  như (.env.local, .env.development, .env.production,
+                                                                  ...)</li>
+                                                            <li class="small-txt">- nếu có 2 file là: .env,
+                                                                  .env.production mà cấu hình trùng nhau => ưu tiên
+                                                                  .env.production cụ thể</li>
+                                                      </ul>
+                                                </ul>
+                                                <li class="small-txt"></li>
+                                                <li class="small-txt"></li>
+
                                           </ul>
 
                                     </ul>

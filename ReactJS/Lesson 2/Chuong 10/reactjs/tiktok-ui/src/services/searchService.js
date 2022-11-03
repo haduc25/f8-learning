@@ -1,4 +1,4 @@
-import * as request from '~/utils/request'; //lấy hết các export lẻ (get, port, push...)
+import * as httpRequest from '~/utils/httpRequest'; //lấy hết các export lẻ (get, port, push...)
 
 // fetchApi
 export const search = async (q, type = 'less') => {
@@ -7,7 +7,7 @@ export const search = async (q, type = 'less') => {
 
     try {
         // nhận res
-        const res = await request.get('users/search', {
+        const res = await httpRequest.get('users/search', {
             params: {
                 q,
                 type,
