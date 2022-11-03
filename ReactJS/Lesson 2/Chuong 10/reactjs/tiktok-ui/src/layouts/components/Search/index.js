@@ -6,8 +6,8 @@ import { faCircleXmark, faSpinner } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 // import request from '~/utils/request';
-// import * as request from '~/utils/request'; //lấy hết các export lẻ (get, port, push...) //đã chuyển vào file: apiServices>searchServices.js
-import * as searchServices from '~/apiServices/searchServices';
+// import * as request from '~/utils/request'; //lấy hết các export lẻ (get, port, push...) //đã chuyển vào file: services>searchService.js
+import * as searchService from '~/services/searchService';
 import { SearchIcon } from '~/components/Icons';
 import { Wrapper as PopperWrapper } from '~/components/Popper';
 import AccountItem from '~/components/AccountItem';
@@ -61,7 +61,7 @@ function Search() {
         }
 
         // Loading trước khi gọi API
-        // setLoading(true); //tạm tắt ở vd: Dùng Async/Await trong useEffect() file: apiServices>searchServices.js
+        // setLoading(true); //tạm tắt ở vd: Dùng Async/Await trong useEffect() file: services>searchService.js
 
         // Dùng Fetch
         /**
@@ -142,7 +142,7 @@ function Search() {
             });
         */
 
-        // Dùng Async/Await trong useEffect() / đã chuyển vào file: apiServices>searchServices.js
+        // Dùng Async/Await trong useEffect() / đã chuyển vào file: services>searchService.js
         /** 
         // fetchApi
         const fetchApi = async () => {
@@ -168,11 +168,11 @@ function Search() {
         fetchApi();
         */
 
-        // Dùng Async/Await trong useEffect() file: apiServices>searchServices.js | tạm tắt setLoading(true); mấy bài trên cần mở ra
+        // Dùng Async/Await trong useEffect() file: services>searchService.js | tạm tắt setLoading(true); mấy bài trên cần mở ra
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchServices.search(debounced); //type có default = less => k cần truyền
+            const result = await searchService.search(debounced); //type có default = less => k cần truyền
             setSearchResult(result);
 
             setLoading(false);
