@@ -334,15 +334,15 @@
                                           <li class="small-txt">- Xử lý thanh cuộn trong menu đa cấp, khi có nhiều
                                                 content ==> Done</li>
                                           <li class="small-txt">- Thêm style overlay cho thanh cuộn body ==> Done</li>
-                                          <li class="small-txt">- Sửa title trang và update favicon</li>
-                                          <li class="small-txt">- Fix warning thư viện Tippy</li>
+                                          <li class="small-txt">- Sửa title trang và update favicon ==> Done</li>
+                                          <li class="small-txt">- Fix warning thư viện Tippy ==> Done</li>
                                     </ul>
                                     <br>
                                     <li>Keyword: <a
                                                 href="https://www.w3schools.com/howto/howto_css_custom_scrollbar.asp"
                                                 target="_blank">css scrollbar</a></li>
                                     <br>
-                                    <li>*Trick: - Copy luôn từ tiktok</li>
+                                    <li>*Trick & Tips: - Copy luôn từ tiktok (Scrollbar)</li>
                                     <ul>
                                           <li class="small-txt"> 1. go to tiktok.com</li>
                                           <li class="small-txt"> 2. open devtools</li>
@@ -353,6 +353,71 @@
                                           <li class="small-txt"> 5. Copy đến hết style của scrollbar</li>
                                     </ul>
                                     <br>
+                                    <li>*Trick & Tips: - Copy luôn từ tiktok (Logo)</li>
+                                    <ul>
+                                          <li>*Case 1:</li>
+                                          <li class="small-txt"> 1. go to tiktok.com</li>
+                                          <li class="small-txt"> 2. Ctrl + U</li>
+                                          <li class="small-txt"> 3. Checked 'line wrap' > Ctrl + F 'favicon'</li>
+                                          <br>
+                                          <li>*Case 2:</li>
+                                          <li class="small-txt"> 1. go to tiktok.com</li>
+                                          <li class="small-txt"> 2. open devtools</li>
+                                          <li class="small-txt"> 3. ở tab Elements click vào head</li>
+                                          <li class="small-txt"> 4. Ctrl + F 'favicon'</li>
+                                          <br>
+                                          <li>*Case 3:</li>
+                                          <li class="small-txt"> 1. go to tiktok.com</li>
+                                          <li class="small-txt"> 2. open devtools</li>
+                                          <li class="small-txt"> 3. ở tab Network click vào Img</li>
+                                          <li class="small-txt"> 4. trỏ chuột vào icon 'Refresh' > chuột phải vào và
+                                                chọn
+                                                'Empty cache and hard refresh'</li>
+                                          <br>
+                                          <li>*Case 4:</li>
+                                          <li class="small-txt"> 1. go to tiktok.com</li>
+                                          <li class="small-txt"> 2. open devtools</li>
+                                          <li class="small-txt"> 3. ở tab Network click vào Mainfest</li>
+                                          <li class="small-txt"> 4. chọn vào file 'manifest.json' > chuột phải > Open in
+                                                new tab</li>
+                                          <li class="small-txt">- Hoặc vào link lày: <a
+                                                      href="https://www.tiktok.com/manifest.json"
+                                                      target="_blank">https://www.tiktok.com/manifest.json</a>
+                                          </li>
+                                          <li class="small-txt">5. Tìm trong 'src' </li>
+                                          <br>
+                                          <li>*Case 5:</li>
+                                          <li class="small-txt"> 1. Go to: <a href="https://www.tiktok.com/favicon.ico"
+                                                      target="_blank">
+                                                      https://www.tiktok.com/favicon.ico</a></li>
+                                          <li class="small-txt"> 2. Ctrl + S</li>
+                                          <li class="small-txt"> 3. Save vào trong Project > public => Trình duyệt tự
+                                                tải</li>
+                                          <li class="small-txt">- Hoặc vào link lày: <a
+                                                      href="https://lf16-tiktok-web.ttwstatic.com/obj/tiktok-web-common-sg/mtact/static/images/logo_144c91a.png"
+                                                      target="_blank">https://lf16-tiktok-web.ttwstatic.com/obj/tiktok-web-common-sg/mtact/static/images/logo_144c91a.png</a>
+                                          </li>
+                                    </ul>
+                                    <br>
+                                    <li>Tippy Warning:</li>
+                                    <li class="small-txt">- Interactive tippy element may not be accessible via keyboard
+                                          navigation because it is not directly after the reference element in the DOM
+                                          source order. </li>
+                                    <li class="small-txt">- Using a wrapper &lt;div&gt; or &lt;span&gt; tag around the
+                                          reference element solves this by creating a new parentNode context. </li>
+                                    <li class="small-txt">- Specifying `appendTo: document.body` silences this warning,
+                                          but it assumes you are using a focus management solution to handle keyboard
+                                          navigation. </li>
+                                    <li class="small-txt">- See: <a
+                                                href="https://atomiks.github.io/tippyjs/v6/accessibility/#interactivity"
+                                                target="_blank">https://atomiks.github.io/tippyjs/v6/accessibility/#interactivity</a>
+                                    </li>
+                                    <li class="small-txt">- 👷‍ This is a development-only message. It will be removed
+                                          in
+                                          production.</li>
+                                    <br>
+                                    <li>Keywork: <a href="https://atomiks.github.io/tippyjs/v6/all-props/#appendto"
+                                                target="_blank">appendto (atomiks.github.io)</a></li>
                               </ul>
 
 

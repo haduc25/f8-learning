@@ -203,66 +203,71 @@ function Search() {
     };
 
     return (
-        <HeadlessTippy
-            interactive //interactive : it can be hovered over or clicked without hiding.
-            // Logic(visible): Nếu có kq => return true => show result
-            visible={showResult && searchResult.length > 0}
-            /** showResult && searchResult.length > 0
-             *  có 2 đk: showResult default = true
-             *  - vì khi lần đầu truy cập vào website searchResult sẽ k có gì  => searchResult.length = 0
-             * - khi tìm kiếm có kq => set lại showResult
-             */
-            render={(attrs) => (
-                <div className={cx('search-result')} tabIndex={-1}>
-                    <PopperWrapper>
-                        {/* search-title */}
-                        <h4 className={cx('search-title')}>Accounts</h4>
-                        {/* render dl từ API */}
-                        {searchResult.map((result) => (
-                            <AccountItem key={result.id} data={result} />
-                            // truyền obj vào trong vs props là data
-                        ))}
-                    </PopperWrapper>
-                </div>
-            )}
-            onClickOutside={handleHideResult}
-
-            /**onClickOutside
-             * - bấm ra ngoài khu vực của Tippy => gọi onClickOutside
-             */
-        >
-            <div className={cx('search')}>
-                <input
-                    ref={inputRef}
-                    value={searchValue}
-                    placeholder="Search accounts and videos"
-                    spellCheck={false}
-                    onChange={handleChange} //set lai value
-                    onFocus={() => setShowResult(true)} //show result
-                />
-
-                {/* Clear */}
-                {!!searchValue && !loading && (
-                    /** !!searchValue: Convert sang boolean
-                     * Logic Khi có searchValue mới hiển thị nút Clear
-                     * Nếu có value nhưng k có loading => show
-                     */
-                    <button className={cx('clear')} onClick={handleClear}>
-                        <FontAwesomeIcon icon={faCircleXmark} />
-                    </button>
+        // Giải thích cho cái thẻ div thừa bên dưới :>
+        // => Using a wrapper <div> tag around the reference element solves this by creating a new parentNode context.
+        <div>
+            <HeadlessTippy
+                interactive //interactive : it can be hovered over or clicked without hiding.
+                // Logic(visible): Nếu có kq => return true => show result
+                // appendTo={() => document.body} //fix tippy nhưng k dùng cách này vì gây ra bug
+                visible={showResult && searchResult.length > 0}
+                /** showResult && searchResult.length > 0
+                 *  có 2 đk: showResult default = true
+                 *  - vì khi lần đầu truy cập vào website searchResult sẽ k có gì  => searchResult.length = 0
+                 * - khi tìm kiếm có kq => set lại showResult
+                 */
+                render={(attrs) => (
+                    <div className={cx('search-result')} tabIndex={-1}>
+                        <PopperWrapper>
+                            {/* search-title */}
+                            <h4 className={cx('search-title')}>Accounts</h4>
+                            {/* render dl từ API */}
+                            {searchResult.map((result) => (
+                                <AccountItem key={result.id} data={result} />
+                                // truyền obj vào trong vs props là data
+                            ))}
+                        </PopperWrapper>
+                    </div>
                 )}
+                onClickOutside={handleHideResult}
 
-                {/* Loading / Logic: Nếu có loading => show */}
-                {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+                /**onClickOutside
+                 * - bấm ra ngoài khu vực của Tippy => gọi onClickOutside
+                 */
+            >
+                <div className={cx('search')}>
+                    <input
+                        ref={inputRef}
+                        value={searchValue}
+                        placeholder="Search accounts and videos"
+                        spellCheck={false}
+                        onChange={handleChange} //set lai value
+                        onFocus={() => setShowResult(true)} //show result
+                    />
 
-                {/* Search Button*/}
+                    {/* Clear */}
+                    {!!searchValue && !loading && (
+                        /** !!searchValue: Convert sang boolean
+                         * Logic Khi có searchValue mới hiển thị nút Clear
+                         * Nếu có value nhưng k có loading => show
+                         */
+                        <button className={cx('clear')} onClick={handleClear}>
+                            <FontAwesomeIcon icon={faCircleXmark} />
+                        </button>
+                    )}
 
-                <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
-                    {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
-                    <SearchIcon />
-                </button>
-            </div>
-        </HeadlessTippy>
+                    {/* Loading / Logic: Nếu có loading => show */}
+                    {loading && <FontAwesomeIcon className={cx('loading')} icon={faSpinner} />}
+
+                    {/* Search Button*/}
+
+                    <button className={cx('search-btn')} onMouseDown={(e) => e.preventDefault()}>
+                        {/* <FontAwesomeIcon icon={faMagnifyingGlass} /> */}
+                        <SearchIcon />
+                    </button>
+                </div>
+            </HeadlessTippy>
+        </div>
     );
 }
 
