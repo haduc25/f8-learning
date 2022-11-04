@@ -19,6 +19,7 @@
     input {
         flex: 1; // cho input tràn ra
         // padding: 12px 0; //case 1 - cho input to hơn
+        padding-right: 40px; //cách ra cho text k bị dính vào btn-clear khi quá dài
         height: 100%; //case 2 - cho input to hơn
         font-size: 1.6rem;
         font-family: var(--font-family);

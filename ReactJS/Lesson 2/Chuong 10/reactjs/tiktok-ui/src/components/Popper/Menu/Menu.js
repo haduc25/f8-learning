@@ -55,6 +55,35 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFun
         });
     };
 
+    // handleBack
+    const handleBack = () => {
+        // Logic: current lúc nào cũng lấy phàn tử cuối => xóa phần tử cuối là lùi về 1 cấp
+        // dùng slice(): cát từ phần tử số 0 đến phàn tử gần cuối
+        setHistory((prev) => prev.splice(0, prev.length - 1));
+    };
+
+    // renderResult
+    const renderResult = (attrs) => (
+        <div className={cx('menu-list')} tabIndex={-1}>
+            {/* Custom PopperWrapper: đang có padding-top: 8px => giờ cần custom thêm padding-bottom: 8px*/}
+            <PopperWrapper className={cx('menu-popper')}>
+                {/* Logic: Nếu có 2 item => k ở trang 1 => show | khi vào children => history.length > 1 => show */}
+                {history.length > 1 && (
+                    <Header
+                        title={current.title} //khi ấn vào menu mới hiện title
+                        onBack={handleBack}
+                    />
+                )}
+                <div className={cx('menu-scrollable')}> {renderItems()}</div>
+            </PopperWrapper>
+        </div>
+    );
+
+    // handleReset / Reset to First Page
+    const handleReset = () => {
+        setHistory((prev) => prev.slice(0, 1));
+    };
+
     return (
         <Tippy
             interactive
@@ -63,29 +92,9 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFun
             offset={[12, 8]} //offset[x, y] | x: chiều ngang, y chiều cao
             hideOnClick={hideOnClick}
             placement="bottom-end" //chỉnh vị trí của Tippy
-            render={(attrs) => (
-                <div className={cx('menu-list')} tabIndex={-1}>
-                    {/* Custom PopperWrapper: đang có padding-top: 8px => giờ cần custom thêm padding-bottom: 8px*/}
-                    <PopperWrapper className={cx('menu-popper')}>
-                        {/* Logic: Nếu có 2 item => k ở trang 1 => show | khi vào children => history.length > 1 => show */}
-                        {history.length > 1 && (
-                            <Header
-                                title={current.title} //khi ấn vào menu mới hiện title
-                                onBack={() => {
-                                    // Logic: current lúc nào cũng lấy phàn tử cuối => xóa phần tử cuối là lùi về 1 cấp
-                                    // dùng slice(): cát từ phần tử số 0 đến phàn tử gần cuối
-                                    setHistory((prev) => prev.splice(0, prev.length - 1));
-                                }}
-                            />
-                        )}
-                        <div className={cx('menu-scrollable')}> {renderItems()}</div>
-                    </PopperWrapper>
-                </div>
-            )}
+            render={renderResult}
             // khi ẩn => set vể phần tử đầu tiên
-            onHide={() => {
-                setHistory((prev) => prev.slice(0, 1));
-            }}
+            onHide={handleReset}
         >
             {children}
         </Tippy>

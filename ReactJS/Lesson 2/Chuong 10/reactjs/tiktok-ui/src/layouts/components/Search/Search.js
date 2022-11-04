@@ -22,7 +22,7 @@ function Search() {
     // Search Result, default = array
     const [searchResult, setSearchResult] = useState([]);
     // Show result: thể hiện trang thái có đang focus hay k, default = true
-    const [showResult, setShowResult] = useState(true);
+    const [showResult, setShowResult] = useState(false);
     // Loading, default = false, vì ban đầu k loading
     const [loading, setLoading] = useState(false);
 
@@ -43,7 +43,7 @@ function Search() {
      *      // => return ra debouncedValue = 'hoa' => debounced = 'hoa' => vào useEffect(file: Search) => gửi đi API
      */
     // Logic: Khi user ngừng gõ 'delay' ms => debounced mới đc update = giá trị mới nhất của searchValue
-    const debounced = useDebounce(searchValue, 600); //delay: 500 ~ 800
+    const debouncedValue = useDebounce(searchValue, 600); //delay: 500 ~ 800
 
     // Fake API, Call API, deps = searchValue
     useEffect(() => {
@@ -54,8 +54,8 @@ function Search() {
         //     // setSearchResult([]);
         // }, 0);
 
-        // check debounced rỗng or k có
-        if (!debounced.trim()) {
+        // check debouncedValue rỗng or k có
+        if (!debouncedValue.trim()) {
             setSearchResult([]); // Khi k có dl gì => xóa => set lại array
             return; //cho thoát khỏi hàm
         }
@@ -66,7 +66,7 @@ function Search() {
         // Dùng Fetch
         /**
         // Call api / encodeURIComponent(): Mã hóa sang định dạng cho URL, để có thể nhập đc các ký tự như @&?...
-        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debounced)}&type=less`)
+        fetch(`https://tiktok.fullstack.edu.vn/api/users/search?q=${encodeURIComponent(debouncedValue)}&type=less`)
             .then((res) => res.json())
             .then((res) => {
                 // console.log(res);
@@ -89,7 +89,7 @@ function Search() {
         axios
             .get('https://tiktok.fullstack.edu.vn/api/users/search', {
                 params: {
-                    q: debounced,
+                    q: debouncedValue,
                     type: 'less',
                 },
             })
@@ -111,7 +111,7 @@ function Search() {
         request
             .get('users/search', {
                 params: {
-                    q: debounced,
+                    q: debouncedValue,
                     type: 'less',
                 },
             })
@@ -129,7 +129,7 @@ function Search() {
         request
             .get('users/search', {
                 params: {
-                    q: debounced,
+                    q: debouncedValue,
                     type: 'less',
                 },
             })
@@ -153,7 +153,7 @@ function Search() {
                 // nhận res
                 const res = await request.get('users/search', {
                     params: {
-                        q: debounced,
+                        q: debouncedValue,
                         type: 'less',
                     },
                 });
@@ -172,13 +172,13 @@ function Search() {
         const fetchApi = async () => {
             setLoading(true);
 
-            const result = await searchService.search(debounced); //type có default = less => k cần truyền
+            const result = await searchService.search(debouncedValue); //type có default = less => k cần truyền
             setSearchResult(result);
 
             setLoading(false);
         };
         fetchApi();
-    }, [debounced]);
+    }, [debouncedValue]);
 
     // handleClear
     const handleClear = () => {
