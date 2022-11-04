@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import { useState } from 'react';
 import classNames from 'classnames/bind';
 import Tippy from '@tippyjs/react/headless';
@@ -19,7 +20,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFun
 
     // lấy phần tử cuối / => lấy data ra
     const current = history[history.length - 1];
-    // console.log('current: ', current);
+    console.log('current: ', current);
     console.log('current data: ', current.data);
     // console.log('items: ', items);
     // console.log('1. history.length: ', history.length); //1
@@ -88,5 +89,13 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFun
         </Tippy>
     );
 }
+
+// PropTypes
+Menu.propTypes = {
+    children: PropTypes.node.isRequired,
+    items: PropTypes.array,
+    hideOnClick: PropTypes.bool,
+    onChange: PropTypes.func,
+};
 
 export default Menu;

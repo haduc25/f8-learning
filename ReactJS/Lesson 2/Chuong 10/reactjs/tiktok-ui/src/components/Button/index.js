@@ -87,12 +87,26 @@ function Button({
 
 // PropTypes
 Button.propTypes = {
-    children: PropTypes.node,
+    to: PropTypes.string,
+    href: PropTypes.string,
+    primary: PropTypes.bool,
+    outline: PropTypes.bool,
+    text: PropTypes.bool,
+    rounded: PropTypes.bool,
+    disabled: PropTypes.bool,
+    small: PropTypes.bool,
+    large: PropTypes.bool,
+    children: PropTypes.node.isRequired,
+    className: PropTypes.string,
+    leftIcon: PropTypes.node,
+    rightIcon: PropTypes.node,
+    onClick: PropTypes.func,
+
     /** PropTypes.node
      * Anything that can be rendered: numbers, strings, elements or an array
      * (or fragment) containing these types.
      * see https://reactjs.org/docs/rendering-elements.html for more info
-     * Link: https://www.npmjs.com/package/prop-types
+     * Link:https://www.npmjs.com/package/prop-types
      */
 };
 
