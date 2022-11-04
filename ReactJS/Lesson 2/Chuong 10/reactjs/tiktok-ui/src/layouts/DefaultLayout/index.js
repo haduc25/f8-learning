@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 
 import Header from '~/layouts/components/Header';
@@ -17,6 +18,11 @@ function DefaultLayout({ children }) {
         </div>
     );
 }
+
+// PropTypes
+DefaultLayout.propTypes = {
+    children: PropTypes.node.isRequired,
+};
 
 // Vì 'Content' thay đổi (<div className="content"></div>) => phải truyền từ ngoài vào => dùng children
 export default DefaultLayout;

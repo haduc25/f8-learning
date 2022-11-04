@@ -20,8 +20,10 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFun
 
     // lấy phần tử cuối / => lấy data ra
     const current = history[history.length - 1];
-    console.log('current: ', current);
-    console.log('current data: ', current.data);
+    // console.log(current);
+    // console.log(current.title); //khi nhấn menu cấp 2 mới hiện
+    // console.log('current: ', current);
+    // console.log('current data: ', current.data);
     // console.log('items: ', items);
     // console.log('1. history.length: ', history.length); //1
 
@@ -68,7 +70,7 @@ function Menu({ children, items = [], hideOnClick = false, onChange = defaultFun
                         {/* Logic: Nếu có 2 item => k ở trang 1 => show | khi vào children => history.length > 1 => show */}
                         {history.length > 1 && (
                             <Header
-                                title={'Language'}
+                                title={current.title} //khi ấn vào menu mới hiện title
                                 onBack={() => {
                                     // Logic: current lúc nào cũng lấy phàn tử cuối => xóa phần tử cuối là lùi về 1 cấp
                                     // dùng slice(): cát từ phần tử số 0 đến phàn tử gần cuối
