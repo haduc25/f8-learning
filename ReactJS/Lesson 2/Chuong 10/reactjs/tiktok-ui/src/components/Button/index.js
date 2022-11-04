@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import classNames from 'classnames/bind';
 import { Link } from 'react-router-dom';
 
@@ -83,5 +84,16 @@ function Button({
         </Comp>
     );
 }
+
+// PropTypes
+Button.propTypes = {
+    children: PropTypes.node,
+    /** PropTypes.node
+     * Anything that can be rendered: numbers, strings, elements or an array
+     * (or fragment) containing these types.
+     * see https://reactjs.org/docs/rendering-elements.html for more info
+     * Link: https://www.npmjs.com/package/prop-types
+     */
+};
 
 export default Button;
