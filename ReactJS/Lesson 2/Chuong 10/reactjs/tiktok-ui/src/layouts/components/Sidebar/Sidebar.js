@@ -1,4 +1,8 @@
 import classNames from 'classnames/bind';
+
+import { HomeIcon, LiveIcon, UserGroupIcon } from '~/components/Icons';
+import Menu, { MenuItem } from './Menu';
+import config from '~/config';
 import styles from './Sidebar.module.scss';
 
 const cx = classNames.bind(styles);
@@ -14,7 +18,12 @@ function Sidebar() {
 
     return (
         <aside className={cx('wrapper')}>
-            <h2>Sidebar</h2>
+            <Menu>
+                {/* Vì icon nhận vào 1 node => HomeIcon đang là func => cần truyền = cách <HomeIcon /> | từ Comp => ReactELement */}
+                <MenuItem title="For You" to={config.routes.home} icon={<HomeIcon />} />
+                <MenuItem title="Following" to={config.routes.following} icon={<UserGroupIcon />} />
+                <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} />
+            </Menu>
         </aside>
     );
 }

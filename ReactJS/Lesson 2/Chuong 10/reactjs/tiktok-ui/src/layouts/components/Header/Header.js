@@ -280,7 +280,7 @@ function Header() {
                                 src="link nay bi loi roi"
                                 // src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/f89b316574f8f0ab300e20d4b7ff6a29~c5_100x100.jpeg?x-expires=1667030400&x-signature=nycDqbhu%2Bp0SIOy13dBN1dNwKFk%3D"
                                 // khi lỗi thì show image truyền vào = fallback
-                                fallback="https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-6/240671549_113003017797767_4209998933159191123_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=1fJNIUVwG_8AX_09zJ6&_nc_ht=scontent.fhan2-4.fna&oh=00_AfAeu-iDdrbrRvG_JdmAjBJyzKTJx99CG4TRQEftPLiRwA&oe=636275C0" // khi lỗi => show img này
+                                // fallback="https://scontent.fhan2-4.fna.fbcdn.net/v/t39.30808-6/240671549_113003017797767_4209998933159191123_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=8bfeb9&_nc_ohc=1fJNIUVwG_8AX_09zJ6&_nc_ht=scontent.fhan2-4.fna&oh=00_AfAeu-iDdrbrRvG_JdmAjBJyzKTJx99CG4TRQEftPLiRwA&oe=636275C0" // khi lỗi => show img này
                                 alt="Đào Lê Phương Hoa"
                             />
                         ) : (

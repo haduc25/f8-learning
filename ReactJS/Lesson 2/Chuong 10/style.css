@@ -9,7 +9,7 @@ a {
 
 a:hover {
     text-decoration: underline;
-    opacity: .4;
+    opacity: 0.4;
 }
 
 .lesson {
@@ -20,6 +20,7 @@ a:hover {
 .containers {
     padding: 15px;
     border: 1px solid #000;
+    margin-bottom: 80px;
 }
 
 ul {
@@ -30,9 +31,9 @@ ul {
     font-size: 18px;
 }
 
-.parent>li {
+.parent > li {
     text-decoration: underline;
-    color: #B94366;
+    color: #b94366;
     margin-top: 5px;
     margin-bottom: 5px;
 }
@@ -54,8 +55,9 @@ button {
     border: 1px solid transparent;
     padding: 6px 12px;
     font-size: 1rem;
-    border-radius: .25rem;
-    transition: color .15s ease-in-out, background-color .15s ease-in-out, border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+    border-radius: 0.25rem;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
+        box-shadow 0.15s ease-in-out;
     color: #0d6efd;
     border-color: #0d6efd;
 }
@@ -86,16 +88,16 @@ button:hover {
     top: 0;
     width: 30%;
     background: lightblue;
-    opacity: .2;
+    opacity: 0.2;
 }
 
 .div-source-and-server:hover {
     opacity: 1;
-    transition: .5s;
+    transition: 0.5s;
 }
 
 .terminal:hover {
-    color: #B94366;
+    color: #b94366;
     text-decoration: underline;
     cursor: pointer;
 }
