@@ -4,8 +4,14 @@
     padding: 8px; //giãn content ra
     font-size: 1.8rem;
     font-weight: 700;
+    color: var(--text-color);
     border-radius: 4px;
     transition: background-color ease-in-out 200ms; //làm mượt hơn :>
+
+    // class active
+    &.active {
+        color: var(--primary);
+    }
 
     // hover
     &:hover {
