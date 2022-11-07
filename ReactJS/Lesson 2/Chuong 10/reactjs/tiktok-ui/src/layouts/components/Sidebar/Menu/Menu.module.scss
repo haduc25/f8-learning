@@ -11,6 +11,17 @@
     // class active
     &.active {
         color: var(--primary);
+
+        // khi component đc active
+        .icon {
+            // ẩn icon
+            display: none;
+        }
+
+        .active-icon {
+            // hiện active icon
+            display: flex;
+        }
     }
 
     // hover
@@ -27,4 +38,14 @@
 .title {
     // dịch text xa icon
     margin-left: 10px;
+}
+
+.icon,
+.active-icon {
+    display: flex;
+}
+
+// default active-icon bị ẩn
+.active-icon {
+    display: none;
 }
