@@ -1,3 +1,4 @@
+import { useState, useEffect } from 'react';
 import classNames from 'classnames/bind';
 
 import {
@@ -10,12 +11,27 @@ import {
 } from '~/components/Icons';
 import Menu, { MenuItem } from './Menu';
 import config from '~/config';
+import * as userService from '~/services/userService';
 import styles from './Sidebar.module.scss';
 import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 const cx = classNames.bind(styles);
 
 function Sidebar() {
+    // suggestedUser, default = []
+    const [suggestedUser, setSuggestedUser] = useState([]);
+
+    useEffect(() => {
+        userService
+            .getSuggested({ page: 1, perPage: 5 })
+            .then((data) => {
+                // console.log({ data });
+                // set lai data
+                setSuggestedUser(data);
+            })
+            .catch((error) => console.log(error));
+    }, []);
+
     /** <aside> - Definition and Usage
      *  - The <aside> tag defines some content aside from the content it is placed in.
      *  - The aside content should be indirectly related to the surrounding content.
@@ -38,7 +54,7 @@ function Sidebar() {
                 <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
             </Menu>
 
-            <SuggestedAccounts label="Suggested accounts" />
+            <SuggestedAccounts label="Suggested accounts" data={suggestedUser} />
             <SuggestedAccounts label="Following accounts" />
         </aside>
     );
