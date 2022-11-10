@@ -16,7 +16,9 @@ function AccountPreview() {
                     src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/083bdd98191f72128eebdbcca718c29f~c5_100x100.jpeg?x-expires=1668182400&x-signature=mpWfxChIVavKor2fX2WLZckSbnE%3D"
                     alt=""
                 />
-                <Button primary>Follow</Button>
+                <Button className={cx('follow-btn')} primary>
+                    Follow
+                </Button>
             </header>
             <div className={cx('body')}>
                 <p className={cx('nickname')}>

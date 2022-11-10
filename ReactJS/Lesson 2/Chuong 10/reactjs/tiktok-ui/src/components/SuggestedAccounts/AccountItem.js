@@ -27,7 +27,8 @@ function AccountItem() {
             <Tippy
                 interactive // có thể tương tác đc
                 delay={[800, 0]}
-                visible
+                // visible
+                offset={[-20, 0]} //[x, y] => x: ngang, y: dọc
                 placement="bottom"
                 render={renderPreview}
             >
