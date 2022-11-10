@@ -23,6 +23,16 @@
     display: flex; //cho tên ngang lên vs ảnh
     padding: 8px;
     cursor: pointer;
+
+    // hover
+    &:hover {
+        background-color: #16182308;
+    }
+
+    // active
+    &:active {
+        background-color: #1618230f;
+    }
 }
 
 .avatar {
