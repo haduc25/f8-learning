@@ -4,32 +4,29 @@ import classNames from 'classnames/bind';
 
 import Button from '~/components/Button';
 import styles from './AccountPreview.module.scss';
+import Image from '~/components/Image';
 
 const cx = classNames.bind(styles);
 
-function AccountPreview() {
+function AccountPreview({ data }) {
     return (
         <div className={cx('wrapper')}>
             <header className={cx('header')}>
-                <img
-                    className={cx('avatar')}
-                    src="https://p16-sign-va.tiktokcdn.com/tos-useast2a-avt-0068-giso/083bdd98191f72128eebdbcca718c29f~c5_100x100.jpeg?x-expires=1668182400&x-signature=mpWfxChIVavKor2fX2WLZckSbnE%3D"
-                    alt=""
-                />
+                <Image className={cx('avatar')} src={data.avatar} alt={data.nickname} />
                 <Button className={cx('follow-btn')} primary>
                     Follow
                 </Button>
             </header>
             <div className={cx('body')}>
                 <p className={cx('nickname')}>
-                    <strong>yenkim07022004</strong>
-                    <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />
+                    <strong>{data.nickname}</strong>
+                    {data.tick && <FontAwesomeIcon className={cx('check')} icon={faCheckCircle} />}
                 </p>
-                <p className={cx('name')}>Kim Yến</p>
+                <p className={cx('name')}>{`${data.first_name} ${data.last_name}`}</p>
                 <p className={cx('analytics')}>
-                    <strong className={cx('value')}>2.5M </strong>
+                    <strong className={cx('value')}>{data.followers_count} </strong>
                     <span className={cx('label')}>Followers</span>
-                    <strong className={cx('value')}>25.9M </strong>
+                    <strong className={cx('value')}>{data.likes_count} </strong>
                     <span className={cx('label')}>Likes</span>
                 </p>
             </div>
