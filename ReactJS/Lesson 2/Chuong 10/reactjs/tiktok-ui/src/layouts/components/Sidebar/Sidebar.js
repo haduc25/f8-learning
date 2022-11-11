@@ -17,30 +17,41 @@ import SuggestedAccounts from '~/components/SuggestedAccounts';
 
 const cx = classNames.bind(styles);
 
+const INIT_PAGE = 1;
+const PER_PAGE = 20;
+
 function Sidebar() {
+    // page, default = 1
+    const [page, setPage] = useState(INIT_PAGE);
     // suggestedUser, default = []
     const [suggestedUser, setSuggestedUser] = useState([]);
 
+    // deps = page = 1
     useEffect(() => {
         userService
-            .getSuggested({ page: 1, perPage: 5 })
+            .getSuggested({ page, perPage: PER_PAGE })
             .then((data) => {
                 // console.log({ data });
-                // set lai data
-                setSuggestedUser(data);
+                // set lai data / thêm dl vào array mới
+                // setSuggestedUser(data);
+                setSuggestedUser((prevUsers) => [...prevUsers, ...data]);
             })
             .catch((error) => console.log(error));
-    }, []);
+    }, [page]);
 
-    /** <aside> - Definition and Usage
-     *  - The <aside> tag defines some content aside from the content it is placed in.
-     *  - The aside content should be indirectly related to the surrounding content.
-     *  - Tip: The <aside> content is often placed as a sidebar in a document.
-     *  - Note: The <aside> element does not render as anything special in a browser. However, you can use CSS to style the <aside> element.
-     *  - Link: https://www.w3schools.com/tags/tag_aside.asp
-     */
+    // handleViewChange / khi click vao 'see all'
+    const handleViewChange = () => {
+        setPage(page + 1);
+    };
 
     return (
+        /** <aside> - Definition and Usage
+         *  - The <aside> tag defines some content aside from the content it is placed in.
+         *  - The aside content should be indirectly related to the surrounding content.
+         *  - Tip: The <aside> content is often placed as a sidebar in a document.
+         *  - Note: The <aside> element does not render as anything special in a browser. However, you can use CSS to style the <aside> element.
+         *  - Link: https://www.w3schools.com/tags/tag_aside.asp
+         */
         <aside className={cx('wrapper')}>
             <Menu>
                 {/* Vì icon nhận vào 1 node => HomeIcon đang là func => cần truyền = cách <HomeIcon /> | từ Comp => ReactELement */}
@@ -54,7 +65,7 @@ function Sidebar() {
                 <MenuItem title="LIVE" to={config.routes.live} icon={<LiveIcon />} activeIcon={<LiveActiveIcon />} />
             </Menu>
 
-            <SuggestedAccounts label="Suggested accounts" data={suggestedUser} />
+            <SuggestedAccounts label="Suggested accounts" data={suggestedUser} onViewChange={handleViewChange} />
             <SuggestedAccounts label="Following accounts" />
         </aside>
     );
