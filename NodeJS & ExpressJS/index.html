@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chương 1</title>
+    <link rel="stylesheet" href="./style.css">
+    <script>
+        function copyNow(valueOfThisFromDOM) {
+            var inp = document.createElement('input');
+            document.body.appendChild(inp)
+            inp.value = valueOfThisFromDOM.textContent
+            inp.select();
+            document.execCommand('copy', false);
+            inp.remove();
+            valueOfThisFromDOM.classList.add("active");
+            console.log("Copied!");
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="heading" class="headingClass">NodeJS & ExpressJS Learning...</h1>
+    <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">Go to TopPage</button>
+    <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">Go to BopPage</button>
+
+    <!-- Chương 1 -->
+    <h2>Chương 1<h2>
+            <div class="containers">
+                <ul class="parent">
+                    <!-- PARENT START -->
+
+                    <li>1 - 5. Install ExpressJS</li>
+                    <ul class="children">
+                        <li>Youtube: <a href="https://youtu.be/I7PCFnyCJYM" target="_blank">NodeJS & ExpressJS - Coding #1  //[20/11/2022]</a></li>
+                    </ul>
+
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://www.npmjs.com/package/express" target="_blank">npm express</a>
+                        <a href="https://expressjs.com/en/starter/installing.html" target="_blank">expressjs.com</a>
+                        <a href="https://expressjs.com/en/starter/hello-world.html" target="_blank">Hello world example</a>
+                        <code onclick="copyNow(this)">npm i express</code>
+                        <p>run proj <code onclick="copyNow(this)">node index.js</code></p>
+
+                    </fieldset>
+
+
+                    <!-- PARENT END -->
+                </ul>
+            </div>
+
+
+
+
+
+            <!-- Something has same value -->
+            <div class="div-source-and-server">
+                <ul>
+                    <li><a href="http://localhost:3000/" target="_blank">Server NodeJS</a></li>
+                    <li><a href="#" target="_blank">Main.js</a></li>
+                    <li class="small-txt terminal" onclick="copyNow(this)">
+                        <code>cd "ReactJS/Lesson 2/Chuong 10/reactjs/tiktok-ui"</code>
+                    </li>
+                    <li class="small-txt terminal" onclick="copyNow(this)">
+                        <code>cd "reactjs/tiktok-ui"</code>
+                    </li>
+                </ul>
+            </div>
+</body>
+
+</html>
