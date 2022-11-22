@@ -1,0 +1,9 @@
+@import 'variables'; //add file '_variables.scss'
+
+h2 {
+    color: $red-color;
+    background-color: #fff;
+    outline: none;
+    border: 1px solid #000;
+    font-size: 20px;
+}

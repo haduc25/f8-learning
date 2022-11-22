@@ -6,6 +6,9 @@ const path = require('path');
 const app = express();
 const port = 3000;
 
+app.use(express.static(path.join(__dirname, 'public'))); //cho phép truy cập file tĩnh / public
+// console.log('PATH IMAGE: ', path.join(__dirname, 'public/img'));
+
 // HTTP logger
 app.use(morgan('combined')); //type combined / Predefined Formats
 
