@@ -9,6 +9,12 @@ const port = 3000;
 app.use(express.static(path.join(__dirname, 'public'))); //cho phép truy cập file tĩnh / public
 // console.log('PATH IMAGE: ', path.join(__dirname, 'public/img'));
 
+// Middleware xử lý data từ form
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json()); //handle khi submit = js / gửi từ code js
+
+// 1 Số library có thể gửi dl lên server: XMLHttpRequest, fetch, axios...
+
 // HTTP logger
 app.use(morgan('combined')); //type combined / Predefined Formats
 
@@ -45,9 +51,11 @@ app.get('/search', (req, res) => {
     res.render('search');
 });
 
-// app.post('/search', (req, res) => {
-//     res.render('search');
-// });
+app.post('/search', (req, res) => {
+    // Với POST thì nhận data qua 'req.body'
+    console.log(req.body); //{ q: 'toiyeubanvclmabandeobienchanvcl', 'full-name': 'bmh <3', age: '18', gender: 'famale'}
+    res.send('SEARCH ĐÃ NHẬN ĐC DATA / METHOD POST');
+});
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);

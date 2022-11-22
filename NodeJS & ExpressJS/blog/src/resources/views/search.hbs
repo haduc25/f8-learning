@@ -1,6 +1,6 @@
 <h2>Search Page ^^</h2>
 <div class='mt-4'>
-    <form method='GET' action='news'>
+    <form method='POST' action=''>
         <div class='form-group'>
             <label for='search-input'>Từ khóa: </label>
             <input type='text' name='q' class='form-control' id='search-input' placeholder='Nhập từ khóa...' />
@@ -10,6 +10,16 @@
 
             <label for='age-input' class='mt-2'>Tuổi: </label>
             <input type='text' name='age' class='form-control' id='age-input' placeholder='Bạn tuổi gì cơ?...' />
+
+            <div class='form-group mt-2'>
+                <label for='gender-select'>Giới tính: </label>
+                <select name='gender' class='form-control' id='gender-select'>
+                    <option value=''>-- Chọn giới tính --</option>
+                    <option value='male'>Nam</option>
+                    <option value='famale'>Nữ</option>
+                    <option value='other'>Khác</option>
+                </select>
+            </div>
         </div>
         <button type='submit' class='btn btn-primary'>Tìm kiếm</button>
     </form>
