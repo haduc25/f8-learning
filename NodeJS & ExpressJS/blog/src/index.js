@@ -32,6 +32,14 @@ app.get('/news', (req, res) => {
     res.render('news');
 });
 
+app.get('/search', (req, res) => {
+    // console.log('res/query: ', req.query); //RES => QUERY:  { q: 'haduc25', ref: 'haduc2509' }
+    console.log('res/query/q: ', req.query.q); //haduc25
+    console.log('res/query/q: ', req.query.ref); //haduc2509
+
+    res.render('search');
+});
+
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
 });
