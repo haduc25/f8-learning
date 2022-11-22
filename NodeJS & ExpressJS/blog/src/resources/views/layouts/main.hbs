@@ -9,19 +9,14 @@
 
     <body>
         <div class='app'>
-            <header>
-                <h2>I am is Header</h2>
-            </header>
+            <header> {{> header }} </header>
 
             <div class='container'>
                 {{! import tu file home }}
                 {{{body}}}
             </div>
 
-            <footer>
-                <h2>I am is Footer</h2>
-            </footer>
-
+            <footer> {{> footer }} </footer>
         </div>
     </body>
 </html>

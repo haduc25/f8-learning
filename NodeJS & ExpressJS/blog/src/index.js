@@ -10,8 +10,8 @@ const port = 3000;
 app.use(morgan('combined')); //type combined / Predefined Formats
 
 // Template engine
-app.engine('handlebars', handlebars.engine()); //set template engine
-app.set('view engine', 'handlebars'); //set view
+app.engine('hbs', handlebars.engine({ extname: '.hbs' })); //set template engine / đổi đuôi file .handlebars -> .hbs
+app.set('view engine', 'hbs'); //set view
 app.set('views', path.join(__dirname, 'resources/views'));
 
 // console.log('PATH: ', __dirname); //PATH:  D:\Coding\F8_Learning\NodeJS & ExpressJS\blog\src
