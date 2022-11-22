@@ -29,13 +29,13 @@ app.get('/', (req, res) => {
 });
 
 app.get('/news', (req, res) => {
+    console.log(req.query);
     res.render('news');
 });
 
-app.post('/news', (req, res) => {
-    console.log(res.query);
-    res.render('news');
-});
+// app.post('/news', (req, res) => {
+//     res.render('news');
+// });
 
 app.get('/search', (req, res) => {
     // console.log('res/query: ', req.query); //RES => QUERY:  { q: 'haduc25', ref: 'haduc2509' }
@@ -45,9 +45,9 @@ app.get('/search', (req, res) => {
     res.render('search');
 });
 
-app.post('/search', (req, res) => {
-    res.render('search');
-});
+// app.post('/search', (req, res) => {
+//     res.render('search');
+// });
 
 app.listen(port, () => {
     console.log(`Example app listening on port ${port}`);
