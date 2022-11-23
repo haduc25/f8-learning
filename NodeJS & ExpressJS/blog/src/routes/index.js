@@ -2,13 +2,13 @@ const newsRouter = require('./news');
 const siteRouter = require('./site');
 
 function route(app) {
-    app.get('/', (req, res) => {
-        // res.send(`
-        //   <h2>Hello World! - haduc25</h2>
-        // `);
+    // app.get('/', (req, res) => {
+    //     // res.send(`
+    //     //   <h2>Hello World! - haduc25</h2>
+    //     // `);
 
-        res.render('home');
-    });
+    //     res.render('home');
+    // });
 
     // app.get('/news', (req, res) => {
     //     console.log(req.query);
