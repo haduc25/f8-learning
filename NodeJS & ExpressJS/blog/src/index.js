@@ -27,7 +27,7 @@ app.use(morgan('combined')); //type combined / Predefined Formats
 // Template engine
 app.engine('hbs', handlebars.engine({ extname: '.hbs' })); //set template engine / đổi đuôi file .handlebars -> .hbs
 app.set('view engine', 'hbs'); //set view
-app.set('views', path.join(__dirname, 'resources/views'));
+app.set('views', path.join(__dirname, 'resources', 'views'));
 
 // console.log('PATH: ', __dirname); //PATH:  D:\Coding\F8_Learning\NodeJS & ExpressJS\blog\src
 // console.log('PATH: ', path.join(__dirname, 'resources/views')); //PATH:  D:\Coding\F8_Learning\NodeJS & ExpressJS\blog\src\resources\views
@@ -38,5 +38,5 @@ app.set('views', path.join(__dirname, 'resources/views'));
 route(app);
 
 app.listen(port, () => {
-    console.log(`Example app listening on port ${port}`);
+    console.log(`App listening on port ${port}`);
 });
