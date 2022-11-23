@@ -7,4 +7,9 @@ h2 {
   margin-top: 16px;
 }
 
+ul,
+li {
+  list-style: none;
+}
+
 /*# sourceMappingURL=app.css.map */

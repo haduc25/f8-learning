@@ -2,19 +2,22 @@
     <div class='row'>
         <div class='col-lg-3'>
             <button class='btn btn-primary'>HỌC NGAY</button>
+            <ul>
+                <li>{{course.level}}</li>
+            </ul>
         </div>
         <div class='col-lg-9'>
-            <h2>HELLOCAUGIDANNGIUOI</h2>
+            <h2>{{course.name}}</h2>
             <iframe
                 width='900'
                 height='550'
-                src='https://www.youtube.com/embed/IKWuL2mDqgg'
+                src='https://www.youtube.com/embed/{{course.videoId}}'
                 title='YouTube video player'
                 frameborder='0'
                 allow='accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture'
                 allowfullscreen
             ></iframe>
-            <p>abcd</p>
+            <p>{{course.description}}</p>
         </div>
     </div>
 </div>
