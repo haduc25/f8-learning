@@ -16,8 +16,15 @@ class SiteController {
 
         // Promise
         Course.find({})
-            .then((courses) => res.json(courses))
-            .catch((error) => next(error));
+            // .then((courses) => res.json(courses))
+            .then((courses) =>
+                res.render('home', {
+                    favCrush: 'LA. BMH',
+                    courses: courses,
+                }),
+            )
+            // .catch((error) => next(error)); //có thể shorten lại
+            .catch(next); //shorten
 
         // res.json({
         //     name: 'haduc25-yeucauvler',
