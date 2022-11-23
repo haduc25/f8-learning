@@ -1,5 +1,9 @@
-*{
+* {
     box-sizing: border-box;
+}
+
+.w-a {
+    width: auto !important;
 }
 
 #heading {
@@ -61,8 +65,7 @@ button {
     padding: 6px 12px;
     font-size: 1rem;
     border-radius: 0.25rem;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-        box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     color: #0d6efd;
     border-color: #0d6efd;
 }
@@ -94,11 +97,11 @@ button:hover {
     width: 30%;
     background: lightblue;
     opacity: 0.2;
-    transition: linear .5s;
+    transition: linear 0.5s;
     transform: translateX(70%);
 }
 
-.div-source-and-server > ul > li{
+.div-source-and-server > ul > li {
     margin-bottom: 30px;
 }
 
@@ -119,26 +122,25 @@ button:hover {
     cursor: pointer;
 }
 
-fieldset{
+fieldset {
     margin-top: 30px;
-    border: 1px solid rgba(204, 204, 204, .3);
+    border: 1px solid rgba(204, 204, 204, 0.3);
     font-size: 18px;
 }
 
-fieldset:hover{
+fieldset:hover {
     border: 1px solid rgba(204, 204, 204, 1);
 }
 
 fieldset > legend {
-    color: #373D3F;
+    color: #373d3f;
 }
 
-fieldset > a{
+fieldset > a {
     display: block;
 }
 
-
-code{
+code {
     margin-top: 15px;
     margin-bottom: 15px;
     padding: 15px 20px;
@@ -147,15 +149,15 @@ code{
     display: block;
     cursor: pointer;
     font-variant-ligatures: none;
-    font-family: "Fira Mono", "Andale Mono", "Consolas", monospace;
+    font-family: 'Fira Mono', 'Andale Mono', 'Consolas', monospace;
     font-size: 16px;
     border-radius: 8px;
 }
 
-code:hover{
+code:hover {
     background: #fff5d8;
 }
 
-.active{
+.active {
     background: #fff5d8;
 }
