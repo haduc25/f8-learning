@@ -17,12 +17,17 @@ class SiteController {
         // Promise
         Course.find({})
             // .then((courses) => res.json(courses))
-            .then((courses) =>
-                res.render('home', {
-                    favCrush: 'LA. BMH',
-                    courses: courses,
-                }),
-            )
+            // .then((courses) =>
+            //     res.render('home', {
+            //         favCrush: 'LA. BMH',
+            //         courses: courses,
+            //     }),
+            // )
+
+            .then((courses) => {
+                courses = courses.map((course) => course.toObject()); //Chuyển từ (Object mongo -> Object Literals) dùng 'toObject()'
+                res.render('home', { courses });
+            })
             // .catch((error) => next(error)); //có thể shorten lại
             .catch(next); //shorten
 
