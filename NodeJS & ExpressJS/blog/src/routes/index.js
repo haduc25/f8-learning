@@ -1,4 +1,5 @@
 const newsRouter = require('./news');
+const siteRouter = require('./site');
 
 function route(app) {
     app.get('/', (req, res) => {
@@ -21,19 +22,22 @@ function route(app) {
     // Thay thế cho '/news' trên
     app.use('/news', newsRouter);
 
-    app.get('/search', (req, res) => {
-        // console.log('res/query: ', req.query); //RES => QUERY:  { q: 'haduc25', ref: 'haduc2509' }
-        console.log('res/query/q: ', req.query.q); //haduc25
-        console.log('res/query/q: ', req.query.ref); //haduc2509
+    // Thay thế cho 'home & search' dưới
+    app.use('/', siteRouter);
 
-        res.render('search');
-    });
+    // app.get('/search', (req, res) => {
+    //     // console.log('res/query: ', req.query); //RES => QUERY:  { q: 'haduc25', ref: 'haduc2509' }
+    //     console.log('res/query/q: ', req.query.q); //haduc25
+    //     console.log('res/query/q: ', req.query.ref); //haduc2509
 
-    app.post('/search', (req, res) => {
-        // Với POST thì nhận data qua 'req.body'
-        console.log(req.body); //{ q: 'toiyeubanvclmabandeobienchanvcl', 'full-name': 'bmh <3', age: '18', gender: 'famale'}
-        res.send('SEARCH ĐÃ NHẬN ĐC DATA / METHOD POST');
-    });
+    //     res.render('search');
+    // });
+
+    // app.post('/search', (req, res) => {
+    //     // Với POST thì nhận data qua 'req.body'
+    //     console.log(req.body); //{ q: 'toiyeubanvclmabandeobienchanvcl', 'full-name': 'bmh <3', age: '18', gender: 'famale'}
+    //     res.send('SEARCH ĐÃ NHẬN ĐC DATA / METHOD POST');
+    // });
 }
 
 module.exports = route;

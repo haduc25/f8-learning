@@ -28,6 +28,8 @@ app.set('views', path.join(__dirname, 'resources/views'));
 // console.log('PATH: ', __dirname); //PATH:  D:\Coding\F8_Learning\NodeJS & ExpressJS\blog\src
 // console.log('PATH: ', path.join(__dirname, 'resources/views')); //PATH:  D:\Coding\F8_Learning\NodeJS & ExpressJS\blog\src\resources\views
 
+// Some page: Hone, search, contact
+
 // Routes init / truyền 'app' qua route
 route(app);
 
