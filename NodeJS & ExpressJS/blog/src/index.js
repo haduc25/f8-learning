@@ -7,6 +7,10 @@ const app = express();
 const port = 3000;
 
 const route = require('./routes');
+const db = require('./config/db');
+
+// Connect to DB
+db.connect();
 
 app.use(express.static(path.join(__dirname, 'public'))); //cho phép truy cập file tĩnh / public
 // console.log('PATH IMAGE: ', path.join(__dirname, 'public/img'));
