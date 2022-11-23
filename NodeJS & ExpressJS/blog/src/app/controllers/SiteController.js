@@ -2,15 +2,22 @@ const Course = require('../models/Course');
 
 class SiteController {
     // [GET] / | Home
-    index(req, res) {
-        Course.find({}, (err, courses) => {
-            if (!err) {
-                res.json(courses); //nếu k có lỗi return 'courses' cho client
-                return;
-            }
-            // có lỗi
-            res.status(400).json({ error: 'message' });
-        });
+    index(req, res, next) {
+        // // Callback
+        // Course.find({}, (err, courses) => {
+        //     if (!err) {
+        //         res.json(courses); //nếu k có lỗi return 'courses' cho client
+        //         return;
+        //     }
+        //     // có lỗi
+        //     res.status(400).json({ error: 'message' });
+        //     next(err);
+        // });
+
+        // Promise
+        Course.find({})
+            .then((courses) => res.json(courses))
+            .catch((error) => next(error));
 
         // res.json({
         //     name: 'haduc25-yeucauvler',
