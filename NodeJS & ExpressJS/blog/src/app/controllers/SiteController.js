@@ -1,4 +1,5 @@
 const Course = require('../models/Course');
+const { mutipleMongooseToObject } = require('../../util/mongoose');
 
 class SiteController {
     // [GET] / | Home
@@ -24,10 +25,15 @@ class SiteController {
             //     }),
             // )
 
+            // .then((courses) => {
+            //     courses = courses.map((course) => course.toObject()); //Chuyển từ (Object mongo -> Object Literals) dùng 'toObject()'
+            //     res.render('home', { courses });
+            // })
+
             .then((courses) => {
-                courses = courses.map((course) => course.toObject()); //Chuyển từ (Object mongo -> Object Literals) dùng 'toObject()'
-                res.render('home', { courses });
+                res.render('home', { courses: mutipleMongooseToObject(courses) });
             })
+
             // .catch((error) => next(error)); //có thể shorten lại
             .catch(next); //shorten
 
