@@ -1,3 +1,5 @@
+const newsRouter = require('./news');
+
 function route(app) {
     app.get('/', (req, res) => {
         // res.send(`
@@ -15,6 +17,9 @@ function route(app) {
     // app.post('/news', (req, res) => {
     //     res.render('news');
     // });
+
+    // Thay thế cho '/news' trên
+    app.use('/news', newsRouter);
 
     app.get('/search', (req, res) => {
         // console.log('res/query: ', req.query); //RES => QUERY:  { q: 'haduc25', ref: 'haduc2509' }
