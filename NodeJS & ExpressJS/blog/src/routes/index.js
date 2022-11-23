@@ -1,4 +1,5 @@
 const newsRouter = require('./news');
+const coursesRouter = require('./courses');
 const siteRouter = require('./site');
 
 function route(app) {
@@ -21,6 +22,9 @@ function route(app) {
 
     // Thay thế cho '/news' trên
     app.use('/news', newsRouter);
+
+    //courses
+    app.use('/courses', coursesRouter);
 
     // Thay thế cho 'home & search' dưới
     app.use('/', siteRouter);
