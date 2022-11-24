@@ -25,7 +25,15 @@ app.use(express.json()); //handle khi submit = js / gửi từ code js
 app.use(morgan('combined')); //type combined / Predefined Formats
 
 // Template engine
-app.engine('hbs', handlebars.engine({ extname: '.hbs' })); //set template engine / đổi đuôi file .handlebars -> .hbs
+app.engine(
+    'hbs',
+    handlebars.engine({
+        extname: '.hbs',
+        helpers: {
+            sum: (a, b) => a + b,
+        },
+    }),
+); //set template engine / đổi đuôi file .handlebars -> .hbs
 app.set('view engine', 'hbs'); //set view
 app.set('views', path.join(__dirname, 'resources', 'views'));
 

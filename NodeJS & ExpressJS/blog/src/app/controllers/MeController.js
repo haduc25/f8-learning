@@ -3,9 +3,13 @@ const { mutipleMongooseToObject } = require('../../util/mongoose');
 
 class MeController {
     // [GET] /me/stored/courses
-    storedCourses(req, res) {
+    storedCourses(req, res, next) {
         // res.send('Meow meow');
-        res.render('me/stored-courses');
+
+        // Tạm thời lấy hết course từ db ra
+        Course.find({})
+            .then((courses) => res.render('me/stored-courses', { courses: mutipleMongooseToObject(courses) }))
+            .catch(next);
     }
 }
 
