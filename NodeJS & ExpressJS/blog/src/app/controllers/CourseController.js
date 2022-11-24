@@ -26,9 +26,22 @@ class CourseController {
 
     // [POST] /courses/store
     store(req, res, next) {
-        // res.send('Created Course ^^');
-        res.json(req.body);
+        // res.json(req.body);
         // res.render('courses/store');
+        // res.send('Created Course ^^');
+
+        const formData = req.body;
+        formData.image = `https://i.ytimg.com/vi/${req.body.videoId}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD0zvnvXOno_JaGatXKHX2YEyfY8Q`;
+        const course = new Course(req.body);
+        course
+            .save()
+            .then(() => {
+                // chuyển hướng
+                res.redirect('/');
+            })
+            .catch((error) => {
+                console.log(error);
+            });
     }
 }
 
