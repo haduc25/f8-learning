@@ -62,7 +62,11 @@ class CourseController {
 
     // [DELETE] /courses/:id
     destroy(req, res, next) {
-        Course.deleteOne({ _id: req.params.id })
+        // Course.deleteOne({ _id: req.params.id })
+        //     .then(() => res.redirect('back')) //back về page ban đầu /http://localhost:3000/me/stored/courses
+        //     .catch(next);
+
+        Course.delete({ _id: req.params.id })
             .then(() => res.redirect('back')) //back về page ban đầu /http://localhost:3000/me/stored/courses
             .catch(next);
     }

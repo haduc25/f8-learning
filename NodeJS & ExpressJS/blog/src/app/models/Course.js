@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 var slug = require('mongoose-slug-generator');
+var mongooseDelete = require('mongoose-delete');
 
-mongoose.plugin(slug);
 const Schema = mongoose.Schema;
 
 const Course = new Schema(
@@ -22,6 +22,10 @@ const Course = new Schema(
         timestamps: true,
     },
 );
+
+// Add plugins
+mongoose.plugin(slug);
+Course.plugin(mongooseDelete, { deletedAt: true, overrideMethods: 'all' });
 
 // Accessing a Model
 module.exports = mongoose.model('Course', Course); //mongo sẽ read & tự convert ra collection 'course'
