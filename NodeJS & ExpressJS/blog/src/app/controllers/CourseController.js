@@ -59,6 +59,13 @@ class CourseController {
 
         // res.json(req.body);
     }
+
+    // [DELETE] /courses/:id
+    destroy(req, res, next) {
+        Course.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back')) //back về page ban đầu /http://localhost:3000/me/stored/courses
+            .catch(next);
+    }
 }
 
 // GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD
