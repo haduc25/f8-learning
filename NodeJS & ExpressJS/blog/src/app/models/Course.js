@@ -1,4 +1,7 @@
 const mongoose = require('mongoose');
+var slug = require('mongoose-slug-generator');
+
+mongoose.plugin(slug);
 const Schema = mongoose.Schema;
 
 const Course = new Schema(
@@ -8,6 +11,8 @@ const Course = new Schema(
         image: { type: String, maxLength: 255 },
         videoId: { type: String, maxlength: 255, required: true },
         level: { type: String, maxlength: 255 },
+        slug: { type: String, slug: 'name', unique: true },
+        // unique: true; tự add short_id -> nếu trùng slug
 
         // truyền qua obj 2 => k cần trường này
         // createAt: { type: Date, default: Date.now },
