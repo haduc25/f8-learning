@@ -14,7 +14,8 @@ class MeController {
 
     // [GET] /me/trash/courses
     trashCourses(req, res, next) {
-        Course.find({})
+        //findDeleted: will return only DELETED documents
+        Course.findDeleted({}) //lấy ra những course đã bị xóa
             .then((courses) => res.render('me/trash-courses', { courses: mutipleMongooseToObject(courses) }))
             .catch(next);
     }

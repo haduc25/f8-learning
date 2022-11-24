@@ -30,14 +30,13 @@ class CourseController {
         // res.render('courses/store');
         // res.send('Created Course ^^');
 
-        const formData = req.body;
-        formData.image = `https://i.ytimg.com/vi/${req.body.videoId}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD0zvnvXOno_JaGatXKHX2YEyfY8Q`;
+        req.body.image = `https://i.ytimg.com/vi/${req.body.videoId}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD0zvnvXOno_JaGatXKHX2YEyfY8Q`;
         const course = new Course(req.body);
         course
             .save()
             .then(() => {
                 // chuyển hướng
-                res.redirect('/');
+                res.redirect('/me/stored/courses');
             })
             .catch((error) => {
                 console.log(error);
@@ -62,12 +61,22 @@ class CourseController {
 
     // [DELETE] /courses/:id
     destroy(req, res, next) {
-        // Course.deleteOne({ _id: req.params.id })
-        //     .then(() => res.redirect('back')) //back về page ban đầu /http://localhost:3000/me/stored/courses
-        //     .catch(next);
-
         Course.delete({ _id: req.params.id })
             .then(() => res.redirect('back')) //back về page ban đầu /http://localhost:3000/me/stored/courses
+            .catch(next);
+    }
+
+    // [DELETE] /courses/:id/force
+    forceDestroy(req, res, next) {
+        Course.deleteOne({ _id: req.params.id })
+            .then(() => res.redirect('back'))
+            .catch(next);
+    }
+
+    // [PATCH] /courses/:id/restore
+    restore(req, res, next) {
+        Course.restore({ _id: req.params.id })
+            .then(() => res.redirect('back'))
             .catch(next);
     }
 }
