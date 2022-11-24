@@ -1,4 +1,8 @@
 {
+    "[handlebars]": {
+        "editor.formatOnSave": false,
+        "editor.formatOnPaste": false
+    },
     "editor.formatOnSave": true,
     "editor.defaultFormatter": "esbenp.prettier-vscode",
     "[javascript]": {
