@@ -1,5 +1,6 @@
 const express = require('express');
 const morgan = require('morgan');
+const methodOverride = require('method-override');
 const handlebars = require('express-handlebars');
 const path = require('path');
 
@@ -18,6 +19,8 @@ app.use(express.static(path.join(__dirname, 'public'))); //cho phép truy cập 
 // Middleware xử lý data từ form
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json()); //handle khi submit = js / gửi từ code js
+
+app.use(methodOverride('_method')); // để Override lại POST cho server nhận vào là PUT
 
 // 1 Số library có thể gửi dl lên server: XMLHttpRequest, fetch, axios...
 

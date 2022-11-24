@@ -50,6 +50,23 @@ class CourseController {
             .then((course) => res.render('courses/edit', { course: mongooseToObject(course) }))
             .catch(next);
     }
+
+    // [PUT] /courses/:id
+    update(req, res, next) {
+        Course.updateOne({ _id: req.params.id }, req.body)
+            .then(() => res.redirect('/me/stored/courses'))
+            .catch(next);
+
+        // res.json(req.body);
+    }
 }
+
+// GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD
+// GET: Yêu cầu server trả lại dữ liệu
+// POST: Yêu cầu server lưu lại dữ liệu, tạo mới dữ liệu
+// PUT, PATCH: Chỉnh sửa dữ liệu
+// PUT: Replace 1 document
+// PATCH: Sửa từng field
+// OPTIONS, HEAD: Sử dụng trong phương thức k cần Payload
 
 module.exports = new CourseController();
