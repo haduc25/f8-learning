@@ -4,6 +4,13 @@ const { mutipleMongooseToObject } = require('../../util/mongoose');
 class MeController {
     // [GET] /me/stored/courses
     storedCourses(req, res, next) {
+        // Count Docs
+        Course.countDocumentsDeleted()
+            .then((deletedCount) => {
+                console.log(deletedCount);
+            })
+            .catch(() => {});
+
         // res.send('Meow meow');
 
         // Tạm thời lấy hết course từ db ra
