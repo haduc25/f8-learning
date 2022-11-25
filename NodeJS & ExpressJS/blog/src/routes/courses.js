@@ -4,6 +4,20 @@ const router = express.Router();
 
 const courseController = require('../app/controllers/CourseController');
 
+/** Middleware for routes - create routes
+// Ví dụ: thêm middleware vào 'router.get('/create', courseController.create);'
+router.get(
+    '/create',
+    function (req, res, next) {
+        // Chỉ áp dụng trên tuyến đường này
+        // http://localhost:3000/courses/create?ticket=vip%20ticket | /courses/create?ticket=vip ticket
+        if (req.query.ticket === 'vip ticket') return next();
+        res.status(403).json({ message: 'Access denied' });
+    },
+    courseController.create,
+);
+*/
+
 router.get('/create', courseController.create);
 router.post('/store', courseController.store);
 router.get('/:id/edit', courseController.edit);

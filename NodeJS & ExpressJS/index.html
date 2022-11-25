@@ -752,16 +752,110 @@
                     </fieldset>
                 </ul>
 
-                <li>35.Fix bug btn submit form</li>
+                <li>35. Fix bug btn submit form</li>
                 <ul class="children">
                     <li>
                         Youtube:
-                        <a href="https://youtu.be/mb5bxLLuI7o" target="_blank"
-                            >NodeJS & ExpressJS - Coding, Reaction #10 //[24/11/2022]</a
+                        <a href="https://youtu.be/KNZPk0Q4SZI" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Học bù HTTM #11 //[25/11/2022]</a
+                        >
+                    </li>
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/YE-dVOyu84g" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #12 //[25/11/2022]</a
                         >
                     </li>
                     <fieldset>
                         <legend>Keywords</legend>
+                    </fieldset>
+                </ul>
+
+                <li>36. Khái niệm middleware?</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/gckOaLe67RU" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #13 //[25/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <p># Ý nghĩa</p>
+                        <ul class="children">
+                            <li>
+                                - Phần mềm trung gian (đứng giữa các thành phần trong mô hình phần
+                                mềm)
+                            </li>
+                            <li><br /></li>
+                            <li>
+                                Browser (client) ================= Request =================> Server
+                                (NodeJS)
+                            </li>
+                            <li><br /></li>
+                            <li>
+                                Browser (client) <================= Response =================
+                                Server (NodeJS)
+                            </li>
+                        </ul>
+
+                        <p># Vai trò</p>
+                        <p>Example 1</p>
+                        <ul class="children">
+                            <li>- Giống như bác bảo vệ</li>
+                            <li><br /></li>
+                            <li>
+                                Nhà =================> Bác bảo vệ (middleware):Sự kiện (soát vé)
+                            </li>
+                            <li><br /></li>
+                            <li>Nhà <================= Sự kiện</li>
+                            <li><br /></li>
+                            <li>1. Soát vé (kiểm soát => Validation)</li>
+                            <li>2. Không cho vào</li>
+                            <li>3. Cho phép vào (Validation passed ==> cho vào)</li>
+                            <li>4. Chỉnh sửa / thay đổi</li>
+                        </ul>
+
+                        <p>Example 2 - Call the next middleware in the stack.</p>
+                        <ul class="children">
+                            <li><br /></li>
+                            <li>
+                                Nhà =================> Bác bảo vệ 1 (middleware 1):Bác bảo vệ 2
+                                (middleware 2):Sự kiện (soát vé)
+                            </li>
+                            <li><br /></li>
+                            <li>Nhà <================= Sự kiện</li>
+                            <li><br /></li>
+                            <li>1. Soát vé (kiểm soát => Validation)</li>
+                            <li>2. Không cho vào</li>
+                            <li>3. Cho phép vào (Validation passed ==> cho vào)</li>
+                            <li>4. Chỉnh sửa / thay đổi</li>
+                        </ul>
+
+                        <p># Ứng dụng</p>
+                        <ul class="children">
+                            <li>- Dựng chức năng xác thực (Authentication)</li>
+                            <li>- Dựng chức năng phân quyền (Authorization)</li>
+                            <li>- Dựng chức năng đăng nhập (Login)</li>
+                            <li>- Để chia sẻ các giá trị của biến tới tất cả các view (Backend)</li>
+                            <li>...</li>
+                        </ul>
+                        <a
+                            href="https://expressjs.com/en/guide/writing-middleware.html"
+                            target="_blank"
+                            >expressjs => guide => writing-middleware</a
+                        >
+                        <div class="image">
+                            <a
+                                href="https://topdev.vn/blog/wp-content/uploads/2019/05/middleware-la-gi.png"
+                            >
+                                <img
+                                    src="https://topdev.vn/blog/wp-content/uploads/2019/05/middleware-la-gi.png"
+                                    alt="middleware"
+                                />
+                                <p>Mô phỏng về middleware</p>
+                            </a>
+                        </div>
                     </fieldset>
                 </ul>
 
