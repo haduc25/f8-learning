@@ -99,7 +99,8 @@
     //Lắng nghe Event khi DOM đc tải xong => call mới đc gọi
     document.addEventListener('DOMContentLoaded', () => {
         var courseId;
-        var containerForm = document.forms['container-form'];
+        //var containerForm = document.forms['container-form'];
+        var containerForm = $('form[name="container-form"]'); //jQuery
         //console.log(containerForm);
         var deleteForm = document.forms['delete-course-form'];
         //console.log(deleteForm);
@@ -173,9 +174,10 @@
         });
         */
         
+        // Case 1: 
         // Check all submit button submit / bỏ submit = js => submit = html
-        checkAllSubmitBtn.on('submit', function (event) {
-            var isSubmittable = $(this).hasClass('disabled'); //nếu có class disabled => true / ngược lại nếu không có class disabled => fasle | đã bỏ phủ định (!) not
+        containerForm.on('submit', function (event) {
+            var isSubmittable = checkAllSubmitBtn.hasClass('disabled'); //nếu có class disabled => true / ngược lại nếu không có class disabled => fasle | đã bỏ phủ định (!) not
             if (isSubmittable) {
                 //nếu = true => có class disabled => k đủ đk submit => bỏ hành vi mặc định
                 event.preventDefault();
