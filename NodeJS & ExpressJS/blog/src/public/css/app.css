@@ -25,4 +25,9 @@ li {
   margin: 0 16px;
 }
 
+.disabled {
+  pointer-events: none;
+  cursor: default;
+}
+
 /*# sourceMappingURL=app.css.map */

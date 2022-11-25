@@ -26,3 +26,8 @@ li {
     width: 175px !important;
     margin: 0 16px;
 }
+
+.disabled {
+    pointer-events: none;
+    cursor: default;
+}

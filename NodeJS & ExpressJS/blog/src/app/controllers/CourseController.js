@@ -79,6 +79,22 @@ class CourseController {
             .then(() => res.redirect('back'))
             .catch(next);
     }
+
+    // [POST] /courses/:id/restore
+    handleFormActions(req, res, next) {
+        // res.json(req.body);
+
+        switch (req.body.action) {
+            case 'delete':
+                // Soft delete
+                Course.delete({ _id: { $in: req.body.courseIds } }) //mongodb dùng $in: xóa tất cả những item có id nằm trong list 'courseIds'
+                    .then(() => res.redirect('back'))
+                    .catch(next);
+                break;
+            default:
+                res.json({ message: 'Action invalid!' });
+        }
+    }
 }
 
 // GET, POST, PUT, PATCH, DELETE, OPTIONS, HEAD
