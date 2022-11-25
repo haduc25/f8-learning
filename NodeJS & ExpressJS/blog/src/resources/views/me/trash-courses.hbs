@@ -73,7 +73,7 @@
         var deleteForm = document.forms['delete-course-form'];
         var restoreForm = document.forms['restore-course-form'];
         var btnDeleteCourse = document.getElementById('btn-delete-course');
-        var btnRestore = $('.btn-restore'); //Dùng JQuery lấy ra hết btn
+        var restoreBtn = $('.btn-restore'); //Dùng JQuery lấy ra hết btn
         //console.log(btnDeleteCourse);
 
         //When dialog confirm clicked
@@ -92,9 +92,9 @@
             deleteForm.submit();
         };
 
-        //console.log(btnRestore)
+        //console.log(restoreBtn)
         //Restore btn clicked
-        btnRestore.click((e) => {
+        restoreBtn.click((e) => {
             e.preventDefault();
             //console.log('restore clicked');
 
