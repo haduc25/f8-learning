@@ -11,8 +11,8 @@
             <label class='form-check-label' for='checkbox-all'> Chọn tất cả </label>
         </div>
 
-        <select class='form-control form-control-sm checkbox-select-all-options' id=''>
-            <option>-- Chọn hành động --</option>
+        <select class='form-control form-control-sm checkbox-select-all-options' name='action' required>
+            <option value="">-- Chọn hành động --</option>
             <option value='delete'>Xóa</option>
         </select>
 
@@ -160,7 +160,7 @@
             renderCheckAllSubmitBtn();
         });
 
-        // Check all submit button clicked
+        /*// Check all submit button clicked
         checkAllSubmitBtn.click(function (event) {
             //console.log(213);
             event.preventDefault();
@@ -171,6 +171,18 @@
                 containerForm.submit();
             }
         });
+        */
+        
+        // Check all submit button submit / bỏ submit = js => submit = html
+        checkAllSubmitBtn.on('submit', function (event) {
+            var isSubmittable = $(this).hasClass('disabled'); //nếu có class disabled => true / ngược lại nếu không có class disabled => fasle | đã bỏ phủ định (!) not
+            if (isSubmittable) {
+                //nếu = true => có class disabled => k đủ đk submit => bỏ hành vi mặc định
+                event.preventDefault();
+            }
+        })
+
+        
 
         // Re-render check all submit button
         function renderCheckAllSubmitBtn() {
