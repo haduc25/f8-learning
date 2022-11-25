@@ -16,7 +16,11 @@
             <option value='delete'>Xóa</option>
         </select>
 
-        <button class='btn btn-primary btn-sm check-all-submit-btn disabled'> Áp dụng </button>
+        {{!-- case 1 --}}
+        {{!-- <button class='btn btn-primary btn-sm check-all-submit-btn disabled'> Áp dụng </button> --}}
+        
+        {{!-- case 2 --}}
+        <button class='btn btn-primary btn-sm check-all-submit-btn' disabled> Áp dụng </button>
     </div>
     <table class='table mt-4'>
         <thead>
@@ -175,6 +179,7 @@
         */
         
         // Case 1: 
+        /**
         // Check all submit button submit / bỏ submit = js => submit = html
         containerForm.on('submit', function (event) {
             var isSubmittable = checkAllSubmitBtn.hasClass('disabled'); //nếu có class disabled => true / ngược lại nếu không có class disabled => fasle | đã bỏ phủ định (!) not
@@ -183,6 +188,7 @@
                 event.preventDefault();
             }
         })
+        */
 
         
 
@@ -191,10 +197,20 @@
             var checkedCount = $('input[name="courseIds[]"]:checked').length;
             //console.log(checkedCount);
 
+            //case 1
+            /**
             if (checkedCount > 0) {
                 checkAllSubmitBtn.removeClass('disabled');
             } else {
                 checkAllSubmitBtn.addClass('disabled');
+            }
+            */
+
+            //case 2
+            if (checkedCount > 0) {
+                checkAllSubmitBtn.attr('disabled', false); //removeClass
+            } else {
+                checkAllSubmitBtn.attr('disabled', true); //addClass
             }
         }
     });
