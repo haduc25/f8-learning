@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     // Lắng nghe Event khi DOM onchange => jQuery
-    // Checkbox all clicked
+    // Checkbox all changed
     checkboxAll.change(function (event) {
         //console.log(Math.random());
         //console.log($(this).prop('checked'));
@@ -36,11 +36,21 @@ document.addEventListener('DOMContentLoaded', () => {
         //Shorten:
         courseItemCheckbox.prop('checked', isCheckedAll);
         /** // đã rút gọn lại bên trên
-                if (isCheckedAll) {
-                    courseItemCheckbox.prop('checked', isCheckedAll);
-                }else{
-                    courseItemCheckbox.prop('checked', isCheckedAll);
-                }
+                    if (isCheckedAll) {
+                        courseItemCheckbox.prop('checked', isCheckedAll);
+                    }else{
+                        courseItemCheckbox.prop('checked', isCheckedAll);
+                    }
             */
+    });
+
+    // Course item checkbox changed
+    courseItemCheckbox.change(function (event) {
+        //console.log(123)
+        var lengthOfCheckboxInList = $('input[name="courseIds[]"]:checked').length; //length of checkbox is checked in list courseIds[]
+        var isCheckedAll = courseItemCheckbox.length === lengthOfCheckboxInList; //length of checkbox
+        //console.log(isCheckedAll);
+
+        checkboxAll.prop('checked', isCheckedAll); // nếu isCheckedAll = fasle => checkboxAll = fasle => ngược lại
     });
 });
