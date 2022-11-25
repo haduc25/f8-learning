@@ -1,444 +1,761 @@
 <!DOCTYPE html>
 <html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>NodeJS</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script>
+            function copyNow(valueOfThisFromDOM) {
+                var inp = document.createElement('input');
+                document.body.appendChild(inp);
+                inp.value = valueOfThisFromDOM.textContent;
+                inp.select();
+                document.execCommand('copy', false);
+                inp.remove();
+                valueOfThisFromDOM.classList.add('active');
+                console.log('Copied!');
+            }
+        </script>
+    </head>
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NodeJS</title>
-    <link rel="stylesheet" href="./style.css">
-    <script>
-        function copyNow(valueOfThisFromDOM) {
-            var inp = document.createElement('input');
-            document.body.appendChild(inp)
-            inp.value = valueOfThisFromDOM.textContent
-            inp.select();
-            document.execCommand('copy', false);
-            inp.remove();
-            valueOfThisFromDOM.classList.add("active");
-            console.log("Copied!");
-        }
-    </script>
-</head>
+    <body>
+        <h1 id="heading" class="headingClass">NodeJS & ExpressJS Learning...</h1>
+        <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">
+            Go to TopPage
+        </button>
+        <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">
+            Go to BotPage
+        </button>
 
-<body>
-    <h1 id="heading" class="headingClass">NodeJS & ExpressJS Learning...</h1>
-    <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">Go to TopPage</button>
-    <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">Go to BotPage</button>
+        <!-- Chương 1 -->
+        <h2>Chương 1</h2>
+        <div class="containers">
+            <ul class="parent">
+                <!-- PARENT START -->
 
-    <!-- Chương 1 -->
-    <h2>Chương 1<h2>
-            <div class="containers">
-                <ul class="parent">
-                    <!-- PARENT START -->
-
-                    <li>1 - 5. Install ExpressJS</li>
-                    <ul class="children">
-                        <li>Youtube: <a href="https://youtu.be/I7PCFnyCJYM" target="_blank">NodeJS & ExpressJS - Coding
-                                #1 //[20/11/2022]</a></li>
-                        <fieldset>
-                            <legend>Keywords</legend>
-                            <a href="https://www.npmjs.com/package/express" target="_blank">npm express</a>
-                            <a href="https://expressjs.com/en/starter/installing.html" target="_blank">expressjs.com</a>
-                            <a href="https://expressjs.com/en/starter/hello-world.html" target="_blank">Hello world
-                                example</a>
-                            <code onclick="copyNow(this)">npm i express</code>
-                            <p>run proj <code onclick="copyNow(this)">node index.js</code></p>
-                        </fieldset>
-                    </ul>
-
-
-                    <li>6. Install Nodemon & inspector</li>
-                    <ul class="children">
-                        <li>Youtube: <a href="https://youtu.be/I7PCFnyCJYM" target="_blank">NodeJS & ExpressJS - Coding
-                                #1 //[20/11/2022]</a></li>
-                        <li>Youtube: <a href="https://youtu.be/vHLar5tYxxo" target="_blank">NodeJS & ExpressJS - Coding
-                                #2 //[21/11/2022]</a></li>
-                        <fieldset>
-                            <legend>Keywords</legend>
-                            <a href="https://www.npmjs.com/package/nodemon" target="_blank">nodemon</a>
-                            <code onclick="copyNow(this)">npm i nodemon</code>
-                            <p>run proj <code onclick="copyNow(this)">node index.js</code></p>
-                        </fieldset>
-                    </ul>
-
-
-                    <li>7. Add git repo, 8. Install Morgan, 9. Feedback: Khảo sát tìm hướng cải thiện kỹ năng tiếng Anh?
+                <li>1 - 5. Install ExpressJS</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/I7PCFnyCJYM" target="_blank"
+                            >NodeJS & ExpressJS - Coding #1 //[20/11/2022]</a
+                        >
                     </li>
-                    <ul class="children">
-                        <li>Youtube: <a href="https://youtu.be/xF9Jh6KSwNY" target="_blank">NodeJS & ExpressJS - Coding
-                                #3 //[22/11/2022]</a></li>
-                        <fieldset>
-                            <legend>Keywords</legend>
-                            <a href="https://www.npmjs.com/package/morgan" target="_blank">Install Morgan</a>
-                            <code onclick="copyNow(this)">npm --save-dev i morgan</code>
-                        </fieldset>
-                    </ul>
-
-
-
-                    <!-- PARENT END -->
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://www.npmjs.com/package/express" target="_blank"
+                            >npm express</a
+                        >
+                        <a href="https://expressjs.com/en/starter/installing.html" target="_blank"
+                            >expressjs.com</a
+                        >
+                        <a href="https://expressjs.com/en/starter/hello-world.html" target="_blank"
+                            >Hello world example</a
+                        >
+                        <code onclick="copyNow(this)">npm i express</code>
+                        <p>run proj <code onclick="copyNow(this)">node index.js</code></p>
+                    </fieldset>
                 </ul>
-            </div>
 
-            <!-- Chương 2 -->
-            <h2>Chương 2<h2>
-                    <div class="containers">
-                        <ul class="parent">
-                            <!-- PARENT START -->
+                <li>6. Install Nodemon & inspector</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/I7PCFnyCJYM" target="_blank"
+                            >NodeJS & ExpressJS - Coding #1 //[20/11/2022]</a
+                        >
+                    </li>
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/vHLar5tYxxo" target="_blank"
+                            >NodeJS & ExpressJS - Coding #2 //[21/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://www.npmjs.com/package/nodemon" target="_blank">nodemon</a>
+                        <code onclick="copyNow(this)">npm i nodemon</code>
+                        <p>run proj <code onclick="copyNow(this)">node index.js</code></p>
+                    </fieldset>
+                </ul>
 
-                            <li>10. Template engine (handlebars)</li>
-                            <ul class="children">
-                                <li>Youtube: <a href="https://youtu.be/xF9Jh6KSwNY" target="_blank">NodeJS & ExpressJS -
-                                        Coding #3, Reaction MV //[22/11/2022]</a></li>
-                                <fieldset>
-                                    <legend>Keywords</legend>
-                                    <a href="https://www.npmjs.com/package/express-handlebars" target="_blank">npm
-                                        express-handlebars</a>
-                                    <code onclick="copyNow(this)">npm i express-handlebars</code>
+                <li>
+                    7. Add git repo, 8. Install Morgan, 9. Feedback: Khảo sát tìm hướng cải thiện kỹ
+                    năng tiếng Anh?
+                </li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/xF9Jh6KSwNY" target="_blank"
+                            >NodeJS & ExpressJS - Coding #3 //[22/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://www.npmjs.com/package/morgan" target="_blank"
+                            >Install Morgan</a
+                        >
+                        <code onclick="copyNow(this)">npm --save-dev i morgan</code>
+                    </fieldset>
+                </ul>
 
-                                    <a href="https://www.npmjs.com/package/pug" target="_blank">npm template engine
-                                        pug</a>
-                                    <code onclick="copyNow(this)">npm i pug</code>
+                <!-- PARENT END -->
+            </ul>
+        </div>
 
-                                    <a href="https://github.com/ericf/express-handlebars/issues/147"
-                                        target="_blank">Express Handlebars node js set views</a>
+        <!-- Chương 2 -->
+        <h2>Chương 2</h2>
+        <div class="containers">
+            <ul class="parent">
+                <!-- PARENT START -->
 
-                                    <a href="https://www.npmjs.com/package/express-handlebars"
-                                        target="_blank">Configuration and Defaults
-                                        (www.npmjs.com/package/express-handlebars)</a>
+                <li>10. Template engine (handlebars)</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/xF9Jh6KSwNY" target="_blank"
+                            >NodeJS & ExpressJS - Coding #3, Reaction MV //[22/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://www.npmjs.com/package/express-handlebars" target="_blank"
+                            >npm express-handlebars</a
+                        >
+                        <code onclick="copyNow(this)">npm i express-handlebars</code>
 
-                                    <a href="https://www.npmjs.com/package/express-handlebars"
-                                        target="_blank">partialsDir (www.npmjs.com/package/express-handlebars)</a>
+                        <a href="https://www.npmjs.com/package/pug" target="_blank"
+                            >npm template engine pug</a
+                        >
+                        <code onclick="copyNow(this)">npm i pug</code>
 
+                        <a
+                            href="https://github.com/ericf/express-handlebars/issues/147"
+                            target="_blank"
+                            >Express Handlebars node js set views</a
+                        >
 
+                        <a href="https://www.npmjs.com/package/express-handlebars" target="_blank"
+                            >Configuration and Defaults
+                            (www.npmjs.com/package/express-handlebars)</a
+                        >
 
-                                </fieldset>
-                            </ul>
+                        <a href="https://www.npmjs.com/package/express-handlebars" target="_blank"
+                            >partialsDir (www.npmjs.com/package/express-handlebars)</a
+                        >
+                    </fieldset>
+                </ul>
 
+                <li>11. Template engine (handlebars)</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/8BzPVXFtdH0" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #4 //[22/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://www.npmjs.com/package/node-sass" target="_blank"
+                            >npm node sass</a
+                        >
+                        <code onclick="copyNow(this)">npm i --save-dev node-sass</code>
 
-                            <li>11. Template engine (handlebars)</li>
-                            <ul class="children">
-                                <li>Youtube: <a href="https://youtu.be/8BzPVXFtdH0" target="_blank">NodeJS & ExpressJS -
-                                        Coding, Reaction #4 //[22/11/2022]</a></li>
-                                <fieldset>
-                                    <legend>Keywords</legend>
-                                    <a href="https://www.npmjs.com/package/node-sass" target="_blank">npm node sass</a>
-                                    <code onclick="copyNow(this)">npm i --save-dev node-sass</code>
+                        <a href="https://sass-lang.com/dart-sass" target="_blank">npm dart sass</a>
+                        <!-- do 2022 hoặc muộn hơn thì node-sass k còn hộ trỡ nữa ta sẽ sử dụng dart sass nhé nguồn: https://sass-lang.com/dart-sass -->
+                        <code onclick="copyNow(this)">npm i -g sass</code>
 
-                                    <a href="https://sass-lang.com/dart-sass" target="_blank">npm dart sass</a>
-                                    <!-- do 2022 hoặc muộn hơn thì node-sass k còn hộ trỡ nữa ta sẽ sử dụng dart sass nhé nguồn: https://sass-lang.com/dart-sass -->
-                                    <code onclick="copyNow(this)">npm i -g sass</code>
+                        <a href="https://www.npmjs.com/package/node-sass" target="_blank"
+                            >Command Line Interface > Usage (www.npmjs.com/package/node-sass)</a
+                        >
 
-                                    <a href="https://www.npmjs.com/package/node-sass" target="_blank">Command Line
-                                        Interface > Usage (www.npmjs.com/package/node-sass)</a>
+                        <p>run proj <code onclick="copyNow(this)">npm run watch</code></p>
+                    </fieldset>
+                </ul>
 
-                                    <p>run proj <code onclick="copyNow(this)">npm run watch</code></p>
+                <li>12. Use Bootstrap</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/8BzPVXFtdH0" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #4 //[22/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/getting-started/introduction/"
+                            target="_blank"
+                            >bootstrap 4</a
+                        >
 
+                        <p>
+                            css
+                            <code style="width: auto" onclick="copyNow(this)"
+                                >&lt;link rel="stylesheet"
+                                href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css"
+                                integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+                                crossorigin="anonymous"&gt;</code
+                            >
+                        </p>
+                        <p>
+                            js
+                            <code style="width: auto" onclick="copyNow(this)"
+                                >&lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+                                integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+                                crossorigin="anonymous"&gt;&lt;/script&gt; <br /><br />
+                                &lt;script
+                                src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+                                integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+                                crossorigin="anonymous"&gt;&lt;/script&gt; <br /><br />
+                                &lt;script
+                                src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+                                integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+                                crossorigin="anonymous"&gt;&lt;/script&gt;&gt;
+                            </code>
+                        </p>
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/components/navbar/"
+                            target="_blank"
+                            >bootstrap 4 - Navbar</a
+                        >
+                    </fieldset>
+                </ul>
 
-                                </fieldset>
-                            </ul>
+                <li>13. Basic routing, 14. GET method, 15. Query parameters</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/8BzPVXFtdH0" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #4 //[22/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <p>URL & URI</p>
+                        <p>Req: thông tin của yêu cầu gửi lên</p>
+                        <p>Res: tùy chỉnh lựa chọn trả về</p>
+                    </fieldset>
+                </ul>
 
+                <li>16. Form default behavior</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/u981byYK6YU" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #5 //[22/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/components/forms/"
+                            target="_blank"
+                            >bootstrap 4 - Forms</a
+                        >
+                        <p>
+                            *Khi được chỉ định là phương thức 'POST' (method='POST') trong form thì
+                            khi f5 lại page thì sẽ là 'POST' nhưng khi nhấn vào 'URL' đẻ 'Refresh'
+                            thì method 'GET' sẽ được gọi.
+                        </p>
+                    </fieldset>
+                </ul>
 
-                            <li>12. Use Bootstrap</li>
-                            <ul class="children">
-                                <li>Youtube: <a href="https://youtu.be/8BzPVXFtdH0" target="_blank">NodeJS & ExpressJS -
-                                        Coding, Reaction #4 //[22/11/2022]</a></li>
-                                <fieldset>
-                                    <legend>Keywords</legend>
-                                    <a href="https://getbootstrap.com/docs/4.0/getting-started/introduction/"
-                                        target="_blank">bootstrap 4</a>
+                <li>17. POST method, 18. Feedback: Độ dài 1 video bao nhiêu là phù hợp?</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/u981byYK6YU" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #5 //[22/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a
+                            href="https://viblo.asia/p/tim-hieu-ve-middleware-trong-expressjs-gVQelwaaGZJ"
+                            target="_blank"
+                            >middleware nodejs la gi?</a
+                        >
 
-                                    <p>css <code style="width: auto;"
-                                            onclick="copyNow(this)">&lt;link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"&gt;</code>
-                                    </p>
-                                    <p>js <code style="width: auto;" onclick="copyNow(this)">&lt;script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"&gt;&lt;/script&gt; <br><br>
-                                        &lt;script src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"&gt;&lt;/script&gt; <br><br>
-                                        &lt;script src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"&gt;&lt;/script&gt;&gt;
-                                    </code>
-                                    </p>
-                                    <a href="https://getbootstrap.com/docs/4.0/components/navbar/"
-                                        target="_blank">bootstrap 4 - Navbar</a>
-                                </fieldset>
-                            </ul>
+                        <!-- Đã được tích hợp sẵn trong 'Express' -->
+                        <a href="https://www.npmjs.com/package/body-parser" target="_blank"
+                            >body parser npm</a
+                        >
+                        <code onclick="copyNow(this)">npm i body-parser</code>
 
+                        <!-- Đã được tích hợp sẵn trong 'body-parser' -->
+                        <a href="https://www.npmjs.com/package/qs" target="_blank">qs npm</a>
+                        <code onclick="copyNow(this)">npm i qs</code>
 
-                            <li>13. Basic routing, 14. GET method, 15. Query parameters</li>
-                            <ul class="children">
-                                <li>Youtube: <a href="https://youtu.be/8BzPVXFtdH0" target="_blank">NodeJS & ExpressJS -
-                                        Coding, Reaction #4 //[22/11/2022]</a></li>
-                                <fieldset>
-                                    <legend>Keywords</legend>
-                                    <p>URL & URI</p>
-                                    <p>Req: thông tin của yêu cầu gửi lên</p>
-                                    <p>Res: tùy chỉnh lựa chọn trả về</p>
-                                </fieldset>
-                            </ul>
+                        <p>POST: Khi gửi data sẽ nhận được ở: dev-tool>Network>Payload>Form Data</p>
+                        <p>
+                            - GET và POST là hai phương thức của giao thức HTTP, đều là gửi dữ liệu
+                            về server xử lí sau khi người dùng nhập thông tin vào form và thực hiện
+                            submit.
+                            <br />
+                            - Phương thức GET:<br />
+                            + Gửi thông tin người dùng và đính lên đường dẫn URL.<br />
+                            + Băng thông của nó chỉ khoảng 1024 kí tự vì vây GET hạn chế về số kí tự
+                            được gửi đi.<br />
+                            + GET không thể gửi dữ liệu nhị phân , hình ảnh ...<br />
+                            + Có thể cached và được bookmark (đánh dấu trên trình duyệt), lưu trong
+                            browser history.<br /><br />
+                            - Phương thức POST:<br />
+                            + Truyền thông tin thông qua HTTP header.<br />
+                            + Dữ liệu rất bảo mật vì dữ liệu được gửi ngầm, không đưa lên URL, bằng
+                            việc sử dụng Secure HTTP.<br />
+                            + Parameters được truyền trong request body<br />
+                            + Có thể truyền dữ liệu lớn, hạn chế tùy thuộc vào cấu hình của
+                            Server.<br />
+                            + Không cache và bookmark được cũng như không được lưu lại trong browser
+                            history. <br />
+                            + + Không hạn chế về kích thước dữ liệu khi gửi, có thể gửi dữ liệu nhị
+                            phân, hình ảnh.
+                        </p>
 
+                        <p>
+                            *Fun fact: <br />Các phiên bản trước của Express có rất nhiều middleware
+                            đi kèm với nó, bodyParser là một trong số đó. Khi phát hành Express 4.0,
+                            vì một lý do nào đó, cả 2 đã chia tay nhau. Express lạnh lùng không còn
+                            đi cùng với middleware này nữa, trong khi body-parser vẫn còn thương nên
+                            trở thành một module riêng, luôn luôn bên cạnh, âm thầm giúp đỡ Express.
+                            <br />
 
-                            <li>16. Form default behavior</li>
-                            <ul class="children">
-                                <li>Youtube: <a href="https://youtu.be/u981byYK6YU" target="_blank">NodeJS & ExpressJS -
-                                        Coding, Reaction #5 //[22/11/2022]</a></li>
-                                <fieldset>
-                                    <legend>Keywords</legend>
-                                    <a href="https://getbootstrap.com/docs/4.0/components/forms/"
-                                        target="_blank">bootstrap 4 - Forms</a>
-                                    <p>*Khi được chỉ định là phương thức 'POST' (method='POST') trong form thì khi f5
-                                        lại page thì sẽ là 'POST' nhưng khi nhấn vào 'URL' đẻ 'Refresh' thì method 'GET'
-                                        sẽ được gọi.</p>
-                                </fieldset>
-                            </ul>
+                            Vào một ngày đẹp trời, chính xác là ngày 28/8/2017 – Express release
+                            phiên bản 4.16.0, sau bao sóng gió, cả 2 đã quay trở lại với nhau. Nhưng
+                            vì một lần tan vỡ, lần này body-parser dè chừng, không trao hết tình cảm
+                            cho Express, thành ra khi sử dụng Express 4.16.0, ta chỉ mới dùng được
+                            middleware express.json() và express.urlencoded(). Mãi tới tận phiên bản
+                            Express 4.17.0, body-parser mới hoàn toàn thuộc về Express với thêm
+                            express.raw() và express.text(), tình yêu nối lại, nồng nàn hơn xưa :)).
+                            <br />
 
+                            Kể từ đây, khi dùng Express 4.17.0 trở đi, ta không cần phải cài đặt
+                            thêm module middleware body-parser để nhận dữ liệu method POST nữa.
+                        </p>
+                    </fieldset>
+                </ul>
 
-                            <li>17. POST method, 18. Feedback: Độ dài 1 video bao nhiêu là phù hợp?</li>
-                            <ul class="children">
-                                <li>Youtube: <a href="https://youtu.be/u981byYK6YU" target="_blank">NodeJS & ExpressJS -
-                                        Coding, Reaction #5 //[22/11/2022]</a></li>
-                                <fieldset>
-                                    <legend>Keywords</legend>
-                                    <a href="https://viblo.asia/p/tim-hieu-ve-middleware-trong-expressjs-gVQelwaaGZJ"
-                                        target="_blank">middleware nodejs la gi?</a>
+                <!-- PARENT END -->
+            </ul>
+        </div>
 
-                                    <!-- Đã được tích hợp sẵn trong 'Express' -->
-                                    <a href="https://www.npmjs.com/package/body-parser" target="_blank">body parser
-                                        npm</a>
-                                    <code onclick="copyNow(this)">npm i body-parser</code>
+        <!-- Chương 3 -->
+        <h2>Chương 3</h2>
+        <div class="containers">
+            <ul class="parent">
+                <!-- PARENT START -->
 
-                                    <!-- Đã được tích hợp sẵn trong 'body-parser' -->
-                                    <a href="https://www.npmjs.com/package/qs" target="_blank">qs npm</a>
-                                    <code onclick="copyNow(this)">npm i qs</code>
+                <li>19. Mô hình MVC, 20. [MVC] Routes & Controllers</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/99wVZPQcxdY" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #6 //[23/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://expressjs.com/en/4x/api.html#router.use" target="_blank"
+                            >express js router use</a
+                        >
+                        <a href="https://expressjs.com/en/4x/api.html#router.param" target="_blank"
+                            >express js router param</a
+                        >
+                        <p>refactor code</p>
+                    </fieldset>
+                </ul>
 
+                <li>
+                    21, 22, 23. [Windows, Ubuntu, MacOS] Install MongoDB, 24. Prettier - Code
+                    formatter
+                </li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/DiOYtWcp2pk" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #7 //[23/11/2022]</a
+                        >
+                    </li>
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/j8LpzKB2-hk" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #8 //[23/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://github.com/prettier/prettier" target="_blank"
+                            >prettier github</a
+                        >
+                        <a href="https://prettier.io/docs/en/cli.html" target="_blank"
+                            >prettier docs</a
+                        >
+                        <a href="https://www.npmjs.com/package/lint-staged" target="_blank"
+                            >lint-staged npm</a
+                        >
+                        <a href="https://www.npmjs.com/package/husky" target="_blank">husky npm</a>
+                        <code class="w-a" onclick="copyNow(this)"
+                            >npm i prettier lint-staged husky --save-dev</code
+                        >
+                        <a href="https://expressjs.com/en/4x/api.html#router.param" target="_blank"
+                            >express js router param</a
+                        >
+                    </fieldset>
+                </ul>
 
-                                    <p>POST: Khi gửi data sẽ nhận được ở: dev-tool>Network>Payload>Form Data</p>
-                                    <p>- GET và POST là hai phương thức của giao thức HTTP, đều là gửi dữ liệu về
-                                        server xử lí sau khi người dùng nhập thông tin vào form và thực hiện submit.
-                                        <br>
-                                        - Phương thức GET:<br>
-                                        + Gửi thông tin người dùng và đính lên đường dẫn URL.<br>
-                                        + Băng thông của nó chỉ khoảng 1024 kí tự vì vây GET hạn chế về số kí tự được
-                                        gửi đi.<br>
-                                        + GET không thể gửi dữ liệu nhị phân , hình ảnh ...<br>
-                                        + Có thể cached và được bookmark (đánh dấu trên trình duyệt), lưu trong browser
-                                        history.<br><br>
-                                        - Phương thức POST:<br>
-                                        + Truyền thông tin thông qua HTTP header.<br>
-                                        + Dữ liệu rất bảo mật vì dữ liệu được gửi ngầm, không đưa lên URL, bằng việc sử
-                                        dụng Secure HTTP.<br>
-                                        + Parameters được truyền trong request body<br>
-                                        + Có thể truyền dữ liệu lớn, hạn chế tùy thuộc vào cấu hình của Server.<br>
-                                        + Không cache và bookmark được cũng như không được lưu lại trong browser
-                                        history. <br>
-                                        + + Không hạn chế về kích thước dữ liệu khi gửi, có thể gửi dữ liệu nhị
-                                        phân, hình ảnh.
-                                    </p>
+                <li>25. [MVC] Model</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/j8LpzKB2-hk" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #8 //[23/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://github.com/Automattic/mongoose" target="_blank"
+                            >mongoose github</a
+                        >
+                        <code class="w-a" onclick="copyNow(this)">npm i mongoose</code>
+                        <a
+                            href="https://expressjs.com/en/guide/database-integration.html#mongodb"
+                            target="_blank"
+                            >Database integration (expressjs.com)</a
+                        >
+                        <a href="https://expressjs.com/en/4x/api.html#res.json" target="_blank"
+                            >Response > res.jsonp([body]) (expressjs.com)</a
+                        >
+                        <a
+                            href="https://github.com/Automattic/mongoose#defining-a-model"
+                            target="_blank"
+                            >Defining a Model (github.com)</a
+                        >
+                        <a
+                            href="https://github.com/Automattic/mongoose#accessing-a-model"
+                            target="_blank"
+                            >Accessing a Model (github.com)</a
+                        >
+                        <a
+                            href="https://github.com/Automattic/mongoose#accessing-a-model"
+                            target="_blank"
+                            >Accessing a Model (github.com)</a
+                        >
+                    </fieldset>
+                </ul>
 
-                                    <p>*Fun fact: <br>Các phiên bản trước của Express có rất nhiều middleware đi kèm với
-                                        nó,
-                                        bodyParser là một trong số đó. Khi phát hành Express 4.0, vì một lý do nào đó,
-                                        cả 2 đã chia tay nhau. Express lạnh lùng không còn đi cùng với middleware này
-                                        nữa, trong khi body-parser vẫn còn thương nên trở thành một module riêng, luôn
-                                        luôn bên cạnh, âm thầm giúp đỡ Express. <br>
+                <li>26. Install JSON viewer extension & Fix 1 số lỗi</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/j8LpzKB2-hk" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #8 //[23/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://github.com/Automattic/mongoose" target="_blank"
+                            >mongoose github</a
+                        >
+                        <code class="w-a" onclick="copyNow(this)">npm i mongoose</code>
+                        <a
+                            href="https://expressjs.com/en/guide/database-integration.html#mongodb"
+                            target="_blank"
+                            >Database integration (expressjs.com)</a
+                        >
+                        <a href="https://expressjs.com/en/4x/api.html#res.json" target="_blank"
+                            >Response > res.jsonp([body]) (expressjs.com)</a
+                        >
+                        <a
+                            href="https://github.com/Automattic/mongoose#defining-a-model"
+                            target="_blank"
+                            >Defining a Model (github.com)</a
+                        >
+                        <a
+                            href="https://github.com/Automattic/mongoose#accessing-a-model"
+                            target="_blank"
+                            >Accessing a Model (github.com)</a
+                        >
+                    </fieldset>
+                </ul>
 
-                                        Vào một ngày đẹp trời, chính xác là ngày 28/8/2017 – Express release phiên bản
-                                        4.16.0, sau bao sóng gió, cả 2 đã quay trở lại với nhau. Nhưng vì một lần tan
-                                        vỡ, lần này body-parser dè chừng, không trao hết tình cảm cho Express, thành ra
-                                        khi sử dụng Express 4.16.0, ta chỉ mới dùng được middleware express.json() và
-                                        express.urlencoded(). Mãi tới tận phiên bản Express 4.17.0, body-parser mới hoàn
-                                        toàn thuộc về Express với thêm express.raw() và express.text(), tình yêu nối
-                                        lại, nồng nàn hơn xưa :)). <br>
+                <li>27. [CRUD] Read from DB</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/j8LpzKB2-hk" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #8 //[23/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a
+                            href="https://github.com/Automattic/mongoose#accessing-a-model"
+                            target="_blank"
+                            >handlebars js</a
+                        >
+                        <a href="https://handlebarsjs.com/guide/#evaluation-context" target="_blank"
+                            >handlebars js - Evaluation context</a
+                        >
+                        <a
+                            href="https://handlebarsjs.com/examples/builtin-helper-each-block.html"
+                            target="_blank"
+                            >handlebars js - Evaluation context - Each, Array</a
+                        >
+                        <a href="https://github.com/handlebars-lang/handlebars.js" target="_blank"
+                            >handlebars js github</a
+                        >
+                        <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank"
+                            >bootstrap 4 => Components => Cards</a
+                        >
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/layout/grid/#grid-options"
+                            target="_blank"
+                            >bootstrap 4 => Layout => Grid</a
+                        >
+                    </fieldset>
+                </ul>
 
-                                        Kể từ đây, khi dùng Express 4.17.0 trở đi, ta không cần phải cài đặt thêm module
-                                        middleware body-parser để nhận dữ liệu method POST nữa.</p>
-                                </fieldset>
-                            </ul>
+                <li>28. Course detail page</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/j8LpzKB2-hk" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #8 //[23/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a
+                            href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent"
+                            target="_blank"
+                            >encodeURIComponent</a
+                        >
+                        <a href="https://mongoosejs.com/docs/guide.html" target="_blank"
+                            >mongoose js</a
+                        >
+                        <a href="https://mongoosejs.com/docs/queries.html#queries" target="_blank"
+                            >mongoose js - Queries</a
+                        >
+                        <a
+                            href="https://mongoosejs.com/docs/api.html#model_Model-findOne"
+                            target="_blank"
+                            >mongoose js - Queries - Model.findOne()</a
+                        >
+                    </fieldset>
+                </ul>
 
-                            <!-- PARENT END -->
-                        </ul>
-                    </div>
+                <li>29. [CRUD] Create new course</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/ar1bwkNr_44" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #9 //[24/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/components/forms/"
+                            target="_blank"
+                            >bootstrap 4 => Components => Forms</a
+                        >
+                        <a
+                            href="https://mongoosejs.com/docs/models.html#constructing-documents"
+                            target="_blank"
+                            >mongoosejs => Models => Constructing Documents</a
+                        >
+                        <a href="https://expressjs.com/en/4x/api.html#res.redirect" target="_blank"
+                            >Express => API => 4x => res.redirect([status,] path)</a
+                        >
+                        <a
+                            href="https://www.npmjs.com/package/mongoose-slug-generator"
+                            target="_blank"
+                            >mongoose slug generator</a
+                        >
+                        <code class="w-a" onclick="copyNow(this)"
+                            >npm i mongoose-slug-generator</code
+                        >
+                    </fieldset>
+                </ul>
 
-                    <!-- Chương 3 -->
-                    <h2>Chương 3<h2>
-                            <div class="containers">
-                                <ul class="parent">
-                                    <!-- PARENT START -->
+                <li>30. [CRUD] Update course</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/ar1bwkNr_44" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #9 //[24/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://getbootstrap.com/docs/4.0/content/tables/" target="_blank"
+                            >bootstrap 4 => Content => Tables</a
+                        >
+                        <a
+                            href="https://handlebarsjs.com/guide/builtin-helpers.html#each"
+                            target="_blank"
+                            >handlebars js => Built-in Helpers => Each</a
+                        >
+                        <a href="https://handlebarsjs.com/guide/#custom-helpers" target="_blank"
+                            >handlebars js => Introduction => Custom Helpers</a
+                        >
+                        <a href="https://www.npmjs.com/package/express-handlebars" target="_blank"
+                            >express handle bar</a
+                        >
+                        <a
+                            href="https://github.com/express-handlebars/express-handlebars#helpers"
+                            target="_blank"
+                            >express handle bar => helpers (github)</a
+                        >
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/components/buttons/#examples"
+                            target="_blank"
+                            >bootstrap 4 => Components => Buttons => Examples</a
+                        >
+                        <a href="https://expressjs.com/en/resources/middleware.html" target="_blank"
+                            >express js => Resources => Middleware</a
+                        >
+                        <a href="https://expressjs.com/en/resources/middleware/method-override.html"
+                            >express js => Resources => Middleware => method-override</a
+                        >
+                        <code class="w-a" onclick="copyNow(this)">npm install method-override</code>
+                        <a href="https://mongoosejs.com/docs/models.html#updating"
+                            >mongoosejs => models => updating => method-override</a
+                        >
+                        <a href="https://mongoosejs.com/docs/queries.html#queries"
+                            >mongoosejs => queries</a
+                        >
+                    </fieldset>
+                </ul>
 
-                                    <li>19. Mô hình MVC, 20. [MVC] Routes & Controllers</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/99wVZPQcxdY" target="_blank">NodeJS & ExpressJS - Coding, Reaction #6 //[23/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <a href="https://expressjs.com/en/4x/api.html#router.use" target="_blank">express js router use</a>
-                                            <a href="https://expressjs.com/en/4x/api.html#router.param" target="_blank">express js router param</a>
-                                            <p>refactor code</p>
-                                        </fieldset>
-                                    </ul>
+                <li>31. [CRUD] Delete course</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/ar1bwkNr_44" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #9 //[24/11/2022]</a
+                        >
+                    </li>
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/mb5bxLLuI7o" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #10 //[24/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/components/modal/#modal-components"
+                            target="_blank"
+                            >bootstrap 4 => components => modal => modal-components</a
+                        >
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/components/modal/#live-demo"
+                            target="_blank"
+                            >bootstrap 4 => components => modal => live-demo</a
+                        >
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/components/modal/#varying-modal-content"
+                            target="_blank"
+                            >bootstrap 4 => components => modal => varying-modal-content</a
+                        >
+                    </fieldset>
+                </ul>
 
-                                    <li>21, 22, 23. [Windows, Ubuntu, MacOS] Install MongoDB, 24. Prettier - Code formatter</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/DiOYtWcp2pk" target="_blank">NodeJS & ExpressJS - Coding, Reaction #7 //[23/11/2022]</a></li>
-                                        <li>Youtube: <a href="https://youtu.be/j8LpzKB2-hk" target="_blank">NodeJS & ExpressJS - Coding, Reaction #8 //[23/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <a href="https://github.com/prettier/prettier" target="_blank">prettier github</a>
-                                            <a href="https://prettier.io/docs/en/cli.html" target="_blank">prettier docs</a>
-                                            <a href="https://www.npmjs.com/package/lint-staged" target="_blank">lint-staged npm</a>
-                                            <a href="https://www.npmjs.com/package/husky" target="_blank">husky npm</a>
-                                            <code class="w-a" onclick="copyNow(this)">npm i prettier lint-staged husky --save-dev</code>
-                                            <a href="https://expressjs.com/en/4x/api.html#router.param" target="_blank">express js router param</a>
-                                        </fieldset>
-                                    </ul>
+                <li>32. Soft delete?</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/mb5bxLLuI7o" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #10 //[24/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <p>Delete (soft)</p>
+                        <p>Restore</p>
+                        <p>Force delete</p>
+                        <a href="https://www.npmjs.com/package/mongoose-delete" target="_blank"
+                            >mongoose soft delete npm</a
+                        >
+                        <code onclick="copyNow(this)">npm i mongoose-delete</code>
+                        <a
+                            href="https://www.npmjs.com/package/mongoose-delete#save-time-of-deletion"
+                            target="_blank"
+                            >mongoose soft delete npm => deletedAt()</a
+                        >
+                        <a href="https://www.npmjs.com/package/mongoose-delete" target="_blank"
+                            >mongoose soft delete npm => Method overridden</a
+                        >
+                        <a href="https://www.npmjs.com/package/mongoose-delete" target="_blank"
+                            >mongoose soft delete npm => findDeleted(): will return only DELETED
+                            documents</a
+                        >
+                        <p>1. Create => POST</p>
+                        <p>2. Read => GET</p>
+                        <p>3. Update => PUT, PATCH</p>
+                        <p>4. Delete => DELETE</p>
+                    </fieldset>
+                </ul>
 
-                                    <li>25. [MVC] Model</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/j8LpzKB2-hk" target="_blank">NodeJS & ExpressJS - Coding, Reaction #8 //[23/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <a href="https://github.com/Automattic/mongoose" target="_blank">mongoose github</a>
-                                            <code class="w-a" onclick="copyNow(this)">npm i mongoose</code>
-                                            <a href="https://expressjs.com/en/guide/database-integration.html#mongodb" target="_blank">Database integration (expressjs.com)</a>
-                                            <a href="https://expressjs.com/en/4x/api.html#res.json" target="_blank">Response > res.jsonp([body]) (expressjs.com)</a>
-                                            <a href="https://github.com/Automattic/mongoose#defining-a-model" target="_blank">Defining a Model (github.com)</a>
-                                            <a href="https://github.com/Automattic/mongoose#accessing-a-model" target="_blank">Accessing a Model (github.com)</a>
-                                            <a href="https://github.com/Automattic/mongoose#accessing-a-model" target="_blank">Accessing a Model (github.com)</a>
+                <li>33. Deleted count documents</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/mb5bxLLuI7o" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Reaction #10 //[24/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="https://www.npmjs.com/package/mongoose-delete" target="_blank"
+                            >mongoose soft delete npm => Method overridden</a
+                        >
+                    </fieldset>
+                </ul>
 
-                                        </fieldset>
-                                    </ul>
+                <li>34. "Select all" with checkbox</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/KNZPk0Q4SZI" target="_blank"
+                            >NodeJS & ExpressJS - Coding, Học bù HTTM #11 //[25/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/components/forms/#default-stacked"
+                            target="_blank"
+                            >bootstrap 4 => components => forms => Default-stacked</a
+                        >
+                        <a
+                            href="https://getbootstrap.com/docs/4.0/components/forms/#form-controls"
+                            target="_blank"
+                            >bootstrap 4 => components => forms => Form-controls</a
+                        >
+                        <a href="https://getbootstrap.com/docs/4.0/utilities/flex/" target="_blank"
+                            >bootstrap 4 => utilities => flex</a
+                        >
+                    </fieldset>
+                </ul>
 
-                                    <li>26. Install JSON viewer extension & Fix 1 số lỗi</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/j8LpzKB2-hk" target="_blank">NodeJS & ExpressJS - Coding, Reaction #8 //[23/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <a href="https://github.com/Automattic/mongoose" target="_blank">mongoose github</a>
-                                            <code class="w-a" onclick="copyNow(this)">npm i mongoose</code>
-                                            <a href="https://expressjs.com/en/guide/database-integration.html#mongodb" target="_blank">Database integration (expressjs.com)</a>
-                                            <a href="https://expressjs.com/en/4x/api.html#res.json" target="_blank">Response > res.jsonp([body]) (expressjs.com)</a>
-                                            <a href="https://github.com/Automattic/mongoose#defining-a-model" target="_blank">Defining a Model (github.com)</a>
-                                            <a href="https://github.com/Automattic/mongoose#accessing-a-model" target="_blank">Accessing a Model (github.com)</a>
-                                        </fieldset>
-                                    </ul>
+                <!-- PARENT END -->
+            </ul>
+        </div>
 
-                                    <li>27. [CRUD] Read from DB</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/j8LpzKB2-hk" target="_blank">NodeJS & ExpressJS - Coding, Reaction #8 //[23/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <a href="https://github.com/Automattic/mongoose#accessing-a-model" target="_blank">handlebars js</a>
-                                            <a href="https://handlebarsjs.com/guide/#evaluation-context" target="_blank">handlebars js - Evaluation context</a>
-                                            <a href="https://handlebarsjs.com/examples/builtin-helper-each-block.html" target="_blank">handlebars js - Evaluation context - Each, Array</a>
-                                            <a href="https://github.com/handlebars-lang/handlebars.js" target="_blank">handlebars js github</a>
-                                            <a href="https://getbootstrap.com/docs/4.0/components/card/" target="_blank">bootstrap 4 => Components => Cards</a>
-                                            <a href="https://getbootstrap.com/docs/4.0/layout/grid/#grid-options" target="_blank">bootstrap 4 => Layout => Grid</a>
-
-                                        </fieldset>
-                                    </ul>
-
-                                    <li>28. Course detail page</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/j8LpzKB2-hk" target="_blank">NodeJS & ExpressJS - Coding, Reaction #8 //[23/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/encodeURIComponent" target="_blank">encodeURIComponent</a>
-                                            <a href="https://mongoosejs.com/docs/guide.html" target="_blank">mongoose js</a>
-                                            <a href="https://mongoosejs.com/docs/queries.html#queries" target="_blank">mongoose js - Queries</a>
-                                            <a href="https://mongoosejs.com/docs/api.html#model_Model-findOne" target="_blank">mongoose js - Queries - Model.findOne()</a>
-
-                                        </fieldset>
-                                    </ul>
-
-                                    <li>29. [CRUD] Create new course</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/ar1bwkNr_44" target="_blank">NodeJS & ExpressJS - Coding, Reaction #9 //[24/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <a href="https://getbootstrap.com/docs/4.0/components/forms/" target="_blank">bootstrap 4 => Components => Forms</a>
-                                            <a href="https://mongoosejs.com/docs/models.html#constructing-documents" target="_blank">mongoosejs => Models => Constructing Documents</a>
-                                            <a href="https://expressjs.com/en/4x/api.html#res.redirect" target="_blank">Express => API => 4x => res.redirect([status,] path)</a>
-                                            <a href="https://www.npmjs.com/package/mongoose-slug-generator" target="_blank">mongoose slug generator</a>
-                                            <code class="w-a" onclick="copyNow(this)">npm i mongoose-slug-generator</code>
-                                        </fieldset>
-                                    </ul>
-
-                                    <li>30. [CRUD] Update course</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/ar1bwkNr_44" target="_blank">NodeJS & ExpressJS - Coding, Reaction #9 //[24/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <a href="https://getbootstrap.com/docs/4.0/content/tables/" target="_blank">bootstrap 4 => Content => Tables</a>
-                                            <a href="https://handlebarsjs.com/guide/builtin-helpers.html#each" target="_blank">handlebars js => Built-in Helpers => Each</a>
-                                            <a href="https://handlebarsjs.com/guide/#custom-helpers" target="_blank">handlebars js => Introduction => Custom Helpers</a>
-                                            <a href="https://www.npmjs.com/package/express-handlebars" target="_blank">express handle bar</a>
-                                            <a href="https://github.com/express-handlebars/express-handlebars#helpers" target="_blank">express handle bar => helpers (github)</a>
-                                            <a href="https://getbootstrap.com/docs/4.0/components/buttons/#examples" target="_blank">bootstrap 4 => Components => Buttons => Examples</a>
-                                            <a href="https://expressjs.com/en/resources/middleware.html" target="_blank">express js => Resources => Middleware</a>
-                                            <a href="https://expressjs.com/en/resources/middleware/method-override.html">express js => Resources => Middleware => method-override</a>
-                                            <code class="w-a" onclick="copyNow(this)">npm install method-override</code>
-                                            <a href="https://mongoosejs.com/docs/models.html#updating">mongoosejs => models => updating => method-override</a>
-                                            <a href="https://mongoosejs.com/docs/queries.html#queries">mongoosejs => queries</a>
-                                        </fieldset>
-                                    </ul>
-
-                                    <li>31. [CRUD] Delete course</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/ar1bwkNr_44" target="_blank">NodeJS & ExpressJS - Coding, Reaction #9 //[24/11/2022]</a></li>
-                                        <li>Youtube: <a href="https://youtu.be/mb5bxLLuI7o" target="_blank">NodeJS & ExpressJS - Coding, Reaction #10 //[24/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <a href="https://getbootstrap.com/docs/4.0/components/modal/#modal-components" target="_blank">bootstrap 4 => components => modal => modal-components</a>
-                                            <a href="https://getbootstrap.com/docs/4.0/components/modal/#live-demo" target="_blank">bootstrap 4 => components => modal => live-demo</a>
-                                            <a href="https://getbootstrap.com/docs/4.0/components/modal/#varying-modal-content" target="_blank">bootstrap 4 => components => modal => varying-modal-content</a>
-                                        </fieldset>
-                                    </ul>
-
-                                    <li>32. Soft delete?</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/mb5bxLLuI7o" target="_blank">NodeJS & ExpressJS - Coding, Reaction #10 //[24/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <p>Delete (soft)</p>
-                                            <p>Restore</p>
-                                            <p>Force delete</p>
-                                            <a href="https://www.npmjs.com/package/mongoose-delete" target="_blank">mongoose soft delete npm</a>
-                                            <code onclick="copyNow(this)">npm i mongoose-delete</code>
-                                            <a href="https://www.npmjs.com/package/mongoose-delete#save-time-of-deletion" target="_blank">mongoose soft delete npm => deletedAt()</a>
-                                            <a href="https://www.npmjs.com/package/mongoose-delete" target="_blank">mongoose soft delete npm => Method overridden</a>
-                                            <a href="https://www.npmjs.com/package/mongoose-delete" target="_blank">mongoose soft delete npm => findDeleted(): will return only DELETED documents</a>
-                                            <p>1. Create => POST</p>
-                                            <p>2. Read => GET</p>
-                                            <p>3. Update => PUT, PATCH</p>
-                                            <p>4. Delete => DELETE</p>
-                                        </fieldset>
-                                    </ul>
-
-                                    <li>33. Deleted count documents</li>
-                                    <ul class="children">
-                                        <li>Youtube: <a href="https://youtu.be/mb5bxLLuI7o" target="_blank">NodeJS & ExpressJS - Coding, Reaction #10 //[24/11/2022]</a></li>
-                                        <fieldset>
-                                            <legend>Keywords</legend>
-                                            <a href="https://www.npmjs.com/package/mongoose-delete" target="_blank">mongoose soft delete npm => Method overridden</a>
-                                        </fieldset>
-                                    </ul>
-
-
-
-
-                                    <!-- PARENT END -->
-                                </ul>
-                            </div>
-
-
-
-                            <!-- Something has same value -->
-                            <div class="div-source-and-server">
-                                <ul>
-                                    <li><a href="http://localhost:3000/" target="_blank">Server NodeJS</a></li>
-                                    <li><a href="#" target="_blank">Main.js</a></li>
-                                    <li class="small-txt terminal" onclick="copyNow(this)">
-                                        <code>cd "D:\Coding\F8_Learning\NodeJS & ExpressJS\blog"</code>
-                                    </li>
-                                </ul>
-                            </div>
-</body>
-
+        <!-- Something has same value -->
+        <div class="div-source-and-server">
+            <ul>
+                <li><a href="http://localhost:3000/" target="_blank">Server NodeJS</a></li>
+                <li><a href="#" target="_blank">Main.js</a></li>
+                <li class="small-txt terminal" onclick="copyNow(this)">
+                    <code>cd "D:\Coding\F8_Learning\NodeJS & ExpressJS\blog"</code>
+                </li>
+            </ul>
+        </div>
+    </body>
 </html>

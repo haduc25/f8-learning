@@ -1,9 +1,23 @@
 <div class='mt-4'>
     <h3>Khóa học của tôi</h3>
-    {{!-- Hide/Show Trash --}}
-    {{#if deletedCount}} 
-        <a href='/me/trash/courses'>Thùng rác ({{ deletedCount }})</a>
+    {{! Hide/Show Trash }}
+    {{#if deletedCount}}
+        <a href='/me/trash/courses'> Thùng rác ({{deletedCount}})</a>
     {{/if}}
+
+    <div class='mt-4 d-flex align-items-center'>
+        <div class='form-check'>
+            <input class='form-check-input' type='checkbox' value='' id='defaultCheck1' />
+            <label class='form-check-label' for='defaultCheck1'> Chọn tất cả </label>
+        </div>
+
+        <select class='form-control form-control-sm checkbox-select-all-options' id=''>
+            <option>-- Chọn hành động --</option>
+            <option value='delete'>Xóa</option>
+        </select>
+
+        <button class='btn btn-primary btn-sm disabled'> Áp dụng </button>
+    </div>
     <table class='table mt-4'>
         <thead>
             <tr>
@@ -15,25 +29,41 @@
         </thead>
         <tbody>
             {{#each courses}}
-            <tr>
-                <th scope='row'>{{sum @index 1}}</th>
-                <td>{{this.name}}</td>
-                <td>{{this.level}}</td>
-                <td>{{this.createdAt}}</td>
-                <td>
-                    <a href='/courses/{{this._id}}/edit' class='btn btn-link'>Sửa</a>
-                    <a href='#' class='btn btn-link' data-toggle='modal' data-id='{{this._id}}'
-                        data-target='#delete-course-modal'>Xóa</a>
-                </td>
-            </tr>
+                <tr>
+                    <td>
+                        <div class='form-check'>
+                            <input
+                                class='form-check-input'
+                                type='checkbox'
+                                name='courseIds[]'
+                                value='{{this._id}}'
+                            />
+                            {{! courseIds[] mặc định là array }}
+                        </div>
+                    </td>
+                    <th scope='row'>{{sum @index 1}}</th>
+                    <td>{{this.name}}</td>
+                    <td>{{this.level}}</td>
+                    <td>{{this.createdAt}}</td>
+                    <td>
+                        <a href='/courses/{{this._id}}/edit' class='btn btn-link'>Sửa</a>
+                        <a
+                            href='#'
+                            class='btn btn-link'
+                            data-toggle='modal'
+                            data-id='{{this._id}}'
+                            data-target='#delete-course-modal'
+                        >Xóa</a>
+                    </td>
+                </tr>
             {{else}}
-            {{!-- K có data thì sẽ chạy vào đây --}}
-            <tr>
-                <th colspan='5' class='text-center'>
-                    Bạn chưa đăng khóa học nào.
-                    <a href='/courses/create'>Đăng khóa học ngay</a>
-                </th>
-            </tr>
+                {{! K có data thì sẽ chạy vào đây }}
+                <tr>
+                    <th colspan='5' class='text-center'>
+                        Bạn chưa đăng khóa học nào.
+                        <a href='/courses/create'>Đăng khóa học ngay</a>
+                    </th>
+                </tr>
             {{/each}}
         </tbody>
     </table>
@@ -54,13 +84,13 @@
             </div>
             <div class='modal-footer'>
                 <button type='button' class='btn btn-secondary' data-dismiss='modal'>Hủy</button>
-                <button id="btn-delete-course" type='button' class='btn btn-danger'>Xóa bỏ</button>
+                <button id='btn-delete-course' type='button' class='btn btn-danger'>Xóa bỏ</button>
             </div>
         </div>
     </div>
 </div>
 
-{{!-- Form delete course --}}
+{{! Form delete course }}
 <form name='delete-course-form' method='POST'></form>
 
 
@@ -89,5 +119,4 @@
             deleteForm.submit();
         };
     });
-
 </script>
