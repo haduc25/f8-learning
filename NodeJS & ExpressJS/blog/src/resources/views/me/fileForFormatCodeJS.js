@@ -5,6 +5,11 @@ document.addEventListener('DOMContentLoaded', () => {
     var btnDeleteCourse = document.getElementById('btn-delete-course');
     //console.log(btnDeleteCourse);
 
+    var checkboxAll = $('#checkbox-all');
+    //console.log(checkboxAll);
+    var courseItemCheckbox = $('input[name="courseIds[]"]'); //select cả input
+    //console.log(courseItemCheckbox)
+
     //When dialog confirm clicked
     $('#delete-course-modal').on('show.bs.modal', function (event) {
         var button = $(event.relatedTarget); // Button that triggered the modal
@@ -20,4 +25,22 @@ document.addEventListener('DOMContentLoaded', () => {
         deleteForm.action = '/courses/' + courseId + '?_method=DELETE';
         deleteForm.submit();
     };
+
+    // Lắng nghe Event khi DOM onchange => jQuery
+    // Checkbox all clicked
+    checkboxAll.change(function (event) {
+        //console.log(Math.random());
+        //console.log($(this).prop('checked'));
+
+        var isCheckedAll = $(this).prop('checked');
+        //Shorten:
+        courseItemCheckbox.prop('checked', isCheckedAll);
+        /** // đã rút gọn lại bên trên
+                if (isCheckedAll) {
+                    courseItemCheckbox.prop('checked', isCheckedAll);
+                }else{
+                    courseItemCheckbox.prop('checked', isCheckedAll);
+                }
+            */
+    });
 });
