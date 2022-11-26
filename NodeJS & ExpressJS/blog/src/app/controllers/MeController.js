@@ -35,6 +35,13 @@ class MeController {
 
         // res.json(res.locals._sort);
 
+        // Example - dùng middleware
+        if (req.query.hasOwnProperty('_sort')) {
+            courseQuery = courseQuery.sort({
+                [req.query.column]: req.query.type,
+            });
+        }
+
         // Gom vào dùng Promise.all
         Promise.all([courseQuery, Course.countDocumentsDeleted()])
             .then(([courses, deletedCount]) =>
