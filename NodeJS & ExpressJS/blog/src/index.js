@@ -9,6 +9,7 @@ const port = 3000;
 
 const route = require('./routes');
 const db = require('./config/db');
+const SortMiddleware = require('./app/middlewares/SortMiddleware');
 
 // Connect to DB
 db.connect();
@@ -23,6 +24,9 @@ app.use(express.json()); //handle khi submit = js / gửi từ code js
 // console.log(typeof express.json()); //function
 
 app.use(methodOverride('_method')); // để Override lại POST cho server nhận vào là PUT |  //middleware: lắng nghe xem có '_method' hay không | nếu có => override & điều hướng lại cho đúng routers
+
+// Custom middlewares
+app.use(SortMiddleware);
 
 // 1 Số library có thể gửi dl lên server: XMLHttpRequest, fetch, axios...
 
