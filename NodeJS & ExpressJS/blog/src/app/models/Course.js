@@ -1,11 +1,13 @@
 const mongoose = require('mongoose');
 var slug = require('mongoose-slug-generator');
 var mongooseDelete = require('mongoose-delete');
+const AutoIncrement = require('mongoose-sequence')(mongoose);
 
 const Schema = mongoose.Schema;
 
-const Course = new Schema(
+const CourseSchema = new Schema(
     {
+        _id: { type: Number },
         name: { type: String, default: '', maxLength: 255, required: true },
         description: { type: String, min: 18, maxLength: 600 },
         image: { type: String, maxLength: 255 },
@@ -19,13 +21,16 @@ const Course = new Schema(
         // updateAt: { type: Date, default: Date.now },
     },
     {
+        _id: false, // tắt auto add id của mongoose
         timestamps: true,
     },
 );
 
 // Add plugins
 mongoose.plugin(slug);
-Course.plugin(mongooseDelete, { deletedAt: true, overrideMethods: 'all' });
+
+CourseSchema.plugin(AutoIncrement);
+CourseSchema.plugin(mongooseDelete, { deletedAt: true, overrideMethods: 'all' });
 
 // Accessing a Model
-module.exports = mongoose.model('Course', Course); //mongo sẽ read & tự convert ra collection 'course'
+module.exports = mongoose.model('Course', CourseSchema); //mongo sẽ read & tự convert ra collection 'course'

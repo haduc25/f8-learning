@@ -29,7 +29,36 @@ class CourseController {
         // res.json(req.body);
         // res.render('courses/store');
         // res.send('Created Course ^^');
-
+        /** Create a new Course ban đầu
+         req.body.image = `https://i.ytimg.com/vi/${req.body.videoId}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD0zvnvXOno_JaGatXKHX2YEyfY8Q`;
+         const course = new Course(req.body);
+         course
+             .save()
+             .then(() => {
+                 // chuyển hướng
+                 res.redirect('/me/stored/courses');
+             })
+             .catch(next);
+        */
+        /** 
+         * // Example - Tự tăng id cách thông thường - nhưng có thể gây ra nhiều lỗi
+        Course.findOne({})
+            .sort({ _id: 'desc' }) //lấy ra id lớn nhất
+            .then((latestCourse) => {
+                // return res.json(latestCourse);
+                req.body._id = latestCourse._id;
+                +1; // gặp vấn đề nếu như có nhiều request cùng 1 lúc => trùng lastID => gây lỗi
+                req.body.image = `https://i.ytimg.com/vi/${req.body.videoId}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD0zvnvXOno_JaGatXKHX2YEyfY8Q`;
+                const course = new Course(req.body);
+                course
+                    .save()
+                    .then(() => {
+                        res.redirect('/me/stored/courses');
+                    })
+                    .catch(next);
+            });
+            */
+        //
         req.body.image = `https://i.ytimg.com/vi/${req.body.videoId}/hq720.jpg?sqp=-oaymwEcCNAFEJQDSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLD0zvnvXOno_JaGatXKHX2YEyfY8Q`;
         const course = new Course(req.body);
         course
@@ -38,9 +67,7 @@ class CourseController {
                 // chuyển hướng
                 res.redirect('/me/stored/courses');
             })
-            .catch((error) => {
-                console.log(error);
-            });
+            .catch(next);
     }
 
     // [GET] /courses/:id/edit
