@@ -92,6 +92,17 @@ app.engine(
         extname: '.hbs',
         helpers: {
             sum: (a, b) => a + b,
+            sorttable: (field, sort) => {
+                const icons = {
+                    default: 'oi oi-elevator',
+                    asc: 'oi oi-sort-ascending',
+                    desc: 'oi oi-sort-descending',
+                };
+
+                return `<a href='?_sort&column=name&type=desc'>
+                    <span class=""></span>
+                </a>`;
+            },
         },
     }),
 ); //set template engine / đổi đuôi file .handlebars -> .hbs

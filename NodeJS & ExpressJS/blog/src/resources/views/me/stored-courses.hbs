@@ -27,16 +27,16 @@
         <button class='btn btn-primary btn-sm check-all-submit-btn' disabled> Áp dụng </button>
     </div>
 
-    {{_sort.type}}
+    {{!-- {{_sort.type}} --}}
 
     <table class='table mt-4'>
         <thead>
             <tr>
                 <th scope='col' colspan='2'>#</th>
                 <th scope='col'>Tên khóa học
-                    <a href='?_sort&column=name&type=desc'>
-                        <span class="oi oi-elevator"></span>
-                    </a>
+                    {{!-- Ở đây dùng raw => có 3 dấu: {{{}}} --}}
+                    {{!-- {{sorttable 'name' _sort}} => {{{sorttable 'name' _sort}}} --}}
+                    {{{sorttable 'name' _sort}}}
                 </th>
                 <th scope='col'>Trình độ</th>
                 <th scope='col' colspan='2'>Thời gian tạo</th>
