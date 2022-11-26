@@ -29,4 +29,12 @@ li {
   cursor: default;
 }
 
+.pl-0 {
+  padding-left: 0;
+}
+
+.pr-0 {
+  padding-right: 0;
+}
+
 /*# sourceMappingURL=app.css.map */

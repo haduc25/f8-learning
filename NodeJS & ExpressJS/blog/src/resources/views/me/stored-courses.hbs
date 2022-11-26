@@ -32,7 +32,10 @@
     <table class='table mt-4'>
         <thead>
             <tr>
-                <th scope='col' colspan='2'>#</th>
+                <th scope='col'>#</th>
+                <th scope='col' class='pl-0 pr-0'>ID
+                    {{{sorttable 'id' _sort}}}
+                </th>
                 <th scope='col'>Tên khóa học
                     {{!-- Ở đây dùng raw => có 3 dấu: {{{}}} --}}
                     {{!-- {{sorttable 'name' _sort}} => {{{sorttable 'name' _sort}}} --}}
@@ -60,7 +63,8 @@
                             {{! courseIds[] mặc định là array }}
                         </div>
                     </td>
-                    <th scope='row'>{{sum @index 1}}</th>
+                    {{!-- <th scope='row'>{{sum @index 1}}</th> --}}
+                    <th scope='row'>{{this.id}}</th>
                     <td>{{this.name}}</td>
                     <td>{{this.level}}</td>
                     <td>{{this.createdAt}}</td>

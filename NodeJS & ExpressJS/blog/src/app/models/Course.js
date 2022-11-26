@@ -7,7 +7,7 @@ const Schema = mongoose.Schema;
 
 const CourseSchema = new Schema(
     {
-        _id: { type: Number },
+        // _id: { type: Number },
         name: { type: String, default: '', maxLength: 255, required: true },
         description: { type: String, min: 18, maxLength: 600 },
         image: { type: String, maxLength: 255 },
@@ -21,7 +21,7 @@ const CourseSchema = new Schema(
         // updateAt: { type: Date, default: Date.now },
     },
     {
-        _id: false, // tắt auto add id của mongoose
+        // _id: false, // tắt auto add id của mongoose
         timestamps: true,
     },
 );
@@ -29,8 +29,10 @@ const CourseSchema = new Schema(
 // Add plugins
 mongoose.plugin(slug);
 
-CourseSchema.plugin(AutoIncrement);
+// CourseSchema.plugin(AutoIncrement, { inc_field: 'id' });
+CourseSchema.plugin(AutoIncrement, { inc_field: 'id' });
 CourseSchema.plugin(mongooseDelete, { deletedAt: true, overrideMethods: 'all' });
 
 // Accessing a Model
-module.exports = mongoose.model('Course', CourseSchema); //mongo sẽ read & tự convert ra collection 'course'
+// module.exports = mongoose.model('Course', CourseSchema); //mongo sẽ read & tự convert ra collection 'course'
+module.exports = mongoose.model('Course', CourseSchema);
