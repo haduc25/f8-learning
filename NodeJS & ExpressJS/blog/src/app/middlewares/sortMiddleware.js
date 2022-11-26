@@ -1,4 +1,4 @@
-module.exports = function SortMiddleware(req, res, next) {
+module.exports = function sortMiddleware(req, res, next) {
     res.locals._sort = {
         enabled: false, // disable sorting | mặc đinh là tắt sorting
         type: 'default',
