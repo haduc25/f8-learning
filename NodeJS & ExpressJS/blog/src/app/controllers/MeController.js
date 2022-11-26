@@ -4,7 +4,7 @@ const { mutipleMongooseToObject } = require('../../util/mongoose');
 class MeController {
     // [GET] /me/stored/courses
     storedCourses(req, res, next) {
-        let courseQuery = Course.find({});
+        // let courseQuery = Course.find({});
 
         // // Example - k dùng middleware
         // if (req.query.hasOwnProperty('_sort')) {
@@ -35,7 +35,8 @@ class MeController {
 
         // res.json(res.locals._sort);
 
-        // Example - dùng middleware
+        /**
+        // Example - dùng middleware | Đã truyền qua Course.js
         if (req.query.hasOwnProperty('_sort')) {
             // Validation
             const isValidtype = ['asc', 'desc'].includes(req.query.type);
@@ -44,9 +45,20 @@ class MeController {
                 [req.query.column]: isValidtype ? req.query.type : 'asc', // nếu k hợp lệ lấy default là 'asc'
             });
         }
+        */
+
+        // // Gom vào dùng Promise.all
+        // Promise.all([courseQuery, Course.countDocumentsDeleted()])
+        //     .then(([courses, deletedCount]) =>
+        //         res.render('me/stored-courses', {
+        //             deletedCount, //truyền qua view/me/stored
+        //             courses: mutipleMongooseToObject(courses),
+        //         }),
+        //     ) //destructuring
+        //     .catch(next);
 
         // Gom vào dùng Promise.all
-        Promise.all([courseQuery, Course.countDocumentsDeleted()])
+        Promise.all([Course.find({}).sorttable(req), Course.countDocumentsDeleted()])
             .then(([courses, deletedCount]) =>
                 res.render('me/stored-courses', {
                     deletedCount, //truyền qua view/me/stored

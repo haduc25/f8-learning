@@ -26,6 +26,19 @@ const CourseSchema = new Schema(
     },
 );
 
+// Custom query helpers
+CourseSchema.query.sorttable = function (req) {
+    if (req.query.hasOwnProperty('_sort')) {
+        // Validation
+        const isValidtype = ['asc', 'desc'].includes(req.query.type);
+        return this.sort({
+            // [req.query.column]: req.query.type,
+            [req.query.column]: isValidtype ? req.query.type : 'asc', // nếu k hợp lệ lấy default là 'asc'
+        });
+    }
+    return this;
+};
+
 // Add plugins
 mongoose.plugin(slug);
 
