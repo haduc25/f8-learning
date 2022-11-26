@@ -38,8 +38,12 @@
                     {{!-- {{sorttable 'name' _sort}} => {{{sorttable 'name' _sort}}} --}}
                     {{{sorttable 'name' _sort}}}
                 </th>
-                <th scope='col'>Trình độ</th>
-                <th scope='col' colspan='2'>Thời gian tạo</th>
+                <th scope='col'>Trình độ
+                    {{{sorttable 'level' _sort}}}
+                </th>
+                <th scope='col' colspan='2'>Thời gian tạo
+                    {{{sorttable 'createdAt' _sort}}}
+                </th>
             </tr>
         </thead>
         <tbody>

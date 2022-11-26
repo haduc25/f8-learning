@@ -99,8 +99,17 @@ app.engine(
                     desc: 'oi oi-sort-descending',
                 };
 
-                return `<a href='?_sort&column=name&type=desc'>
-                    <span class=""></span>
+                const types = {
+                    default: 'desc',
+                    asc: 'desc', //nếu đang là 'asc' => khi click chuyển qua 'desc'
+                    desc: 'asc', //nếu đang là 'desc' => khi click chuyển qua 'asc'
+                };
+
+                const icon = icons[sort.type];
+                const type = types[sort.type];
+
+                return `<a href='?_sort&column=${field}&type=${type}'>
+                    <span class="${icon}"></span>
                 </a>`;
             },
         },
