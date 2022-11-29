@@ -107,6 +107,15 @@
                     </li>
                     <fieldset>
                         <legend>Keywords</legend>
+                        <div class="image">
+                            <a href="./img/flexbox.png" target="_blank">
+                                <img
+                                    src="./img/flexbox-2.png"
+                                    alt="Thuộc tính CSS trong Flexbox 2"
+                                />
+                                <p>Các thuộc tính CSS trong Flexbox 2</p>
+                            </a>
+                        </div>
                         <p>Code mẫu</p>
                         <a
                             href="https://codepen.io/ng-ngc-sn-the-bashful/pen/JjdWEaq"
@@ -170,6 +179,29 @@
                             là 'row' theo chiều ngang, có thể dùng 'column-reverse' để đảo ngược
                             'cột' tương tự với 'row-reverse' để đảo ngược 'hàng'
                         </p>
+                        <code>order: number</code>
+                        <p>
+                            oder: 1, order: 2 => sử dụng trong 'flex-item' => giá trị order nào nhỏ
+                            hơn thì đứng ở 'main-start' ngược lại lớn nhất đứng ở 'main-end'
+                        </p>
+
+                        <code>Shorthand: flex: 1;</code>
+                        <p>flex: 1; => flex-grow, flex-shrink, flex-basis</p>
+                        <code>
+                            flex-grow: 1; <br />
+                            flex-shrink: 1; <br />
+                            flex-basis: 1;
+                        </code>
+
+                        <code class="w-a"
+                            >Shorthand: flex-flow: &lt;flex-direction&gt; | &lt;flex-wrap&gt;</code
+                        >
+                        <code> flex-flow: row wrap; </code>
+                        <p>flex-flow: row wrap; => flex-direction, flex-wrap</p>
+                        <code>
+                            flex-direction: row; <br />
+                            flex-wrap: wrap
+                        </code>
                     </fieldset>
                 </ul>
 

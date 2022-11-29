@@ -80,14 +80,17 @@ body {
 
 .sidebar-one {
     flex: 1;
+    order: 1;
 }
 
 .sidebar-two {
     flex: 1;
+    order: 2;
 }
 
 .main-column {
     flex: 2; /* flex 2 => item này sẽ có kích thước gấp đôi flex: 1*/
+    order: 3;
 }
 
 /* Feature layout */
@@ -97,11 +100,13 @@ body {
     /* flex container */
     display: flex;
     justify-content: space-around;
+    flex-direction: column;
 }
 
 /* PC, Tablet */
 @media (min-width: 740px) {
     .feature-layout {
+        flex-direction: row; /* trên pc, tablet hiển thị chiều ngang cong mobile chiều dọc */
     }
 }
 
