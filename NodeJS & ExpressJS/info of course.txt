@@ -1,0 +1,3 @@
+29/10/2022
+- NodeJS: Hiện tại k có thêm video / upload lần cuối 2 năm trước
+- Tương lai: Login, Phân quyền User với Rest API trong Nodejs | NodeJS Authorization...

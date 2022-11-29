@@ -66,7 +66,7 @@ app.get(
 );
 */
 
-/** Middleware for all routes, app() - Áp dụng trên toàn bộ tuyến đường, app()
+/** Middleware for all routes, app() - Áp dụng trên toàn bộ tuyến đường, app() 
 app.use(bacBaoVe); // app.use(): bao hàm tất cả các request (get, post...) | cả app() đều đi qua bacBaoVe() => cần ticket
 // app.use('/test', bacBaoVe); // tất cả các phương thức (get, post...) đều đi qua url '/test' => vào bacBaoVe() => cần ticket
 
