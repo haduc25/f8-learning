@@ -18,9 +18,6 @@ body {
 .nav {
     min-height: 42px;
     background-color: #ef5122;
-    /*  */
-    display: flex;
-    justify-content: space-between;
 }
 
 .nav-list {
@@ -45,19 +42,12 @@ body {
 
 .form__row {
     padding: 8px 0;
-
-    /* flex container */
-    display: flex;
 }
 
 .form__label {
-    /* Thêm 'min-width' cho label dài ra bằng nhau */
-    min-width: 90px;
 }
 
 .form__input {
-    /* flex item */
-    flex: 1; /* Chiếm hết khoảng không của flex-item theo chiều của 'main axis' */
 }
 
 /* Column layout */
@@ -65,38 +55,24 @@ body {
     margin-top: 36px;
     padding: 12px 0;
     background-color: #fff;
-
-    /* flex container */
-    display: flex;
 }
 
 .column-item {
     padding: 0 16px;
-
-    /* flex item */
-    /* flex: 1; // Tắt thuộc tính chung để làm ví dụ dưới */
-    /* Nếu có nhiều flex-item => tất cả sẽ đều nhau */
 }
 
 .sidebar-one {
-    flex: 1;
 }
 
 .sidebar-two {
-    flex: 1;
 }
 
 .main-column {
-    flex: 2; /* flex 2 => item này sẽ có kích thước gấp đôi flex: 1*/
 }
 
 /* Feature layout */
 .feature-layout {
     margin-top: 36px;
-
-    /* flex container */
-    display: flex;
-    justify-content: space-around;
 }
 
 /* PC, Tablet */
@@ -108,9 +84,6 @@ body {
 .feature-item {
     padding: 12px 16px;
     margin-top: 16px;
-
-    /* flex item */
-    flex-basis: 30%; /* set kích thước cho main-size của flex-item */
 }
 
 .feature-item:nth-child(1) {
@@ -130,11 +103,6 @@ body {
     background-color: #fff;
     margin-top: 36px;
     padding: 12px 0 32px 0;
-
-    /* flex container */
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap; /* tự động xuống dòng, có thể dùng 'wrap-reverse' để đảo ngược lại thành lên dòng */
 }
 
 .wrap-layout__item {
@@ -156,21 +124,11 @@ body {
     padding: 32px 0;
     max-width: 640px;
     height: 360px;
-
-    /* flex container */
-    display: flex;
-    /* Cách này cũng căn giữa đc (flex-container) or căn giữa trong flex-item
-        align-items: center;
-        justify-content: center; 
-    */
 }
 
 .center-layout__item {
     font-size: 42px;
     font-weight: 700;
-
-    /* flex item */
-    margin: auto;
 }
 
 /* Chart layout */
@@ -179,11 +137,6 @@ body {
     padding: 32px 0;
     height: 320px;
     background-color: #fff;
-
-    /* flex-container */
-    display: flex;
-    justify-content: space-around;
-    align-items: flex-end;
 }
 
 .chart-layout__item {
@@ -192,21 +145,6 @@ body {
     text-align: center;
     height: var(--percent);
     background-color: #ef5122;
-
-    /* flex-item*/
-    /* align-self: flex-end; vì trên dùng alight-item rồi nên tắt */
-    animation: growth ease-in 0.4s;
-}
-
-@keyframes growth {
-    from {
-        opacity: 0;
-        height: calc(var(--percent) - 50%);
-    }
-    to {
-        opacity: 1;
-        height: var(--percent);
-    }
 }
 
 /* End */
@@ -215,39 +153,22 @@ body {
     padding: 32px 0;
     max-width: 740px;
     min-height: 360px;
-
-    /* flex-container */
-    display: flex;
 }
 
 .the-end__first {
     padding: 4px 16px;
     background-color: #fff;
-
-    /* flex-item - của (the-end__first) */
-    flex: 1;
 }
 
 .the-end__second {
-    /* flex-item - của (the-end__first) */
-    flex: 1;
-    /* Nhưng lại có thể là flex-container của 2 thuộc tính trong nó là (the-end__second-one, the-end__second-two) */
-    display: flex;
-    flex-direction: column; /* chuyển sang chiều dọc */
 }
 
 .the-end__second-one {
     padding: 4px 16px;
     background-color: rgb(227, 192, 214);
-
-    /* flex-item - của (the-end__second) */
-    flex: 1;
 }
 
 .the-end__second-two {
     padding: 4px 16px;
     background-color: rgb(192, 210, 227);
-
-    /* flex-item - của (the-end__second) */
-    flex: 1;
 }

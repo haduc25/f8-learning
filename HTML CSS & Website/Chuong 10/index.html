@@ -123,6 +123,53 @@
                         <a href="./114 Flexbox/index.html" target="_blank"
                             >114 Flexbox/index.html
                         </a>
+                        <a href="./114 Flexbox/template/index.html">Template</a>
+                        <a href="./114 Flexbox/resource/index.html">Resource</a>
+
+                        <code>flex: 1;</code>
+                        <p>
+                            Khi có 1 flex-item: Chiếm hết khoảng không của flex-item theo chiều của
+                            'main axis'
+                        </p>
+                        <p>
+                            Khi có nhiều flex-item: tất cả 'flex-item' sẽ có kích thước đều nhau
+                            theo chiều của 'main axis'
+                        </p>
+                        <code>flex: 2;</code>
+                        <p>
+                            flex 2 => 'flex-item' này sẽ có kích thước gấp đôi flex: 1 & tương tự vs
+                            flex thứ n
+                        </p>
+                        <code>flex-basis: &lt;length&gt;</code>
+                        <p>
+                            flex-basis: 30%; => để set kích thước cho main-size của flex-item, ở đây
+                            mỗi flex-item sẽ có kích thước là 30%
+                        </p>
+                        <code>flex-wrap: wrap</code>
+                        <p>
+                            flex-wrap: wrap / wrap-reverse => tự động xuống dòng, có thể dùng
+                            'wrap-reverse' để đảo ngược lại thành lên dòng
+                        </p>
+                        <code>align-items</code>
+                        <p>
+                            align-items: flex-end; => để căn trục 'cross-axis' có thể cho
+                            'flex-item' về các điểm (cross start, cross end, center..), ở đây cho
+                            các flex-item về vị trí cross-end
+                        </p>
+                        <p>
+                            The property specifies the default alignment for items inside the
+                            flexible container.align-items
+                        </p>
+                        <p>
+                            align-items: có thể bị ghi đè bằng 'align-self' được định nghĩa trong
+                            'flex-item'
+                        </p>
+                        <code>flex-direction: row / column</code>
+                        <p>
+                            flex-direction: column; => chuyển 'flex-item' sang chiều dọc, mặc định
+                            là 'row' theo chiều ngang, có thể dùng 'column-reverse' để đảo ngược
+                            'cột' tương tự với 'row-reverse' để đảo ngược 'hàng'
+                        </p>
                     </fieldset>
                 </ul>
 
