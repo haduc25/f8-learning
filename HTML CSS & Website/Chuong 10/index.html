@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Chuong 10. Dựng bố cục web với Flexbox</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script>
+            function copyNow(valueOfThisFromDOM) {
+                var inp = document.createElement('input');
+                document.body.appendChild(inp);
+                inp.value = valueOfThisFromDOM.textContent;
+                inp.select();
+                document.execCommand('copy', false);
+                inp.remove();
+                valueOfThisFromDOM.classList.add('active');
+                console.log('Copied!');
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id="heading" class="headingClass">HTML CSS từ Zero đến Hero Learning...</h1>
+        <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">
+            Go to TopPage
+        </button>
+        <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">
+            Go to BotPage
+        </button>
+
+        <!-- Chương 10 -->
+        <h2>Chuong 10. Dựng bố cục web với Flexbox</h2>
+        <div class="containers">
+            <ul class="parent">
+                <!-- PARENT START -->
+
+                <li>109. Giới thiệu Flexbox, 110. Ôn tập Flexbox #1, 111. Ôn tập Flexbox #2</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/s-A9n0tSKU4" target="_blank"
+                            >HTML, CSS - Learning #1 [29/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <p>Mô hình Flexbox có mấy thành phần chính?</p>
+                        <p>
+                            - Flexbox có hai thành phần chính: <code>flex-container</code> và
+                            <code>flex-item</code>.
+                        </p>
+
+                        <p>Mô hình flexbox có bao nhiêu trục?</p>
+                        <p>
+                            - Mô hình flexbox có hai trục: <code>main axis</code> và
+                            <code>cross axis</code>. Trong đó main axis là trục chính, trục còn lại
+                            là cross axis và nó luôn vuông góc với main axis.
+                        </p>
+
+                        <!-- <a href="https://www.npmjs.com/package/express" target="_blank"
+                            >npm express</a
+                        >
+
+                        <code onclick="copyNow(this)">npm i express</code>
+                        <p>run proj <code onclick="copyNow(this)">node index.js</code></p> -->
+                    </fieldset>
+                </ul>
+
+                <li>112. Thuộc tính CSS trong Flexbox, 113. Ôn tập Flexbox #3</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/s-A9n0tSKU4" target="_blank"
+                            >HTML, CSS - Learning #1 [29/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <div class="image">
+                            <a href="./img/flexbox.png" target="_blank">
+                                <img src="./img/flexbox.png" alt="Thuộc tính CSS trong Flexbox" />
+                                <p>Các thuộc tính CSS trong Flexbox</p>
+                            </a>
+                        </div>
+                        <div class="image">
+                            <a href="./img/flexbox-layout.png" target="_blank">
+                                <img src="./img/flexbox-layout.png" alt="Flexbox Layout" />
+                                <p>Flexbox Layout</p>
+                            </a>
+                        </div>
+                        <p>Sử dụng thuộc tính nào để thay đổi phương hướng của main axis?</p>
+                        <p>
+                            - flex-direction | Sử dụng thuộc tính <code>flex-direction</code> này sẽ
+                            thay đổi phương hướng của main axis.
+                        </p>
+                    </fieldset>
+                </ul>
+
+                <li>114. Học Flexbox qua ví dụ</li>
+                <ul class="children">
+                    <li>
+                        Youtube:
+                        <a href="https://youtu.be/s-A9n0tSKU4" target="_blank"
+                            >HTML, CSS - Learning #1 [29/11/2022]</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <p>Code mẫu</p>
+                        <a
+                            href="https://codepen.io/ng-ngc-sn-the-bashful/pen/JjdWEaq"
+                            target="_blank"
+                            >Chưa có flexbox</a
+                        >
+                        <a
+                            href="https://codepen.io/ng-ngc-sn-the-bashful/pen/RwPbzKr"
+                            target="_blank"
+                            >Có flexbox</a
+                        >
+
+                        <p>Code thực hành Flexbox</p>
+                        <a href="./114 Flexbox/index.html" target="_blank"
+                            >114 Flexbox/index.html
+                        </a>
+                    </fieldset>
+                </ul>
+
+                <!-- PARENT END -->
+            </ul>
+        </div>
+
+        <!-- Something has same value -->
+        <div class="div-source-and-server">
+            <ul>
+                <li><a href="http://localhost:3000/" target="_blank">Server NodeJS</a></li>
+                <li><a href="#" target="_blank">Main.js</a></li>
+                <li class="small-txt terminal" onclick="copyNow(this)">
+                    <code>cd "D:\Coding\F8_Learning\NodeJS & ExpressJS\blog"</code>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
