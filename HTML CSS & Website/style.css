@@ -6,6 +6,10 @@
     width: auto !important;
 }
 
+.h-a {
+    height: auto !important;
+}
+
 #heading {
     text-align: center;
 }
