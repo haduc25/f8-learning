@@ -1,3 +1,19 @@
+* {
+    box-sizing: border-box;
+}
+
+.w-a {
+    width: auto !important;
+}
+
+.h-a {
+    height: auto !important;
+}
+
+.h-60 {
+    height: 60% !important;
+}
+
 #heading {
     text-align: center;
 }
@@ -29,6 +45,7 @@ ul {
 
 .children {
     font-size: 18px;
+    margin-bottom: 35px;
 }
 
 .parent > li {
@@ -36,6 +53,7 @@ ul {
     color: #b94366;
     margin-top: 5px;
     margin-bottom: 5px;
+    font-size: 28px;
 }
 
 .small-txt {
@@ -56,8 +74,8 @@ button {
     padding: 6px 12px;
     font-size: 1rem;
     border-radius: 0.25rem;
-    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out, border-color 0.15s ease-in-out,
-        box-shadow 0.15s ease-in-out;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
     color: #0d6efd;
     border-color: #0d6efd;
 }
@@ -89,15 +107,89 @@ button:hover {
     width: 30%;
     background: lightblue;
     opacity: 0.2;
+    transition: linear 0.5s;
+    transform: translateX(70%);
+}
+
+.div-source-and-server > ul > li {
+    margin-bottom: 30px;
+}
+
+.div-source-and-server > ul > li > code {
+    width: auto;
+    padding: 10px 0;
 }
 
 .div-source-and-server:hover {
     opacity: 1;
     transition: 0.5s;
+    transform: translateX(0%);
 }
 
 .terminal:hover {
     color: #b94366;
     text-decoration: underline;
     cursor: pointer;
+}
+
+fieldset {
+    margin-top: 30px;
+    border: 1px solid rgba(204, 204, 204, 0.3);
+    font-size: 18px;
+}
+
+fieldset:hover {
+    border: 1px solid rgba(204, 204, 204, 1);
+}
+
+fieldset > legend {
+    color: #373d3f;
+}
+
+fieldset > a {
+    display: block;
+}
+
+code {
+    margin-top: 15px;
+    margin-bottom: 15px;
+    padding: 15px 20px;
+    border: 1px solid #ccc;
+    width: 20%;
+    display: block;
+    cursor: pointer;
+    font-variant-ligatures: none;
+    font-family: 'Fira Mono', 'Andale Mono', 'Consolas', monospace;
+    font-size: 16px;
+    border-radius: 8px;
+}
+
+code:hover {
+    background: #fff5d8;
+}
+
+.active {
+    background: #fff5d8;
+}
+
+.image {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    margin-top: 16px;
+    /* border: 1px solid #ccc; */
+}
+
+.image > a > img {
+    height: 500px;
+    border: 1px solid #ccc;
+}
+
+.image > a {
+    font-size: 20px;
+}
+
+.image > a:hover {
+    font-size: 25px;
+    transition: linear 0.3s;
 }
