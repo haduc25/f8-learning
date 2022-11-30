@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>BEM Level 2 - Toast Messages</title>
+        <link rel="stylesheet" href="./style.css" />
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"
+        />
+    </head>
+    <body>
+        <div>
+            <!-- Success -->
+            <div class="toast toast--success">
+                <div class="toast__icon">
+                    <i class="fas fa-check-circle"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">Success</h3>
+                    <p class="toast__msg">Anyone with access can view your invited visitors.</p>
+                </div>
+                <div class="toast__close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <!-- Info -->
+            <div class="toast toast--info">
+                <div class="toast__icon">
+                    <i class="fas fa-info-circle"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">Info</h3>
+                    <p class="toast__msg">Anyone with access can view your invited visitors.</p>
+                </div>
+                <div class="toast__close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <!-- Warning -->
+            <div class="toast toast--warning">
+                <div class="toast__icon">
+                    <i class="fa-solid fa-triangle-exclamation"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">Warning</h3>
+                    <p class="toast__msg">Anyone with access can view your invited visitors.</p>
+                </div>
+                <div class="toast__close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+
+            <!-- Error -->
+            <div class="toast toast--error">
+                <div class="toast__icon">
+                    <i class="fa-solid fa-circle-xmark"></i>
+                </div>
+                <div class="toast__body">
+                    <h3 class="toast__title">Error</h3>
+                    <p class="toast__msg">Anyone with access can view your invited visitors.</p>
+                </div>
+                <div class="toast__close">
+                    <i class="fas fa-times"></i>
+                </div>
+            </div>
+        </div>
+
+        <div id="toast"></div>
+
+        <div>
+            <button onclick="showSuccessToast();" class="btn btn--success">
+                Show success toast
+            </button>
+            <button onclick="showInfoToast();" class="btn btn--info">Show info toast</button>
+            <button onclick="showWarningToast();" class="btn btn--warn">Show warning toast</button>
+            <button onclick="showErrorToast();" class="btn btn--danger">Show error toast</button>
+        </div>
+
+        <script src="./main.js"></script>
+    </body>
+</html>
