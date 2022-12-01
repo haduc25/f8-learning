@@ -1,7 +1,10 @@
 :root {
     --white-color: #fff;
     --black-color: #000;
+    --red-color: #ee4d2d;
+    --orange-color: #ff7337;
     --text-color: #333;
+    /* --primary-gradient-color: linear-gradient(0, #, #); */
 }
 
 * {
@@ -16,6 +19,14 @@ html {
     line-height: 1.6rem;
     font-family: 'Roboto', sans-serif;
     box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
 }
 
 /* Created grid cho về sau làm responsive */

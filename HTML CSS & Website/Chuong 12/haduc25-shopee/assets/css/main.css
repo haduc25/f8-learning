@@ -1,0 +1,46 @@
+.header {
+    height: 120px;
+    background-image: linear-gradient(0, var(--red-color), var(--orange-color));
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+}
+
+.navbar__list {
+    /* default: ul => padding-left: 40px  => reset */
+    padding-left: 0;
+}
+
+.navbar__list-item {
+    margin: 0 8px;
+    position: relative;
+}
+
+.list__item-link {
+}
+
+.navbar__list-item,
+.list__item-link {
+    display: inline-block; /* cho nằm lên trên 1 hàng & giữ nguyên tính chất khối */
+    font-size: 1.4rem;
+    color: var(--white-color);
+    font-weight: 300;
+}
+
+/* Modifier */
+.navbar__list-item--strong {
+    font-weight: 400;
+}
+
+.navbar__list-item--separate::after {
+    content: '';
+    display: block;
+    position: absolute;
+    height: 16px;
+    border-left: 1px solid rgba(255, 255, 255, 0.4);
+    top: 50%; /* căn chiều dọc ra giữa: giống align-items: center */
+    transform: translateY(-50%); /* căn chiều dọc ra giữa: giống align-items: center */
+    right: -9px; /* div cha '.navbar__list-item' có margin: 2 bên 8xp => 16px => lấy -8px là căn giữa, nhưng vì nhìn k đều => lấy -9px */
+}
