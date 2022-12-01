@@ -11,6 +11,7 @@
 .navbar__list {
     /* default: ul => padding-left: 40px  => reset */
     padding-left: 0;
+    margin-top: 4px;
 }
 
 .navbar__list-item {
@@ -27,6 +28,16 @@
     font-size: 1.4rem;
     color: var(--white-color);
     font-weight: 300;
+}
+
+.navbar__list-item:hover,
+.list__item-link :hover {
+    opacity: 0.7;
+    cursor: pointer;
+}
+
+.navbar__list-icon {
+    color: var(--white-color);
 }
 
 /* Modifier */
