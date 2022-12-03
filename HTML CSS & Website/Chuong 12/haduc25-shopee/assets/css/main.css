@@ -23,6 +23,11 @@
 .list__item-link {
 }
 
+.navbar__list-item--has-qr:hover .navbar__qr {
+    /* '.navbar__list-item--has-qr:hover .navbar__qr':  'navbar__list-item--has-qr:hover' đc hover => thay đổi 'navbar__qr'*/
+    display: block;
+}
+
 .navbar__list-item,
 .list__item-link {
     display: inline-block; /* cho nằm lên trên 1 hàng & giữ nguyên tính chất khối */
@@ -73,4 +78,53 @@
 .navbar-title--no-pointer {
     color: var(--white-color);
     cursor: text;
+}
+
+/* Header QR Code */
+.navbar__qr {
+    width: 186px;
+    background-color: var(--white-color);
+    position: absolute;
+    left: 0;
+    top: 118%;
+    padding: 16px;
+    border-radius: 2px;
+    display: none;
+    animation: fadeIn ease-in 0.2s;
+}
+
+.navbar__qr::before {
+    /* Làm cấu nối giữa <li> vs qr code */
+    position: absolute;
+    content: '';
+    width: 100%;
+    display: block;
+    /* background-color: blue; */
+    height: 20px;
+    top: -16px;
+    left: 0;
+}
+
+.navbar__qr-img {
+    width: 100%;
+}
+
+.navbar__qr-apps {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 18px;
+    /* margin: 0 2px; //có thể dùng ntn luôn hoặc dùng 'first-child, nth-child(2)' // recommended cách này hơn*/
+}
+
+/* hoặc làm ntn để select từng element */
+.navbar__qr-link:first-child {
+    margin-left: 2px;
+}
+
+.navbar__qr-link:nth-child(2) {
+    margin-right: 2px;
+}
+
+.navbar__qr-download-img {
+    height: 15px;
 }
