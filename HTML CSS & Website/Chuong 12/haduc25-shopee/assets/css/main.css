@@ -23,8 +23,13 @@
 .list__item-link {
 }
 
+/* Modifier #2 */
 .navbar__list-item--has-qr:hover .navbar__qr {
     /* '.navbar__list-item--has-qr:hover .navbar__qr':  'navbar__list-item--has-qr:hover' đc hover => thay đổi 'navbar__qr'*/
+    display: block;
+}
+
+.navbar__list-item--has-notify:hover .list__notify {
     display: block;
 }
 
@@ -59,7 +64,7 @@
     margin: 0 4px;
 }
 
-/* Modifier */
+/* Modifier #1 */
 .navbar__list-item--strong {
     font-weight: 400;
 }
@@ -137,6 +142,22 @@
     width: 404px;
     background-color: var(--white-color);
     border: 1px solid #d3d3d3;
+    cursor: default;
+    transform-origin: calc(90% - 20px) top; /* Tính toán luôn để sau có thay đổi width vẫn giữ nguyên vị trí*/
+    animation: headerNotifyGrowth ease-in 0.2s;
+    display: none;
+}
+
+@keyframes headerNotifyGrowth {
+    from {
+        opacity: 0;
+        transform: scale(0);
+    }
+
+    to {
+        opacity: 1;
+        text-replace: scale(1);
+    }
 }
 
 .list__notify-header {
@@ -150,6 +171,7 @@
     font-weight: 400;
     font-size: 1.4rem;
     line-height: 40px; /* cho = chiều cao cao của element cha 'list__notify-header' => 40px */
+    user-select: none;
 }
 
 .list__notify-list {
@@ -186,8 +208,9 @@
 .list__notify-name {
     display: block;
     font-size: 1.4rem;
-    color: var(--black-color);
+    color: var(--text-color);
     font-weight: 400;
+    line-height: 1.8rem;
 }
 
 .list__notify-desc {
@@ -195,13 +218,18 @@
     font-size: 1.2rem;
     line-height: 1.6rem;
     color: var(--gray60-color);
+    margin-top: 4px;
 }
 
 .list__notify-footer {
-    text-align: center;
-    padding: 4px 16px;
+    display: flex;
 }
 
 .list__notify-footer-btn {
     color: var(--text-color);
+    padding: 8px 0;
+    width: 100%;
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: 400;
 }
