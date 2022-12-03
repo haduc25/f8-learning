@@ -261,3 +261,35 @@
     font-size: 1.4rem;
     font-weight: 400;
 }
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    /*START: Giá trị tạm thời */
+    /* width: 500px;
+    height: 500px; */
+    /*END: Giá trị tạm thời */
+
+    background-color: var(--white-color);
+    border-radius: 5px;
+    margin: auto;
+    z-index: 3;
+}
+
+.body__inner {
+}
