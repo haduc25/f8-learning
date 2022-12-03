@@ -145,6 +145,12 @@
     cursor: default;
     transform-origin: calc(90% - 20px) top; /* Tính toán luôn để sau có thay đổi width vẫn giữ nguyên vị trí*/
     animation: headerNotifyGrowth ease-in 0.2s;
+    /* animation cho các loại browser: webkit, microsoft, opera-mini, firefox */
+    -webkit-animation: headerNotifyGrowth ease-in 0.2s;
+    -ms-animation: headerNotifyGrowth ease-in 0.2s;
+    -o-animation: headerNotifyGrowth ease-in 0.2s;
+    -moz-animation: headerNotifyGrowth ease-in 0.2s;
+    will-change: opacity, transform; /* tối ưu cho animation */
     display: none;
 }
 
@@ -178,7 +184,7 @@
 
     to {
         opacity: 1;
-        text-replace: scale(1);
+        transform: scale(1);
     }
 }
 

@@ -203,3 +203,12 @@ code:hover {
 .exam:hover {
     border: 1px solid rgba(204, 204, 204, 1);
 }
+
+.triangle:hover,
+.triangle-up:hover,
+.triangle-down:hover,
+.triangle-right:hover,
+.triangle-left:hover {
+    transform: scale(1.5);
+    transition: linear 0.5s;
+}
