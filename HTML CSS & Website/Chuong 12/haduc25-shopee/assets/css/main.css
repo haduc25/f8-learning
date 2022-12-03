@@ -1,6 +1,6 @@
 .header {
     height: 120px;
-    background-image: linear-gradient(0, var(--red-color), var(--orange-color));
+    background-image: linear-gradient(0, var(--primary-color), var(--orange-color));
 }
 
 .navbar {
@@ -127,4 +127,81 @@
 
 .navbar__qr-download-img {
     height: 15px;
+}
+
+/* Header notification */
+.list__notify {
+    position: absolute;
+    top: 118%;
+    right: 0;
+    width: 404px;
+    background-color: var(--white-color);
+    border: 1px solid #d3d3d3;
+}
+
+.list__notify-header {
+    height: 40px;
+    background-color: var(--white-color);
+}
+
+.list__notify-header h3 {
+    color: var(--gray60-color);
+    margin: 0 0 0 12px; /* left */
+    font-weight: 400;
+    font-size: 1.4rem;
+    line-height: 40px; /* cho = chiều cao cao của element cha 'list__notify-header' => 40px */
+}
+
+.list__notify-list {
+    padding-left: 0; /* default ul */
+}
+
+.list__notify-item {
+    display: flex;
+}
+
+.list__notify-item:hover {
+    background-color: var(--gray97-color);
+}
+
+.list__notify-item--viewed {
+    background-color: var(--primary-color-alpha);
+}
+
+.list__notify-link {
+    display: flex;
+    padding: 12px;
+    width: 100%;
+}
+
+.list__notify-img {
+    width: 48px;
+    object-fit: contain;
+}
+
+.list__notify-info {
+    margin-left: 12px;
+}
+
+.list__notify-name {
+    display: block;
+    font-size: 1.4rem;
+    color: var(--black-color);
+    font-weight: 400;
+}
+
+.list__notify-desc {
+    display: block;
+    font-size: 1.2rem;
+    line-height: 1.6rem;
+    color: var(--gray60-color);
+}
+
+.list__notify-footer {
+    text-align: center;
+    padding: 4px 16px;
+}
+
+.list__notify-footer-btn {
+    color: var(--text-color);
 }

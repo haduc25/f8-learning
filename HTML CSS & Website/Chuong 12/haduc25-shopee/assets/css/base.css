@@ -1,8 +1,12 @@
 :root {
+    --primary-color: #ee4d2d;
+    --primary-color-alpha: #ee4d2d14; /* rgba(238, 77, 45, 0.08) | alpha = 00.8 | https://rgbacolorpicker.com/rgba-to-hex */
     --white-color: #fff;
     --black-color: #000;
-    --red-color: #ee4d2d;
     --orange-color: #ff7337;
+    --gray40-color: #666; /* dark gray*/
+    --gray60-color: #999; /* light gray*/
+    --gray97-color: #f7f7f7; /* lighter gray :)*/
     --text-color: #333;
     /* --primary-gradient-color: linear-gradient(0, #, #); */
 }
