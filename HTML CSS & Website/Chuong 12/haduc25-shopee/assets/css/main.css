@@ -279,11 +279,13 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    padding: 0 12px;
+    margin-top: 10px;
 }
 
 .auth-form__heading {
     font-size: 2.2rem;
-    font-weight: 400;
+    font-weight: 500;
     color: var(--text-color);
 }
 
@@ -372,4 +374,26 @@
 .auth-form__socials--google {
     color: var(--gray40-color);
     background-color: var(--white-color);
+}
+
+/* Login*/
+.auth-form__help {
+    display: flex;
+    justify-content: flex-end;
+}
+
+.auth-form_help-link {
+    font-size: 1.4rem;
+    color: #939399;
+}
+
+.auth-form__help-separate {
+    display: block;
+    height: 22px;
+    margin: -3px 16px 0; /*top, left + right, bottom*/
+    border-left: 1px solid var(--separate-color);
+}
+
+.auth-form_help-forgot {
+    color: var(--primary-color);
 }

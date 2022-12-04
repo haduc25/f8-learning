@@ -10,6 +10,7 @@
     --text-color: #333;
     --border-color: #dbdbdb;
     --border-focus-color: #888;
+    --separate-color: #eaeaea;
     /* --primary-gradient-color: linear-gradient(0, #, #); */
 }
 
@@ -72,6 +73,7 @@ button {
     display: flex;
     justify-content: center;
     align-items: center;
+    line-height: 1.6rem;
 }
 
 .btn.btn--normal:hover {
