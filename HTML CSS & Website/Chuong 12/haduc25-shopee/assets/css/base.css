@@ -1,6 +1,8 @@
 :root {
     --primary-color: #ee4d2d;
     --primary-color-alpha: #ee4d2d14; /* rgba(238, 77, 45, 0.08) | alpha = 00.8 | https://rgbacolorpicker.com/rgba-to-hex */
+    --primary-color-hover: #fb6445;
+    --primary-color-active: #ee5130;
     --white-color: #fff;
     --black-color: #000;
     --orange-color: #ff7337;
@@ -38,6 +40,7 @@ a {
 
 ul {
     list-style-type: none;
+    /* padding-left: 0; //lần sau nhớ thêm vì lần này trong proj đang chỉnh lại r nên k cho vào */
 }
 
 input,
