@@ -281,8 +281,8 @@
 
 .modal__body {
     /*START: Giá trị tạm thời */
-    /* width: 500px;
-    height: 500px; */
+    width: 500px;
+    height: 500px;
     /*END: Giá trị tạm thời */
 
     background-color: var(--white-color);

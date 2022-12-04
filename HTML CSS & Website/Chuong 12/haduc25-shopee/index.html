@@ -26,15 +26,15 @@
 
                             <!-- Header QR Code -->
                             <div class="navbar__qr">
-                                <img src="./assets/img/qr_momo.png" alt="QR code" class="navbar__qr-img">
+                                <img src="./assets/img/qr_momo.png" alt="QR code" class="navbar__qr-img" />
                                 <div class="navbar__qr-apps">
                                     <div class="navbar__qr-link">
                                         <img src="./assets/img/google_play.png" alt="Google Play"
-                                            class="navbar__qr-download-img">
+                                            class="navbar__qr-download-img" />
                                     </div>
                                     <div class="navbar__qr-link">
                                         <img src="./assets/img/app_store.png" alt="App Store"
-                                            class="navbar__qr-download-img">
+                                            class="navbar__qr-download-img" />
                                     </div>
                                 </div>
                             </div>
@@ -58,8 +58,9 @@
                                     <h3>Thông báo mới nhận</h3>
                                 </header>
                                 <ul class="list__notify-list">
-                                    <li class="list__notify-item"><a href="" class="list__notify-link">
-                                            <img src="./assets/img/hoodie-cute.jpg" alt="" class="list__notify-img">
+                                    <li class="list__notify-item">
+                                        <a href="" class="list__notify-link">
+                                            <img src="./assets/img/hoodie-cute.jpg" alt="" class="list__notify-img" />
                                             <div class="list__notify-info">
                                                 <span class="list__notify-name">
                                                     Người yêu chính hãng
@@ -70,8 +71,9 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="list__notify-item"><a href="" class="list__notify-link">
-                                            <img src="./assets/img/hoodie-cute.jpg" alt="" class="list__notify-img">
+                                    <li class="list__notify-item">
+                                        <a href="" class="list__notify-link">
+                                            <img src="./assets/img/hoodie-cute.jpg" alt="" class="list__notify-img" />
                                             <div class="list__notify-info">
                                                 <span class="list__notify-name">
                                                     Người yêu chính hãng
@@ -82,9 +84,9 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="list__notify-item list__notify-item--viewed"><a href=""
-                                            class="list__notify-link">
-                                            <img src="./assets/img/hoodie-cute.jpg" alt="" class="list__notify-img">
+                                    <li class="list__notify-item list__notify-item--viewed">
+                                        <a href="" class="list__notify-link">
+                                            <img src="./assets/img/hoodie-cute.jpg" alt="" class="list__notify-img" />
                                             <div class="list__notify-info">
                                                 <span class="list__notify-name">
                                                     Người yêu chính hãng
@@ -95,9 +97,9 @@
                                             </div>
                                         </a>
                                     </li>
-                                    <li class="list__notify-item list__notify-item--viewed"><a href=""
-                                            class="list__notify-link">
-                                            <img src="./assets/img/hoodie-cute.jpg" alt="" class="list__notify-img">
+                                    <li class="list__notify-item list__notify-item--viewed">
+                                        <a href="" class="list__notify-link">
+                                            <img src="./assets/img/hoodie-cute.jpg" alt="" class="list__notify-img" />
                                             <div class="list__notify-info">
                                                 <span class="list__notify-name">
                                                     Người yêu chính hãng
@@ -134,19 +136,62 @@
 
     <footer class="footer"></footer>
 
-
-    <!-- Modal -->
+    <!-- Modal layout -->
     <div class="modal">
-        <div class="modal__overlay">
-
-        </div>
+        <div class="modal__overlay"></div>
         <div class="modal__body">
             <div class="body__inner">
                 <!-- Form login/register -->
+
+                <!-- Authentication form -->
+                <div class="auth-form">
+                    <div class="auth-form__header">
+                        <h3 class="auth-form__heading">Đăng ký</h3>
+                        <span class="auth-form__switch-btn">Đăng nhập</span>
+                    </div>
+
+                    <div class="auth-form__form">
+                        <div class="auth-form__group">
+                            <input type="email" class="auth-form__input" placeholder="haduc25@email.com" required />
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Mật khẩu" required />
+                        </div>
+                        <div class="auth-form__group">
+                            <input type="password" class="auth-form__input" placeholder="Nhập lại mật khẩu" required />
+                        </div>
+                    </div>
+
+                    <!-- Aside: phần bổ sung, thêm vào -->
+                    <div class="auth-form__aside">
+                        <p class="auth-form__policy-text">
+                            Bằng việc đăng kí, bạn đã đồng ý với Shopee về
+                            <a href="" class="auth-form__policy-link">Điều khoản dịch vụ</a> &
+                            <a href="" class="auth-form__policy-link">Chính sách bảo mật</a>
+                        </p>
+                    </div>
+
+                    <!-- Control button -->
+                    <div class="auth-form__controls">
+                        <button class="btn">TRỞ LẠI</button>
+                        <button class="btn btn--primary">ĐĂNG KÝ</button>
+                    </div>
+
+                    <!-- social media -->
+                    <div class="auth-form__socials">
+                        <a class="btn">
+                            <i class="fab fa-facebook-square"></i>
+                            Kết nối với Facebook
+                        </a>
+                        <a class="btn">
+                            <i class="fab fa-google"></i>
+                            Kết nối với Google
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
-
 </body>
 
 </html>
