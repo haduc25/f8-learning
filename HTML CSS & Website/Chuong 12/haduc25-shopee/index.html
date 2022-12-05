@@ -121,11 +121,35 @@
                                 <i class="fa-regular fa-circle-question navbar__list-icon"></i>
                                 Trợ giúp</a>
                         </li>
+                        <!-- When not login => guest | status: disabled -->
                         <li id="register"
-                            class="navbar__list-item navbar__list-item--strong navbar__list-item--separate">
+                            class="navbar__list-item navbar__list-item--strong navbar__list-item--separate"
+                            style="display: none;">
                             Đăng ký
                         </li>
-                        <li id="login" class="navbar__list-item navbar__list-item--strong">Đăng nhập</li>
+                        <li id="login" class="navbar__list-item navbar__list-item--strong" style="display: none;">Đăng
+                            nhập</li>
+
+                        <!-- When login -->
+                        <li class="navbar__list-item navbar__user">
+                            <img src="./assets/img/avatar.png" alt="avatar" class="navbar__user-img">
+                            <span class="navbar__user-name">Hà Minh Đức</span>
+
+                            <ul class="navbar__user-menu">
+                                <li class="navbar__user-menu-item">
+                                    <a href="">Tài khoản của tôi</a>
+                                </li>
+                                <li class="navbar__user-menu-item">
+                                    <a href="">Địa chỉ của tôi</a>
+                                </li>
+                                <li class="navbar__user-menu-item">
+                                    <a href="">Đơn mua</a>
+                                </li>
+                                <li class="navbar__user-menu-item">
+                                    <a href="">Đăng xuất</a>
+                                </li>
+                            </ul>
+                        </li>
                     </ul>
                 </nav>
 
@@ -267,7 +291,7 @@
                                         </div>
                                     </li>
                                     <li class="header__cart-item">
-                                        <img style="width: 48px;" class="header__cart-img"
+                                        <img class="header__cart-img"
                                             src="https://cf.shopee.vn/file/sg-11134201-22110-kw9dq4fn5djv91" alt="">
                                         <div class="header__cart-item-info">
                                             <div class="header__cart-item-head">
