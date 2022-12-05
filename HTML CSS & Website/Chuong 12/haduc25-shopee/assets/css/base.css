@@ -7,6 +7,7 @@
     --black-color: #000;
     --orange-color: #ff7337;
     --gray40-color: #666; /* dark gray*/
+    --gray46-color: #757575;
     --gray60-color: #999; /* light gray*/
     --gray97-color: #f7f7f7; /* lighter gray :)*/
     --text-color: #333;
@@ -16,6 +17,7 @@
     --box-shadow-color: #00000042;
     --light-hover-color: #fbfbfb;
     --dark-hover-color: #fafafa;
+    --dark2-hover-color: #f8f8f8;
 
     --header-height: 120px;
     --navbar-height: 34px;
@@ -71,7 +73,7 @@ button {
 
 /* Button style */
 .btn {
-    min-width: 142px;
+    min-width: 124px;
     height: 34px;
     border-radius: 2px;
     font-size: 1.5rem;

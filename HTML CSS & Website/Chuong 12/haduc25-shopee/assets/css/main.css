@@ -635,6 +635,14 @@
     border: 2px solid var(--primary-color-active);
 }
 
+.header__cart-heading {
+    text-align: left;
+    margin: 8px 0 8px 12px;
+    font-size: 1.4rem;
+    color: var(--gray60-color);
+    font-weight: 400;
+}
+
 .header__cart-list {
     position: absolute;
     top: calc(100% + 8px);
@@ -643,10 +651,10 @@
     width: 400px;
     border-radius: var(--border-radius-value);
     box-shadow: 0 2px 10px 0 var(--box-shadow-color);
-    display: none;
     animation: fadeIn ease-in 0.2s;
     will-change: opacity;
     cursor: default;
+    display: none;
 }
 
 .header__cart-list::after {
@@ -683,4 +691,94 @@
     font-size: 1.4rem;
     margin-top: 14px;
     color: var(--text-color);
+}
+
+/* Cart item */
+.header__cart-list-item {
+    padding-left: 0;
+}
+
+.header__cart-item {
+    display: flex;
+    align-items: center;
+}
+
+.header__cart-item:hover {
+    background-color: var(--dark2-hover-color);
+}
+
+.header__cart-img {
+    width: 42px;
+    height: 42px;
+    margin: 12px;
+    border: 1px solid var(--border-color);
+}
+
+.header__cart-item-info {
+    width: 100%;
+    margin-right: 12px;
+}
+
+.header__cart-item-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.header__cart-item-name {
+    font-size: 1.4rem;
+    font-weight: 500;
+    color: var(--text-color);
+    margin: 0; /* bỏ margin mặc định của thẻ 'h5' */
+    cursor: pointer;
+}
+
+.header__cart-item-price-wrap {
+}
+
+.header__cart-item-price {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--primary-color);
+}
+
+.header__cart-item-multiply {
+    margin: 0 4px;
+    font-size: 0.9rem;
+    color: var(--gray46-color);
+}
+
+.header__cart-item-quantity {
+    font-size: 1.2rem;
+    color: var(--gray46-color);
+}
+
+.header__cart-item-body {
+    display: flex;
+    justify-content: space-between;
+}
+
+.header__cart-item-desc {
+    font-size: 1.2rem;
+    font-weight: 400;
+    color: var(--gray46-color);
+}
+
+.header__cart-item-remove {
+    color: var(--text-color);
+    font-size: 1.4rem;
+}
+
+.header__cart-item-remove:hover {
+    color: var(--primary-color);
+    cursor: pointer;
+}
+
+.header__cart-view-cart {
+    float: right;
+    margin: 0 12px 12px 0;
+}
+
+.header__cart-view-cart:hover {
+    background-color: var(--primary-color-hover);
 }
