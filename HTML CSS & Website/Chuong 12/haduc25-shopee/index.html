@@ -188,14 +188,30 @@
                     <div class="header__cart">
                         <div class="header__cart-wrap">
                             <i class="header__cart-icon fas fa-shopping-cart"></i>
+                            <span class="header__cart-notice">3</span>
+
+                            <!-- Dont have cart: add class => header__cart-list--no-cart -->
+                            <div class="header__cart-list header__cart-list--no-cart" style="display: none;">
+                                <img src="./assets/img/no-cart.png" alt="123" class="header__cart-list--no-cart-img">
+                                <span class="header__cart-list-no-cart-msg">
+                                    Chưa có sản phẩm
+                                </span>
+                            </div>
+
+                            <!-- Has cart -->
                             <div class="header__cart-list header__cart-list--no-cart">
                                 <img src="./assets/img/no-cart.png" alt="123" class="header__cart-list--no-cart-img">
                                 <span class="header__cart-list-no-cart-msg">
                                     Chưa có sản phẩm
                                 </span>
                             </div>
+
+
+
                         </div>
                     </div>
+
+
                 </div>
 
             </div>

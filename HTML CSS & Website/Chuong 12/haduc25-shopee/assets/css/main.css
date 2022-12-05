@@ -622,6 +622,19 @@
     margin-top: 6px;
 }
 
+.header__cart-notice {
+    position: absolute;
+    top: -3px;
+    right: -3px;
+    padding: 1px 5px;
+    font-size: 1.4rem;
+    line-height: 1.4rem;
+    color: var(--primary-color);
+    background-color: var(--white-color);
+    border-radius: 10px;
+    border: 2px solid var(--primary-color-active);
+}
+
 .header__cart-list {
     position: absolute;
     top: calc(100% + 8px);
@@ -633,6 +646,7 @@
     display: none;
     animation: fadeIn ease-in 0.2s;
     will-change: opacity;
+    cursor: default;
 }
 
 .header__cart-list::after {
@@ -644,18 +658,28 @@
     border-width: 20px 30px;
     border-color: transparent;
     border-bottom-color: var(--white-color);
+    cursor: pointer;
 }
 
+/* No cart */
 .header__cart-list--no-cart {
     padding: 24px 0;
 }
 
+.header__cart-list--no-cart .header__cart-list--no-cart-img,
+.header__cart-list--no-cart .header__cart-list-no-cart-msg {
+    /* Trường hợp có class '.header__cart-list--no-cart ' => hiện img & msg */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
 .header__cart-list--no-cart-img {
     width: 54%;
+    display: none;
 }
 
 .header__cart-list-no-cart-msg {
-    display: block;
+    display: none;
     font-size: 1.4rem;
     margin-top: 14px;
     color: var(--text-color);
