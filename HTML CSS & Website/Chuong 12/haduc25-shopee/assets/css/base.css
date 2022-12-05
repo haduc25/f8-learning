@@ -13,11 +13,14 @@
     --border-color: #dbdbdb;
     --border-focus-color: #888;
     --separate-color: #eaeaea;
+    --box-shadow-color: #00000042;
+    --light-hover-color: #fbfbfb;
+    --dark-hover-color: #fafafa;
 
     --header-height: 120px;
     --navbar-height: 34px;
     --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
-    /* --primary-gradient-color: linear-gradient(0, #, #); */
+    --border-radius-value: 2px;
 }
 
 * {
