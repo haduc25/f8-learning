@@ -484,6 +484,7 @@
     font-size: 1.3rem;
     color: var(--text-color);
     line-height: 38px; /* cho = thẻ cha để căn ra giữa */
+    display: block;
 }
 
 .header__search-history-item:hover {

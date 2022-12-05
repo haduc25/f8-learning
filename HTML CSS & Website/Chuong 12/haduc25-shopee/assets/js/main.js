@@ -120,7 +120,7 @@ loginBtnSubmit.onclick = (e) => {
 const searchHistoryDOM = document.querySelector('.header__search-history');
 const searchInputDOM = document.querySelector('.header__search-input');
 const searchListDOM = document.querySelector('.header__search-history-list');
-const searchLiDOM = searchListDOM.querySelectorAll('li');
+// const searchLiDOM = searchListDOM.querySelectorAll('li');
 
 searchHistoryDOM.onmouseover = (e) => {
     searchHistoryDOM.style.display = 'block';
@@ -138,10 +138,10 @@ searchInputDOM.onfocus = (e) => {
     searchHistoryDOM.style.display = 'block';
 };
 
-searchLiDOM.forEach((liDOM) => {
-    liDOM.onclick = (e) => {
-        if (e.target.tagName === 'LI') {
-            e.target.childNodes[0].click();
-        }
-    };
-});
+// searchLiDOM.forEach((liDOM) => {
+//     liDOM.onclick = (e) => {
+//         if (e.target.tagName === 'LI') {
+//             e.target.childNodes[0].click();
+//         }
+//     };
+// });
