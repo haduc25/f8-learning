@@ -667,7 +667,7 @@
                 </fieldset>
             </ul>
 
-            <li>147. Header fix UI bugs, 148. Danh mục: Dựng khung</li>
+            <li>147. Header fix UI bugs, 148. Danh mục: Dựng khung, 149. Danh mục: Base responsive</li>
             <ul class="children">
                 <li>
                     Youtube:
@@ -703,16 +703,58 @@
 
                 <fieldset>
                     <legend>Keywords</legend>
-                    <a href="https://themify.me/themify-icons target=" _blank">themify</a>
+                    <a href="https://themify.me/themify-icons" target="_blank">themify</a>
                     <p>Cách chia column grid</p>
-                    <p>Syntax: 100% / số column</p>
+                    <p>Syntax: 100% / tổng số column</p>
                     <p>Áp dụng vs 12 column: 100 / 12 = 8.333333333333333</p>
                     <p>Nếu chiếm 2 column: 8.333333333333333 * 2 = 16.66666666666667</p>
-                </fieldset>
-            </ul>
+                    <p>Syntax: số cột còn lại (12-2 sau khi đã thêm 2 cột trên) / tổng số column * 100%</p>
+                    <p>Áp dụng: 10 / 12 * 100 = 83.33333333333333</p>
+                    <p> => chiều rộng của các cột còn lại = 83.33333333333333</p>
+                    <p> Nguyên tắc làm Responsive / Example</p>
+                    <ul class="children m-0">
+                        .grid {
+                        <ul class="children m-0">
+                            <li>
+                                .row {
+                                <ul class="children m-0">
+                                    <li>
+                                        .col {
+                                        } <br>
+                                        .col {
+                                        } <br>
+                                        .col {
+                                        }
+                                    </li>
+                                </ul>
+                                }
+                            </li>
+                        </ul>
+                        <ul class="children m-0">
+                            <li>
+                                .row {
+                                <ul class="children m-0">
+                                    <li>
+                                        .col {
+                                        } <br>
+                                        .col {
+                                        } <br>
+                                        .col {
+                                        }
+                                    </li>
+                                </ul>
+                                }
+                            </li>
+                        </ul>
+                        }
+                    </ul>
+                    <br>
+                    <a href="https://developer.mozilla.org/en-US/docs/Web/API/Window/DOMContentLoaded_event"
+                        target=_blank">DOMContentLoaded / JS / k có trong bài này => tự tìm hiểu</a>
 
-            <!-- PARENT END -->
-        </ul>
+
+                    <!-- PARENT END -->
+            </ul>
     </div>
 
     <!-- Something has same value -->
