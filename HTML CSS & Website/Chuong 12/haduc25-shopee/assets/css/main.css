@@ -190,7 +190,7 @@
     top: 118%;
     padding: 16px;
     border-radius: var(--border-radius-value);
-
+    z-index: 2;
     display: none;
     animation: fadeIn ease-in 0.2s;
 }
@@ -560,6 +560,7 @@
     display: none;
     animation: fadeIn ease-in 0.15s;
     will-change: opacity;
+    z-index: 2;
 }
 
 .header__search-history-heading {
@@ -756,6 +757,7 @@
     will-change: opacity;
     cursor: default;
     display: none;
+    z-index: 2;
 }
 
 .header__cart-list::after {
@@ -955,4 +957,83 @@
     left: 7px;
     border: 4px solid transparent;
     border-left-color: var(--primary-color);
+}
+
+/* Home sort + filter */
+.home-filter {
+    display: flex;
+    align-items: center;
+    padding: 12px 22px;
+    background-color: var(--border-separate-color);
+    border-radius: var(--border-radius-value);
+}
+
+.home-filter__label {
+    font-size: 1.4rem;
+    /* color: var(--davy-grey-color); */
+    margin-right: 16px;
+}
+
+.home-filter__btn {
+    min-width: 90px;
+    margin-right: 12px;
+    background-color: var(--white-color);
+    box-shadow: 0 1px 2px var(--box-shadow-color);
+}
+
+.home-filter__btn:hover,
+.home-filter__page-btn:hover {
+    background-color: var(--dark2-hover-color);
+}
+
+.home-filter__page {
+    display: flex;
+    align-items: center;
+    margin-left: auto; /* đẩy qua phải */
+}
+
+.home-filter__page-num {
+    font-size: 1.5rem;
+    color: var(--text-color);
+    margin-right: 22px;
+}
+
+.home-filter__page-page-current {
+    color: var(--primary-color);
+}
+
+.home-filter__page-control {
+    display: flex;
+    width: 72px; /*  tổng 2 nút cộng lại */
+    height: 36px;
+    border-radius: var(--border-radius-value);
+    overflow: hidden;
+    box-shadow: 0 1px 2px var(--box-shadow-color);
+}
+
+.home-filter__page-btn {
+    flex: 1; /* 2 nút tự chia đều nhau / thẻ cha = 72 => 36px / nút */
+    background-color: var(--white-color);
+    /* border: 1px solid #000; */
+    display: flex;
+}
+
+/* Modifier */
+.home-filter__page-btn--disabled {
+    background-color: #fff;
+    cursor: default;
+    pointer-events: none;
+}
+.home-filter__page-btn--disabled .home-filter__page-btn-icon {
+    color: #ccc;
+}
+
+.home-filter__page-btn:first-child {
+    border-right: 1px solid var(--border-separate-color);
+}
+
+.home-filter__page-btn-icon {
+    margin: auto; /* căn giữa icon */
+    font-size: 1.4rem;
+    color: var(--davy-grey-color);
 }
