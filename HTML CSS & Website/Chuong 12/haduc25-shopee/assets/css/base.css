@@ -55,6 +55,7 @@ button {
 }
 
 /* Created grid cho về sau làm responsive */
+/* Node: Responsive */
 .grid {
     width: 1200px; /* Màn hình có kích thước > 1200 => tối đa chỉ 1200px */
     max-width: 100%; /* Với màn hình kích thước < 1200px => tự giảm = kích thước màn hình < 1200px */
