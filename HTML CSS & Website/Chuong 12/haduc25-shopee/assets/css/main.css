@@ -1037,3 +1037,87 @@
     font-size: 1.4rem;
     color: var(--davy-grey-color);
 }
+
+/* Product item */
+.home-product {
+}
+
+.home-product-item {
+    background-color: var(--white-color);
+    margin-top: 10px;
+}
+
+.home-product-item__img {
+    /* Khi sử dụng padding-top: 100%  ở background img => 100% = set lại chiều cao = chiều ngang của thẻ cha 'home-product-item' => đc hình vuông */
+    /* padding-top: 100% kiểu như đẩy lên top 100% để hiển thị ảnh bằng 1 hình vuông đó bạn */
+    padding-top: 100%;
+    background-size: contain; /* cho img size = thẻ cha | background-size: 100%; or background-size: contain;*/
+    background-repeat: no-repeat;
+    background-position: center;
+}
+
+.home-product-item__name {
+    font-size: 1.4rem;
+    font-weight: 400;
+    color: var(--text-color);
+    margin: 10px;
+    /* START: handle chỉ để 2 dòng - ở name nếu xa quá cho ẩn */
+    /* vì line-height: 1.8rem; => 1 dòng = 18px / muốn dặt 2 dòng *2 => 36px */
+    /* set height: 36px or 3.6rem / tương đương vs 2 dòng */
+    /* dùng overflow: hidden / ẩn thẻ con nếu dài quá 36px */
+    line-height: 1.8rem;
+    height: 3.6rem;
+    overflow: hidden;
+    /* END: handle chỉ để 2 dòng - ở name nếu xa quá cho ẩn */
+
+    /* START: làm dấu 3 chấm */
+    display: block; /* nếu browser k support -webkit-box */
+    display: -webkit-box;
+    -webkit-box-orient: vertical; /*hướng của dòng chữ: horizontal, vertical*/
+    -webkit-line-clamp: 2; /* để limit content của 1 block / nhận vào số dòng*/
+    /* END: làm dấu 3 chấm */
+
+    /* START: làm dấu 3 chấm - cho browser k hỗ trợ -webkit-box */
+    /* display: block; //nếu browser k support -webkit-box 
+    white-space: nowrap;
+    overflow: hidden;
+    height: 1.8rem;
+    text-overflow: ellipsis; */
+    /* END: làm dấu 3 chấm - cho browser k hỗ trợ -webkit-box */
+}
+
+.home-product-item__price {
+}
+
+.home-product-item__price-old {
+}
+
+.home-product-item__price-current {
+}
+
+/* Product action */
+.home-product-item__action {
+}
+.home-product-item__like {
+}
+
+/* Product origin */
+.home-product-item__origin {
+}
+.home-product-item__brand {
+}
+.home-product-item__origin-name {
+}
+
+/* Product overlay */
+.home-product-item__favorite {
+}
+
+.home-product-item__discount {
+}
+
+.home-product-item__discount-percent {
+}
+
+.home-product-item__discount-label {
+}
