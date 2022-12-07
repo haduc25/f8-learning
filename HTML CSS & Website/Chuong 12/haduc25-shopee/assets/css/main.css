@@ -1130,6 +1130,7 @@
 }
 
 .home-product-item__like-icon-empty {
+    color: var(--box-shadow-color);
 }
 
 i.home-product-item__like-icon-fill {

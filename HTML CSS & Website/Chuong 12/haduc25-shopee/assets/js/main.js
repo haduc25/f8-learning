@@ -145,3 +145,12 @@ searchInputDOM.onfocus = (e) => {
 //         }
 //     };
 // });
+
+// Action like, heart or something...
+const spanHomeProductItemLike = document.querySelectorAll('.home-product-item__like');
+
+spanHomeProductItemLike.forEach((itemLiked) => {
+    itemLiked.onclick = (e) => {
+        itemLiked.classList.toggle('home-product-item__like--liked');
+    };
+});
