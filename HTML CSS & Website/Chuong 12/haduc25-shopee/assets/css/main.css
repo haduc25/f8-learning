@@ -1113,7 +1113,7 @@
 }
 
 .home-product-item__like {
-    font-size: 1.4rem;
+    font-size: 1.3rem;
 }
 
 .home-product-item__like-icon-empty {
@@ -1135,17 +1135,43 @@ i.home-product-item__like-icon-fill {
     display: none;
 }
 
+/* star */
 .home-product-item__rating {
     font-size: 0.8rem;
     color: #d5d5d5;
+    /*margin-left: auto;*/ /* tự đẩy sang trái đến khi gặp item khác */
+    /* shorten cả margin-left: auto vào */
+    margin: -1px 0 0 auto;
+}
+
+/* Modifier */
+.home-product-item__rating--gold {
+    color: var(--star-gold-color);
+}
+
+/* sold */
+.home-product-item__sold {
+    font-size: 1.2rem;
+    color: var(--text-color);
+    margin-left: 6px;
 }
 
 /* Product origin */
 .home-product-item__origin {
+    display: flex;
+    justify-content: space-between;
+    margin: 3px 10px 0; /*top, left+right, bottom*/
+    font-weight: 400;
+    font-size: 1.2rem;
+    color: var(--gray60-color);
 }
 .home-product-item__brand {
+    /* margin-right: auto; => dùng thay cho justify-content: space-between; đc / chỉ cần margin left or right*/
+    /* margin-right: auto; */
 }
 .home-product-item__origin-name {
+    /* margin-left: auto; => dùng thay cho justify-content: space-between; đc / chỉ cần margin left or right*/
+    /* margin-left: auto; */
 }
 
 /* Product overlay */
