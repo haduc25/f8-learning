@@ -1043,6 +1043,7 @@
 }
 
 .home-product-item {
+    position: relative;
     background-color: var(--white-color);
     margin-top: 10px;
 }
@@ -1176,6 +1177,38 @@ i.home-product-item__like-icon-fill {
 
 /* Product overlay */
 .home-product-item__favorite {
+    position: absolute;
+    top: 10px;
+    left: -4px;
+    color: var(--primary-color); /*currentColor lấy theo color này*/
+    background-color: currentColor;
+    font-size: 1.2rem;
+    font-weight: 500;
+    line-height: 1.6rem;
+    padding-right: 4px;
+    border-top-right-radius: 3px;
+    border-bottom-right-radius: 3px;
+}
+
+.home-product-item__favorite::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    /* tam giác 90deg lệch left nhỏ hơn 'home-product-item__favorite' 1px / ở trên left -4px*/
+    border-top: 3px solid currentColor; /*currentColor lấy color của thẻ cha*/
+    border-left: 3px solid transparent;
+    filter: brightness(60%); /*giảm độ sáng xuống 60%*/
+}
+
+.home-product-item__favorite i {
+    font-size: 0.9rem;
+    margin: 0 2px 0 5px;
+    color: var(--white-color);
+}
+
+.home-product-item__favorite span {
+    color: var(--white-color);
 }
 
 .home-product-item__discount {
