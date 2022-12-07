@@ -1040,12 +1040,24 @@
 
 /* Product item */
 .home-product {
+    margin-bottom: 10px;
 }
 
 .home-product-item {
+    display: block;
     position: relative;
     background-color: var(--white-color);
     margin-top: 10px;
+    border-bottom-right-radius: var(--border-radius-value);
+    border-bottom-left-radius: var(--border-radius-value);
+    box-shadow: 0 1px 2px var(--box-shadow-color);
+    transition: transform ease-in 0.1s;
+    will-change: transform;
+}
+
+.home-product-item:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 1px 20px 0 var(--border-separate-color);
 }
 
 .home-product-item__img {

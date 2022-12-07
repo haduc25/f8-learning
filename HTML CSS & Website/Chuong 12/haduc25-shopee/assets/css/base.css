@@ -105,7 +105,7 @@ button {
     padding-left: 5px;
     padding-right: 5px;
     width: 83.3334%; /* Áp dụng: 10 / 12 * 100 = 83.33333333333333 */
-    border: 1px solid cyan;
+    /* border: 1px solid cyan; */
 }
 
 /* Button style */
