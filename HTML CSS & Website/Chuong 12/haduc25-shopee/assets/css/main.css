@@ -1121,7 +1121,7 @@
 }
 
 i.home-product-item__like-icon-fill {
-    color: #f63d30;
+    color: var(--red-color);
     display: none;
 }
 
@@ -1212,10 +1212,40 @@ i.home-product-item__like-icon-fill {
 }
 
 .home-product-item__discount {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 40px;
+    height: 36px;
+    text-align: center;
+    color: var(--ribbon-color);
+    background-color: currentColor;
+}
+
+.home-product-item__discount::after {
+    content: '';
+    position: absolute;
+    right: 0;
+    bottom: -4px;
+    border-width: 0 20px 4px; /*top, left + right (bằng 1/2 chiều cao 'height' của  '.home-product-item__discount'), bottom*/
+    border-style: solid;
+    border-color: transparent currentColor transparent currentColor;
 }
 
 .home-product-item__discount-percent {
+    color: var(--red-color);
+    font-weight: 500;
+    font-size: 1.2rem;
+    line-height: 1.2rem;
+    position: relative;
+    top: 2px;
 }
 
 .home-product-item__discount-label {
+    color: var(--white-color);
+    font-size: 1.3rem;
+    line-height: 1.3rem;
+    font-weight: 400;
+    position: relative;
+    top: 2px;
 }

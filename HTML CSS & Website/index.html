@@ -859,6 +859,10 @@
                             <a href="https://youtu.be/tUyKVWcdeyg" target="_blank">[HTML, CSS] - Coding, Morning
                                 [07/12/2022] #17</a>
                         </li>
+                        <li>
+                            <a href="https://youtu.be/YioI5PONSw0" target="_blank">[HTML, CSS] - Coding, Middle
+                                Afternoon [07/12/2022] #18</a>
+                        </li>
                     </ul>
                 </li>
                 <fieldset>
@@ -956,6 +960,95 @@
                         <div class="triangle-90-deg-top-left-2"></div>
                         <div class="triangle-90-deg-bottom-right-2"></div>
                     </div>
+                </fieldset>
+            </ul>
+
+
+            <li>158. Sản phẩm: CSS nhãn giảm giá</li>
+            <ul class="children">
+                <li>
+                    Youtube:
+                    <ul class="children">
+                        <li>
+                            <a href="https://youtu.be/tUyKVWcdeyg" target="_blank">[HTML, CSS] - Coding, Morning
+                                [07/12/2022] #17</a>
+                        </li>
+                        <li>
+                            <a href="https://youtu.be/YioI5PONSw0" target="_blank">[HTML, CSS] - Coding, Middle
+                                Afternoon [07/12/2022] #18</a>
+                        </li>
+                    </ul>
+                </li>
+                <fieldset>
+                    <legend>Keywords</legend>
+
+                    <div class="image">
+                        <a href="./Chuong 12/img/haft-of-triangle.png" target="_blank">
+                            <img src="./Chuong 12/img/haft-of-triangle.png" alt="CSS Haft of Triangle" />
+                            <p>CSS Haft of Triangle</p>
+                        </a>
+                    </div>
+
+                    <p>Ví dụ tạo ra tam giác góc 90 độ</p>
+                    <style>
+                        /* TOP - RIGHT */
+                        .normal-triangle {
+                            border: 80px solid;
+                            border-color: red yellow blue hotpink;
+                        }
+
+                        .haft-of-triangle {
+                            /* Bỏ border-top => cắt đc 1 nửa của triangle */
+                            border-width: 0 80px 80px;
+                            /*top, left + right, bottom*/
+                            border-style: solid;
+                            border-color: red yellow blue hotpink;
+                        }
+
+                        .haft-of-triangle-hidding-triangle-middle {
+                            border-width: 0 80px 80px;
+                            border-style: solid;
+                            border-color: transparent hotpink transparent hotpink;
+                        }
+
+                        .haft-of-triangle-hidding-triangle-middle-mini-1 {
+                            border-width: 0 40px 6px;
+                            border-style: solid;
+                            border-color: transparent lightblue transparent lightblue;
+                        }
+
+                        .haft-of-triangle-hidding-triangle-middle-mini-2 {
+                            border-width: 0 40px 4px;
+                            border-style: solid;
+                            border-color: transparent #fff transparent #fff;
+                        }
+
+                        .haft-of-triangle-hidding-triangle-middle-mini-3 {
+                            border-width: 0 20px 4px;
+                            border-style: solid;
+                            border-color: transparent #ffc33e transparent #ffc33e;
+                        }
+                    </style>
+                    <div class="exam">
+                        <div class="normal-triangle"></div>
+                        <div>
+                            <div class="haft-of-triangle"></div>
+                        </div>
+                        <div>
+                            <div class="haft-of-triangle-hidding-triangle-middle"></div>
+                        </div>
+                        <div>
+                            <div class="haft-of-triangle-hidding-triangle-middle-mini-1"></div>
+                        </div>
+                        <div>
+                            <div class="haft-of-triangle-hidding-triangle-middle-mini-2"></div>
+                        </div>
+                        <div>
+                            <div class="haft-of-triangle-hidding-triangle-middle-mini-3"></div>
+                        </div>
+
+                    </div>
+
                     <br>
                     <a href="https://www.w3schools.com/colors/colors_currentcolor.asp" target="_blank">w3schools =>
                         current Color</a>
