@@ -188,7 +188,7 @@ code:hover {
 }
 
 .image > a > img {
-    min-height: 400px;
+    min-height: 300px;
     max-height: 500px;
     border: 1px solid #ccc;
 }
