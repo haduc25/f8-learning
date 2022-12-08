@@ -8,6 +8,7 @@
     --orange-color: #ff7337;
     --red-color: #f63d30;
     --davy-grey-color: #555; /* davy's grey*/
+    --suva-grey-color: #939393; /* Suva Grey*/
     --gray40-color: #666; /* dark gray*/
     --gray46-color: #757575;
     --gray60-color: #999; /* light gray*/
@@ -276,4 +277,41 @@ html *::-webkit-scrollbar-thumb {
 html *::-webkit-scrollbar-track {
     border-radius: 0;
     background-color: rgba(0, 0, 0, 0);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-item {
+    margin: 0 12px;
+}
+
+.pagination-item__link {
+    --height: 30px;
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--suva-grey-color);
+    min-width: 40px;
+    height: var(--height);
+    line-height: var(--height); /*căn giữa dọc*/
+    border-radius: var(--border-radius-value);
+}
+
+.pagination-item__icon {
+}
+
+/* Modifier */
+.pagination-item__link--active .pagination-item__link {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item__link--active .pagination-item__link:hover {
+    background-color: var(--primary-color-hover);
 }
