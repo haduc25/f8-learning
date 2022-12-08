@@ -1,0 +1,14 @@
+{
+    "[handlebars]": {
+        "editor.formatOnSave": false,
+        "editor.formatOnPaste": false
+    },
+    "editor.formatOnSave": true,
+    "editor.defaultFormatter": "esbenp.prettier-vscode",
+    "[javascript]": {
+        "editor.defaultFormatter": "esbenp.prettier-vscode"
+    },
+    "[html]": {
+        "editor.defaultFormatter": "vscode.html-language-features"
+    }
+}

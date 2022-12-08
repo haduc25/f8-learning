@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Responsive Với Grid System - Learning</title>
+    <link rel="stylesheet" href="./style.css" />
+    <script>
+        function copyNow(valueOfThisFromDOM) {
+            var inp = document.createElement('input');
+            document.body.appendChild(inp);
+            inp.value = valueOfThisFromDOM.textContent;
+            inp.select();
+            document.execCommand('copy', false);
+            inp.remove();
+            valueOfThisFromDOM.classList.add('active');
+            console.log('Copied!');
+        }
+    </script>
+</head>
+
+<body>
+    <h1 id="heading" class="headingClass">Responsive Với Grid System Learning...</h1>
+    <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">
+        Go to TopPage
+    </button>
+    <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">
+        Go to BotPage
+    </button>
+
+    <!-- Chương 1 -->
+    <h2>Chương 1. Bắt đầu</h2>
+    <div class="containers">
+        <ul class="parent">
+            <!-- PARENT START -->
+
+            <li>1. Responsive là gì?, 2. Chúng ta sẽ làm gì?</li>
+            <ul class="children">
+                <li>
+                    Youtube:
+                    <a href="https://youtu.be/CQo8UOoyNds" target="_blank">[Responsive with Grid System] - Coding,
+                        Learning [08/12/2022] #1</a>
+                </li>
+                <fieldset>
+                    <legend>Keywords</legend>
+
+                </fieldset>
+            </ul>
+
+
+            <!-- PARENT END -->
+
+        </ul>
+    </div>
+
+    <!-- Something has same value -->
+    <div class="div-source-and-server">
+        <ul>
+            <li><a href="./Chuong 12/haduc25-shopee/index.html" target="_blank">Chuong 12/haduc25-shopee</a></li>
+            <!-- <li class="small-txt terminal" onclick="copyNow(this)">
+                <code>cd "D:\Coding\F8_Learning\HTML CSS & Website\Chuong 12\haduc25-shopee"</code>
+            </li>
+            <li class="small-txt terminal" onclick="copyNow(this)">
+                <code>D:\Coding\F8_Learning\HTML CSS & Website\Chuong 12\haduc25-shopee</code>
+            </li> -->
+        </ul>
+    </div>
+</body>
+
+</html>
