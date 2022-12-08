@@ -10,6 +10,10 @@
     height: auto !important;
 }
 
+.h-60 {
+    height: 60% !important;
+}
+
 .m-0 {
     margin: 0 !important;
 }
@@ -95,6 +99,7 @@ button:hover {
     position: fixed;
     right: 0;
     margin-right: 15px;
+    z-index: 999;
 }
 
 .div-source-and-server {
