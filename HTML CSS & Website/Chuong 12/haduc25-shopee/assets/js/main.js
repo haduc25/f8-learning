@@ -79,8 +79,10 @@ modalBodyDOM.onclick = (e) => {
 };
 
 // Fake submit
+const userLoginAlready = document.getElementById('user-already');
 const registerBtnSubmit = document.getElementById('register-btn');
 const loginBtnSubmit = document.getElementById('login-btn');
+const logOutBtn = document.getElementById('logout');
 
 registerBtnSubmit.onclick = (e) => {
     // Convert HTMLCollection to an Array
@@ -114,6 +116,21 @@ loginBtnSubmit.onclick = (e) => {
     );
 
     hideForm();
+    // remove user not already
+    userLoginAlready.classList.remove('navbar__list-item--user-not-already');
+
+    // turn on user already mode :) / => hide login and register
+    registerBtn.style.display = 'none';
+    loginBtn.style.display = 'none';
+};
+
+logOutBtn.onclick = () => {
+    // add user not already
+    userLoginAlready.classList.add('navbar__list-item--user-not-already');
+
+    // turn off user already mode :) / => hide login and register
+    registerBtn.style.display = 'block';
+    loginBtn.style.display = 'block';
 };
 
 // Handle Search

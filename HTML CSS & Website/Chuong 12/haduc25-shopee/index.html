@@ -123,15 +123,15 @@
                         </li>
                         <!-- When not login => guest | status: disabled -->
                         <li id="register"
-                            class="navbar__list-item navbar__list-item--strong navbar__list-item--separate"
-                            style="display: none;">
+                            class="navbar__list-item navbar__list-item--strong navbar__list-item--separate">
                             Đăng ký
                         </li>
-                        <li id="login" class="navbar__list-item navbar__list-item--strong" style="display: none;">Đăng
+                        <li id="login" class="navbar__list-item navbar__list-item--strong">Đăng
                             nhập</li>
 
                         <!-- When login -->
-                        <li class="navbar__list-item navbar__user">
+                        <li id="user-already"
+                            class="navbar__list-item navbar__user navbar__list-item--user-not-already">
                             <img src="./assets/img/avatar.png" alt="avatar" class="navbar__user-img">
                             <span class="navbar__user-name">Hà Minh Đức</span>
 
@@ -146,7 +146,7 @@
                                     <a href="">Đơn mua</a>
                                 </li>
                                 <li class="navbar__user-menu-item navbar__user-menu-item--separate">
-                                    <a href="">Đăng xuất</a>
+                                    <a href="" id="logout">Đăng xuất</a>
                                 </li>
                             </ul>
                         </li>

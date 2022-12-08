@@ -1,6 +1,6 @@
 .header {
     height: var(--header-height);
-    background-image: linear-gradient(0, var(--primary-color), var(--orange-color));
+    background-image: linear-gradient(var(--primary-color), var(--orange-color));
 }
 
 .navbar {
@@ -19,6 +19,12 @@
     margin: 0 8px;
     position: relative;
     min-height: 26px;
+}
+
+/* Modifier */
+li.navbar__list-item--user-not-already {
+    /* khi chưa login */
+    display: none;
 }
 
 .navbar__user {
@@ -1321,11 +1327,11 @@ i.home-product-item__like-icon-fill {
 }
 
 .footer-item {
+    padding: 2px 0;
 }
 
 .footer-item__link {
-    display: block;
-    padding: 2px 0;
+    /* display: block; */
     font-size: 1.2rem;
     color: var(--gray46-color);
 }
@@ -1339,6 +1345,29 @@ i.home-product-item__like-icon-fill {
     margin-right: 8px;
 }
 
+/* custom for facebook, instagram and linkedin*/
+.footer-item__link:hover > .footer-item__icon.fab.fa-facebook {
+    color: #4267b2;
+}
+
+.footer-item__link:hover > .footer-item__icon.fab.fa-instagram {
+    background: radial-gradient(
+        circle at 30% 107%,
+        #fdf497 0%,
+        #fdf497 5%,
+        #fd5949 45%,
+        #d6249f 60%,
+        #285aeb 90%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+.footer-item__link:hover > .footer-item__icon.fab.fa-linkedin {
+    color: #0e76a8;
+}
+
 .footer__download {
     display: flex;
 }
@@ -1347,6 +1376,7 @@ i.home-product-item__like-icon-fill {
     width: 80px;
     height: 80px;
     border: 1px solid var(--border-color);
+    cursor: pointer;
 }
 
 .footer__download-apps {
