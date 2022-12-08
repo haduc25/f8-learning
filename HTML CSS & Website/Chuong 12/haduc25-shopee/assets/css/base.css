@@ -215,6 +215,7 @@ button {
     display: flex;
     animation: fadeIn linear 0.3s;
     will-change: opacity;
+    z-index: 5;
 }
 
 .modal__overlay {
@@ -236,7 +237,7 @@ button {
     --growth-to: 1;
     margin: auto;
     position: relative;
-    z-index: 3;
+    z-index: 10;
     animation: growth linear 0.2s;
     will-change: transform;
 }
