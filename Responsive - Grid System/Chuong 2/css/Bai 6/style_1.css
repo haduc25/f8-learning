@@ -1,0 +1,37 @@
+@media only screen {
+    /* Chỉ với màn hình */
+    h2 {
+        color: red;
+    }
+}
+
+@media only print {
+    /* Chỉ với màn hình */
+    h2 {
+        color: blue;
+    }
+}
+
+/* viết ntn đc hiểu là only screen */
+@media screen {
+    /* Chỉ với màn hình */
+    h2 {
+        color: burlywood;
+    }
+}
+
+@media screen and (max-width: 1024px) {
+    /* max-width: nhỏ hơn or = 1024px => apply css */
+    h2 {
+        color: hotpink;
+        border: 1px solid currentColor;
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    /* min-width: lớn hơn or = 1024px => apply css */
+    h2 {
+        color: darkblue;
+        border: 1px solid currentColor;
+    }
+}

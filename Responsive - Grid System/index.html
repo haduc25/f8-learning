@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Responsive Với Grid System - Learning</title>
     <link rel="stylesheet" href="./style.css" />
-    <script>
+    <script&lt;>
         function copyNow(valueOfThisFromDOM) {
             var inp = document.createElement('input');
             document.body.appendChild(inp);
@@ -44,10 +44,82 @@
                 </li>
                 <fieldset>
                     <legend>Keywords</legend>
-                    <a
-                        href="https://chrome.google.com/webstore/detail/viewport-resizer-%E2%80%93-respon/kapnjjcfcncngkadhpmijlkblpibdcgm">viewport
+                    <a href="https://chrome.google.com/webstore/detail/viewport-resizer-%E2%80%93-respon/kapnjjcfcncngkadhpmijlkblpibdcgm"
+                        target="_blank">viewport
                         resizer extension | Viewport Resizer – Responsive Testing Tool</a>
                 </fieldset>
+            </ul>
+            <!-- PARENT END -->
+        </ul>
+    </div>
+
+
+    <!-- Chương 2 -->
+    <h2>Chương 2. Viewport, @media, breakpoint</h2>
+    <div class="containers">
+        <ul class="parent">
+            <!-- PARENT START -->
+            <li>5. Khái niệm Viewport, 6. Media query (@media)</li>
+            <ul class="children">
+                <li>
+                    Youtube:
+                    <a href="https://youtu.be/CQo8UOoyNds" target="_blank">[Responsive with Grid System] - Coding,
+                        Learning [08/12/2022] #1</a>
+                </li>
+
+                <div class="image">
+                    <a href="./Chuong 2/img/Media-query-syntax-and-keyword.png" target="_blank">
+                        <img src="./Chuong 2/img/Media-query-syntax-and-keyword.png"
+                            alt="Media-query-syntax-and-keyword" />
+                        <p>Media-query-syntax-and-keyword</p>
+                    </a>
+                </div>
+                <div class="image">
+                    <a href="./Chuong 2/img/Media-query-type-and-features.png" target="_blank">
+                        <img src="./Chuong 2/img/Media-query-type-and-features.png"
+                            alt="Media-query-type-and-features" />
+                        <p>Media-query-type-and-features</p>
+                    </a>
+                </div>
+
+                <fieldset>
+                    <legend>Keywords</legend>
+                    <a href="https://www.w3schools.com/css/css_rwd_viewport.asp" target="_blank">Responsive Web Design -
+                        The Viewport</a>
+                    <code onclick="copyNow(this)">
+                    &lt;meta name=" viewport" content="width=device-width, initial-scale=1.0" /&gt; </code>
+
+                    <span>#Nguyên tắc bất ngờ nhỏ nhất trong lập trình</span>
+                    <p>
+                        - Nguyên tắc bất ngờ nhỏ nhất áp dụng cho thiết kế giao diện, thiết kế phần mềm và khoa học lao
+                        động. Nguyên tắc phát biểu rằng khi hai thành phần giao diện xung đột hoặc nhập nhằng, hành vi
+                        của chúng phải gây bất ngờ ít nhất cho người sử dụng.
+                    </p>
+
+                    <a href="./Chuong 2/index.html" target="_blank">Chương 2 => index</a>
+
+                    <p>max => coi là min & ngược lại | max-width & min-width</p>
+                    <p>Có thể định nghĩa ra 2 file khác nhau - và trong file k cần gọi đến media (đã khai báo ở link lúc
+                        import) //nhưng k nên appy trong thực tế vì nhiều file sinh ra nhiều connection</p>
+
+                    <span>#Polyfill?</span>
+                    <p>- Giúp sử dụng đc 'media-query' cho các trình duyệt cũ như IE</p>
+                    <a href="https://cdnjs.com/libraries/respond.js" target="_blank">respond.js polyfill cdn</a>
+                    <code onclick="copyNow(this)">https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.min.js
+                    </code>
+                    <code onclick="copyNow(this)">https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js
+                    </code>
+
+                    <a href="https://cdnjs.com/libraries/respond.js" target="_blank">html condition comment</a>
+                    <code onclick="copyNow(this)">&lt;!--[if lt IE 9]>
+                        &lt;script src="https://cdnjs.cloudflare.com/ajax/libs/respond.js/1.4.2/respond.js" integrity="sha512-BWbLJlfp8hzXlxT6K5KLdxPVAj+4Zn2e4FVq5P7NSFH/mkAJ18UiZRQUD4anR3jyp0/WYkeZ0Zmq5EWWrDxneQ==" crossorigin="anonymous" referrerpolicy="no-referrer"&lt;&gt;/script&lt;
+                        &gt;![endif]--&gt;
+                    </code>
+
+                </fieldset>
+
+
+
             </ul>
             <!-- PARENT END -->
         </ul>
@@ -59,10 +131,10 @@
             <li><a href="./Chuong 12/haduc25-shopee/index.html" target="_blank">Chuong 12/haduc25-shopee</a></li>
             <!-- <li class="small-txt terminal" onclick="copyNow(this)">
                 <code>cd "D:\Coding\F8_Learning\HTML CSS & Website\Chuong 12\haduc25-shopee"</code>
-            </li>
-            <li class="small-txt terminal" onclick="copyNow(this)">
-                <code>D:\Coding\F8_Learning\HTML CSS & Website\Chuong 12\haduc25-shopee</code>
-            </li> -->
+                    </li>
+                    <li class="small-txt terminal" onclick="copyNow(this)">
+                        <code>D:\Coding\F8_Learning\HTML CSS & Website\Chuong 12\haduc25-shopee</code>
+                    </li> -->
         </ul>
     </div>
 </body>
