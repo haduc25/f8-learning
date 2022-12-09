@@ -1,0 +1,57 @@
+/* Trên mobile */
+.grid {
+    width: 100%;
+    display: block;
+    /* reset padding */
+    padding: 0;
+    border: 1px solid #000;
+}
+
+.grid.wide {
+    /* class này chỉ dùng cho grid */
+    max-width: 1200px;
+    margin: 0 auto; /*căn giữa*/
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+    /* Trên mobile */
+    margin-left: -4px;
+    margin-right: -4px;
+}
+
+/* Tablet => PC low resolution */
+@media (min-width: 740px) and (max-width: 1023px) {
+    .wide {
+        width: 644px;
+    }
+}
+
+/* Lớn hơn Tablet */
+@media (min-width: 740px) {
+    .row {
+        margin-left: -8px;
+        margin-right: -8px;
+    }
+}
+
+/* PC low resolution trở lên */
+@media (min-width: 1113px) {
+    .row {
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+}
+
+/* Lớn hơn PC low resolution & nhỏ hơn 1240px */
+@media (min-width: 1024px) and (max-width: 1239px) {
+    .wide {
+        width: 984px;
+    }
+    .wide .row {
+        /* row trong mode sử dụng wide */
+        margin-left: -12px;
+        margin-right: -12px;
+    }
+}
