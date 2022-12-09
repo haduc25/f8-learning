@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./grid.css" />
+        <style>
+            * {
+                box-sizing: border-box;
+            }
+            .col {
+                text-align: center;
+                /* background-color: #ccc; */
+                background-clip: content-box;
+                /* margin-top: 8px;
+                margin-bottom: 8px; */
+            }
+
+            .course-item {
+                background-color: orange;
+                height: 260px;
+            }
+
+            h1 {
+                color: #fff;
+                line-height: 260px;
+                margin: 0;
+            }
+
+            .category {
+                background-color: red;
+                height: 260px;
+            }
+
+            ul {
+                margin-top: 0;
+                list-style: none;
+            }
+
+            @media (max-width: 1023px) {
+                .course-item {
+                    margin-top: 16px;
+                }
+            }
+        </style>
+    </head>
+    <!-- 
+        Column: .col
+        Prefix class:
+            - c - mobile
+            - m - tablet
+            - l - PC
+    -->
+
+    <body>
+        <div class="grid wide">
+            <div class="row">
+                <!-- Muốn hiển thị 4 course => lấy tổng số cột (12) & chia cho (số cột muốn hiển thị) 12 -->
+                <!-- 12/4 = 3 ==> lấy .l-3 -->
+                <!-- 
+                    Số item muốn hiển thị
+                    PC: 4
+                    Tablet: 3 | class .m-4
+                    Tablet: 2 | class .m-6 | 12/2=6
+                    Mobile: 2 | class .c-6
+                    Mobile: 1 | class .c-12
+
+                 -->
+                <div class="col l-3 m-6 c-12">
+                    <div class="course-item">
+                        <h1>Course 1</h1>
+                    </div>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <div class="course-item">
+                        <h1>Course 2</h1>
+                    </div>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <div class="course-item">
+                        <h1>Course 3</h1>
+                    </div>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <div class="course-item">
+                        <h1>Course 4</h1>
+                    </div>
+                </div>
+            </div>
+
+            <br />
+            <!-- Example: 
+                Category: 3 cột - PC
+            -->
+
+            <div class="row">
+                <!-- Trên tablet, mobile 'category' sẽ ẩn -->
+                <div class="col l-3 m-0 c-0">
+                    <div class="category">
+                        <ul>
+                            <li>PHP</li>
+                            <li>HTML</li>
+                            <li>ReactJS</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- nếu category ẩn thì phải cho 'course' => width 100% => m-12 | chiếm hết chiều ngang-->
+                <div class="col l-9 m-12 c-12">
+                    <!-- 
+                        PC - 3 | class .l-4
+                        Tablet - 2 | class .m-6
+                        Mobile - 1 | class .c-12
+                     -->
+                    <div class="row">
+                        <div class="col l-4 m-6 c-12">
+                            <div class="course-item">
+                                <h1>Course 5</h1>
+                            </div>
+                        </div>
+                        <div class="col l-4 m-6 c-12">
+                            <div class="course-item">
+                                <h1>Course 6</h1>
+                            </div>
+                        </div>
+                        <div class="col l-4 m-6 c-12">
+                            <div class="course-item">
+                                <h1>Course 7</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
