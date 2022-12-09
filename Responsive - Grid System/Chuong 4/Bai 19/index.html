@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./grid.css" />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .container {
+                background-color: cyan;
+                min-height: 80vh;
+            }
+
+            .my-column {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 40vh;
+                background-color: pink;
+                /* border: 1px solid #000; */
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="grid wide container">
+            <!-- START: row -->
+            <div class="row no-gutters">
+                <div class="col l-4 m-4 c-6">
+                    <div class="my-column">
+                        <h2>Column 1</h2>
+                    </div>
+                </div>
+                <div class="col l-4 m-4 c-6">
+                    <div class="my-column">
+                        <h2>Column 2</h2>
+                    </div>
+                </div>
+                <div class="col l-4 m-4 c-6">
+                    <div class="my-column">
+                        <h2>Column 3</h2>
+                    </div>
+                </div>
+                <div class="col l-4 m-4 c-6">
+                    <div class="my-column">
+                        <h2>Column 4</h2>
+                    </div>
+                </div>
+                <div class="col l-4 m-4 c-6">
+                    <div class="my-column">
+                        <h2>Column 5</h2>
+                    </div>
+                </div>
+                <div class="col l-4 m-4 c-6">
+                    <div class="my-column">
+                        <h2>Column 6</h2>
+                    </div>
+                </div>
+            </div>
+
+            <!-- END: row -->
+        </div>
+    </body>
+</html>
