@@ -8,6 +8,84 @@
         <link rel="stylesheet" href="./assets/grid.css" />
         <link rel="stylesheet" href="./assets/style.css" />
     </head>
+    <style>
+        h2 {
+            color: #b94366;
+            text-decoration: underline;
+            margin-top: 50px;
+        }
 
-    <body></body>
+        h2 ~ h2 {
+            margin-top: 150px;
+        }
+
+        body {
+            height: 2000px;
+        }
+    </style>
+
+    <body>
+        <div class="grid wide">
+            <!-- Example 1 -->
+            <h2>Example 1 - PC: 4sp, Tablet: 2sp, Mobile: 1sp</h2>
+            <div class="row">
+                <!-- 
+                    PC: 4sp
+                    Tablet: 2sp
+                    Mobile: 1sp
+                 -->
+                <div class="col l-3 m-6 c-12">
+                    <div class="item">Item 1</div>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <div class="item">Item 2</div>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <div class="item">Item 3</div>
+                </div>
+                <div class="col l-3 m-6 c-12">
+                    <div class="item">Item 4</div>
+                </div>
+            </div>
+
+            <!-- Example 2 -->
+            <h2>Example 2 - Product Detail</h2>
+            <div class="row">
+                <!-- 
+                    PC: 5 col => image | 7 col => content
+                    Tablet: 5 col => image | 7 col => content
+                    Mobile: 1 col => image | 1 col => content
+                 -->
+                <div class="col l-5 m-5 c-12">
+                    <div class="item">IMAGE</div>
+                </div>
+                <div class="col l-7 m-7 c-12">
+                    <div class="item">CONTENT</div>
+                </div>
+            </div>
+
+            <!-- Example 3 -->
+            <h2>Example 3 - Product Detail 2</h2>
+            <div class="row">
+                <!-- 
+                    PC: 5 col => image | 7 col => content
+                    Tablet: 5 col => image | 7 col => content
+                    Mobile: 1 col => image | 1 col => content
+                 -->
+                <div class="col l-5 m-5 c-12">
+                    <div class="item">IMAGE</div>
+                </div>
+                <div class="col l-7 m-7 c-12">
+                    <div class="item">
+                        CONTENT
+                        <div class="row">
+                            <div class="col l-4">Something 1</div>
+                            <div class="col l-4">Something 2</div>
+                            <div class="col l-4">Something 3</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
 </html>
