@@ -14,6 +14,10 @@
     margin: 0 !important;
 }
 
+.max-h-300 {
+    max-height: 300px !important;
+}
+
 #heading {
     text-align: center;
 }
