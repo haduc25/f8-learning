@@ -724,6 +724,55 @@
                         <a href="./Chuong 5/Bai 23/index.html" target="_blank"
                             >Chương 5 => bai 23</a
                         >
+                        <code>.col.l-2-4*5>.item{Item $}</code>
+                        <p>
+                            Sửa lại trong đoạn '@media (min-width: 1113px) {}' để gutters giống
+                            shopee
+                        </p>
+                        <p>/*margin-left: -12px; => margin-left: -6px;*/</p>
+                        <p>/*margin-right: -12px; => margin-right: -6px;*/</p>
+                        <p>/*padding-left: 12px; => padding-left: 6px;*/</p>
+                        <p>/*padding-right: 12px; => padding-right: 6px;*/</p>
+
+                        <span>Ví dụ 1 - Cách tính 5 column của products</span>
+                        <code>
+                            <br />
+                            <span> ==Giải thích== </span>
+
+                            <ul class="children">
+                                <li>PC: Category => 2col | Products => 10 col</li>
+                                <li>//Cách chia sp bên trong product</li>
+                                <li>12 / (số cột hiển thị)</li>
+                                <li>- Áp dụng: 12/5 = 2,4 => 24%</li>
+                            </ul>
+                        </code>
+                        <br />
+                        <br />
+                        <span>Ví dụ 2 - Cách chia products con</span>
+                        <code>
+                            <br />
+                            <ul class="children">
+                                <li>PC: 5 item | l-2-4</li>
+                                <li>Tablet: 3 item + ẩn category | .m-3, .m-0, .m-12</li>
+                                <li>Mobile: 1 item + ẩn category | .c-12, .c-12</li>
+                                <li>- resize của gutter để giống shopee</li>
+                                <li>'@media (min-width: 1113px) {}'</li>
+                            </ul>
+                        </code>
+
+                        <p>Góp ý</p>
+                        <p>
+                            - Từ l-1 tới l-12 thì có nghĩa là độ rộng một item chiếm từ 1 cột - 12
+                            cột. Ví dụ l-1 độ rộng 1 cột (có 12 item), l-2 độ rộng 2 cột (có 6
+                            item), l-3 rộng 3 cột (có 4 item),…
+                            <br />
+                            - Vì có 5 item nên lấy 12/5 ta được 2.4 - tức là một item chiếm độ rộng
+                            2.4 cột.
+                            <br />
+                            - Vì chưa có trường hợp đó nên ta phải khai báo định nghĩa thêm trong
+                            file css các class
+                            <code>.l-2-4{ } / .m-2-4 { }</code>
+                        </p>
                     </fieldset>
                 </ul>
                 <!-- PARENT END -->
