@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+        <title>Document</title>
+        <link rel="stylesheet" href="./grid.css" />
+        <style>
+            * {
+                margin: 0;
+                padding: 0;
+                box-sizing: border-box;
+            }
+
+            .container {
+                background-color: blue;
+                min-height: 100vh;
+            }
+
+            .my-column {
+                text-align: center;
+                min-height: 50vh;
+                background-color: orange;
+            }
+        </style>
+    </head>
+
+    <body>
+        <!-- Example 1 -->
+        <div class="grid wide container">
+            <div class="row">
+                <!-- 
+                    ==Giải thích==
+                    //PC - 6
+                    - class: l-6 => đang có 6 ô / (trên tổng số) 12 ô
+                    - [6 ô] / [12 ô] / giờ muốn căn giữa
+                    - |1|2|3|4|5|6|7|8|9|10|11|12|
+                    - [|1|2|3|4|5|6|] |7|8|9|10|11|12| / current
+                    - |1|2|3|[|4|5|6|7|8|9|]|10|11|12| / căn ra giữa bằng cách lùi vào 3 ô => sẽ bắt đầu từ ô thứ 4
+                    - |1|2|3|[|4|5|6|7|8|9|]|10|11|12| / current sau khi căn giữa nó sẽ trông ntn
+                    
+                    //Tablet - 8
+                    - |1|2||[3|[|4|5|6|7|8|9|10|]|11|12| / current sau khi căn giữa nó sẽ trông ntn
+
+
+
+                    ==Tương tự áp dụng vào dùng class trong grid thì trông nó sẽ ntn==
+                    số ô PC: 6 =>  Căn giữa PC - offset: 3 => .l-o-3 | là sẽ bắt đầu từ vị trí số 4 / cách ra trước 3 ô
+                    số ô Tablet: 8 => Căn giữa Tablet - offset: 2 => .m-o-2 | là sẽ bắt đầu từ vị trí số 3 / cách ra trước 2 ô
+                 -->
+                <div class="col l-6 l-o-3 m-8 m-o-2 c-12">
+                    <div class="my-column">
+                        <h2>Column 1</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- space split exam -->
+        <div style="height: 500px"></div>
+
+        <!-- Example 2 -->
+        <!-- 
+            Giải thích
+            // Kích thước ban đầu
+            - PC: h2>column2 = 3 col, h2>column3 = 3 col | tổng đang là 6 col
+                => căn sang bên phải
+                -  lấy |tổng số cột đang có ở trên - (tổng số cột của page)|
+                - Áp dụng = |6 - 12| = 6 // ct căn cuối
+                => cách ra 6 cột => bắt đầu từ ô thứ 7 => class: l-o-6
+                    - |1|2|3|4|5|6|[|7|8|9|10|11|12|] // sau khi add .l-o-6 trông nó sẽ ntn
+
+            - Tablet: 3 col => tổng cũng là 6
+                => căn giữa
+                - Áp dụng ct ta có => |6-12| = 6
+                - Nhưng cần căn 2 bên nên chia đôi (kq/2) kết quả ra => 6/2 = 3
+                => cách ra 3 cột => dùng class .m-o-3
+                    - |1|2||[3|[|4|5|6|7|8|9|10|]|11|12| // sau khi add .m-o-3 trông nó sẽ ntn
+
+
+         -->
+        <div class="grid wide container">
+            <div class="row">
+                <div class="col l-3 m-3 l-o-6 m-o-3">
+                    <div class="my-column">
+                        <h2>Column 2</h2>
+                    </div>
+                </div>
+                <div class="col l-3 m-3">
+                    <div class="my-column">
+                        <h2>Column 3</h2>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

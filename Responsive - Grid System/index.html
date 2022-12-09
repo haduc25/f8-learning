@@ -534,6 +534,117 @@
                     </fieldset>
                 </ul>
 
+                <li>18. Column offset</li>
+                <ul class="children">
+                    Youtube:
+                    <li>
+                        <a href="https://youtu.be/ovaOWFq-YKc" target="_blank"
+                            >[Responsive with Grid System] - Coding, Learning [09/12/2022] #4</a
+                        >
+                    </li>
+                    <li>
+                        <a href="https://youtu.be/J-28e-OYA_k" target="_blank"
+                            >[Responsive with Grid System] - Coding, Xem giải valorant, mất điện,
+                            Learning [09/12/2022] #5</a
+                        >
+                    </li>
+                    <li>
+                        <a href="https://youtu.be/2yfMIwoZfWs" target="_blank"
+                            >[Responsive with Grid System] - Coding, Learning [09/12/2022] #6</a
+                        >
+                    </li>
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a href="./Chuong 4/Bai 18/index.html" target="_blank"
+                            >Chương 4 => bai 18</a
+                        >
+                        <p>Trong file đã node sẵn rồi :)</p>
+                        <a href="https://tamphat.edu.vn/blog/container-fluid-la-gi/" target="_blank"
+                            >container fluid trong bootstrap là gì?</a
+                        >
+
+                        <span>Ví dụ 1 - Tính offset 1 column</span>
+                        <code>
+                            <br />
+                            <span> ==Giải thích== </span>
+                            <ul class="children">
+                                <li>//PC - 6</li>
+                                <li>- class: l-6 => đang có 6 ô / (trên tổng số) 12 ô</li>
+                                <li>- [6 ô] / [12 ô] / giờ muốn căn giữa</li>
+                                <li>- |1|2|3|4|5|6|7|8|9|10|11|12|</li>
+                                <li>- [|1|2|3|4|5|6|] |7|8|9|10|11|12| / current</li>
+                                <li>
+                                    - |1|2|3|[|4|5|6|7|8|9|]|10|11|12| / căn ra giữa bằng cách lùi
+                                    vào 3 ô => sẽ bắt đầu từ ô thứ 4
+                                </li>
+                                <li>
+                                    - |1|2|3|[|4|5|6|7|8|9|]|10|11|12| / current sau khi căn giữa nó
+                                    sẽ trông ntn
+                                </li>
+                                <br />
+                                <li>//Tablet - 8</li>
+                                <li>
+                                    - |1|2||[3|[|4|5|6|7|8|9|10|]|11|12| / current sau khi căn giữa
+                                    nó sẽ trông ntn
+                                </li>
+                                <br />
+                                <li>
+                                    ==Tương tự áp dụng vào dùng class trong grid thì trông nó sẽ
+                                    ntn==
+                                </li>
+                                <li>
+                                    số ô PC: 6 => Căn giữa PC - offset: 3 => .l-o-3 | là sẽ bắt đầu
+                                    từ vị trí số 4 / cách ra trước 3 ô
+                                </li>
+                                <li>
+                                    số ô Tablet: 8 => Căn giữa Tablet - offset: 2 => .m-o-2 | là sẽ
+                                    bắt đầu từ vị trí số 3 / cách ra trước 2 ô
+                                </li>
+                                <li>
+                                    Result: &lt;div&gt; class="col l-6 l-o-3 m-8 m-o-2
+                                    c-12">&lt;/div&gt;
+                                </li>
+                            </ul>
+                        </code>
+
+                        <span>Ví dụ 2 - Tính offset 2 column</span>
+                        <code>
+                            <br />
+                            <span> ==Giải thích== </span>
+                            <ul class="children">
+                                <li>// Kích thước ban đầu</li>
+                                <li>
+                                    - PC: h2>column2 = 3 col, h2>column3 = 3 col | tổng đang là 6
+                                    col
+                                </li>
+                                <li>=> căn sang bên phải</li>
+                                <li>- lấy |tổng số cột đang có ở trên - (tổng số cột của page)|</li>
+                                <li>- Áp dụng = |6 - 12| = 6 // ct căn cuối</li>
+                                <li>=> cách ra 6 cột => bắt đầu từ ô thứ 7 => class: l-o-6</li>
+                                <li>
+                                    - |1|2|3|4|5|6|[|7|8|9|10|11|12|] // sau khi add .l-o-6 trông nó
+                                    sẽ ntn
+                                </li>
+                                <br />
+                                <li>- Tablet: 3 col => tổng cũng là 6</li>
+                                <li>=> căn giữa</li>
+                                <li>- Áp dụng ct ta có => |6-12| = 6</li>
+                                <li>
+                                    - Nhưng cần căn 2 bên nên chia đôi (kq/2) kết quả ra => 6/2 = 3
+                                </li>
+                                <li>=> cách ra 3 cột => dùng class .m-o-3</li>
+                                <li>
+                                    - |1|2||[3|[|4|5|6|7|8|9|10|]|11|12| // sau khi add .m-o-3 trông
+                                    nó sẽ ntn
+                                </li>
+                                <li>
+                                    Result: &lt;div class="col l-3 m-3 l-o-6 m-o-3"&gt;&lt;/div&gt;
+                                </li>
+                            </ul>
+                        </code>
+                    </fieldset>
+                </ul>
+
                 <!-- PARENT END -->
             </ul>
         </div>
@@ -546,12 +657,6 @@
                         >Chuong 12/haduc25-shopee</a
                     >
                 </li>
-                <!-- <li class="small-txt terminal" onclick="copyNow(this)">
-                <code>cd "D:\Coding\F8_Learning\HTML CSS & Website\Chuong 12\haduc25-shopee"</code>
-                    </li>
-                    <li class="small-txt terminal" onclick="copyNow(this)">
-                        <code>D:\Coding\F8_Learning\HTML CSS & Website\Chuong 12\haduc25-shopee</code>
-                    </li> -->
             </ul>
         </div>
     </body>
