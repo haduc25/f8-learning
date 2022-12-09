@@ -48,6 +48,10 @@ ul {
     margin-bottom: 35px;
 }
 
+.children > li {
+    padding: 0 4px 4px 32px;
+}
+
 .parent > li {
     text-decoration: underline;
     color: #b94366;
@@ -149,6 +153,8 @@ fieldset:hover {
 }
 
 fieldset > legend {
+    font-size: 18px;
+    font-weight: 600;
     color: #373d3f;
 }
 
