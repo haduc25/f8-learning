@@ -807,7 +807,7 @@ li.navbar__list-item--user-not-already {
 /* Cart item */
 .header__cart-list-item {
     padding-left: 0;
-    height: 56vh; /*limited item / vh: Viewport Height / bằng với tỷ lệ màn hình*/
+    max-height: 56vh; /*limited item / vh: Viewport Height / bằng với tỷ lệ màn hình*/
     overflow-y: auto;
 }
 

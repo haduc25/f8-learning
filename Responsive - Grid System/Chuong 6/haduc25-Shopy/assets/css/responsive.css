@@ -11,6 +11,35 @@
         --header-height: 68px; /*cho header nhỏ lại: 120px => 68px*/
         --navbar-height: 0px; /* phải là 0px */
     }
+
+    /* header */
+    .header {
+        position: fixed;
+        z-index: 2;
+        top: 0;
+        right: 0;
+        left: 0;
+    }
+
+    /* app container */
+    .app__container {
+        margin-top: var(--header-height); /* margin-top = header để nó ở dưới header*/
+    }
+
+    /* Cart display */
+    .header__cart-list {
+        position: fixed;
+        top: var(--header-height); /* top = header để nó ở dưới header*/
+        right: 0;
+        width: 100%;
+        padding: 0 calc((100% - 644px) / 2); /*Áp dụng*/
+        /* 100% - (Khoảng cách muốn hiển thị ở giữa) = phần lề 2 bên / 2 => đc padding 2 bên */
+    }
+
+    /* hidden arrow */
+    .header__cart-list::after {
+        display: none;
+    }
 }
 
 /* Tablet */
@@ -24,6 +53,11 @@
     .header__cart {
         width: 75px;
         text-align: right;
+    }
+
+    /* Cart list item */
+    .header__cart-list-item {
+        max-height: 35vh;
     }
 }
 
