@@ -172,4 +172,9 @@
     .header__logo-img {
         width: 120px;
     }
+
+    /* Footer => footer content */
+    .footer__content {
+        padding: 0 16px;
+    }
 }
