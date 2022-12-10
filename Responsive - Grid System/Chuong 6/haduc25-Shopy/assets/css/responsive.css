@@ -99,7 +99,8 @@
         height: var(--header-sort-bar-height);
         padding: 0 16px;
         box-shadow: 0 1px 2px var(--border-separate-color);
-        animation: mobileSearchSideIn linear 0.3s;
+        animation: mobileSearchSideIn linear 0.25s;
+        will-change: opacity;
         display: none;
     }
 
@@ -115,12 +116,12 @@
 
     @keyframes mobileSearchSideIn {
         from {
-            top: calc(var(--header-height) / 2); /*núp ở trên điểm đích 50%*/
+            height: 0;
             opacity: 0;
         }
 
         to {
-            top: var(--header-height);
+            height: var(--header-sort-bar-height);
             opacity: 1;
         }
     }
