@@ -524,6 +524,7 @@ li.navbar__list-item--user-not-already {
 /* START: Mobile search */
 .header__mobile-search {
     padding: 0 12px;
+    display: none;
 }
 
 .header__mobile-search-icon {
@@ -1095,6 +1096,7 @@ li.navbar__list-item--user-not-already {
 
 /* Mobile category */
 .mobile-category {
+    display: none;
 }
 
 .mobile-category__list {
@@ -1139,6 +1141,8 @@ li.navbar__list-item--user-not-already {
     border-radius: 4px;
     font-weight: 300;
     overflow: hidden;
+    user-select: none;
+    padding: 0 6px;
     /* ... */
     display: -webkit-box;
     -webkit-box-orient: vertical;
