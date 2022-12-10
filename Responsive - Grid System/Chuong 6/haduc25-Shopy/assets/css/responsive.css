@@ -1,11 +1,36 @@
 /* Mobile & Tablet */
 @media (max-width: 1023px) {
+    /* Hide Mobile, Tablet*/
+    .hide-on-mobile-tablet {
+        display: none;
+    }
+
+    /* Header, navbar */
+    /* Vì khi ở tablet, mobile: navbar bị ẩn => cần override lại  */
+    :root {
+        --header-height: 68px; /*cho header nhỏ lại: 120px => 68px*/
+        --navbar-height: 0px; /* phải là 0px */
+    }
 }
 
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
+    /* Hide Tablet*/
+    .hide-on-tablet {
+        display: none;
+    }
+
+    /* Cart */
+    .header__cart {
+        width: 75px;
+        text-align: right;
+    }
 }
 
 /* Mobile */
 @media (max-width: 739px) {
+    /* Hide Mobile*/
+    .hide-on-mobile {
+        display: none;
+    }
 }
