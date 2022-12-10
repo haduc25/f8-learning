@@ -975,6 +975,17 @@ li.navbar__list-item--user-not-already {
     border-left: 1px solid var(--separate-color);
 }
 
+.header__sort-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    bottom: -1px;
+    left: 0;
+    border-bottom: 3px solid var(--primary-color);
+    filter: brightness(95%);
+    display: none;
+}
+
 .header__sort-item:first-child .header__sort-link::after {
     display: none;
 }
@@ -982,6 +993,11 @@ li.navbar__list-item--user-not-already {
 /* Modifier */
 .header__sort-item--active .header__sort-link {
     color: var(--primary-color);
+    /* border-bottom: 3px solid var(--primary-color); */
+}
+
+.header__sort-item--active .header__sort-link::before {
+    display: block;
 }
 
 /* App container */
