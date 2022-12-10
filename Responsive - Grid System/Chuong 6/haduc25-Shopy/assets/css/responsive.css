@@ -74,4 +74,18 @@
     .hide-on-mobile {
         display: none;
     }
+
+    /* Header with search */
+    .header-with-search {
+        /* có flex rồi giờ chỉ cần căn 2 bên */
+        justify-content: space-between;
+    }
+
+    /* Header logo, Header cart */
+    .header__logo,
+    .header__cart {
+        /* header__logo: mặc định trên PC là 200px => bỏ đi */
+        /* header__cart: mặc định trên PC là 150px => bỏ đi */
+        width: unset;
+    }
 }

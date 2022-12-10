@@ -513,11 +513,25 @@ li.navbar__list-item--user-not-already {
     padding: 0 8px;
 }
 
+/* START: Mobile search */
+.header__mobile-search {
+    padding: 0 12px;
+}
+
+.header__mobile-search-icon {
+    font-size: 2.6rem;
+    color: var(--white-color);
+}
+
+/* END: Mobile search */
+
 .header__logo {
     width: 200px;
 }
 .header__logo-link {
     color: transparent;
+    display: block;
+    line-height: 0; /* vì đang bị ảnh hưởng bơi line-height: 1.6rem; file base nên set lại cho cân logo ở giữa */
 }
 
 .header__logo-img {
