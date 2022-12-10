@@ -10,13 +10,6 @@
         display: block;
     }
 
-    /* Header, navbar */
-    /* Vì khi ở tablet, mobile: navbar bị ẩn => cần override lại  */
-    :root {
-        --header-height: 68px; /*cho header nhỏ lại: 120px => 68px*/
-        --navbar-height: 0px; /* phải là 0px */
-    }
-
     /* header */
     .header {
         position: fixed;
@@ -72,6 +65,13 @@
 
 /* Tablet */
 @media (min-width: 740px) and (max-width: 1023px) {
+    /* Header, navbar */
+    /* Vì khi ở tablet, mobile: navbar bị ẩn => cần override lại  */
+    :root {
+        --header-height: 68px; /*cho header nhỏ lại: 120px => 68px*/
+        --navbar-height: 0px; /* phải là 0px */
+    }
+
     /* Hide Tablet*/
     .hide-on-tablet {
         display: none;
@@ -91,6 +91,11 @@
 
 /* Mobile */
 @media (max-width: 739px) {
+    :root {
+        --header-height: 54px;
+        --navbar-height: 0px;
+    }
+
     /* Hide Mobile*/
     .hide-on-mobile {
         display: none;
@@ -173,8 +178,26 @@
         width: 120px;
     }
 
-    /* Footer => footer content */
+    /* Footer => footer content, footer heading, footer item link, footer download, apps, link */
     .footer__content {
         padding: 0 16px;
+    }
+
+    .footer__heading {
+        text-align: center;
+    }
+
+    .footer-item__link,
+    .footer__download {
+        justify-content: center;
+    }
+
+    .footer__download-apps {
+        flex: unset;
+    }
+
+    .footer__download-app-link {
+        display: block;
+        padding: 6px 8px;
     }
 }

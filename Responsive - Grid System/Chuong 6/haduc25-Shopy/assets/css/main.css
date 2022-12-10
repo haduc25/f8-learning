@@ -1481,7 +1481,7 @@ i.home-product-item__like-icon-fill {
 }
 
 .footer-item__link {
-    /* display: block; */
+    display: flex;
     font-size: 1.2rem;
     color: var(--gray46-color);
 }
