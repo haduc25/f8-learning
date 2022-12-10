@@ -1,0 +1,317 @@
+:root {
+    --primary-color: #ee4d2d;
+    --primary-color-alpha: #ee4d2d14; /* rgba(238, 77, 45, 0.08) | alpha = 00.8 | https://rgbacolorpicker.com/rgba-to-hex */
+    --primary-color-hover: #fb6445;
+    --primary-color-active: #ee5130;
+    --white-color: #fff;
+    --black-color: #000;
+    --orange-color: #ff7337;
+    --red-color: #f63d30;
+    --davy-grey-color: #555; /* davy's grey*/
+    --suva-grey-color: #939393; /* Suva Grey*/
+    --gray40-color: #666; /* dark gray*/
+    --gray46-color: #757575;
+    --gray60-color: #999; /* light gray*/
+    --gray97-color: #f7f7f7; /* lighter gray :)*/
+    --text-color: #333;
+    --border-color: #dbdbdb;
+    --border-focus-color: #888;
+    --background-container-color: #f5f5f5;
+    --separate-color: #eaeaea;
+    --border-separate-color: #0000000d; /* rgba(0, 0, 0, 0.05); */
+    --box-shadow-color: #00000042;
+    --light-hover-color: #fbfbfb;
+    --dark-hover-color: #fafafa;
+    --dark2-hover-color: #f8f8f8;
+    --star-gold-color: #ffc33e;
+    --ribbon-color: #ffd424e6;
+
+    --header-height: 120px;
+    --navbar-height: 34px;
+    --header-with-search-height: calc(var(--header-height) - var(--navbar-height));
+    --border-radius-value: 2px;
+}
+
+* {
+    box-sizing: inherit; /* inherit: kế thừa từ thẻ chứa nó */
+}
+
+html {
+    /* font-size: 100%; //100% => 16px | 1rem = 16px */
+
+    /* Dùng tricks để chuyểm px => rem dễ hơn   */
+    font-size: 62.5%; /* 62.5% => 10px | 1rem = 10px */
+    line-height: 1.6rem;
+    font-family: 'Roboto', sans-serif;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+}
+
+ul {
+    list-style-type: none;
+    /* padding-left: 0; //lần sau nhớ thêm vì lần này trong proj đang chỉnh lại r nên k cho vào */
+}
+
+input,
+button {
+    outline: none;
+    border: none;
+}
+
+/* Created grid cho về sau làm responsive */
+/* Node: Responsive */
+.grid {
+    width: 1200px; /* Màn hình có kích thước > 1200 => tối đa chỉ 1200px */
+    max-width: 100%; /* Với màn hình kích thước < 1200px => tự giảm = kích thước màn hình < 1200px */
+    margin: 0 auto; /* căn giữa */
+    /* border: 4px solid blue; */
+}
+
+.grid__full-width {
+    width: 100%;
+}
+
+.grid__row {
+    /* Cho item nằm trên cùng 1 hàng ngang vs tự xuống dòng */
+    display: flex;
+    flex-wrap: wrap;
+    /* Khoảng cách giữa các cột | theo chuẩn thì tổng trên PC = 24px / nhưng ở đây làm giống shopee là 10px */
+    /* -12px, 12px => -5px, 5px */
+    margin-left: -5px;
+    margin-right: -5px;
+    /* border: 3px solid yellow; */
+}
+
+/* 12 column tạm thời */
+.grid__column-2 {
+    /* Khoảng cách giữa các cột */
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 16.6667%; /*chiếm 2 column: 8.333333333333333 * 2 = 16.66666666666667*/
+    /* border: 1px solid red; */
+}
+
+/* 2,4 */
+.grid__column-2-4 {
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 20%;
+}
+
+.grid__column-10 {
+    /* Khoảng cách giữa các cột */
+    padding-left: 5px;
+    padding-right: 5px;
+    width: 83.3334%; /* Áp dụng: 10 / 12 * 100 = 83.33333333333333 */
+    /* border: 1px solid cyan; */
+}
+
+/* Button style */
+.btn {
+    min-width: 124px;
+    height: 34px;
+    border-radius: var(--border-radius-value);
+    font-size: 1.5rem;
+    padding: 0 12px;
+    cursor: pointer;
+    user-select: none;
+    color: var(--text-color);
+    background-color: transparent;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6rem;
+}
+
+.btn.btn--normal:hover {
+    background-color: #f0f0f0;
+}
+
+/* css 2 or n class '.' liền nhau => yêu câu element phải có 2 class đó thì với đc apply */
+.btn.btn--primary {
+    color: var(--white-color);
+    background-color: var(--primary-color);
+}
+
+.btn.btn--primary:hover {
+    background-color: var(--primary-color-hover);
+}
+
+.btn.btn--disabled {
+    cursor: default;
+    pointer-events: none;
+    opacity: 0.5;
+}
+
+.btn--size-s {
+    height: 32px;
+    font-size: 1.2rem;
+    padding: 0 8px;
+    border-radius: 3px;
+}
+
+/* Selection */
+.select-input {
+    position: relative;
+    height: 34px;
+    min-width: 200px;
+    padding: 0 12px;
+    border-radius: var(--border-radius-value);
+    background-color: var(--white-color);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 1px 2px var(--box-shadow-color);
+}
+
+.select-input:hover .select-input__list {
+    display: block;
+}
+
+.select-input__list {
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 25px;
+    border-radius: var(--border-radius-value);
+    background-color: var(--white-color);
+    padding: 8px 16px;
+    display: none;
+    z-index: 2;
+}
+
+.select-input__link {
+    display: block;
+    font-size: 1.4rem;
+    /* background-color: red; */
+    color: var(--text-color);
+    padding: 4px 0;
+}
+
+.select-input__link:hover {
+    color: var(--primary-color);
+}
+
+.select-input__label {
+    font-size: 1.4rem;
+}
+
+.select-input__icon {
+    font-size: 1.4rem;
+    color: var(--gray60-color);
+    position: relative;
+    top: 1px;
+}
+
+/* Modal */
+.modal {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    display: flex;
+    animation: fadeIn linear 0.3s;
+    will-change: opacity;
+    z-index: 5;
+}
+
+.modal__overlay {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal__body {
+    /*START: Giá trị tạm thời */
+    /* width: 500px; */
+    /* height: 500px; */
+    /* background-color: var(--white-color); */
+    /* border-radius: 5px; */
+    /*END: Giá trị tạm thời */
+
+    --growth-from: 0.6;
+    --growth-to: 1;
+    margin: auto;
+    position: relative;
+    z-index: 10;
+    animation: growth linear 0.2s;
+    will-change: transform;
+}
+
+/* Animations */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes growth {
+    from {
+        transform: scale(var(--growth-from));
+    }
+    to {
+        transform: scale(var(--growth-to));
+    }
+}
+
+/* Scrollbar */
+html *::-webkit-scrollbar {
+    border-radius: 0;
+    width: 8px;
+}
+
+html *::-webkit-scrollbar-thumb {
+    border-radius: 4px;
+    background-color: rgba(22, 24, 35, 0.06);
+}
+
+html *::-webkit-scrollbar-track {
+    border-radius: 0;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+/* Pagination */
+.pagination {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.pagination-item {
+    margin: 0 12px;
+}
+
+.pagination-item__link {
+    --height: 30px;
+    display: block;
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--suva-grey-color);
+    min-width: 40px;
+    height: var(--height);
+    line-height: var(--height); /*căn giữa dọc*/
+    border-radius: var(--border-radius-value);
+}
+
+.pagination-item__icon {
+}
+
+/* Modifier */
+.pagination-item__link--active .pagination-item__link {
+    background-color: var(--primary-color);
+    color: var(--white-color);
+}
+
+.pagination-item__link--active .pagination-item__link:hover {
+    background-color: var(--primary-color-hover);
+}
