@@ -907,6 +907,56 @@ li.navbar__list-item--user-not-already {
     background-color: var(--primary-color-hover);
 }
 
+/* Header sort bar */
+.header__sort-bar {
+    position: fixed;
+    top: var(--header-height); /* dưới header */
+    left: 0;
+    right: 0;
+    height: var(--header-sort-bar-height);
+    background-color: var(--white-color);
+    text-align: center;
+    border-top: 1px solid var(--separate-color);
+    border-bottom: 1px solid var(--separate-color);
+    display: none;
+
+    /* reset ul default */
+    margin: 0;
+    padding-left: 0;
+}
+
+.header__sort-item {
+    flex: 1;
+}
+
+.header__sort-link {
+    position: relative;
+    display: block;
+    color: var(--text-color);
+    font-size: 1.4rem;
+    height: 100%;
+    line-height: var(--header-sort-bar-height);
+}
+
+.header__sort-link::after {
+    content: '';
+    position: absolute;
+    transform: translateY(-50%);
+    top: 50%;
+    left: 0;
+    height: 60%;
+    border-left: 1px solid var(--separate-color);
+}
+
+.header__sort-item:first-child .header__sort-link::after {
+    display: none;
+}
+
+/* Modifier */
+.header__sort-item--active .header__sort-link {
+    color: var(--primary-color);
+}
+
 /* App container */
 .app__container {
     background-color: var(--background-container-color);
