@@ -1077,6 +1077,58 @@ li.navbar__list-item--user-not-already {
     border-left-color: var(--primary-color);
 }
 
+/* Mobile category */
+.mobile-category {
+}
+
+.mobile-category__list {
+    display: flex;
+    padding-left: 0;
+    max-width: 100%;
+    overflow-x: auto;
+}
+
+.mobile-category__list::-webkit-scrollbar {
+    display: none;
+}
+
+.mobile-category__item {
+    flex-shrink: 0; /* bỏ đi tự động co nhỏ lại */
+    margin-right: 10px;
+}
+
+.mobile-category__item:nth-of-type(3n + 1) .mobile-category__link {
+    /*:nth-of-type(3n): cách 3 pt <li> thì css ở đây đc apply */
+    /*:nth-of-type(3n + 1): để từ pt đầu tiên*/
+    background-color: #87afd8;
+}
+
+.mobile-category__item:nth-of-type(3n + 2) .mobile-category__link {
+    background-color: #76c9bd;
+}
+
+.mobile-category__item:nth-of-type(3n + 3) .mobile-category__link {
+    background-color: #88cf81;
+}
+
+.mobile-category__link {
+    --line-height: 2rem;
+    display: block;
+    font-size: 1.4rem;
+    color: var(--white-color);
+    line-height: var(--line-height);
+    height: calc(var(--line-height) * 2);
+    text-align: center;
+    width: 110px;
+    border-radius: 4px;
+    font-weight: 300;
+    overflow: hidden;
+    /* ... */
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+}
+
 /* Home sort + filter */
 .home-filter {
     display: flex;

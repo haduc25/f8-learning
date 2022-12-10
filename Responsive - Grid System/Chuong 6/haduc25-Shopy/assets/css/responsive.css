@@ -47,6 +47,17 @@
     .header__sort-bar {
         display: flex;
     }
+
+    /* Scrollbar*/
+    html *::-webkit-scrollbar-thumb {
+        /* cái này cũng để ẩn scrollbar */
+        background-color: transparent;
+    }
+
+    /* App content */
+    .app__content {
+        padding-top: 10px;
+    }
 }
 
 /* Tablet */
