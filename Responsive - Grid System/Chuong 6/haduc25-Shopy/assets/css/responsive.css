@@ -114,6 +114,22 @@
         width: 100%;
     }
 
+    /* Pagination */
+    .pagination-item {
+        margin: 0;
+    }
+
+    .pagination-item__link {
+        --height: 28px;
+        font-size: 1.6rem;
+        min-width: 36px;
+    }
+
+    /* App content */
+    .app__content {
+        margin: 0 4px;
+    }
+
     @keyframes mobileSearchSideIn {
         from {
             height: 0;

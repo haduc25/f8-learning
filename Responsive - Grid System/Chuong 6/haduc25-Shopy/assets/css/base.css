@@ -35,6 +35,9 @@
 
 * {
     box-sizing: inherit; /* inherit: kế thừa từ thẻ chứa nó */
+    /* background: #000 !important;
+    color: #0f0 !important;
+    outline: solid #f00 1px !important; */
 }
 
 html {

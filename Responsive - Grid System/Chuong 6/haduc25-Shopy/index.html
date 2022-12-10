@@ -710,8 +710,20 @@
             </header>
             <div class="app__container">
                 <div class="grid wide">
-                    <div class="grid__row app__content">
-                        <div class="grid__column-2">
+                    <div class="row sm-gutter app__content">
+                        <!-- 
+                            Category
+                            PC: 2 col
+                            Tablet, Mobile: hidden
+                            - Dùng sm-gutter
+
+                            //grid.css
+                                .row.sm-gutter {
+                                    margin-left: -5px;
+                                    margin-right: -5px;
+                                }
+                         -->
+                        <div class="col l-2 m-0 c-0">
                             <nav class="category">
                                 <h3 class="category__heading">
                                     <i class="category__heading-icon fas fa-list"></i>
@@ -738,7 +750,12 @@
                             </nav>
                         </div>
 
-                        <div class="grid__column-10">
+                        <!-- 
+                            Column cha Products
+                            PC: 10 col
+                            Tablet, Mobile: m-12 c-12 | width: 100%
+                         -->
+                        <div class="col l-10 m-12 c-12">
                             <!-- Home Filter -->
                             <div class="home-filter hide-on-mobile-tablet">
                                 <span class="home-filter__label">Sắp xếp theo</span>
@@ -787,10 +804,15 @@
                             <!-- Home product -->
                             <div class="home-product">
                                 <!-- Grid => Row => Col | Đã có grid nên chỉ cần 2 class còn lại -->
-                                <div class="grid__row">
+                                <div class="row sm-gutter">
                                     <!-- col-2 => đang nằm trong col-10 => tỷ lệ lấy của col-10 (16,667%) chứ k phải grid => phải tạo class mới -->
                                     <!-- START: Product item -->
-                                    <div class="grid__column-2-4">
+                                    <!-- 
+                                        Products
+                                        PC: 5 sp | l-2-4
+
+                                     -->
+                                    <div class="col l-2-4 m-4 c-6">
                                         <a href="#product" class="home-product-item">
                                             <div
                                                 class="home-product-item__img"
@@ -864,7 +886,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="grid__column-2-4">
+                                    <div class="col l-2-4 m-4 c-6">
                                         <a href="#product" class="home-product-item">
                                             <div
                                                 class="home-product-item__img"
@@ -938,7 +960,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="grid__column-2-4">
+                                    <div class="col l-2-4 m-4 c-6">
                                         <a href="#product" class="home-product-item">
                                             <div
                                                 class="home-product-item__img"
@@ -1012,7 +1034,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="grid__column-2-4">
+                                    <div class="col l-2-4 m-4 c-6">
                                         <a href="#product" class="home-product-item">
                                             <div
                                                 class="home-product-item__img"
@@ -1086,7 +1108,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="grid__column-2-4">
+                                    <div class="col l-2-4 m-4 c-6">
                                         <a href="#product" class="home-product-item">
                                             <div
                                                 class="home-product-item__img"
@@ -1160,7 +1182,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="grid__column-2-4">
+                                    <div class="col l-2-4 m-4 c-6">
                                         <a href="#product" class="home-product-item">
                                             <div
                                                 class="home-product-item__img"
@@ -1234,7 +1256,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="grid__column-2-4">
+                                    <div class="col l-2-4 m-4 c-6">
                                         <a href="#product" class="home-product-item">
                                             <div
                                                 class="home-product-item__img"
@@ -1308,7 +1330,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="grid__column-2-4">
+                                    <div class="col l-2-4 m-4 c-6">
                                         <a href="#product" class="home-product-item">
                                             <div
                                                 class="home-product-item__img"
@@ -1382,7 +1404,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="grid__column-2-4">
+                                    <div class="col l-2-4 m-4 c-6">
                                         <a href="#product" class="home-product-item">
                                             <div
                                                 class="home-product-item__img"
@@ -1456,7 +1478,7 @@
                                             </div>
                                         </a>
                                     </div>
-                                    <div class="grid__column-2-4">
+                                    <div class="col l-2-4 m-4 c-6">
                                         <a href="#product" class="home-product-item">
                                             <div
                                                 class="home-product-item__img"
@@ -1576,8 +1598,8 @@
 
         <footer class="footer">
             <div class="grid wide">
-                <div class="grid__row">
-                    <div class="grid__column-2-4">
+                <div class="row">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Chăm sóc khách hàng</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -1591,7 +1613,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Giới thiệu</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -1607,7 +1629,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Danh mục</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -1627,7 +1649,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Theo dõi chúng tôi trên</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
@@ -1650,7 +1672,7 @@
                             </li>
                         </ul>
                     </div>
-                    <div class="grid__column-2-4">
+                    <div class="col l-2-4 m-4 c-6">
                         <h3 class="footer__heading">Tải ứng dụng shopy ngay thôi</h3>
                         <div class="footer__download">
                             <img
