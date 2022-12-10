@@ -63,17 +63,6 @@ button {
 
 /* Created grid cho về sau làm responsive */
 /* Node: Responsive */
-.grid {
-    width: 1200px; /* Màn hình có kích thước > 1200 => tối đa chỉ 1200px */
-    max-width: 100%; /* Với màn hình kích thước < 1200px => tự giảm = kích thước màn hình < 1200px */
-    margin: 0 auto; /* căn giữa */
-    /* border: 4px solid blue; */
-}
-
-.grid__full-width {
-    width: 100%;
-}
-
 .grid__row {
     /* Cho item nằm trên cùng 1 hàng ngang vs tự xuống dòng */
     display: flex;
