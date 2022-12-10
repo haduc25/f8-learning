@@ -523,6 +523,11 @@ li.navbar__list-item--user-not-already {
     color: var(--white-color);
 }
 
+/* search checkbox */
+.header__search-checkbox:checked ~ .header__search {
+    display: flex;
+}
+
 /* END: Mobile search */
 
 .header__logo {

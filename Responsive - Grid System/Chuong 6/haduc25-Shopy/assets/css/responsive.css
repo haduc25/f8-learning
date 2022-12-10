@@ -88,4 +88,40 @@
         /* header__cart: mặc định trên PC là 150px => bỏ đi */
         width: unset;
     }
+
+    /* Header search */
+    .header__search {
+        position: fixed;
+        top: var(--header-height); /* top = header để nó ở dưới header*/
+        left: 0;
+        right: 0;
+        z-index: 3;
+        height: var(--header-sort-bar-height);
+        padding: 0 16px;
+        box-shadow: 0 1px 2px var(--border-separate-color);
+        animation: mobileSearchSideIn linear 0.3s;
+        display: none;
+    }
+
+    /* Header search history */
+    .header__search-history {
+        position: fixed;
+        top: calc(
+            var(--header-height) + var(--header-sort-bar-height) + 3px
+        ); /* top = header để nó ở dưới header*/
+        left: 0;
+        width: 100%;
+    }
+
+    @keyframes mobileSearchSideIn {
+        from {
+            top: calc(var(--header-height) / 2); /*núp ở trên điểm đích 50%*/
+            opacity: 0;
+        }
+
+        to {
+            top: var(--header-height);
+            opacity: 1;
+        }
+    }
 }
