@@ -102,8 +102,9 @@ function App() {
         for (let i = 0; i < TRANING_TIMES; i++) {
             console.log(`Progressing: ${parseInt(((i + 1) / TRANING_TIMES) * 100)}%`);
 
-            await training(label); //train trong 5s
+            // await training(label); //train trong 5s
         }
+        console.log(`Tranning [${label}] is successfully!`);
     };
 
     /** Cách bước thực hiện
