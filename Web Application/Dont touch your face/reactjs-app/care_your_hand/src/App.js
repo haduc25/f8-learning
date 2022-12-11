@@ -7,8 +7,17 @@ import { Howl } from 'howler';
 import './App.css';
 import onichanSound from './assets/Onii-chan.mp3';
 
+// label
+const NOT_TOUCH_LABEL = 'not_touch';
+const TOUCHED_LABEL = 'touched';
+
+// số lần học
+const TRANING_TIMES = 50;
+
 function App() {
     const video = useRef();
+    const classifier = useRef();
+    const mobilenetModule = useRef();
 
     //// checking classifier working?
     // const classifier = knnClassifier.create();
@@ -32,10 +41,10 @@ function App() {
         // database
         console.log('installing database...');
         // Create the classifier.
-        const classifier = knnClassifier.create();
+        classifier.current = knnClassifier.create();
 
         // Load the model. | load database
-        const mobilenetModule = await mobilenet.load();
+        mobilenetModule.current = await mobilenet.load();
         console.log('setup database is success!');
 
         //Train 1
@@ -61,6 +70,8 @@ function App() {
 
                         // event check success | // nếu load thành công
                         video.current.addEventListener('loadeddata', resolve);
+
+                        resolve();
                     },
                     (error) => {
                         reject(error);
@@ -70,6 +81,15 @@ function App() {
                 reject();
             }
         });
+    };
+
+    // Training
+    const train = (label) => {
+        // console.log(label);
+
+        for (let i = 0; i < TRANING_TIMES; i++) {
+            console.log(`Progressing: ${parseInt(((i + 1) / TRANING_TIMES) * 100)}%`);
+        }
     };
 
     useEffect(() => {
@@ -85,9 +105,25 @@ function App() {
             <video ref={video} className="video" autoPlay />
 
             <div className="control">
-                <button className="btn">Train 1</button>
-                <button className="btn">Train 2</button>
-                <button className="btn">Run</button>
+                <button
+                    className="btn"
+                    onClick={() => {
+                        train(NOT_TOUCH_LABEL);
+                    }}
+                >
+                    Train 1
+                </button>
+                <button
+                    className="btn"
+                    onClick={() => {
+                        train(TOUCHED_LABEL);
+                    }}
+                >
+                    Train 2
+                </button>
+                <button className="btn" onClick={() => {}}>
+                    Run
+                </button>
             </div>
         </div>
     );
