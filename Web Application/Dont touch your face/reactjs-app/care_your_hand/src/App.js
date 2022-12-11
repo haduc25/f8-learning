@@ -1,6 +1,6 @@
 import { useEffect, useRef } from 'react';
 import * as tf from '@tensorflow/tfjs';
-import * as mobilenetModule from '@tensorflow-models/mobilenet';
+import * as mobilenet from '@tensorflow-models/mobilenet';
 import * as knnClassifier from '@tensorflow-models/knn-classifier';
 import { Howl } from 'howler';
 
@@ -23,10 +23,23 @@ function App() {
 
     // useEffect() | setup Camera
     const init = async () => {
+        // camera
         console.log('initing...');
         await setupCamera();
 
         console.log('setup camera is success!');
+
+        // database
+        console.log('installing database...');
+        // Create the classifier.
+        const classifier = knnClassifier.create();
+
+        // Load the model. | load database
+        const mobilenetModule = await mobilenet.load();
+        console.log('setup database is success!');
+
+        //Train 1
+        console.log('Vui lòng không chạm tay lên mặt và bấm Train 1');
     };
 
     // xin cấp quyền truy cập vào camera
