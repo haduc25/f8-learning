@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Don't touch your face</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script>
+            function copyNow(valueOfThisFromDOM) {
+                var inp = document.createElement('input');
+                document.body.appendChild(inp);
+                inp.value = valueOfThisFromDOM.textContent;
+                inp.select();
+                document.execCommand('copy', false);
+                inp.remove();
+                valueOfThisFromDOM.classList.add('active');
+                console.log('Copied!');
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id="heading" class="headingClass">Don't touch your face - Learning...</h1>
+        <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">
+            Go to TopPage
+        </button>
+        <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">
+            Go to BotPage
+        </button>
+
+        <!-- Chương 1 -->
+        <h2>Chương 1. Giới thiệu</h2>
+        <div class="containers"></div>
+
+        <!-- Something has same value -->
+        <div class="div-source-and-server">
+            <ul>
+                <li>
+                    <a href="/" target="_blank">aaaaaaaaa</a>
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>

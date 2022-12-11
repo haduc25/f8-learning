@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Web Application</title>
+        <link rel="stylesheet" href="./style.css" />
+        <script>
+            function copyNow(valueOfThisFromDOM) {
+                var inp = document.createElement('input');
+                document.body.appendChild(inp);
+                inp.value = valueOfThisFromDOM.textContent;
+                inp.select();
+                document.execCommand('copy', false);
+                inp.remove();
+                valueOfThisFromDOM.classList.add('active');
+                console.log('Copied!');
+            }
+        </script>
+    </head>
+
+    <body>
+        <h1 id="heading" class="headingClass">Web Application - Learning...</h1>
+        <button class="btn-right btn-go-top" onclick="{window.scrollTo(0, 0)}">
+            Go to TopPage
+        </button>
+        <button class="btn-right" onclick="{window.scrollTo(0, document.body.scrollHeight)}">
+            Go to BotPage
+        </button>
+
+        <div class="containers">
+            <ul class="parent">
+                <!-- PARENT START -->
+                <li><a href="./Dont touch your face/index.html" target="_blank"
+                    >1. Don't touch your face</a
+                ></li>
+                <ul class="children">
+                    <div class="image">
+                        <a href="111111111111111111" target="_blank">
+                            <img src="111111111111111111" alt="22222222222222222222" />
+                            <p>22222222222222222222</p>
+                        </a>
+                    </div>
+                </ul>
+
+                <!-- PARENT END -->
+            </ul>
+        </div>
+
+        <!-- Something has same value -->
+        <div class="div-source-and-server">
+            <ul>
+                <li>
+                    <a href="./Dont touch your face/index.html" target="_blank"
+                    >Dont touch your face</a
+                >
+                </li>
+            </ul>
+        </div>
+    </body>
+</html>
