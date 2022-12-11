@@ -14,6 +14,9 @@ const TOUCHED_LABEL = 'touched';
 // số lần học
 const TRANING_TIMES = 50;
 
+// dộ tin tưởng
+const TOUCHED_CONFIDENCE = 0.8;
+
 function App() {
     const video = useRef();
     const classifier = useRef();
@@ -94,6 +97,13 @@ function App() {
         }
     };
 
+    /** Cách bước thực hiện
+     * 1. Train (50 lần) cho máy khuôn mặt không chạm tay lên mặt => Train 1
+     * 2. Train (50 lần) cho máy khuôn mặt có chạm tay lên mặt => Train 2
+     * 3. Lấy hình ảnh hiện tại (real time), phân tích và so sánh vs data đã học trước đó
+     * 4. => Nếu mà matching vs data tay chạm vào khuôn mặt ==> cảnh báo
+     */
+
     // Training Processing
     const training = (label) => {
         return new Promise(async (resolve) => {
@@ -116,6 +126,33 @@ function App() {
     const sleep = (ms = 0) => {
         // tạo ra sleep để cho train chậm lại
         return new Promise((resolve) => setTimeout(resolve, ms));
+    };
+
+    // Run
+    const run = async () => {
+        // lấy luồng video hiện tại
+        const embedding = mobilenetModule.current.infer(video.current, true);
+
+        // predictClass: dự đoán vs so sánh
+        const result = await classifier.current.predictClass(embedding);
+
+        console.log('Result: ', result);
+        console.log('Label: ', result.label);
+        console.log('Index: ', result.classIndex);
+        console.log('Confidences: ', result.confidences);
+
+        if (
+            result.label === TOUCHED_LABEL &&
+            result.confidences[result.label] > TOUCHED_CONFIDENCE
+        ) {
+            console.log('TOUCHED');
+        } else {
+            console.log('NOT TOUCH');
+        }
+
+        // Kiểm tra 5 lần / giây
+        await sleep(200);
+        run();
     };
 
     useEffect(() => {
@@ -147,7 +184,12 @@ function App() {
                 >
                     Train 2
                 </button>
-                <button className="btn" onClick={() => {}}>
+                <button
+                    className="btn"
+                    onClick={() => {
+                        run();
+                    }}
+                >
                     Run
                 </button>
             </div>
