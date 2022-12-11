@@ -84,12 +84,20 @@ function App() {
     };
 
     // Training
-    const train = (label) => {
+    const train = async (label) => {
         // console.log(label);
 
         for (let i = 0; i < TRANING_TIMES; i++) {
             console.log(`Progressing: ${parseInt(((i + 1) / TRANING_TIMES) * 100)}%`);
+
+            await sleep(100); //train trong 5s
         }
+    };
+
+    // Sleep
+    const sleep = (ms = 0) => {
+        // tạo ra sleep để cho train chậm lại
+        return new Promise((resolve) => setTimeout(resolve, ms));
     };
 
     useEffect(() => {
