@@ -1,8 +1,11 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
+import { Howl } from 'howler';
 import * as tf from '@tensorflow/tfjs';
 import * as mobilenet from '@tensorflow-models/mobilenet';
 import * as knnClassifier from '@tensorflow-models/knn-classifier';
-import { Howl } from 'howler';
+
+// notice f8
+import { initNotifications, notify } from '@mycv/f8-notification';
 
 import './App.css';
 import onichanSound from './assets/Onii-chan.mp3';
@@ -20,16 +23,19 @@ const TOUCHED_CONFIDENCE = 0.8;
 function App() {
     const video = useRef();
     const classifier = useRef();
+    const canPlaySound = useRef(true);
     const mobilenetModule = useRef();
+
+    const [touched, setTouched] = useState(false);
 
     //// checking classifier working?
     // const classifier = knnClassifier.create();
     // console.log('classifier', classifier);
 
-    // // Sound
-    // var sound = new Howl({
-    //     src: [onichanSound],
-    // });
+    // Sound
+    var sound = new Howl({
+        src: [onichanSound],
+    });
 
     // sound.play();
 
@@ -52,6 +58,9 @@ function App() {
 
         //Train 1
         console.log('Vui lòng không chạm tay lên mặt và bấm Train 1');
+
+        // hỏi xin quyền notification
+        initNotifications({ cooldown: 3000 });
     };
 
     // xin cấp quyền truy cập vào camera
@@ -146,8 +155,18 @@ function App() {
             result.confidences[result.label] > TOUCHED_CONFIDENCE
         ) {
             console.log('TOUCHED');
+
+            // fix sound play liên tục
+            if (canPlaySound.current) {
+                canPlaySound.current = false;
+                sound.play();
+            }
+
+            notify('Bỏ ra bạn eyyy', { body: 'Tay bạn vừa vô tình chạm vào mặt tôi đey' });
+            setTouched(true);
         } else {
             console.log('NOT TOUCH');
+            setTouched(false);
         }
 
         // Kiểm tra 5 lần / giây
@@ -158,12 +177,21 @@ function App() {
     useEffect(() => {
         init();
 
+        // Fires when the sound finishes playing.
+        sound.on('end', function () {
+            console.log('Finished!');
+
+            //khi hết audio => tự set lại = true để bặt lại
+            canPlaySound.current = true;
+        });
+
         // cleanup
         return () => {};
     }, []);
 
     return (
-        <div className="main">
+        // Nếu có 'touched' thì thêm class 'touched'
+        <div className={`main ${touched ? 'touched' : ''}`}>
             <h2>Meow</h2>
             <video ref={video} className="video" autoPlay />
 
