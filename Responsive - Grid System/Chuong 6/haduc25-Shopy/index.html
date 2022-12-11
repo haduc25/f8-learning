@@ -60,10 +60,14 @@
                             </li>
                             <li class="navbar__list-item">
                                 <span class="navbar-title--no-pointer">Kết nối</span>
-                                <a href="#" class="navbar__list-icon-link"
+                                <a
+                                    href="https://www.facebook.com/haduc.25.09"
+                                    class="navbar__list-icon-link"
                                     ><i class="fa-brands fa-facebook navbar__list-icon"></i
                                 ></a>
-                                <a href="#" class="navbar__list-icon-link"
+                                <a
+                                    href="https://www.instagram.com/haduc.25/"
+                                    class="navbar__list-icon-link"
                                     ><i class="fa-brands fa-instagram navbar__list-icon"></i
                                 ></a>
                             </li>
@@ -185,7 +189,7 @@
 
                                 <ul class="navbar__user-menu">
                                     <li class="navbar__user-menu-item">
-                                        <a href="">Tài khoản của tôi</a>
+                                        <a href="https://github.com/haduc25">Tài khoản của tôi</a>
                                     </li>
                                     <li class="navbar__user-menu-item">
                                         <a href="">Địa chỉ của tôi</a>
@@ -205,11 +209,75 @@
 
                     <!-- Header with Search -->
                     <div class="header-with-search">
-                        <!-- START: Search on mobile -->
-                        <label for="mobile-search-checkbox" class="header__mobile-search">
-                            <i class="header__mobile-search-icon fas fa-search"></i>
-                        </label>
-                        <!-- END: Search on mobile -->
+                        <div class="header__mobile">
+                            <!-- START: LIST -->
+                            <div class="header__mobile-select">
+                                <label for="select-bar-nav" class="header__mobile-bar">
+                                    <i class="header__mobile-select-icon fas fa-list"></i>
+                                </label>
+
+                                <input type="checkbox" name="" id="select-bar-nav" />
+
+                                <label
+                                    for="select-bar-nav"
+                                    class="header__mobile-select-overlay"
+                                ></label>
+
+                                <nav class="header__mobile-select-nav">
+                                    <div class="user-info">
+                                        <img
+                                            src="./assets/img/avatar.png"
+                                            alt=""
+                                            class="header__navbar-user-img"
+                                        />
+                                        <a
+                                            href="https://www.facebook.com/haduc.25.09"
+                                            class="user-name"
+                                            >Hà Minh Đức</a
+                                        >
+                                    </div>
+                                    <label for="select-bar-nav" class="header__mobile-select-close">
+                                        <i class="fas fa-times"></i>
+                                    </label>
+                                    <ul class="header__mobile-select-list">
+                                        <li class="header__mobile-select-item">
+                                            <a href="" class="header__mobile-select-link"
+                                                >Thông tin cá nhân</a
+                                            >
+                                        </li>
+                                        <li class="header__mobile-select-item">
+                                            <a href="" class="header__mobile-select-link"
+                                                >Thông báo</a
+                                            >
+                                        </li>
+                                        <li class="header__mobile-select-item">
+                                            <a href="" class="header__mobile-select-link"
+                                                >Giỏ hàng</a
+                                            >
+                                        </li>
+                                        <li class="header__mobile-select-item">
+                                            <a href="" class="header__mobile-select-link"
+                                                >Trợ giúp</a
+                                            >
+                                        </li>
+                                        <li class="header__mobile-select-item">
+                                            <a
+                                                href=""
+                                                class="header__mobile-select-link header__mobile-select-logout"
+                                                >Đăng xuất</a
+                                            >
+                                        </li>
+                                    </ul>
+                                </nav>
+                            </div>
+                            <!-- END: LIST -->
+
+                            <!-- START: Search on mobile -->
+                            <label for="mobile-search-checkbox" class="header__mobile-search">
+                                <i class="header__mobile-search-icon fas fa-search"></i>
+                            </label>
+                            <!-- END: Search on mobile -->
+                        </div>
                         <div class="header__logo hide-on-tablet">
                             <a
                                 href="/Chuong%206/haduc25-Shopy/index.html"
@@ -1749,13 +1817,19 @@
                         <h3 class="footer__heading">Theo dõi chúng tôi trên</h3>
                         <ul class="footer-list">
                             <li class="footer-item">
-                                <a href="" class="footer-item__link">
+                                <a
+                                    href="https://www.facebook.com/haduc.25.09"
+                                    class="footer-item__link"
+                                >
                                     <i class="footer-item__icon fab fa-facebook"></i>
                                     Facebook
                                 </a>
                             </li>
                             <li class="footer-item">
-                                <a href="" class="footer-item__link">
+                                <a
+                                    href="https://www.instagram.com/haduc.25/"
+                                    class="footer-item__link"
+                                >
                                     <i class="footer-item__icon fab fa-instagram"></i>
                                     Instagram
                                 </a>
@@ -1764,6 +1838,12 @@
                                 <a href="" class="footer-item__link">
                                     <i class="footer-item__icon fab fa-linkedin"></i>
                                     Linkedin
+                                </a>
+                            </li>
+                            <li class="footer-item">
+                                <a href="https://github.com/haduc25" class="footer-item__link">
+                                    <i class="footer-item__icon fa-brands fa-github"></i>
+                                    Github
                                 </a>
                             </li>
                         </ul>

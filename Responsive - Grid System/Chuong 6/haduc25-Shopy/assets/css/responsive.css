@@ -96,6 +96,19 @@
         --navbar-height: 0px;
     }
 
+    /* START: LIST */
+    /* Show list */
+    .header__mobile-select {
+        display: block;
+    }
+
+    /* resize avatar */
+    .header__navbar-user-img {
+        width: 38px;
+        height: 38px;
+    }
+    /* END: LIST */
+
     /* Hide Mobile*/
     .hide-on-mobile {
         display: none;

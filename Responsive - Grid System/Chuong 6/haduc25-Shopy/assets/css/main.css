@@ -45,7 +45,8 @@ li.navbar__list-item--user-not-already {
     display: block;
 }
 
-.navbar__user-img {
+.navbar__user-img,
+.header__navbar-user-img {
     width: 22px;
     height: 22px;
     border-radius: 50%;
@@ -520,6 +521,108 @@ li.navbar__list-item--user-not-already {
     align-items: center;
     padding: 0 8px;
 }
+
+/*  */
+.header__mobile {
+    display: flex;
+    align-items: center;
+}
+/* START: LIST */
+/* Mobile select list */
+.header__mobile-select {
+    display: none;
+}
+
+.header__mobile-select-icon {
+    color: var(--white-color);
+    font-size: 2rem;
+    margin-top: 10px;
+}
+
+.header__mobile-select-overlay {
+    position: fixed;
+    z-index: 5;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    animation: fadeIn linear 0.2s;
+    will-change: opacity;
+    display: none;
+}
+
+.header__mobile-select-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    font-size: 2.5rem;
+}
+
+.header__mobile-select-nav {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 40%;
+    z-index: 5;
+    background-color: var(--white-color);
+    padding: 0 10px;
+    transform: translateX(-100%);
+    opacity: 0;
+    transition: transform linear 0.2s, opacity linear 0.2s;
+}
+
+.header__mobile-select-list {
+    list-style: none;
+    padding-left: 0;
+    padding-top: 15px;
+}
+
+.header__mobile-select-link {
+    text-decoration: none;
+    display: block;
+    color: var(--text-color);
+    font-size: 1.8rem;
+    margin: 2px 0 8px 4px;
+    padding: 12px 8px;
+}
+
+.header__mobile-select-logout {
+    border-top: 1px solid var(--border-separate-color);
+    color: var(--primary-color);
+}
+
+#select-bar-nav {
+    display: none;
+}
+
+#select-bar-nav:checked ~ .header__mobile-select-overlay {
+    display: block;
+}
+
+#select-bar-nav:checked ~ .header__mobile-select-nav {
+    transform: translateX(0%);
+    opacity: 1;
+}
+
+.header__mobile-bar {
+    display: block;
+    padding: 0 12px 4px 12px;
+}
+
+.user-name {
+    font-size: 1.8rem;
+    color: var(--text-color);
+    margin-left: 5px;
+}
+
+.user-info {
+    margin-top: 15px;
+    display: flex;
+    align-items: center;
+}
+/* END: LIST */
 
 /* START: Mobile search */
 .header__mobile-search {
@@ -1516,6 +1619,10 @@ i.home-product-item__like-icon-fill {
 
 .footer-item__link:hover > .footer-item__icon.fab.fa-linkedin {
     color: #0e76a8;
+}
+
+.footer-item__link:hover > .footer-item__icon.fa-brands.fa-github {
+    color: #24292f;
 }
 
 .footer__download {
