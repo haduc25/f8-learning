@@ -4,3 +4,31 @@
     align-items: center;
     justify-content: center;
 }
+
+.video {
+    width: 480px;
+    height: 480px;
+    background-color: #333;
+}
+
+.control {
+    margin-top: 20px;
+}
+
+.btn {
+    min-width: 124px;
+    height: 34px;
+    border-radius: 3px;
+    font-size: 1.5rem;
+    padding: 4 16px;
+    cursor: pointer;
+    user-select: none;
+    -webkit-user-select: none;
+    color: #fff;
+    background-color: red;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6rem;
+    margin: 0 16px;
+}
