@@ -214,6 +214,60 @@
                     </fieldset>
                 </ul>
 
+                <li>11. Training function</li>
+                <ul class="children">
+                    Youtube:
+                    <li>
+                        <a href="https://youtu.be/ZRV2GZmKF5g" target="_blank"
+                            >[Web app] - Coding, Learning, Watch Valorant, Eating [11/12/2022] #2</a
+                        >
+                    </li>
+
+                    <div class="image">
+                        <a href="./img/mobilenet-Getting embeddings.png" target="_blank">
+                            <img
+                                src="./img/mobilenet-Getting embeddings.png"
+                                alt="mobilenet-Getting embeddings"
+                            />
+                            <p>mobilenet-Getting embeddings</p>
+                        </a>
+                    </div>
+
+                    <div class="image">
+                        <a href="./img/knn-classifier_Adding-examples.png" target="_blank">
+                            <img
+                                src="./img/knn-classifier_Adding-examples.png"
+                                alt="mobilenet-Getting embeddings"
+                            />
+                            <p>knn-classifier_Adding-examples</p>
+                        </a>
+                    </div>
+
+                    <fieldset>
+                        <legend>Keywords</legend>
+                        <a
+                            href="https://github.com/tensorflow/tfjs-models/tree/master/mobilenet#getting-embeddings"
+                            target="_blank"
+                            >github => mobilenet-Getting embeddings</a
+                        >
+                        <a
+                            href="https://github.com/tensorflow/tfjs-models/tree/master/knn-classifier#adding-examples"
+                            target="_blank"
+                            >github => knn-classifier_Adding-examples</a
+                        >
+
+                        <code onclick="copyNow(this)">
+                            // mobilenet <br />
+                            // infer() nhận vào img & embedding = true | false <br />
+                            const embedding = mobilenetModule.current.infer(video.current, true);
+                            <br /><br />
+
+                            //classifier<br />
+                            classifier.current.addExample(embedding, label);
+                        </code>
+                    </fieldset>
+                </ul>
+
                 <!-- PARENT END -->
             </ul>
         </div>

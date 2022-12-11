@@ -83,15 +83,33 @@ function App() {
         });
     };
 
-    // Training
+    // Train
     const train = async (label) => {
         // console.log(label);
-
+        console.log(`[${label}] Tranning for Machine...`);
         for (let i = 0; i < TRANING_TIMES; i++) {
             console.log(`Progressing: ${parseInt(((i + 1) / TRANING_TIMES) * 100)}%`);
 
-            await sleep(100); //train trong 5s
+            await training(label); //train trong 5s
         }
+    };
+
+    // Training Processing
+    const training = (label) => {
+        return new Promise(async (resolve) => {
+            // Thực hiện train
+
+            // mobilenet
+            // infer() nhận vào img & embedding = true | false
+            const embedding = mobilenetModule.current.infer(video.current, true);
+
+            //classifier
+            classifier.current.addExample(embedding, label);
+
+            // sleep
+            await sleep(100); //5s
+            resolve();
+        });
     };
 
     // Sleep
