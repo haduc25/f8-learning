@@ -9,59 +9,73 @@
     ul, li {
         list-style-type: circle;
     }
+
+    .box{
+        padding-bottom: 500px;
+    }
 </style>
 <body>
-    <h2>Chương I - 1. IIFE là gì?</h2>
-    <div>
-        <ul>
-            <li>là 1 func duy nhất giống constructor</li>
-            <li>được hiểu là (() => {})() </li>
-            <li>trước iife thì phải có dấu `;` </li>
-            <li>là func private </li>
-            <li>sử dụng khi muốn code chạy ngay nhma k ảnh hưởng đến phạm vi bên ngoài (vd để tạo 1 lib) </li>
-        </ul>
-    </div>
-
-    <h2>2. Scope là gì?</h2>
-    <div>
-        <ul>
-            <li>Phạm vi biến: Global, Code Block, Local Scope</li>
-        </ul>
-    </div>
-    
-    <h2>3. Khái niệm Closure?</h2>
-    <div>
-        <ul>
-            <li>là 1 hàm có thể ghi nhớ nơi nó được tạo ra & truy cập đc biến ở bên ngoài phạm vi của nó</li>
-        </ul>
-    </div>
-    
-    <h2>Chương II - 4. Hoisting là gì??</h2>
-    <div>
-        <ul>
-            <li>Khai báo bằng var, let, const, declaration function đều được hoisting. || Nhưng dòng lệnh Truy cập Biến or Hàm nằm Trên dòng Khai báo thì xảy ra 2 trường hợp:</li>
-            <li>Var, Declaration function được gán value là Undefined or NULL => Nên kh có lỗi</li>
-            <li>Let, Const không được gán value, mà được đưa vào Temporal Dead Zone (vùng kh truy cập được) => Nên có lỗi xuất hiện</li>
-        </ul>
-    </div>
-    
-    
-    <h2>5. Strict mode?</h2>
-    <div>
-        <ul>
-            <li>Khi sử dụng `Strict mode?` giúp báo lỗi or ngăn chặn những doạn mã không an toàn hay dễ gây nhầm lẫn</li>
-            <li>Báo lỗi khi gán lại giá trị cho thuộn tinh có `writable: false`</li>
-            <li>Báo lỗi khi hàm có tham số cùng tên</li>
-            <li>Khai báo hàm trong `code block` thì hàm sẽ thuộc phạm vi của `code block`</li>
-            <li>Không đặt tên biến, tên hàm bằng một số từ khóa `nhạy cảm` cảu ngôn ngữ</li>
-
-            <h4>Công dụng</h4>
+    <div class="box">
+        <h2>Chương I - 1. IIFE là gì?</h2>
+        <div>
             <ul>
-                <li>Tránh `quên` từ khóa khai báo biến</li>
-                <li>Tránh `trùng` tên biến dẫn tới lỗi logic</li>
-                <li>Sử dụng bộ nhớ hiệu quả vì tránh tạo biến global</li>
+                <li>là 1 func duy nhất giống constructor</li>
+                <li>được hiểu là (() => {})() </li>
+                <li>trước iife thì phải có dấu `;` </li>
+                <li>là func private </li>
+                <li>sử dụng khi muốn code chạy ngay nhma k ảnh hưởng đến phạm vi bên ngoài (vd để tạo 1 lib) </li>
             </ul>
-        </ul>
+        </div>
+    
+        <h2>2. Scope là gì?</h2>
+        <div>
+            <ul>
+                <li>Phạm vi biến: Global, Code Block, Local Scope</li>
+            </ul>
+        </div>
+        
+        <h2>3. Khái niệm Closure?</h2>
+        <div>
+            <ul>
+                <li>là 1 hàm có thể ghi nhớ nơi nó được tạo ra & truy cập đc biến ở bên ngoài phạm vi của nó</li>
+            </ul>
+        </div>
+        
+        <h2>Chương II - 4. Hoisting là gì??</h2>
+        <div>
+            <ul>
+                <li>Khai báo bằng var, let, const, declaration function đều được hoisting. || Nhưng dòng lệnh Truy cập Biến or Hàm nằm Trên dòng Khai báo thì xảy ra 2 trường hợp:</li>
+                <li>Var, Declaration function được gán value là Undefined or NULL => Nên kh có lỗi</li>
+                <li>Let, Const không được gán value, mà được đưa vào Temporal Dead Zone (vùng kh truy cập được) => Nên có lỗi xuất hiện</li>
+            </ul>
+        </div>
+            
+        <h2>5. Strict mode?</h2>
+        <div>
+            <ul>
+                <li>Khi sử dụng `Strict mode?` giúp báo lỗi or ngăn chặn những doạn mã không an toàn hay dễ gây nhầm lẫn</li>
+                <li>Báo lỗi khi gán lại giá trị cho thuộn tinh có `writable: false`</li>
+                <li>Báo lỗi khi hàm có tham số cùng tên</li>
+                <li>Khai báo hàm trong `code block` thì hàm sẽ thuộc phạm vi của `code block`</li>
+                <li>Không đặt tên biến, tên hàm bằng một số từ khóa `nhạy cảm` cảu ngôn ngữ</li>
+    
+                <h4>Công dụng</h4>
+                <ul>
+                    <li>Tránh `quên` từ khóa khai báo biến</li>
+                    <li>Tránh `trùng` tên biến dẫn tới lỗi logic</li>
+                    <li>Sử dụng bộ nhớ hiệu quả vì tránh tạo biến global</li>
+                </ul>
+            </ul>
+        </div>
+
+        <h2>6. Primitive Types & Reference Types?</h2>
+        <div>
+            <ul>
+                <li><img src="./img/Primitive Types_Reference Types.png" height="600px"> </li>
+                <li>Value types: biến sẽ lưu giá trị & ô nhớ riêng biệt vì vậy khi thay đổi sẽ không ảnh hưởng đến nhau</li>
+                <li>Reference types: biến sẽ lưu địa chỉ ô nhớ vì vậy khi thay đổi value thì các biến trỏ đến 1 địa chỉ cụ thể</li>
+            </ul>
+        </div>
     </div>
     <!-- <script src="./index.js"></script> -->
     <script src="./index2.js"></script>

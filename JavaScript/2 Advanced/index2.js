@@ -221,3 +221,122 @@ console.log(universe) //Output ? => Uncaught ReferenceError: universe is not def
 // Với use strict mode, biến universe chỉ được khai báo trong phạm vi của một function. 
 // Khi đó, nếu gọi đến biến đó ở ngoài phạm vi khai báo sẽ dẫn đến lỗi.
 */
+
+
+//  ###################### Primitive Types & Reference Types ###################### //
+
+/* // exam1 - Reference types
+
+let a = {
+    name: 'Mazda'
+}
+
+let b = a
+
+a.name = 'Mustang'
+
+console.log(b) //{name: 'Mustang'}
+
+// / Giải thích
+//   + khi tạo ra biến a => ô nhớ lưu địa chỉ vào biến a
+//   + khi gán `b = a` thì biến b sẽ copy mỗi địa chỉ của biến a
+//   + nên là khi biến a, b đều lưu chung 1 địa chỉ ô nhớ
+//   + vậy nên khi sửa ở biến a nhưng gọi đến biến b sẽ chung ô nhớ vs a nên kết quả giống nhau
+//  */
+
+/* // exam2 - Reference types
+// # Điều gì sẽ xảy ra vs mã sau?
+
+let a = {
+    name: 'Mercedes'
+}
+
+a = {
+    name: 'BMV',
+    model: 'i8'
+}
+
+//// Giải thích
+// + sẽ có 2 vùng nhớ được tạo ra và địa chỉ thứ 2 sẽ được ghi đè và lưu vào biến a
+*/
+
+
+/* // exam3 - Reference types
+const student = {
+    name: 'Minh Duc',
+    profile: {
+        fName: 'Minh',
+        lName: 'Duc',
+        age: 21,
+    }
+}
+
+//// Giải thích
+// + `student` đang lưu địa chỉ ô nhớ của `object` đã gán cho nó
+// + key `profile` trong object cũng đang lưu địa chỉ ô nhớ của object đã gán cho nó
+
+// => Cho dù có chép bao nhiêu địa chỉ vùng nhớ nhma nếu dữ liệu ở địa chỉ thay đổi thì tất cả trỏ đến ô nhớ đó đều chung 1 dữ liệu
+*/
+
+/* // exam4 - Reference types 
+function func(obj){
+    // js ngam hieu
+    // let obj = a //cho nên chỉ có thể copy địa chỉ vùng nhớ của biến a ở scope bên ngoài
+    // => vì vậy khi sửa dữ liệu trong func => dữ liệu trong vùng nhớ cũng thay đổi theo 
+
+    obj.name = 'Mercedes' 
+    console.log(obj) //{name: 'Mercedes'}
+}
+
+const a = {
+    name: 'Mustang'
+}
+
+func(a)
+
+console.log(a) //{name: 'Mercedes'}
+*/
+
+
+/* // exam5 - Reference types => Side Effect 
+function createCar(obj){
+    // Cách khắc phục => tạo ra vùng nhớ mới
+    //// case 1 - sử dụng JSON => áp dụng cho obj có nhiều obj con hoặc nhiều obj phức tạp
+    // obj = JSON.parse(JSON.stringify(obj))
+    //// how it work?
+    //// convert qua JSON => convert qua OBJ => có thể ảnh hưởng đến Performance
+
+    //// case 2 - sử dụng ES6 => chỉ áp dụng cho 1 cấp con
+    obj = {...obj}
+
+    obj.name = 'Mercedes' 
+    return obj
+}
+
+const car = {
+    name: 'Mustang'
+}
+
+const newCar = createCar(car)
+console.log(car) //{name: 'Mustang'}
+console.log(newCar) //{name: 'Mercedes'}
+*/
+
+
+// ####### Bài tập ####### //
+const iphone13 = {
+    screen: 'OLED6.7"Super Retina XDR',
+    chip: 'Apple A15 Bionic',
+    ram: '6 GB'
+ }
+ const iphone11 = iphone13
+ iphone11.ram = '12 GB'
+ const iphone6 = iphone11
+ console.log(iphone6 === iphone13) // Output? => true
+
+
+/*// Giải thích
+// const iphone11 = iphone13 thì iphone11 sẽ trỏ về cùng vùng nhớ của iphone13.
+// const iphone6 = iphone11 thì iphone6 sẽ trỏ về cùng vùng nhớ của iphone11.
+// Lúc này iphone13, iphone11 và iphone6 cùng trỏ về một vùng nhớ.
+ */
