@@ -244,7 +244,7 @@ app.show()
 
 */
 
-
+/*
 // Bai Tap Closure
 function a(x) {
     x++;
@@ -262,6 +262,7 @@ x(); //3
 x(); //4
 x(); //5
 // Output: ? => 3,3,3   3,4,5
+*/
 
 // Giải thích
 /**
