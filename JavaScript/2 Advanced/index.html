@@ -76,9 +76,45 @@
                 <li>Reference types: biến sẽ lưu địa chỉ ô nhớ vì vậy khi thay đổi value thì các biến trỏ đến 1 địa chỉ cụ thể</li>
             </ul>
         </div>
+
+        <h2>Chương III - 7. Từ khóa "this"?</h2>
+        <div>
+            <ul>
+                <li>Từ khóa `this` trong js đề cập đến đối tượng mà nó thuộc về</li>
+                <li>Trong một phương thức, `this` tham chiếu tới đối tượng truy cập phương thức (đối tượng trước dấu .)</li>
+                <li>Đứng ngoài phương thức, `this` tham chiếu tới đối tượng `global`</li>
+                <li><button>Click me now !</button></li>
+                <li><button onclick="console.log(this)">Click me now2 !</button></li>
+                <!-- ở button 2 vẫn in ra vì khi js build vẫn giống cách bắt event `this` ở đây chính là button.onclick -->
+                
+                <h4>Lưu ý</h4>
+                <ul>
+                    <li>`this` trong hàm tạo là đại diện cho đối tượng sẽ được tạo</li>
+                    <li>`this` trong một hàm là `undefined` khi ở `strict mode`</li>
+                    <li>Với arrow function thì k có `this` vậy nên khi dùng thì `this` sẽ là đối tượng bên ngoài gần nhất</li>
+                    <li>Các phương thức bind(), call(), apply() có thể tham chiếu `this` tới đối tượng khác</li>
+                </ul>
+                
+                <h4>Tóm tắt</h4>
+                <ul>
+                    <li>Phân biệt qua cách hàm/method được gọi. Được gọi qua object.method() thì this là object. Được gọi theo tenHam() thì this là window (strict mode là undefined). Mỗi hàm luôn có context riêng, hàm trong method cũng có context riêng của nó (trừ arrow function).</li>
+                </ul>
+            </ul>
+        </div>
+
+
+
+
+
+
+
+
+
+
     </div>
     <!-- <script src="./index.js"></script> -->
-    <script src="./index2.js"></script>
+    <!-- <script src="./index2.js"></script> -->
+    <script src="./index3.js"></script>
 
 </body>
 </html>
