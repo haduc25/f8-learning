@@ -20,6 +20,13 @@
         margin-bottom: 10px;
         cursor: pointer;
     }
+
+    #root{
+        border: 1px solid;
+        border-radius: 8px;
+        min-height: 200px;
+        padding-top: 10px;
+    }
 </style>
 <body>
     <div class="box">
@@ -118,6 +125,24 @@
             </ul>
         </div>
 
+        <h2>9. Fn.bind() method - Phần 2</h2>
+        <div>
+            <h2 class="title">welcome to my store</h2>
+            <input type="text" id="input" placeholder="Enter car name...">
+            <button id="submit">Add</button>
+
+            <ul id="root"></ul>
+
+
+            <span>==========================</span>
+            <ul>
+                <li>Sử dụng arrow func vì k có `Context` vì thế sẽ lấy từ ngoài nên k cần lưu biến `this` (_this=this)</li>
+                <li>Delegation PARENT <a href="https://viblo.asia/p/event-delegation-in-javascript-V3m5WALEZO7" target="_blank">Event Delegation in JavaScript</a></li>
+                <li>closest(): là phương thức của DOM Element giúp kiểm tra Element đó or PARENT Element có chứa class đó hay k?</li>
+                <li>data-index => là 1 dataset trong DOM | data-name(đặt tên là gì thì đến lúc) => dataset.name | ở bài này là (Element.dataset.index)</li>
+            </ul>
+        </div>
+
 
 
 
@@ -129,7 +154,8 @@
     </div>
     <!-- <script src="./index.js"></script> -->
     <!-- <script src="./index2.js"></script> -->
-    <script src="./index3.js"></script>
+    <!-- <script src="./index3.js"></script> -->
+    <script src="./index4.js"></script>
 
 </body>
 </html>
