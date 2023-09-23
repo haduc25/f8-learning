@@ -73,6 +73,7 @@ window.myFunc() // Window {window: Window, self: Window, document: document, na
 console.log('this on global: ', this); //Window {window: Window, self: Window, document: document, name: 'Mercedes S450', location: Location, …}
 */
 
+/*
 // Exam 5 - `this` trong hàm tạo là đại diện cho đối tượng sẽ được tạo
 function Car(name, color){
     this.name = name; // Porsche
@@ -116,3 +117,144 @@ Car.prototype.closeDoor = function(){
 }
 
 porsche.closeDoor()
+*/
+
+
+// ########################### Fn.bind() method - Phần 1 ########################### //
+
+/** Exam 1 - `this` khi k sử dụng bind() => có thể trỏ ra `window`
+this.fName = "Minh";
+this.lName = "Duc";
+
+
+const teacher = {
+    fName: "Thao",
+    lName: "Linh",
+    getFullName(){
+        return `${this.fName} ${this.lName}`;
+    }
+}
+
+// Case 1: 
+console.log(teacher.getFullName()) //Thao Linh
+
+// Case 2:
+const getTeacherName = teacher.getFullName
+
+console.log(getTeacherName === teacher.getFullName) //true
+//// giải thích
+// + khi gán (getTeacherName = teacher.getFullName) chưa hề gọi tới hàm chỉ sao chép địa chỉ ô nhớ của func getFullName() vào getTeacherName
+// + cho nên kq 2 bằng `true`
+// + và khi gọi func `getTeacherName()` thì k có đối tượng vì vậy `this` trong 1 func sẽ trỏ ra `window` => `this` ở đấy là `window` nên kết quả sẽ là: Minh Duc
+
+
+console.log(getTeacherName()) //Minh Duc
+*/
+
+/*
+// Exam 2 - Sử dụng bind()
+// console.dir(Function.prototype.bind())
+this.fName = "Minh";
+this.lName = "Duc";
+
+
+const teacher = {
+    fName: "Thao",
+    lName: "Linh",
+    getFullName(){
+        return `${this.fName} ${this.lName}`;
+    }
+}
+
+// Case 1: 
+console.log(teacher.getFullName()) //Thao Linh
+
+// Case 2:
+const getTeacherName = teacher.getFullName.bind(teacher) //ràng buộc từ khóa `this` với obj `teacher`
+// bind()
+// + đối số đầu tiên là obj muốn `ràng buộc` với từ khóa `this` trong method
+
+console.log(getTeacherName()) //Minh Duc
+*/
+
+/*
+// Exam 3 - Sử dụng bind()
+this.fName = "Minh";
+this.lName = "Duc";
+
+
+const teacher = {
+    fName: "Thao",
+    lName: "Linh",
+    getFullName(){
+        return `${this.fName} ${this.lName}`;
+    }
+}
+
+const student = {
+    fName: "Thanh",
+    lName: "Tuyen",
+}
+
+const getTeacherName = teacher.getFullName.bind(student) //ràng buộc từ khóa `this` với obj `student`
+// bind()
+
+console.log(getTeacherName()) //Thanh Tuyen
+*/
+
+/*
+// Exam 4 - Phương thức `bind()` sẽ trả về 1 hàm mới
+const teacher = {
+    fName: "Thao",
+    lName: "Linh",
+    getFullName(){
+        return `${this.fName} ${this.lName}`;
+    }
+}
+
+const getTeacherName = teacher.getFullName.bind(teacher) 
+console.log(getTeacherName === teacher.getFullName) //false
+
+//// giai thich
+// + vì đã tạo ra 1 vùng nhớ mới
+*/
+
+/*
+// Exam 5 - Có thể nhận các đối số như hàm ban đầu
+const teacher = {
+    fName: "Thao",
+    lName: "Linh",
+    getFullName(data1, data2){
+        console.log(data1, data2)
+        return `${this.fName} ${this.lName}`;
+    }
+}
+
+// const getTeacherName = teacher.getFullName.bind(teacher) 
+const getTeacherName = teacher.getFullName.bind(teacher, 'KAKA', 'MEOWW') // có thể truyền đối số từ đây => và đc ưu tiên hơn 
+
+console.log(getTeacherName('Meow', 'Nah-Fuvk')) // chỉ nên dùng khi đối số có dl thay đổi nhiều
+
+*/
+
+
+// Exam 6 - Ví dụ ứng dụng vs DOM
+const teacher = {
+    fName: "Thao",
+    lName: "Linh",
+    getFullName(){
+        console.log(`${this.fName} ${this.lName}`);
+    }
+}
+
+
+const button = document.querySelector('#btnBindMethod');
+
+//// before dùng bind()
+// button.onclick = function(){
+//     console.log(this)
+//     teacher.getFullName.bind(teacher)();
+// }
+
+//// after dùng bind()
+button.onclick = teacher.getFullName.bind(teacher);
