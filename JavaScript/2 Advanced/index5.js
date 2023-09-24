@@ -78,7 +78,7 @@ function logger(){
 logger(1, 2, 3, 4, 5, 6)
 */
 
-
+/*
 // Exam 5 - Các cách để convert arguments to array
 function logger(){
     // Case 1
@@ -101,3 +101,85 @@ function logger(){
 }
 
 logger(1, 2, 3, 4, 5, 6)
+*/
+
+
+
+// ###################### Fn.apply() method  ###################### //
+
+/*
+// Exam 1
+const teacher = {
+    fName: "Minh",
+    lName: "Thu",
+}
+
+function greet(greeting, msg){
+    return `${greeting} ${this.fName} ${this.lName} ${msg}`;
+}
+
+// Fn.apply()
+let result = greet.apply(teacher, ['Em chào cô', 'cô dạy môn gì thế ạ? (Đã xem 1 tiếng trước)']);
+
+console.log('apply() - method: ', result)
+
+// So sánh vs call() method
+result = greet.call(teacher, 'Em chào cô', 'cô dạy môn gì thế ạ? (Đã xem 1 tiếng trước)');
+
+console.log('call() - method: ', result)
+*/
+
+/*
+// Exam 2 - Function borrowing
+const teacher = {
+    fName: "Minh",
+    lName: "Thu",
+    isOnline: false,
+    goOnline(){
+        this.isOnline = true;
+        console.log(`${this.fName} ${this.lName} is Online`)
+    },
+    goOffline(){
+        this.isOffline = true;
+        console.log(`${this.fName} ${this.lName} is Offline`)
+    }
+} 
+
+const me = {
+    fName: "Minh",
+    lName: "Duc",
+    isOnline: false
+}
+
+
+console.log('Teacher: ', teacher.isOnline)
+teacher.goOnline()
+console.log('Teacher: ', teacher.isOnline)
+
+console.log('------------------') 
+// Mượn hàm `goOnline()` từ obj `teacher`
+console.log('Student: ', me.isOnline)
+teacher.goOnline.apply(me) // `bind this` cảu obj `me` => this.fName = me.fName... | trước đó là teacher.fName
+console.log('Student: ', me.isOnline)
+*/
+
+
+// Exam 3 - Extends
+function Animal(name, weight){
+    this.name = name;
+    this.weight = weight;
+}
+
+function Parrot(){
+    // kế thừa
+    Animal.apply(this, arguments) // vì là func nên có đối tượng là `arguments` nên chỉ cần truyền `arguments` 
+
+    this.speak = () => {
+        console.log('He sờ lô he sờ li li...')
+    }
+}
+
+const conVet = new Parrot('Vet Ngoo', 300)
+
+conVet.speak()
+console.log(conVet) // Parrot {name: 'Vet Ngoo', weight: 300, speak: ƒ}

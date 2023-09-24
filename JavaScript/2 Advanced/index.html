@@ -159,6 +159,56 @@
             </ul>
         </div>
 
+        <h2>11. Fn.apply() method</h2>
+        <div>
+            <ul>
+                <li>Phương thức này cho phép gọi một hàm với một `this` (bind) vàn truyền đối số cho hàm gốc dưới dạng mảng</li>
+                
+                <h4>So sánh: bind, call, apply</h4>
+                <h5>Giống nhau</h5>
+                <ul>
+                    <li>- Cú pháp truy cập</li>
+                    <li><code>function fn(){}</code></li>
+                    <li><code>fn.bind()</code></li>
+                    <li><code>fn.call()</code></li>
+                    <li><code>fn.apply()</code></li>
+                    <br>
+                    <li>- Là các methods được thừa kế từ Function.prototype </li>
+                    <li><code>function fn(){}</code></li>
+                    
+                    <li><code>fn.bind === Function.prototype.bind //true</code></li>
+                    <li><code>fn.call === Function.prototype.call //true</code></li>
+                    <li><code>fn.apply === Function.prototype.apply //true</code></li>
+                </ul>
+
+
+                <h5>Khác nhau</h5>
+                <ul>
+                    <li><code>function fn(){}</code></li>
+                    <br>
+                    <li>- Các đối số & cách hoạt động</li>
+                    <li>Bind method</li>
+                    <li>+ trả ra hàm mới với `this` tham chiếu tới `thisArg`</li>
+                    <li>+ không thực hiện gọi hàm</li>
+                    <li>+ nếu được `bind` kèm `arg1, arg2, ...` thì các đối số này được ưu tiên hơn</li>
+                    <li><code>newFn = fn.bind(thisArg, arg1, arg2, ...)</code></li>
+                    <li><code>newFn(arg1, arg2, ...)</code></li>
+                    <br>
+                    
+                    <li>Call method</li>
+                    <li>+ thực hiện bind `this` với `thisArg` và thực hiện gọi hàm</li>
+                    <li>+ nhận các đối số cho hàm gốc từ `arg1, arg2, ...`</li>
+                    <li><code>fn.call(thisArg, arg1, arg2, ...)</code></li>
+                    <br>
+
+                    <li>Apply method</li>
+                    <li>+ thực hiện bind `this` với `thisArg` và thực hiện gọi hàm</li>
+                    <li>+ nhận các đối số cho hàm gốc bằng đối số thứ 2 dưới dạng mảng [`arg1, arg2, ...`]</li>
+                    <li><code>fn.apply(thisArg, [arg1, arg2, ...])</code></li>
+                </ul>
+            </ul>
+        </div>
+
 
 
 
