@@ -37,25 +37,7 @@ const createStore = (reducer) => {
             subscribers.push(subscriber) //thêm vào array
         }
     }
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/////////////////////////////// MY APP ///////////////////////////////
+}/////////////////////////////// MY APP ///////////////////////////////
 const initState = 0
 
 // Reducer

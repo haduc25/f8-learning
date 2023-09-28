@@ -234,6 +234,34 @@
         </div>
 
 
+        <h2>13. Tự code thư viện build UI</h2>
+        <div>
+            <ul>
+                <li><img src="./img/react-redux.png" width="600px"></li>
+                <li>View: thành phần hiển thị giao diện người dùng trên ứng dụng, giao diện UI</li>
+                <li>Actions: mô tả hành động (ví dụ: `thêm` thì làm gì? `sửa` thì làm gì? `xóa` thì làm gì?)</li>
+                <li>*Khi `View` thực hiện `dispatch` 1 hành động (khi user thực hiện 1 hành động trên view) khi đó `View` trỏ sang `Actions` lấy (mô tả hành động)</li>
+                <li>- Ví dụ user click nút `Thêm` thì `dispatch` trỏ sang `actions` và lấy `actions - thêm` lấy đc mô tả `thêm` thì sẽ làm gì? và đẩy sang `reducers`</li>
+                <li>Reducers: luôn có giá trị ban đầu (giá trị khởi tạo) và từ lần thứ 2 sử dụng `reducers` thì sẽ nhận giá trị trả về trước đó để làm đối số đầu vào của lần sau sử dụng `reducers`</li>
+                <li>* `reducers` nhận mô tả actions (ví dụ `thêm` thì làm gì?) và thực hiện ở bên trong & trả về dữ liệu mới vào `store` (ví dụ thêm 1 bài hát: `reducers` thêm mô tả bài hát và đẩy để lưu vào object store => store(update) => view cũng đc update)</li>
+                <li>* Ví dụ thao tác xóa: `View` (user bấm nút xóa) == action xóa (dispatch) ==> Actions (lấy đc mô tả - như là xóa thì làm gì? gỡ bỏ 1 phần tử khỏi mảng) == đẩy sang reducers ==> Reducers (nhận được tín hiệu và phân biệt đc đây là hành động xóa và thực hiện xóa - gỡ 1 phần tử khỏi mảng) == update lại store là mất đi 1 phần tử ==> Store (khi store được update thì sẽ update lại cho View) ==> View (render lại -> re-render và thấy mất 1 phần tử trong mảng)</li>
+                <li>Store: lưu trữ các hành động mà `reducers` trả về và update lại và chuyển dữ liệu đó cho `View`</li>
+                
+                <li><h3>Kiến thức liên quan </h3></li>
+                <li>Tagged template literals: (tagFunction) <a href="https://viblo.asia/p/tim-hieu-ve-template-literals-trong-javascript-XL6lA9MDlek" target="_blank">Tìm hiểu về Template Literals trong JavaScript</a> | <a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals" target="_blank">Template literals (Template strings)</a></li>
+                <li>Destructuring</li>
+                <li>Array - Reduce</li>
+                <li></li>
+            </ul>
+
+            <fieldset>
+                <legend>REDUX - Build UI</legend>
+                <div id="redux-app"></div>
+            </fieldset>
+
+        </div>
+
+
 
 
 
@@ -247,8 +275,11 @@
     <!-- <script src="./index4.js"></script> -->
     <!-- <script src="./index5.js"></script> -->
 
-    <!-- redux -->
-    <script type="module" src="./redux.js"></script>
+    <!-- redux (bài 12) -->
+    <!-- <script type="module" src="./redux.js"></script> -->
+    
+    <!-- redux (bài 13) -->
+    <script type="module" src="./bai13_redux/redux_script.js"></script>
 
 </body>
 </html>
