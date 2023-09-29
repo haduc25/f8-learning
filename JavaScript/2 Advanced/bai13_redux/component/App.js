@@ -20,7 +20,6 @@ const connector = connect(state => ({
 
 /** const connector = connect() 
  *  Nhận lại `state` và return ra 1 object mới có `cars` = state.cars
- * 
 */
 
 /** const connector = connect() 
@@ -34,6 +33,8 @@ const App = ({cars, bike}) => {
     /** Mặc định sẽ nhận được dữ liệu là `props`
      * vì `connector` nhận vào `component` xong thực thi `component()` và đẩy dữ liệu từ `state` ngược vào trong `component` (compnent hiện tại đang là App) 
      * và `props` nhận được hết dữ liệu đã được đẩy vào (là dl trong bên core.js & connect() là props, state, ...args)
+     * khi truyền merge cả `state` trong `core.js` nên lấy được biến `cars`, `bike` => có thể truyền đc dl từ `Store` sang `View`
+     * ở đây đã thay `props` thành `cars` nhưng tương tự 
      * => thay vào đó dùng Destructuring để lấy ra `cars`
      */
 
@@ -53,6 +54,10 @@ const App = ({cars, bike}) => {
          * gọi đến function `dispatch` vì trong `store.js` đã tạo ra 1 biến `dispatch` là global
          * `dispatch` nhận `action`, `args`
          * dispatch('ADD', 'Audi')
+         * 
+         * // giải thích chi tiết
+         * khi bắt sự kiện `onclick` gọi đến `dispatch` & truyền sang ` `action` (ở đây là ADD) và value (ở đây là Audi)
+         * => thỏa mãn điều kiện nhận vào `state cũ` và chỉnh sửa và đẩy ra `state mới` và gọi hàm `render`
         */
 }
 

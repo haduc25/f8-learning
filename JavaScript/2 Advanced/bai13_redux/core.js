@@ -34,12 +34,14 @@ export function createStore(reducer) {
 
     function render(){
         for (const [root, component] of roots) {
-            /** dùng Destructuring lấy giá trị và lưu vào root & component (thành phần chứa `View`) => laasy dl trong Map()
+            /** dùng Destructuring lấy giá trị và lưu vào root & component (thành phần chứa `View`) => lấy dl trong Map()
              * component: là 1 function sẽ return ra chuỗi html và lưu vào output (const output = component())
+             * khi chạy component() sẽ nhận lại dữ liệu (ở đây component là hàm App nên sẽ nhận đc dl trong hàm html ở App.js) 
+             * và lưu vào output rồi đẩy vào `root`
              */
 
             const output = component() 
-            root.innerHTML = output; //đẩy html vào output => đẩy vào View
+            root.innerHTML = output; //đẩy html vào output => đẩy vào View (root)
         }
     }
 
@@ -82,6 +84,10 @@ export function createStore(reducer) {
              * `reducer(state, action, args)`: `reducer` dựa vào `action` và đi sửa `state` và return lại `state` mới 
              * ` state(state mới) = reducer(state(state cũ), action, args)`
              * => `Store` được update lại -> `View` phải thay đổi (gọi render)
+             * 
+             * 
+             * // giải thích chi tiết
+             * khi `dispatch` đc chạy thì gọi đến `reducer` lấy giá trị `state lần trước đó (state = reducer() là đang có là `init` làm đối số đầu vào và đẩy `action`, dữ liệu mới sang)`
              */     
             state = reducer(state, action, args)
             render()
