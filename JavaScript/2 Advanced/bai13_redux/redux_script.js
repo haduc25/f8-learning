@@ -1,19 +1,8 @@
-import html from "./core.js";
+import { attach } from "./store.js";
 
-const cars = [
-    'Mazda',
-    'Porsche',
-    'Mercedes'
-]
 
-const isSuccess = true;
-
-// sử dụng `Tagged template literals` => html``
-const output = html`
-<ul>
-    <h2>${isSuccess}</h2>
-    ${cars.map(car => `<li>${car}</li>`)}  
-</ul> 
-`
-
-console.log(output)
+// attach
+/** Component: `View` (Element root ở index.html)
+ *  root: document.querySelector('#redux-root')
+ */
+attach(()=> '<h2>I loved Porsche 781</h2>', document.querySelector('#redux-root'))

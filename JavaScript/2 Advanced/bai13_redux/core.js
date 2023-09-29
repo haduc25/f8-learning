@@ -75,11 +75,16 @@ export function createStore(reducer) {
         dispatch(action, ...args){
             /** dispatch() là thực hiện hành động nên nhận vào mô tả `action` và đẩy sang cho `reducer` và nhận `...args`
              *  khi dispatch() được thực thi => gọi lại reducer()
+             *  `reducer` nhận lại giá trị trước đó đã return `state` và `action`, `args`
+             * 
+             * //cach hoat dong
+             * ban đầu `state` là (let state = reducer()) nhma sau khi `dispatch` 1 `action` nào đó thì truyền `action` vào `reducer`
+             * `reducer(state, action, args)`: `reducer` dựa vào `action` và đi sửa `state` và return lại `state` mới 
+             * ` state(state mới) = reducer(state(state cũ), action, args)`
+             * => `Store` được update lại -> `View` phải thay đổi (gọi render)
              */     
-            state = reducer()
-
-
-
+            state = reducer(state, action, args)
+            render()
         }
     }
 }
