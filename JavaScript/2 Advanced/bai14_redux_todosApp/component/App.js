@@ -1,10 +1,17 @@
-import html from '../core.js'
+import html from "../core.js";
+import Header from "./Header.js";
+import TodoList from "./TodoList.js";
+import Footer from "./Footer.js";
 
 
 const App = () => {
-    return html`
-        <h2>I LOVED MON3Y</h2>
-    `
-}
+  return html`
+    <section class="todoapp">
+        ${Header()} <!-- Gọi đến function Header -->
+        ${TodoList()} <!-- Gọi đến function TodoList -->
+        ${Footer()}
+    </section>
+  `;
+};
 
-export default App
+export default App;
