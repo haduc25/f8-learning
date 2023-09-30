@@ -1,15 +1,17 @@
 import html from "../core.js";
 
-const TodoItem = () => {
+const TodoItem = ({todo}) => {
+  // console.log(todo)
+
   return html`
     <!-- <li class="completed editing"> -->
-  <li class="completed">
+  <li class="${todo.completed && 'completed'}">
       <div class="view">
-        <input class="toggle" type="checkbox" checked>
-        <label>Taste JavaScript</label>
+        <input class="toggle" type="checkbox" ${todo.completed && 'checked'}>
+        <label>${todo.title}</label>
         <button class="destroy"></button>
       </div>
-      <input class="edit" value="Create a TodoMVC template">
+      <input class="edit" value="${todo.title}">
   </li>
   `;
 };
