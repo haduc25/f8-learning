@@ -7,7 +7,7 @@ export default function html([first, ...strings], ...values){
 
     // dùng reduce
     return values.reduce(
-        // reduce: nhậm lại biến tích trữ(acc) & current value(curr)
+        // reduce: nhận lại biến tích trữ(acc) & current value(curr)
         (acc, cur) => acc.concat(cur, strings.shift()),
         [first]
         // khi đc gọi lại thì `acc` là array có `[first]` 
@@ -18,6 +18,13 @@ export default function html([first, ...strings], ...values){
     )
     .filter(x => x && x !== true || x === 0) //logic (x => x && x !== true || x === 0): lấy tất cả giá trị `Truthy` trừ `True` và lấy cả giá trị === 0
     .join('')
+
+    /** .filter(x => x && x !== true || x === 0) <=> .filter(element => element && element !== true || element === 0)
+     * 
+     * x && x !== true: Điều kiện này kiểm tra xem x có giá trị thỏa mãn (không bằng false, null, undefined, hoặc giá trị trống) và không phải là true hay không. Nếu x là một giá trị falsy (ví dụ: false, null, undefined, 0, '', NaN), thì nó không thỏa mãn điều kiện này.
+     * x === 0: Điều kiện này kiểm tra xem x có bằng 0 hay không. Nếu x bằng 0, thì nó thỏa mãn điều kiện này.
+     * 
+    */
 }
 
 
@@ -68,6 +75,32 @@ export function createStore(reducer) {
              * component(): và return và thực thi hàm `component()` | mong muốn khi thực thi đẩy hết dữ liệu của `props`, `args`, `state` vào trong `component`
              * => vì cả 3 đều là Object nên dùng `Object.assign()` để merge và 1 object mới
              * selector(state): nhận 1 đối số và return lại đối số đó 
+             * 
+             * giải thích theo chatGPT - rewrite
+             * ////////////////////////////////////////////
+             * function connect(selector = state => state) {
+                // Hàm connect nhận một selector và trả về một hàm mới
+                return function (component) {
+                    // Hàm này nhận một component và trả về một hàm chấp nhận props và args
+                    return function (props, ...args) {
+                    // Hàm này nhận props và args, sau đó thực hiện các bước sau:
+                    // 1. Gộp props với kết quả của selector(state)
+                    // 2. Gộp kết quả với các tham số args
+                    // 3. Gọi component với kết quả đã được gộp
+
+                    const stateProps = selector(state); // Lấy kết quả từ selector(state)
+                    const combinedProps = Object.assign({}, props, stateProps, ...args); // Gộp props và kết quả từ selector
+
+                    return component(combinedProps); // Gọi component với kết quả đã được gộp
+                    };
+                };
+                }
+             * ////////////////////////////////////////////
+
+             * giải thích lại theo ý hiểu
+             * return component => (props, ...args) =>: hàm component nhận 1 component và return về 1 function nhận vào (props, ...args)
+             * hàm nhận `(props, ...args)` thực hiện gộp `Object.assign({}, props, selector(state), ...args)`
+             * và trả về component với kết quả đc gộp
              */
             return component => (props, ...args) =>
                 component(Object.assign({}, props, selector(state), ...args))
