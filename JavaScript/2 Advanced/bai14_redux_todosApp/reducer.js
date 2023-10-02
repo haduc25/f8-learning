@@ -65,6 +65,16 @@ const actions = {
      */
     state.filter = filter;
   },
+  clearCompleted(state) {
+    /** Nhận `state`
+     * gán lại cho `state` và lọc theo điều kiện "xóa bỏ tất cả những thằng completed"
+     * => lấy những thằng `active`
+     * gọi đến hàm `active` trong object `filters` trong `state`
+     */
+
+    state.todos = state.todos.filter(state.filters.active);
+    storage.set(state.todos);
+  },
 };
 
 export default function reducer(state = init, action, args) {

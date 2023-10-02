@@ -26,7 +26,8 @@ const Footer = ({ todos, filter, filters }) => {
       `)}
         
       </ul>
-      <button class="clear-completed">Clear completed</button>
+      ${todos.filter(filters.completed).length > 0 && 
+        html`<button class="clear-completed" onclick="dispatch('clearCompleted')">Clear completed</button>`}
     </footer>
   `;
     /** Object.keys(filters).map()
@@ -40,6 +41,9 @@ const Footer = ({ todos, filter, filters }) => {
      * 
      * // hiển thị trạng thái hiện tại
      * nếu như `filter` trong `reducer` mà bằng với `type (filters)` trong `Footer` => thêm class `selected`
+     * 
+     * // nếu như có cái nào đã completed thì hiện button
+     * todos.filter(filters.completed).length > 0
      */
 };
 
