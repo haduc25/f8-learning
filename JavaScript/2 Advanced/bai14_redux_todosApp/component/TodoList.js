@@ -2,17 +2,29 @@ import html from "../core.js";
 import { connect } from "../store.js";
 import TodoItem from "./TodoItem.js";
 
-const TodoList = ({ todos }) => {
+const TodoList = ({ todos, filters }) => {
   // console.log(props) // todos: Array(3)}
   // console.log(todos)
+  console.log(filters) //{all: ƒ, active: ƒ, completed: ƒ}
 
   return html`
     <section class="main">
-      <input id="toggle-all" class="toggle-all" type="checkbox" />
+      <input
+        id="toggle-all"
+        class="toggle-all"
+        type="checkbox" 
+        onchange="dispatch('toggleAll', this.checked)
+        // this.checked): lấy ra trạng thái check của input
+        "
+        ${todos.every(filters.completed) && 'checked'}
+        /** 
+         * check tất cả 'todos' là 'completed' thì thêm 'attribute' là 'checked'
+        */
+      />
       <label for="toggle-all">Mark all as complete</label>
       <ul class="todo-list">
-        ${todos.map((todo) =>
-          TodoItem({ todo }) //truyền `todo` vào 1 object đẩy qua `TodoItem`
+        ${todos.map((todo, index) =>
+          TodoItem({ todo, index }) //truyền `todo` vào 1 object đẩy qua `TodoItem`
         )}
       </ul>
     </section>
