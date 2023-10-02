@@ -25,6 +25,7 @@ const init = {
     active: (todo) => !todo.completed, // nhận `todo` chỉ hiển thị ra todo.completed = fasle
     completed: (todo) => todo.completed, // chỉ hiển thị ra todo.completed = true
   },
+  editIndex: null, // bình thường là k có dl nào đang sửa
 };
 
 const actions = {
@@ -74,6 +75,34 @@ const actions = {
 
     state.todos = state.todos.filter(state.filters.active);
     storage.set(state.todos);
+  },
+  startEdit(state, index){
+    /**
+     * Nhận vào `state` & `index`
+     * gán `editIndex` băng `index` truyền vào
+     */
+
+    state.editIndex = index; //bật chế độ edit
+
+  },
+  endEdit(state, title){
+    /** Nhận vào `state` & `title` mới 
+     * nếu như có `editIndex`
+     * update lại `title` từ id là `editIndex`
+     * và trỏ đến `title` để gán lại 
+    */
+
+    if(state.editIndex !== null){ // vì có giá trị `falsy`
+        state.todos[state.editIndex].title = title // gán lại = `title` mới
+        
+        // thoát chế độ edit
+        state.editIndex = null;
+
+        // save lại todos
+        storage.set(state.todos);
+    }
+
+    
   },
 };
 
