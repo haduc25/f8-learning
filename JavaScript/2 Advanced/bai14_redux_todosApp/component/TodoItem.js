@@ -31,7 +31,7 @@ const TodoItem = ({ todo, index, editIndex }) => {
       <input
         class="edit"
         value="${todo.title}"
-        onkeyup="event.keyCode === 13 && dispatch('endEdit', this.value.trim())"
+        onkeyup="event.keyCode === 13 && dispatch('endEdit', this.value.trim()) || event.keyCode === 27 && dispatch('cancelEdit')"
         onblur="dispatch('endEdit', this.value.trim())"
       />
     </li>
@@ -45,6 +45,8 @@ const TodoItem = ({ todo, index, editIndex }) => {
    * /////////////////// onkeyup ///////////////////
    * // bắt sự kiện khi đang 'editing' 
    * mà nhấn 'enter' * thì 'endEdit' & lấy value của input (this.value)
+   * 
+   * Bắt thêm phím `ESC`  => event.keyCode === 27
    * 
    * /////////////////// onkeyup ///////////////////
    * khi `blur` ra ngoài cũng tự `endEdit`

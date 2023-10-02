@@ -93,16 +93,30 @@ const actions = {
     */
 
     if(state.editIndex !== null){ // vì có giá trị `falsy`
-        state.todos[state.editIndex].title = title // gán lại = `title` mới
+        if(title){
+            //  Nếu có `title` thì mới sửa
+            state.todos[state.editIndex].title = title // gán lại = `title` mới
+            
+            // save lại todos
+            storage.set(state.todos);
+        }else{
+            // còn k có thì xóa đi
+            this.destroy(state, state.editIndex); //gọi lên trên `this` ở đây tương tự vs `actions.destroy()` 
+        }
         
         // thoát chế độ edit
         state.editIndex = null;
 
-        // save lại todos
-        storage.set(state.todos);
     }
 
     
+  },
+  cancelEdit(state){
+    /** khi `cancelEdit` thì bỏ `index` đi
+     * 
+     */
+
+     state.editIndex = null; // gán lại = null
   },
 };
 
